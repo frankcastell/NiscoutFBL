@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="de70c89f3ebb47ff9b6678cf3ee993c3" Name="Diagram1" ZoomLevel="109" >
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Periodo" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Responsable" Width="1.5" PointX="2.375" PointY="0.5" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Departamento" Width="1.5" PointX="4.125" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Municipio" Width="1.5" PointX="6.25" PointY="1" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Sector" Width="1.5" PointX="8.375" PointY="1" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Distrito" Width="1.5" PointX="10.5" PointY="1" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Evento" Width="1.5" PointX="13" PointY="3" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Membresia_Adulto" Width="1.5" PointX="0.5" PointY="3.625" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Adulto" Width="1.5" PointX="2.75" PointY="4.125" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Persona" Width="1.5" PointX="4.875" PointY="3.5" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Tutor" Width="1.5" PointX="6.75" PointY="5.625" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Patrocinador" Width="1.5" PointX="7.625" PointY="3.5" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Membresia_Juvenil" Width="1.5" PointX="8.75" PointY="5.5" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.SubGrupo" Width="1.5" PointX="11.5" PointY="7.5" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Grupo" Width="1.5" PointX="15.375" PointY="0.5" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Etapa_Aprobacion" Width="1.5" PointX="0.625" PointY="7.25" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Personal_Admon" Width="1.5" PointX="2.875" PointY="5.875" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Cargo" Width="1.5" PointX="2.875" PointY="7.875" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Juvenil" Width="1.5" PointX="6.5" PointY="7.625" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Centro_Estudio" Width="1.5" PointX="8.75" PointY="8.375" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Tipo_Grupo" Width="1.5" PointX="13.75" PointY="8.5" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Asistente" Width="1.5" PointX="4.875" PointY="10.375" />
+        <InheritanceConnector EntityType="ModeloNiscoutFBL.Adulto" />
+        <InheritanceConnector EntityType="ModeloNiscoutFBL.Asistente" />
+        <InheritanceConnector EntityType="ModeloNiscoutFBL.Patrocinador" />
+        <InheritanceConnector EntityType="ModeloNiscoutFBL.Personal_Admon" />
+        <InheritanceConnector EntityType="ModeloNiscoutFBL.Tutor" />
+        <InheritanceConnector EntityType="ModeloNiscoutFBL.Responsable" />
+        <AssociationConnector Association="ModeloNiscoutFBL.PeriodoResponsable" />
+        <AssociationConnector Association="ModeloNiscoutFBL.ResponsableGrupo" />
+        <AssociationConnector Association="ModeloNiscoutFBL.DepartamentoPersona" />
+        <AssociationConnector Association="ModeloNiscoutFBL.DepartamentoMunicipio" />
+        <AssociationConnector Association="ModeloNiscoutFBL.MunicipioSector" />
+        <AssociationConnector Association="ModeloNiscoutFBL.DistritoSector" />
+        <AssociationConnector Association="ModeloNiscoutFBL.AdultoMembresia_Adulto" />
+        <AssociationConnector Association="ModeloNiscoutFBL.Etapa_AprobacionMembresia_Adulto" />
+        <AssociationConnector Association="ModeloNiscoutFBL.CargoPersonal_Admon" />
+        <AssociationConnector Association="ModeloNiscoutFBL.AsistenteSubGrupo" />
+        <AssociationConnector Association="ModeloNiscoutFBL.SubGrupoMembresia_Juvenil" />
+        <AssociationConnector Association="ModeloNiscoutFBL.Tipo_GrupoSubGrupo" />
+        <AssociationConnector Association="ModeloNiscoutFBL.GrupoSubGrupo" />
+        <AssociationConnector Association="ModeloNiscoutFBL.SubGrupoEvento" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ModeloNiscoutFBL.PatrocinadorEvento" />
+        <AssociationConnector Association="ModeloNiscoutFBL.JuvenilMembresia_Juvenil" />
+        <AssociationConnector Association="ModeloNiscoutFBL.TutorMembresia_Juvenil" />
+        <AssociationConnector Association="ModeloNiscoutFBL.Centro_EstudioJuvenil" />
+        <AssociationConnector Association="ModeloNiscoutFBL.DistritoGrupo" />
+        <EntityTypeShape EntityType="ModeloNiscoutFBL.Progresion_Juvenil" Width="1.5" PointX="11.125" PointY="4.75" />
+        <AssociationConnector Association="ModeloNiscoutFBL.Membresia_JuvenilProgresion_Juvenil" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
