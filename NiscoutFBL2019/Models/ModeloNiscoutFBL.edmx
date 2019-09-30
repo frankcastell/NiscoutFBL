@@ -124,6 +124,16 @@
             <End Role="Grupo" EntitySet="Grupos" />
             <End Role="Detalle_Grupo_Patro" EntitySet="Detalle_Grupo_Patros" />
           </AssociationSet>
+          <EntitySet Name="Local_Eventos" EntityType="ModeloNiscoutFBL.Local_Evento" />
+          <AssociationSet Name="Local_EventoDetalle_Evento_Patro" Association="ModeloNiscoutFBL.Local_EventoDetalle_Evento_Patro">
+            <End Role="Local_Evento" EntitySet="Local_Eventos" />
+            <End Role="Detalle_Evento_Patro" EntitySet="Detalle_Evento_Patros" />
+          </AssociationSet>
+          <EntitySet Name="Asistente_Eventos" EntityType="ModeloNiscoutFBL.Asistente_Evento" />
+          <AssociationSet Name="Asistente_EventoDetalle_Evento_Patro" Association="ModeloNiscoutFBL.Asistente_EventoDetalle_Evento_Patro">
+            <End Role="Asistente_Evento" EntitySet="Asistente_Eventos" />
+            <End Role="Detalle_Evento_Patro" EntitySet="Detalle_Evento_Patros" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Periodo">
           <Key>
@@ -592,11 +602,16 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Periodo" Type="String" Nullable="false" />
+          <Property Name="Desde" Type="String" Nullable="false" />
           <NavigationProperty Name="Patrocinador" Relationship="ModeloNiscoutFBL.PatrocinadorDetalle_Evento_Patro" FromRole="Detalle_Evento_Patro" ToRole="Patrocinador" />
           <Property Name="PatrocinadorId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Evento" Relationship="ModeloNiscoutFBL.EventoDetalle_Evento_Patro" FromRole="Detalle_Evento_Patro" ToRole="Evento" />
           <Property Name="EventoId" Type="Int32" Nullable="false" />
+          <Property Name="Hasta" Type="String" Nullable="false" />
+          <NavigationProperty Name="Local_Evento" Relationship="ModeloNiscoutFBL.Local_EventoDetalle_Evento_Patro" FromRole="Detalle_Evento_Patro" ToRole="Local_Evento" />
+          <Property Name="Local_EventoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Asistente_Evento" Relationship="ModeloNiscoutFBL.Asistente_EventoDetalle_Evento_Patro" FromRole="Detalle_Evento_Patro" ToRole="Asistente_Evento" />
+          <Property Name="Asistente_EventoId" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="PatrocinadorDetalle_Evento_Patro">
           <End Type="ModeloNiscoutFBL.Patrocinador" Role="Patrocinador" Multiplicity="1" />
@@ -627,11 +642,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Periodo" Type="String" Nullable="false" />
+          <Property Name="Desde" Type="String" Nullable="false" />
           <NavigationProperty Name="Patrocinador" Relationship="ModeloNiscoutFBL.PatrocinadorDetalle_Grupo_Patro" FromRole="Detalle_Grupo_Patro" ToRole="Patrocinador" />
           <Property Name="PatrocinadorId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Grupo" Relationship="ModeloNiscoutFBL.GrupoDetalle_Grupo_Patro" FromRole="Detalle_Grupo_Patro" ToRole="Grupo" />
           <Property Name="GrupoId" Type="Int32" Nullable="false" />
+          <Property Name="Hasta" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="PatrocinadorDetalle_Grupo_Patro">
           <End Type="ModeloNiscoutFBL.Patrocinador" Role="Patrocinador" Multiplicity="1" />
@@ -654,6 +670,49 @@
             </Principal>
             <Dependent Role="Detalle_Grupo_Patro">
               <PropertyRef Name="GrupoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Local_Evento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Direccion" Type="String" Nullable="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" />
+          <Property Name="E_Mail" Type="String" Nullable="false" />
+          <NavigationProperty Name="Detalle_Evento_Patros" Relationship="ModeloNiscoutFBL.Local_EventoDetalle_Evento_Patro" FromRole="Local_Evento" ToRole="Detalle_Evento_Patro" />
+        </EntityType>
+        <Association Name="Local_EventoDetalle_Evento_Patro">
+          <End Type="ModeloNiscoutFBL.Local_Evento" Role="Local_Evento" Multiplicity="1" />
+          <End Type="ModeloNiscoutFBL.Detalle_Evento_Patro" Role="Detalle_Evento_Patro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Local_Evento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Detalle_Evento_Patro">
+              <PropertyRef Name="Local_EventoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Asistente_Evento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hora_Llegada" Type="String" Nullable="false" />
+          <NavigationProperty Name="Detalle_Evento_Patros" Relationship="ModeloNiscoutFBL.Asistente_EventoDetalle_Evento_Patro" FromRole="Asistente_Evento" ToRole="Detalle_Evento_Patro" />
+        </EntityType>
+        <Association Name="Asistente_EventoDetalle_Evento_Patro">
+          <End Type="ModeloNiscoutFBL.Asistente_Evento" Role="Asistente_Evento" Multiplicity="1" />
+          <End Type="ModeloNiscoutFBL.Detalle_Evento_Patro" Role="Detalle_Evento_Patro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asistente_Evento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Detalle_Evento_Patro">
+              <PropertyRef Name="Asistente_EventoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
