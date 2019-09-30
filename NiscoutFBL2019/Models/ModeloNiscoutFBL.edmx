@@ -85,10 +85,6 @@
             <End Role="SubGrupo" EntitySet="SubGrupos" />
             <End Role="Evento" EntitySet="Eventos" />
           </AssociationSet>
-          <AssociationSet Name="PatrocinadorEvento" Association="ModeloNiscoutFBL.PatrocinadorEvento">
-            <End Role="Patrocinador" EntitySet="Personas" />
-            <End Role="Evento" EntitySet="Eventos" />
-          </AssociationSet>
           <AssociationSet Name="JuvenilMembresia_Juvenil" Association="ModeloNiscoutFBL.JuvenilMembresia_Juvenil">
             <End Role="Juvenil" EntitySet="Juveniles" />
             <End Role="Membresia_Juvenil" EntitySet="Membresia_Juveniles" />
@@ -109,6 +105,24 @@
           <AssociationSet Name="Membresia_JuvenilProgresion_Juvenil" Association="ModeloNiscoutFBL.Membresia_JuvenilProgresion_Juvenil">
             <End Role="Membresia_Juvenil" EntitySet="Membresia_Juveniles" />
             <End Role="Progresion_Juvenil" EntitySet="Progresion_Juveniles" />
+          </AssociationSet>
+          <EntitySet Name="Detalle_Evento_Patros" EntityType="ModeloNiscoutFBL.Detalle_Evento_Patro" />
+          <AssociationSet Name="PatrocinadorDetalle_Evento_Patro" Association="ModeloNiscoutFBL.PatrocinadorDetalle_Evento_Patro">
+            <End Role="Patrocinador" EntitySet="Personas" />
+            <End Role="Detalle_Evento_Patro" EntitySet="Detalle_Evento_Patros" />
+          </AssociationSet>
+          <AssociationSet Name="EventoDetalle_Evento_Patro" Association="ModeloNiscoutFBL.EventoDetalle_Evento_Patro">
+            <End Role="Evento" EntitySet="Eventos" />
+            <End Role="Detalle_Evento_Patro" EntitySet="Detalle_Evento_Patros" />
+          </AssociationSet>
+          <EntitySet Name="Detalle_Grupo_Patros" EntityType="ModeloNiscoutFBL.Detalle_Grupo_Patro" />
+          <AssociationSet Name="PatrocinadorDetalle_Grupo_Patro" Association="ModeloNiscoutFBL.PatrocinadorDetalle_Grupo_Patro">
+            <End Role="Patrocinador" EntitySet="Personas" />
+            <End Role="Detalle_Grupo_Patro" EntitySet="Detalle_Grupo_Patros" />
+          </AssociationSet>
+          <AssociationSet Name="GrupoDetalle_Grupo_Patro" Association="ModeloNiscoutFBL.GrupoDetalle_Grupo_Patro">
+            <End Role="Grupo" EntitySet="Grupos" />
+            <End Role="Detalle_Grupo_Patro" EntitySet="Detalle_Grupo_Patros" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Periodo">
@@ -181,8 +195,7 @@
           <Property Name="Fecha" Type="String" Nullable="false" />
           <NavigationProperty Name="SubGrupo" Relationship="ModeloNiscoutFBL.SubGrupoEvento" FromRole="Evento" ToRole="SubGrupo" />
           <Property Name="SubGrupoId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Patrocinador" Relationship="ModeloNiscoutFBL.PatrocinadorEvento" FromRole="Evento" ToRole="Patrocinador" />
-          <Property Name="PatrocinadorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Detalle_Evento_Patros" Relationship="ModeloNiscoutFBL.EventoDetalle_Evento_Patro" FromRole="Evento" ToRole="Detalle_Evento_Patro" />
         </EntityType>
         <EntityType Name="Membresia_Adulto">
           <Key>
@@ -229,7 +242,8 @@
           <Property Name="Nombre_Insti" Type="String" Nullable="false" />
           <Property Name="Nombre_Representante" Type="String" Nullable="false" />
           <Property Name="Trabajo" Type="String" Nullable="false" />
-          <NavigationProperty Name="Eventos" Relationship="ModeloNiscoutFBL.PatrocinadorEvento" FromRole="Patrocinador" ToRole="Evento" />
+          <NavigationProperty Name="Detalle_Evento_Patros" Relationship="ModeloNiscoutFBL.PatrocinadorDetalle_Evento_Patro" FromRole="Patrocinador" ToRole="Detalle_Evento_Patro" />
+          <NavigationProperty Name="Detalle_Grupo_Patros" Relationship="ModeloNiscoutFBL.PatrocinadorDetalle_Grupo_Patro" FromRole="Patrocinador" ToRole="Detalle_Grupo_Patro" />
         </EntityType>
         <EntityType Name="Membresia_Juvenil">
           <Key>
@@ -278,6 +292,7 @@
           <NavigationProperty Name="Distrito" Relationship="ModeloNiscoutFBL.DistritoGrupo" FromRole="Grupo" ToRole="Distrito" />
           <Property Name="DistritoId" Type="Int32" Nullable="false" />
           <Property Name="Carta_Solicitud" Type="String" Nullable="false" />
+          <NavigationProperty Name="Detalle_Grupo_Patros" Relationship="ModeloNiscoutFBL.GrupoDetalle_Grupo_Patro" FromRole="Grupo" ToRole="Detalle_Grupo_Patro" />
         </EntityType>
         <EntityType Name="Etapa_Aprobacion">
           <Key>
@@ -502,18 +517,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="PatrocinadorEvento">
-          <End Type="ModeloNiscoutFBL.Patrocinador" Role="Patrocinador" Multiplicity="1" />
-          <End Type="ModeloNiscoutFBL.Evento" Role="Evento" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patrocinador">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Evento">
-              <PropertyRef Name="PatrocinadorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="JuvenilMembresia_Juvenil">
           <End Type="ModeloNiscoutFBL.Juvenil" Role="Juvenil" Multiplicity="1" />
           <End Type="ModeloNiscoutFBL.Membresia_Juvenil" Role="Membresia_Juvenil" Multiplicity="*" />
@@ -581,6 +584,76 @@
             </Principal>
             <Dependent Role="Progresion_Juvenil">
               <PropertyRef Name="Membresia_JuvenilId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Detalle_Evento_Patro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Periodo" Type="String" Nullable="false" />
+          <NavigationProperty Name="Patrocinador" Relationship="ModeloNiscoutFBL.PatrocinadorDetalle_Evento_Patro" FromRole="Detalle_Evento_Patro" ToRole="Patrocinador" />
+          <Property Name="PatrocinadorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Evento" Relationship="ModeloNiscoutFBL.EventoDetalle_Evento_Patro" FromRole="Detalle_Evento_Patro" ToRole="Evento" />
+          <Property Name="EventoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="PatrocinadorDetalle_Evento_Patro">
+          <End Type="ModeloNiscoutFBL.Patrocinador" Role="Patrocinador" Multiplicity="1" />
+          <End Type="ModeloNiscoutFBL.Detalle_Evento_Patro" Role="Detalle_Evento_Patro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patrocinador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Detalle_Evento_Patro">
+              <PropertyRef Name="PatrocinadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventoDetalle_Evento_Patro">
+          <End Type="ModeloNiscoutFBL.Evento" Role="Evento" Multiplicity="1" />
+          <End Type="ModeloNiscoutFBL.Detalle_Evento_Patro" Role="Detalle_Evento_Patro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Detalle_Evento_Patro">
+              <PropertyRef Name="EventoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Detalle_Grupo_Patro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Periodo" Type="String" Nullable="false" />
+          <NavigationProperty Name="Patrocinador" Relationship="ModeloNiscoutFBL.PatrocinadorDetalle_Grupo_Patro" FromRole="Detalle_Grupo_Patro" ToRole="Patrocinador" />
+          <Property Name="PatrocinadorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Grupo" Relationship="ModeloNiscoutFBL.GrupoDetalle_Grupo_Patro" FromRole="Detalle_Grupo_Patro" ToRole="Grupo" />
+          <Property Name="GrupoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="PatrocinadorDetalle_Grupo_Patro">
+          <End Type="ModeloNiscoutFBL.Patrocinador" Role="Patrocinador" Multiplicity="1" />
+          <End Type="ModeloNiscoutFBL.Detalle_Grupo_Patro" Role="Detalle_Grupo_Patro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patrocinador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Detalle_Grupo_Patro">
+              <PropertyRef Name="PatrocinadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GrupoDetalle_Grupo_Patro">
+          <End Type="ModeloNiscoutFBL.Grupo" Role="Grupo" Multiplicity="1" />
+          <End Type="ModeloNiscoutFBL.Detalle_Grupo_Patro" Role="Detalle_Grupo_Patro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Detalle_Grupo_Patro">
+              <PropertyRef Name="GrupoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
