@@ -1,6 +1,274 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-  <Alias Key="Model" Value="ModeloNiscoutFBL" />
-  <Alias Key="Target" Value="ModeloNiscoutFBL.Store" />
-  <EntityContainerMapping CdmEntityContainer="ModeloNiscoutFBLContainer" StorageEntityContainer="ModeloNiscoutFBLTargetContainer" />
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModeloNiscoutFBLStoreContainer" CdmEntityContainer="ModeloNiscoutFBLContainer">
+    <EntitySetMapping Name="Periodos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Periodo)">
+        <MappingFragment StoreEntitySet="Periodos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamentos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Departamento)">
+        <MappingFragment StoreEntitySet="Departamentos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Departamento" ColumnName="Cod_Departamento" />
+          <ScalarProperty Name="Nombre_Departamento" ColumnName="Nombre_Departamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Municipios">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Municipio)">
+        <MappingFragment StoreEntitySet="Municipios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Municipio" ColumnName="Cod_Municipio" />
+          <ScalarProperty Name="Nombre_Municipio" ColumnName="Nombre_Municipio" />
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sectores">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Sector)">
+        <MappingFragment StoreEntitySet="Sectores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Sector" ColumnName="Cod_Sector" />
+          <ScalarProperty Name="Nombre_Sector" ColumnName="Nombre_Sector" />
+          <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
+          <ScalarProperty Name="DistritoId" ColumnName="DistritoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Distritos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Distrito)">
+        <MappingFragment StoreEntitySet="Distritos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Distrito" ColumnName="Cod_Distrito" />
+          <ScalarProperty Name="Nombre_Distrito" ColumnName="Nombre_Distrito" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Eventos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Evento)">
+        <MappingFragment StoreEntitySet="Eventos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Evento" ColumnName="Cod_Evento" />
+          <ScalarProperty Name="Nombre_Evento" ColumnName="Nombre_Evento" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="SubGrupoId" ColumnName="SubGrupoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Membresia_Adultos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Membresia_Adulto)">
+        <MappingFragment StoreEntitySet="Membresia_Adultos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Carta_Compromiso" ColumnName="Carta_Compromiso" />
+          <ScalarProperty Name="Carta_Intencion" ColumnName="Carta_Intencion" />
+          <ScalarProperty Name="Record_Policia" ColumnName="Record_Policia" />
+          <ScalarProperty Name="Carta_Ref_Personal" ColumnName="Carta_Ref_Personal" />
+          <ScalarProperty Name="Certifi_Salvo_Peligro" ColumnName="Certifi_Salvo_Peligro" />
+          <ScalarProperty Name="AdultoId" ColumnName="AdultoId" />
+          <ScalarProperty Name="Etapa_AprobacionId" ColumnName="Etapa_AprobacionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personas">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Persona)">
+        <MappingFragment StoreEntitySet="Personas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Persona" ColumnName="Cod_Persona" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Fecha_Nac" ColumnName="Fecha_Nac" />
+          <ScalarProperty Name="E_Mail" ColumnName="E_Mail" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Estado_Civil" ColumnName="Estado_Civil" />
+          <ScalarProperty Name="Num_Pasaporte" ColumnName="Num_Pasaporte" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Responsable)">
+        <MappingFragment StoreEntitySet="Personas_Responsable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Adulto)">
+        <MappingFragment StoreEntitySet="Personas_Adulto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Personal_Admon)">
+        <MappingFragment StoreEntitySet="Personas_Personal_Admon">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CargoId" ColumnName="CargoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Asistente)">
+        <MappingFragment StoreEntitySet="Personas_Asistente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Tutor)">
+        <MappingFragment StoreEntitySet="Personas_Tutor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Patrocinador)">
+        <MappingFragment StoreEntitySet="Personas_Patrocinador">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre_Insti" ColumnName="Nombre_Insti" />
+          <ScalarProperty Name="Nombre_Representante" ColumnName="Nombre_Representante" />
+          <ScalarProperty Name="Trabajo" ColumnName="Trabajo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Membresia_Juveniles">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Membresia_Juvenil)">
+        <MappingFragment StoreEntitySet="Membresia_Juveniles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubGrupoId" ColumnName="SubGrupoId" />
+          <ScalarProperty Name="JuvenilId" ColumnName="JuvenilId" />
+          <ScalarProperty Name="TutorId" ColumnName="TutorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubGrupos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.SubGrupo)">
+        <MappingFragment StoreEntitySet="SubGrupos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Subgrupo" ColumnName="Cod_Subgrupo" />
+          <ScalarProperty Name="Nombre_Subgrupo" ColumnName="Nombre_Subgrupo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="AsistenteId" ColumnName="AsistenteId" />
+          <ScalarProperty Name="Tipo_GrupoId" ColumnName="Tipo_GrupoId" />
+          <ScalarProperty Name="GrupoId" ColumnName="GrupoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Grupo)">
+        <MappingFragment StoreEntitySet="Grupos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Grupo" ColumnName="Cod_Grupo" />
+          <ScalarProperty Name="Nombre_Grupo" ColumnName="Nombre_Grupo" />
+          <ScalarProperty Name="Num_Solicitud" ColumnName="Num_Solicitud" />
+          <ScalarProperty Name="Pañoleta" ColumnName="Pañoleta" />
+          <ScalarProperty Name="Insignia" ColumnName="Insignia" />
+          <ScalarProperty Name="Sello_Grupo" ColumnName="Sello_Grupo" />
+          <ScalarProperty Name="ResponsableId" ColumnName="ResponsableId" />
+          <ScalarProperty Name="DistritoId" ColumnName="DistritoId" />
+          <ScalarProperty Name="Carta_Solicitud" ColumnName="Carta_Solicitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etapa_Aprobaciones">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Etapa_Aprobacion)">
+        <MappingFragment StoreEntitySet="Etapa_Aprobaciones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Etapa" ColumnName="Cod_Etapa" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cargos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Cargo)">
+        <MappingFragment StoreEntitySet="Cargos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Cargo" ColumnName="Cod_Cargo" />
+          <ScalarProperty Name="Nombre_Cargo" ColumnName="Nombre_Cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Juveniles">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Juvenil)">
+        <MappingFragment StoreEntitySet="Juveniles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Centro_EstudioId" ColumnName="Centro_EstudioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Centro_Estudios">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Centro_Estudio)">
+        <MappingFragment StoreEntitySet="Centro_Estudios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Centro" ColumnName="Cod_Centro" />
+          <ScalarProperty Name="Nombre_Centro" ColumnName="Nombre_Centro" />
+          <ScalarProperty Name="Turno" ColumnName="Turno" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="E_Mail" ColumnName="E_Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Grupos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Tipo_Grupo)">
+        <MappingFragment StoreEntitySet="Tipo_Grupos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Tipo_Grupo" ColumnName="Cod_Tipo_Grupo" />
+          <ScalarProperty Name="Nombre_Tipo_Grupo" ColumnName="Nombre_Tipo_Grupo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Progresion_Juveniles">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Progresion_Juvenil)">
+        <MappingFragment StoreEntitySet="Progresion_Juveniles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Etapa_Prog" ColumnName="Cod_Etapa_Prog" />
+          <ScalarProperty Name="Descripcion_Etapa" ColumnName="Descripcion_Etapa" />
+          <ScalarProperty Name="Membresia_JuvenilId" ColumnName="Membresia_JuvenilId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalle_Evento_Patros">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Detalle_Evento_Patro)">
+        <MappingFragment StoreEntitySet="Detalle_Evento_Patros">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="PatrocinadorId" ColumnName="PatrocinadorId" />
+          <ScalarProperty Name="EventoId" ColumnName="EventoId" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="Local_EventoId" ColumnName="Local_EventoId" />
+          <ScalarProperty Name="Asistente_EventoId" ColumnName="Asistente_EventoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalle_Grupo_Patros">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Detalle_Grupo_Patro)">
+        <MappingFragment StoreEntitySet="Detalle_Grupo_Patros">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="PatrocinadorId" ColumnName="PatrocinadorId" />
+          <ScalarProperty Name="GrupoId" ColumnName="GrupoId" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Local_Eventos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Local_Evento)">
+        <MappingFragment StoreEntitySet="Local_Eventos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="E_Mail" ColumnName="E_Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Asistente_Eventos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Asistente_Evento)">
+        <MappingFragment StoreEntitySet="Asistente_Eventos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Hora_Llegada" ColumnName="Hora_Llegada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
 </Mapping>

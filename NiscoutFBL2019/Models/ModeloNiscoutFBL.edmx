@@ -4,11 +4,799 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="ModeloNiscoutFBL.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="ModeloNiscoutFBLTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="ModeloNiscoutFBL.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModeloNiscoutFBLStoreContainer">
+    <EntitySet Name="Periodos" EntityType="ModeloNiscoutFBL.Store.Periodos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departamentos" EntityType="ModeloNiscoutFBL.Store.Departamentos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Municipios" EntityType="ModeloNiscoutFBL.Store.Municipios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sectores" EntityType="ModeloNiscoutFBL.Store.Sectores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Distritos" EntityType="ModeloNiscoutFBL.Store.Distritos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Eventos" EntityType="ModeloNiscoutFBL.Store.Eventos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Membresia_Adultos" EntityType="ModeloNiscoutFBL.Store.Membresia_Adultos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Personas" EntityType="ModeloNiscoutFBL.Store.Personas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Membresia_Juveniles" EntityType="ModeloNiscoutFBL.Store.Membresia_Juveniles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubGrupos" EntityType="ModeloNiscoutFBL.Store.SubGrupos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Grupos" EntityType="ModeloNiscoutFBL.Store.Grupos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Etapa_Aprobaciones" EntityType="ModeloNiscoutFBL.Store.Etapa_Aprobaciones" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cargos" EntityType="ModeloNiscoutFBL.Store.Cargos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Juveniles" EntityType="ModeloNiscoutFBL.Store.Juveniles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Centro_Estudios" EntityType="ModeloNiscoutFBL.Store.Centro_Estudios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tipo_Grupos" EntityType="ModeloNiscoutFBL.Store.Tipo_Grupos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Progresion_Juveniles" EntityType="ModeloNiscoutFBL.Store.Progresion_Juveniles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Detalle_Evento_Patros" EntityType="ModeloNiscoutFBL.Store.Detalle_Evento_Patros" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Detalle_Grupo_Patros" EntityType="ModeloNiscoutFBL.Store.Detalle_Grupo_Patros" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Local_Eventos" EntityType="ModeloNiscoutFBL.Store.Local_Eventos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Asistente_Eventos" EntityType="ModeloNiscoutFBL.Store.Asistente_Eventos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Personas_Responsable" EntityType="ModeloNiscoutFBL.Store.Personas_Responsable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Personas_Adulto" EntityType="ModeloNiscoutFBL.Store.Personas_Adulto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Personas_Personal_Admon" EntityType="ModeloNiscoutFBL.Store.Personas_Personal_Admon" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Personas_Asistente" EntityType="ModeloNiscoutFBL.Store.Personas_Asistente" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Personas_Tutor" EntityType="ModeloNiscoutFBL.Store.Personas_Tutor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Personas_Patrocinador" EntityType="ModeloNiscoutFBL.Store.Personas_Patrocinador" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PeriodoResponsable" Association="ModeloNiscoutFBL.Store.PeriodoResponsable">
+      <End Role="Periodo" EntitySet="Periodos" />
+      <End Role="Responsable" EntitySet="Personas_Responsable" />
+    </AssociationSet>
+    <AssociationSet Name="ResponsableGrupo" Association="ModeloNiscoutFBL.Store.ResponsableGrupo">
+      <End Role="Responsable" EntitySet="Personas_Responsable" />
+      <End Role="Grupo" EntitySet="Grupos" />
+    </AssociationSet>
+    <AssociationSet Name="DepartamentoPersona" Association="ModeloNiscoutFBL.Store.DepartamentoPersona">
+      <End Role="Departamento" EntitySet="Departamentos" />
+      <End Role="Persona" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="DepartamentoMunicipio" Association="ModeloNiscoutFBL.Store.DepartamentoMunicipio">
+      <End Role="Departamento" EntitySet="Departamentos" />
+      <End Role="Municipio" EntitySet="Municipios" />
+    </AssociationSet>
+    <AssociationSet Name="MunicipioSector" Association="ModeloNiscoutFBL.Store.MunicipioSector">
+      <End Role="Municipio" EntitySet="Municipios" />
+      <End Role="Sector" EntitySet="Sectores" />
+    </AssociationSet>
+    <AssociationSet Name="DistritoSector" Association="ModeloNiscoutFBL.Store.DistritoSector">
+      <End Role="Distrito" EntitySet="Distritos" />
+      <End Role="Sector" EntitySet="Sectores" />
+    </AssociationSet>
+    <AssociationSet Name="AdultoMembresia_Adulto" Association="ModeloNiscoutFBL.Store.AdultoMembresia_Adulto">
+      <End Role="Adulto" EntitySet="Personas_Adulto" />
+      <End Role="Membresia_Adulto" EntitySet="Membresia_Adultos" />
+    </AssociationSet>
+    <AssociationSet Name="Etapa_AprobacionMembresia_Adulto" Association="ModeloNiscoutFBL.Store.Etapa_AprobacionMembresia_Adulto">
+      <End Role="Etapa_Aprobacion" EntitySet="Etapa_Aprobaciones" />
+      <End Role="Membresia_Adulto" EntitySet="Membresia_Adultos" />
+    </AssociationSet>
+    <AssociationSet Name="CargoPersonal_Admon" Association="ModeloNiscoutFBL.Store.CargoPersonal_Admon">
+      <End Role="Cargo" EntitySet="Cargos" />
+      <End Role="Personal_Admon" EntitySet="Personas_Personal_Admon" />
+    </AssociationSet>
+    <AssociationSet Name="AsistenteSubGrupo" Association="ModeloNiscoutFBL.Store.AsistenteSubGrupo">
+      <End Role="Asistente" EntitySet="Personas_Asistente" />
+      <End Role="SubGrupo" EntitySet="SubGrupos" />
+    </AssociationSet>
+    <AssociationSet Name="SubGrupoMembresia_Juvenil" Association="ModeloNiscoutFBL.Store.SubGrupoMembresia_Juvenil">
+      <End Role="SubGrupo" EntitySet="SubGrupos" />
+      <End Role="Membresia_Juvenil" EntitySet="Membresia_Juveniles" />
+    </AssociationSet>
+    <AssociationSet Name="Tipo_GrupoSubGrupo" Association="ModeloNiscoutFBL.Store.Tipo_GrupoSubGrupo">
+      <End Role="Tipo_Grupo" EntitySet="Tipo_Grupos" />
+      <End Role="SubGrupo" EntitySet="SubGrupos" />
+    </AssociationSet>
+    <AssociationSet Name="GrupoSubGrupo" Association="ModeloNiscoutFBL.Store.GrupoSubGrupo">
+      <End Role="Grupo" EntitySet="Grupos" />
+      <End Role="SubGrupo" EntitySet="SubGrupos" />
+    </AssociationSet>
+    <AssociationSet Name="SubGrupoEvento" Association="ModeloNiscoutFBL.Store.SubGrupoEvento">
+      <End Role="SubGrupo" EntitySet="SubGrupos" />
+      <End Role="Evento" EntitySet="Eventos" />
+    </AssociationSet>
+    <AssociationSet Name="JuvenilMembresia_Juvenil" Association="ModeloNiscoutFBL.Store.JuvenilMembresia_Juvenil">
+      <End Role="Juvenil" EntitySet="Juveniles" />
+      <End Role="Membresia_Juvenil" EntitySet="Membresia_Juveniles" />
+    </AssociationSet>
+    <AssociationSet Name="TutorMembresia_Juvenil" Association="ModeloNiscoutFBL.Store.TutorMembresia_Juvenil">
+      <End Role="Tutor" EntitySet="Personas_Tutor" />
+      <End Role="Membresia_Juvenil" EntitySet="Membresia_Juveniles" />
+    </AssociationSet>
+    <AssociationSet Name="Centro_EstudioJuvenil" Association="ModeloNiscoutFBL.Store.Centro_EstudioJuvenil">
+      <End Role="Centro_Estudio" EntitySet="Centro_Estudios" />
+      <End Role="Juvenil" EntitySet="Juveniles" />
+    </AssociationSet>
+    <AssociationSet Name="DistritoGrupo" Association="ModeloNiscoutFBL.Store.DistritoGrupo">
+      <End Role="Distrito" EntitySet="Distritos" />
+      <End Role="Grupo" EntitySet="Grupos" />
+    </AssociationSet>
+    <AssociationSet Name="Membresia_JuvenilProgresion_Juvenil" Association="ModeloNiscoutFBL.Store.Membresia_JuvenilProgresion_Juvenil">
+      <End Role="Membresia_Juvenil" EntitySet="Membresia_Juveniles" />
+      <End Role="Progresion_Juvenil" EntitySet="Progresion_Juveniles" />
+    </AssociationSet>
+    <AssociationSet Name="PatrocinadorDetalle_Evento_Patro" Association="ModeloNiscoutFBL.Store.PatrocinadorDetalle_Evento_Patro">
+      <End Role="Patrocinador" EntitySet="Personas_Patrocinador" />
+      <End Role="Detalle_Evento_Patro" EntitySet="Detalle_Evento_Patros" />
+    </AssociationSet>
+    <AssociationSet Name="EventoDetalle_Evento_Patro" Association="ModeloNiscoutFBL.Store.EventoDetalle_Evento_Patro">
+      <End Role="Evento" EntitySet="Eventos" />
+      <End Role="Detalle_Evento_Patro" EntitySet="Detalle_Evento_Patros" />
+    </AssociationSet>
+    <AssociationSet Name="PatrocinadorDetalle_Grupo_Patro" Association="ModeloNiscoutFBL.Store.PatrocinadorDetalle_Grupo_Patro">
+      <End Role="Patrocinador" EntitySet="Personas_Patrocinador" />
+      <End Role="Detalle_Grupo_Patro" EntitySet="Detalle_Grupo_Patros" />
+    </AssociationSet>
+    <AssociationSet Name="GrupoDetalle_Grupo_Patro" Association="ModeloNiscoutFBL.Store.GrupoDetalle_Grupo_Patro">
+      <End Role="Grupo" EntitySet="Grupos" />
+      <End Role="Detalle_Grupo_Patro" EntitySet="Detalle_Grupo_Patros" />
+    </AssociationSet>
+    <AssociationSet Name="Local_EventoDetalle_Evento_Patro" Association="ModeloNiscoutFBL.Store.Local_EventoDetalle_Evento_Patro">
+      <End Role="Local_Evento" EntitySet="Local_Eventos" />
+      <End Role="Detalle_Evento_Patro" EntitySet="Detalle_Evento_Patros" />
+    </AssociationSet>
+    <AssociationSet Name="Asistente_EventoDetalle_Evento_Patro" Association="ModeloNiscoutFBL.Store.Asistente_EventoDetalle_Evento_Patro">
+      <End Role="Asistente_Evento" EntitySet="Asistente_Eventos" />
+      <End Role="Detalle_Evento_Patro" EntitySet="Detalle_Evento_Patros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Responsable_inherits_Persona" Association="ModeloNiscoutFBL.Store.FK_Responsable_inherits_Persona">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Responsable" EntitySet="Personas_Responsable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Adulto_inherits_Persona" Association="ModeloNiscoutFBL.Store.FK_Adulto_inherits_Persona">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Adulto" EntitySet="Personas_Adulto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_Admon_inherits_Persona" Association="ModeloNiscoutFBL.Store.FK_Personal_Admon_inherits_Persona">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Personal_Admon" EntitySet="Personas_Personal_Admon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Asistente_inherits_Persona" Association="ModeloNiscoutFBL.Store.FK_Asistente_inherits_Persona">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Asistente" EntitySet="Personas_Asistente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tutor_inherits_Persona" Association="ModeloNiscoutFBL.Store.FK_Tutor_inherits_Persona">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Tutor" EntitySet="Personas_Tutor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patrocinador_inherits_Persona" Association="ModeloNiscoutFBL.Store.FK_Patrocinador_inherits_Persona">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Patrocinador" EntitySet="Personas_Patrocinador" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Periodos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Desde" Type="datetime" Nullable="false" />
+    <Property Name="Hasta" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Departamento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre_Departamento" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Municipios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Municipio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre_Municipio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepartamentoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sectores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Sector" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre_Sector" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MunicipioId" Type="int" Nullable="false" />
+    <Property Name="DistritoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Distritos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Distrito" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre_Distrito" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Eventos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Evento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre_Evento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Hora" Type="time" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="SubGrupoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Membresia_Adultos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Carta_Compromiso" Type="tinyint" Nullable="false" />
+    <Property Name="Carta_Intencion" Type="tinyint" Nullable="false" />
+    <Property Name="Record_Policia" Type="tinyint" Nullable="false" />
+    <Property Name="Carta_Ref_Personal" Type="tinyint" Nullable="false" />
+    <Property Name="Certifi_Salvo_Peligro" Type="tinyint" Nullable="false" />
+    <Property Name="AdultoId" Type="int" Nullable="false" />
+    <Property Name="Etapa_AprobacionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Persona" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellidos" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fecha_Nac" Type="datetime" Nullable="false" />
+    <Property Name="E_Mail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cedula" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Estado_Civil" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Num_Pasaporte" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepartamentoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Membresia_Juveniles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubGrupoId" Type="int" Nullable="false" />
+    <Property Name="JuvenilId" Type="int" Nullable="false" />
+    <Property Name="TutorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubGrupos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Subgrupo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre_Subgrupo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AsistenteId" Type="int" Nullable="false" />
+    <Property Name="Tipo_GrupoId" Type="int" Nullable="false" />
+    <Property Name="GrupoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Grupo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre_Grupo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Num_Solicitud" Type="int" Nullable="false" />
+    <Property Name="Pañoleta" Type="tinyint" Nullable="false" />
+    <Property Name="Insignia" Type="tinyint" Nullable="false" />
+    <Property Name="Sello_Grupo" Type="tinyint" Nullable="false" />
+    <Property Name="ResponsableId" Type="int" Nullable="false" />
+    <Property Name="DistritoId" Type="int" Nullable="false" />
+    <Property Name="Carta_Solicitud" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Etapa_Aprobaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Etapa" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cargos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Cargo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre_Cargo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Juveniles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Centro_EstudioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Centro_Estudios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Centro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre_Centro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Turno" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+    <Property Name="E_Mail" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Grupos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Tipo_Grupo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre_Tipo_Grupo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Progresion_Juveniles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod_Etapa_Prog" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion_Etapa" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Membresia_JuvenilId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Evento_Patros">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Desde" Type="datetime" Nullable="false" />
+    <Property Name="PatrocinadorId" Type="int" Nullable="false" />
+    <Property Name="EventoId" Type="int" Nullable="false" />
+    <Property Name="Hasta" Type="datetime" Nullable="false" />
+    <Property Name="Local_EventoId" Type="int" Nullable="false" />
+    <Property Name="Asistente_EventoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detalle_Grupo_Patros">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Desde" Type="datetime" Nullable="false" />
+    <Property Name="PatrocinadorId" Type="int" Nullable="false" />
+    <Property Name="GrupoId" Type="int" Nullable="false" />
+    <Property Name="Hasta" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Local_Eventos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+    <Property Name="E_Mail" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Asistente_Eventos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hora_Llegada" Type="time" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personas_Responsable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="PeriodoId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personas_Adulto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personas_Personal_Admon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CargoId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personas_Asistente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personas_Tutor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personas_Patrocinador">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Nombre_Insti" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre_Representante" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Trabajo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PeriodoResponsable">
+    <End Role="Periodo" Type="ModeloNiscoutFBL.Store.Periodos" Multiplicity="1" />
+    <End Role="Responsable" Type="ModeloNiscoutFBL.Store.Personas_Responsable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Responsable">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ResponsableGrupo">
+    <End Role="Responsable" Type="ModeloNiscoutFBL.Store.Personas_Responsable" Multiplicity="1" />
+    <End Role="Grupo" Type="ModeloNiscoutFBL.Store.Grupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Responsable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grupo">
+        <PropertyRef Name="ResponsableId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartamentoPersona">
+    <End Role="Departamento" Type="ModeloNiscoutFBL.Store.Departamentos" Multiplicity="1" />
+    <End Role="Persona" Type="ModeloNiscoutFBL.Store.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="DepartamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartamentoMunicipio">
+    <End Role="Departamento" Type="ModeloNiscoutFBL.Store.Departamentos" Multiplicity="1" />
+    <End Role="Municipio" Type="ModeloNiscoutFBL.Store.Municipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Municipio">
+        <PropertyRef Name="DepartamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MunicipioSector">
+    <End Role="Municipio" Type="ModeloNiscoutFBL.Store.Municipios" Multiplicity="1" />
+    <End Role="Sector" Type="ModeloNiscoutFBL.Store.Sectores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sector">
+        <PropertyRef Name="MunicipioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DistritoSector">
+    <End Role="Distrito" Type="ModeloNiscoutFBL.Store.Distritos" Multiplicity="1" />
+    <End Role="Sector" Type="ModeloNiscoutFBL.Store.Sectores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sector">
+        <PropertyRef Name="DistritoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AdultoMembresia_Adulto">
+    <End Role="Adulto" Type="ModeloNiscoutFBL.Store.Personas_Adulto" Multiplicity="1" />
+    <End Role="Membresia_Adulto" Type="ModeloNiscoutFBL.Store.Membresia_Adultos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adulto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Membresia_Adulto">
+        <PropertyRef Name="AdultoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Etapa_AprobacionMembresia_Adulto">
+    <End Role="Etapa_Aprobacion" Type="ModeloNiscoutFBL.Store.Etapa_Aprobaciones" Multiplicity="1" />
+    <End Role="Membresia_Adulto" Type="ModeloNiscoutFBL.Store.Membresia_Adultos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etapa_Aprobacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Membresia_Adulto">
+        <PropertyRef Name="Etapa_AprobacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CargoPersonal_Admon">
+    <End Role="Cargo" Type="ModeloNiscoutFBL.Store.Cargos" Multiplicity="1" />
+    <End Role="Personal_Admon" Type="ModeloNiscoutFBL.Store.Personas_Personal_Admon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personal_Admon">
+        <PropertyRef Name="CargoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AsistenteSubGrupo">
+    <End Role="Asistente" Type="ModeloNiscoutFBL.Store.Personas_Asistente" Multiplicity="1" />
+    <End Role="SubGrupo" Type="ModeloNiscoutFBL.Store.SubGrupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asistente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubGrupo">
+        <PropertyRef Name="AsistenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SubGrupoMembresia_Juvenil">
+    <End Role="SubGrupo" Type="ModeloNiscoutFBL.Store.SubGrupos" Multiplicity="1" />
+    <End Role="Membresia_Juvenil" Type="ModeloNiscoutFBL.Store.Membresia_Juveniles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubGrupo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Membresia_Juvenil">
+        <PropertyRef Name="SubGrupoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Tipo_GrupoSubGrupo">
+    <End Role="Tipo_Grupo" Type="ModeloNiscoutFBL.Store.Tipo_Grupos" Multiplicity="1" />
+    <End Role="SubGrupo" Type="ModeloNiscoutFBL.Store.SubGrupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Grupo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubGrupo">
+        <PropertyRef Name="Tipo_GrupoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GrupoSubGrupo">
+    <End Role="Grupo" Type="ModeloNiscoutFBL.Store.Grupos" Multiplicity="1" />
+    <End Role="SubGrupo" Type="ModeloNiscoutFBL.Store.SubGrupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubGrupo">
+        <PropertyRef Name="GrupoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SubGrupoEvento">
+    <End Role="SubGrupo" Type="ModeloNiscoutFBL.Store.SubGrupos" Multiplicity="1" />
+    <End Role="Evento" Type="ModeloNiscoutFBL.Store.Eventos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubGrupo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Evento">
+        <PropertyRef Name="SubGrupoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JuvenilMembresia_Juvenil">
+    <End Role="Juvenil" Type="ModeloNiscoutFBL.Store.Juveniles" Multiplicity="1" />
+    <End Role="Membresia_Juvenil" Type="ModeloNiscoutFBL.Store.Membresia_Juveniles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Juvenil">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Membresia_Juvenil">
+        <PropertyRef Name="JuvenilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TutorMembresia_Juvenil">
+    <End Role="Tutor" Type="ModeloNiscoutFBL.Store.Personas_Tutor" Multiplicity="1" />
+    <End Role="Membresia_Juvenil" Type="ModeloNiscoutFBL.Store.Membresia_Juveniles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tutor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Membresia_Juvenil">
+        <PropertyRef Name="TutorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Centro_EstudioJuvenil">
+    <End Role="Centro_Estudio" Type="ModeloNiscoutFBL.Store.Centro_Estudios" Multiplicity="1" />
+    <End Role="Juvenil" Type="ModeloNiscoutFBL.Store.Juveniles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Centro_Estudio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Juvenil">
+        <PropertyRef Name="Centro_EstudioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DistritoGrupo">
+    <End Role="Distrito" Type="ModeloNiscoutFBL.Store.Distritos" Multiplicity="1" />
+    <End Role="Grupo" Type="ModeloNiscoutFBL.Store.Grupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grupo">
+        <PropertyRef Name="DistritoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Membresia_JuvenilProgresion_Juvenil">
+    <End Role="Membresia_Juvenil" Type="ModeloNiscoutFBL.Store.Membresia_Juveniles" Multiplicity="1" />
+    <End Role="Progresion_Juvenil" Type="ModeloNiscoutFBL.Store.Progresion_Juveniles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membresia_Juvenil">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Progresion_Juvenil">
+        <PropertyRef Name="Membresia_JuvenilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PatrocinadorDetalle_Evento_Patro">
+    <End Role="Patrocinador" Type="ModeloNiscoutFBL.Store.Personas_Patrocinador" Multiplicity="1" />
+    <End Role="Detalle_Evento_Patro" Type="ModeloNiscoutFBL.Store.Detalle_Evento_Patros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patrocinador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detalle_Evento_Patro">
+        <PropertyRef Name="PatrocinadorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventoDetalle_Evento_Patro">
+    <End Role="Evento" Type="ModeloNiscoutFBL.Store.Eventos" Multiplicity="1" />
+    <End Role="Detalle_Evento_Patro" Type="ModeloNiscoutFBL.Store.Detalle_Evento_Patros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detalle_Evento_Patro">
+        <PropertyRef Name="EventoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PatrocinadorDetalle_Grupo_Patro">
+    <End Role="Patrocinador" Type="ModeloNiscoutFBL.Store.Personas_Patrocinador" Multiplicity="1" />
+    <End Role="Detalle_Grupo_Patro" Type="ModeloNiscoutFBL.Store.Detalle_Grupo_Patros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patrocinador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detalle_Grupo_Patro">
+        <PropertyRef Name="PatrocinadorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GrupoDetalle_Grupo_Patro">
+    <End Role="Grupo" Type="ModeloNiscoutFBL.Store.Grupos" Multiplicity="1" />
+    <End Role="Detalle_Grupo_Patro" Type="ModeloNiscoutFBL.Store.Detalle_Grupo_Patros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detalle_Grupo_Patro">
+        <PropertyRef Name="GrupoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Local_EventoDetalle_Evento_Patro">
+    <End Role="Local_Evento" Type="ModeloNiscoutFBL.Store.Local_Eventos" Multiplicity="1" />
+    <End Role="Detalle_Evento_Patro" Type="ModeloNiscoutFBL.Store.Detalle_Evento_Patros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Local_Evento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detalle_Evento_Patro">
+        <PropertyRef Name="Local_EventoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Asistente_EventoDetalle_Evento_Patro">
+    <End Role="Asistente_Evento" Type="ModeloNiscoutFBL.Store.Asistente_Eventos" Multiplicity="1" />
+    <End Role="Detalle_Evento_Patro" Type="ModeloNiscoutFBL.Store.Detalle_Evento_Patros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asistente_Evento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detalle_Evento_Patro">
+        <PropertyRef Name="Asistente_EventoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Responsable_inherits_Persona">
+    <End Role="Persona" Type="ModeloNiscoutFBL.Store.Personas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Responsable" Type="ModeloNiscoutFBL.Store.Personas_Responsable" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Responsable">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Adulto_inherits_Persona">
+    <End Role="Persona" Type="ModeloNiscoutFBL.Store.Personas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Adulto" Type="ModeloNiscoutFBL.Store.Personas_Adulto" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Adulto">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_Admon_inherits_Persona">
+    <End Role="Persona" Type="ModeloNiscoutFBL.Store.Personas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Personal_Admon" Type="ModeloNiscoutFBL.Store.Personas_Personal_Admon" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personal_Admon">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Asistente_inherits_Persona">
+    <End Role="Persona" Type="ModeloNiscoutFBL.Store.Personas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Asistente" Type="ModeloNiscoutFBL.Store.Personas_Asistente" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asistente">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tutor_inherits_Persona">
+    <End Role="Persona" Type="ModeloNiscoutFBL.Store.Personas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tutor" Type="ModeloNiscoutFBL.Store.Personas_Tutor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tutor">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patrocinador_inherits_Persona">
+    <End Role="Persona" Type="ModeloNiscoutFBL.Store.Personas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Patrocinador" Type="ModeloNiscoutFBL.Store.Personas_Patrocinador" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Patrocinador">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModeloNiscoutFBL" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -719,13 +1507,279 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="ModeloNiscoutFBL" />
-        <Alias Key="Target" Value="ModeloNiscoutFBL.Store" />
-        <EntityContainerMapping CdmEntityContainer="ModeloNiscoutFBLContainer" StorageEntityContainer="ModeloNiscoutFBLTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModeloNiscoutFBLStoreContainer" CdmEntityContainer="ModeloNiscoutFBLContainer">
+    <EntitySetMapping Name="Periodos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Periodo)">
+        <MappingFragment StoreEntitySet="Periodos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamentos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Departamento)">
+        <MappingFragment StoreEntitySet="Departamentos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Departamento" ColumnName="Cod_Departamento" />
+          <ScalarProperty Name="Nombre_Departamento" ColumnName="Nombre_Departamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Municipios">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Municipio)">
+        <MappingFragment StoreEntitySet="Municipios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Municipio" ColumnName="Cod_Municipio" />
+          <ScalarProperty Name="Nombre_Municipio" ColumnName="Nombre_Municipio" />
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sectores">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Sector)">
+        <MappingFragment StoreEntitySet="Sectores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Sector" ColumnName="Cod_Sector" />
+          <ScalarProperty Name="Nombre_Sector" ColumnName="Nombre_Sector" />
+          <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
+          <ScalarProperty Name="DistritoId" ColumnName="DistritoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Distritos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Distrito)">
+        <MappingFragment StoreEntitySet="Distritos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Distrito" ColumnName="Cod_Distrito" />
+          <ScalarProperty Name="Nombre_Distrito" ColumnName="Nombre_Distrito" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Eventos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Evento)">
+        <MappingFragment StoreEntitySet="Eventos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Evento" ColumnName="Cod_Evento" />
+          <ScalarProperty Name="Nombre_Evento" ColumnName="Nombre_Evento" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="SubGrupoId" ColumnName="SubGrupoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Membresia_Adultos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Membresia_Adulto)">
+        <MappingFragment StoreEntitySet="Membresia_Adultos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Carta_Compromiso" ColumnName="Carta_Compromiso" />
+          <ScalarProperty Name="Carta_Intencion" ColumnName="Carta_Intencion" />
+          <ScalarProperty Name="Record_Policia" ColumnName="Record_Policia" />
+          <ScalarProperty Name="Carta_Ref_Personal" ColumnName="Carta_Ref_Personal" />
+          <ScalarProperty Name="Certifi_Salvo_Peligro" ColumnName="Certifi_Salvo_Peligro" />
+          <ScalarProperty Name="AdultoId" ColumnName="AdultoId" />
+          <ScalarProperty Name="Etapa_AprobacionId" ColumnName="Etapa_AprobacionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personas">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Persona)">
+        <MappingFragment StoreEntitySet="Personas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Persona" ColumnName="Cod_Persona" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Fecha_Nac" ColumnName="Fecha_Nac" />
+          <ScalarProperty Name="E_Mail" ColumnName="E_Mail" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Estado_Civil" ColumnName="Estado_Civil" />
+          <ScalarProperty Name="Num_Pasaporte" ColumnName="Num_Pasaporte" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Responsable)">
+        <MappingFragment StoreEntitySet="Personas_Responsable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Adulto)">
+        <MappingFragment StoreEntitySet="Personas_Adulto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Personal_Admon)">
+        <MappingFragment StoreEntitySet="Personas_Personal_Admon">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CargoId" ColumnName="CargoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Asistente)">
+        <MappingFragment StoreEntitySet="Personas_Asistente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Tutor)">
+        <MappingFragment StoreEntitySet="Personas_Tutor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Patrocinador)">
+        <MappingFragment StoreEntitySet="Personas_Patrocinador">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre_Insti" ColumnName="Nombre_Insti" />
+          <ScalarProperty Name="Nombre_Representante" ColumnName="Nombre_Representante" />
+          <ScalarProperty Name="Trabajo" ColumnName="Trabajo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Membresia_Juveniles">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Membresia_Juvenil)">
+        <MappingFragment StoreEntitySet="Membresia_Juveniles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubGrupoId" ColumnName="SubGrupoId" />
+          <ScalarProperty Name="JuvenilId" ColumnName="JuvenilId" />
+          <ScalarProperty Name="TutorId" ColumnName="TutorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubGrupos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.SubGrupo)">
+        <MappingFragment StoreEntitySet="SubGrupos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Subgrupo" ColumnName="Cod_Subgrupo" />
+          <ScalarProperty Name="Nombre_Subgrupo" ColumnName="Nombre_Subgrupo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="AsistenteId" ColumnName="AsistenteId" />
+          <ScalarProperty Name="Tipo_GrupoId" ColumnName="Tipo_GrupoId" />
+          <ScalarProperty Name="GrupoId" ColumnName="GrupoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Grupo)">
+        <MappingFragment StoreEntitySet="Grupos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Grupo" ColumnName="Cod_Grupo" />
+          <ScalarProperty Name="Nombre_Grupo" ColumnName="Nombre_Grupo" />
+          <ScalarProperty Name="Num_Solicitud" ColumnName="Num_Solicitud" />
+          <ScalarProperty Name="Pañoleta" ColumnName="Pañoleta" />
+          <ScalarProperty Name="Insignia" ColumnName="Insignia" />
+          <ScalarProperty Name="Sello_Grupo" ColumnName="Sello_Grupo" />
+          <ScalarProperty Name="ResponsableId" ColumnName="ResponsableId" />
+          <ScalarProperty Name="DistritoId" ColumnName="DistritoId" />
+          <ScalarProperty Name="Carta_Solicitud" ColumnName="Carta_Solicitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etapa_Aprobaciones">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Etapa_Aprobacion)">
+        <MappingFragment StoreEntitySet="Etapa_Aprobaciones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Etapa" ColumnName="Cod_Etapa" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cargos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Cargo)">
+        <MappingFragment StoreEntitySet="Cargos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Cargo" ColumnName="Cod_Cargo" />
+          <ScalarProperty Name="Nombre_Cargo" ColumnName="Nombre_Cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Juveniles">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Juvenil)">
+        <MappingFragment StoreEntitySet="Juveniles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Centro_EstudioId" ColumnName="Centro_EstudioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Centro_Estudios">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Centro_Estudio)">
+        <MappingFragment StoreEntitySet="Centro_Estudios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Centro" ColumnName="Cod_Centro" />
+          <ScalarProperty Name="Nombre_Centro" ColumnName="Nombre_Centro" />
+          <ScalarProperty Name="Turno" ColumnName="Turno" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="E_Mail" ColumnName="E_Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Grupos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Tipo_Grupo)">
+        <MappingFragment StoreEntitySet="Tipo_Grupos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Tipo_Grupo" ColumnName="Cod_Tipo_Grupo" />
+          <ScalarProperty Name="Nombre_Tipo_Grupo" ColumnName="Nombre_Tipo_Grupo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Progresion_Juveniles">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Progresion_Juvenil)">
+        <MappingFragment StoreEntitySet="Progresion_Juveniles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cod_Etapa_Prog" ColumnName="Cod_Etapa_Prog" />
+          <ScalarProperty Name="Descripcion_Etapa" ColumnName="Descripcion_Etapa" />
+          <ScalarProperty Name="Membresia_JuvenilId" ColumnName="Membresia_JuvenilId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalle_Evento_Patros">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Detalle_Evento_Patro)">
+        <MappingFragment StoreEntitySet="Detalle_Evento_Patros">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="PatrocinadorId" ColumnName="PatrocinadorId" />
+          <ScalarProperty Name="EventoId" ColumnName="EventoId" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="Local_EventoId" ColumnName="Local_EventoId" />
+          <ScalarProperty Name="Asistente_EventoId" ColumnName="Asistente_EventoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalle_Grupo_Patros">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Detalle_Grupo_Patro)">
+        <MappingFragment StoreEntitySet="Detalle_Grupo_Patros">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="PatrocinadorId" ColumnName="PatrocinadorId" />
+          <ScalarProperty Name="GrupoId" ColumnName="GrupoId" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Local_Eventos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Local_Evento)">
+        <MappingFragment StoreEntitySet="Local_Eventos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="E_Mail" ColumnName="E_Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Asistente_Eventos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Asistente_Evento)">
+        <MappingFragment StoreEntitySet="Asistente_Eventos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Hora_Llegada" ColumnName="Hora_Llegada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -739,6 +1793,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

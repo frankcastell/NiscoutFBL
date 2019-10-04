@@ -200,16 +200,108 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PeriodoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Adulto.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Asistente.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Asistente_Evento.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cargo.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Centro_Estudio.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Departamento.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Detalle_Evento_Patro.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Detalle_Grupo_Patro.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Distrito.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Etapa_Aprobacion.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Evento.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Grupo.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Juvenil.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Local_Evento.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Membresia_Adulto.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Membresia_Juvenil.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModeloNiscoutFBL.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloNiscoutFBL.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModeloNiscoutFBL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ModeloNiscoutFBL.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloNiscoutFBL.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Municipio.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Patrocinador.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Periodo.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Persona.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Personal_Admon.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Progresion_Juvenil.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Responsable.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sector.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubGrupo.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tipo_Grupo.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tutor.cs">
+      <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -221,6 +313,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\ModeloNiscoutFBL.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModeloNiscoutFBL.Context.cs</LastGenOutput>
+      <DependentUpon>ModeloNiscoutFBL.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ModeloNiscoutFBL.edmx.sql" />
+    <Content Include="Models\ModeloNiscoutFBL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModeloNiscoutFBL.cs</LastGenOutput>
+      <DependentUpon>ModeloNiscoutFBL.edmx</DependentUpon>
+    </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -281,6 +384,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Periodoes\Create.cshtml" />
+    <Content Include="Views\Periodoes\Delete.cshtml" />
+    <Content Include="Views\Periodoes\Details.cshtml" />
+    <Content Include="Views\Periodoes\Edit.cshtml" />
+    <Content Include="Views\Periodoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -292,6 +400,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
