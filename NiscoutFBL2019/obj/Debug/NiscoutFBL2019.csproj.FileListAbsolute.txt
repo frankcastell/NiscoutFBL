@@ -298,5 +298,6 @@ C:\Users\luism\OneDrive\Escritorio\Nueva carpeta\clon\NiscoutFBL2019\bin\es\Micr
 C:\Users\luism\OneDrive\Escritorio\Nueva carpeta\clon\NiscoutFBL2019\bin\es\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\luism\OneDrive\Escritorio\Nueva carpeta\clon\NiscoutFBL2019\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\luism\OneDrive\Escritorio\Nueva carpeta\clon\NiscoutFBL2019\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\luism\OneDrive\Escritorio\Nueva carpeta\clon\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.csprojResolveAssemblyReference.cache
 C:\Users\luism\OneDrive\Escritorio\Nueva carpeta\clon\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.dll
 C:\Users\luism\OneDrive\Escritorio\Nueva carpeta\clon\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.pdb
