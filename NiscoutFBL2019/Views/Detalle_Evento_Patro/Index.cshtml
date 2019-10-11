@@ -1,0 +1,63 @@
+﻿@model IEnumerable<NiscoutFBL2019.Models.Detalle_Evento_Patro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Asistente_Evento.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Evento.Cod_Evento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Local_Evento.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patrocinador.Cod_Persona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Desde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hasta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Asistente_Evento.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Evento.Cod_Evento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Local_Evento.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patrocinador.Cod_Persona)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Desde)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hasta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

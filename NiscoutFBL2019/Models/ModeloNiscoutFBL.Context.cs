@@ -46,5 +46,12 @@ namespace NiscoutFBL2019.Models
         public virtual DbSet<Detalle_Grupo_Patro> Detalle_Grupo_Patros { get; set; }
         public virtual DbSet<Local_Evento> Local_Eventos { get; set; }
         public virtual DbSet<Asistente_Evento> Asistente_Eventos { get; set; }
+        public virtual DbSet<Responsable> Responsable { get; set; }
+        public virtual DbSet<Asistente> Asistentes { get; set; }
+        public virtual DbSet<Patrocinador> Patrocinadores { get; set; }
+        public virtual DbSet<Personal_Admon> Personal_Admon { get; set; }
+        public virtual DbSet<Adulto> Adultos { get; set; }
+        public virtual DbSet<Tutor> Tutor { get; set; }
+
     }
 }

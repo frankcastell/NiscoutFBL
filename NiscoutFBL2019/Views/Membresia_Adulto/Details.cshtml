@@ -1,0 +1,74 @@
+﻿@model NiscoutFBL2019.Models.Membresia_Adulto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Membresia_Adulto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Adulto.Cod_Persona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adulto.Cod_Persona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Etapa_Aprobacion1.Cod_Etapa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etapa_Aprobacion1.Cod_Etapa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carta_Compromiso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carta_Compromiso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carta_Intencion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carta_Intencion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Record_Policia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Record_Policia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carta_Ref_Personal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Certifi_Salvo_Peligro)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

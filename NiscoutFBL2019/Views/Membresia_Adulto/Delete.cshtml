@@ -1,0 +1,80 @@
+﻿@model NiscoutFBL2019.Models.Membresia_Adulto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Membresia_Adulto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Adulto.Cod_Persona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adulto.Cod_Persona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Etapa_Aprobacion1.Cod_Etapa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etapa_Aprobacion1.Cod_Etapa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carta_Compromiso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carta_Compromiso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carta_Intencion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carta_Intencion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Record_Policia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Record_Policia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carta_Ref_Personal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Certifi_Salvo_Peligro)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

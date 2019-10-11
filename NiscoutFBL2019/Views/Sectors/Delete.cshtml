@@ -1,0 +1,56 @@
+﻿@model NiscoutFBL2019.Models.Sector
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Sector</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cod_Sector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cod_Sector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Sector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Sector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Municipio.Cod_Municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Municipio.Cod_Municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Distrito.Cod_Distrito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distrito.Cod_Distrito)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

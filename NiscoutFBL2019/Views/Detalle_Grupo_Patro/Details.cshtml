@@ -1,0 +1,50 @@
+﻿@model NiscoutFBL2019.Models.Detalle_Grupo_Patro
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Detalle_Grupo_Patro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Grupo.Cod_Grupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grupo.Cod_Grupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patrocinador.Cod_Persona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patrocinador.Cod_Persona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Desde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Desde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hasta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hasta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

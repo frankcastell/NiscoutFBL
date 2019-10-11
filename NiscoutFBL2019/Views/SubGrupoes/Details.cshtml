@@ -1,0 +1,66 @@
+﻿@model NiscoutFBL2019.Models.SubGrupo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SubGrupo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cod_Subgrupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cod_Subgrupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Subgrupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Subgrupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Asistente.Cod_Persona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Asistente.Cod_Persona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Grupo.Cod_Tipo_Grupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Grupo.Cod_Tipo_Grupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grupo.Cod_Grupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grupo.Cod_Grupo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,42 @@
+﻿@model NiscoutFBL2019.Models.Progresion_Juvenil
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Progresion_Juvenil</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cod_Etapa_Prog)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cod_Etapa_Prog)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion_Etapa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion_Etapa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Membresia_Juvenil.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Membresia_Juvenil.Id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

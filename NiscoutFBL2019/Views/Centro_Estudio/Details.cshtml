@@ -1,0 +1,58 @@
+﻿@model NiscoutFBL2019.Models.Centro_Estudio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Centro_Estudio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cod_Centro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cod_Centro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Centro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Centro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Turno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Turno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_Mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_Mail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

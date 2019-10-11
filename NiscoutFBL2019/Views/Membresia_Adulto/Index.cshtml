@@ -1,0 +1,69 @@
+﻿@model IEnumerable<NiscoutFBL2019.Models.Membresia_Adulto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Adulto.Cod_Persona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Etapa_Aprobacion1.Cod_Etapa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carta_Compromiso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carta_Intencion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Record_Policia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adulto.Cod_Persona)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Etapa_Aprobacion1.Cod_Etapa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carta_Compromiso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carta_Intencion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Record_Policia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carta_Ref_Personal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Certifi_Salvo_Peligro)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

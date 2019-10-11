@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="de70c89f3ebb47ff9b6678cf3ee993c3" Name="Diagram1" ZoomLevel="56" >
+      <Diagram DiagramId="de70c89f3ebb47ff9b6678cf3ee993c3" Name="Diagram1" ZoomLevel="61" >
         <EntityTypeShape EntityType="ModeloNiscoutFBL.Periodo" Width="1.5" PointX="0.5" PointY="0.75" />
         <EntityTypeShape EntityType="ModeloNiscoutFBL.Responsable" Width="1.5" PointX="2.375" PointY="0.5" />
         <EntityTypeShape EntityType="ModeloNiscoutFBL.Departamento" Width="1.5" PointX="4.125" PointY="1" IsExpanded="true" />

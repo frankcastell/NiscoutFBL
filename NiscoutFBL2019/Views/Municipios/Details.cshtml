@@ -1,0 +1,42 @@
+﻿@model NiscoutFBL2019.Models.Municipio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Municipio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cod_Municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cod_Municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento.Cod_Departamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
