@@ -5,9 +5,9 @@
 }
 
 <h2>Registros de responsables</h2>
-
+<link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
 <p>
-    <a href= "@Url.Action("Create", "Responsables")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Nuevo Responsable</a>
+    <a href= "@Url.Action("Create", "Responsables")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Registrar Responsable</a>
 </p>
 <div class="table-responsive m-t-20">
     <table class="table vm no-th-brd no-wrap pro-of-month">
@@ -97,10 +97,10 @@
                     @Html.DisplayFor(modelItem => item.Periodo)
                 </td>
                 <td>
-                    <button class="btn waves-effect waves-purple btn-danger hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
-                    <button class="btn waves-effect waves-red btn-red hidden-md-down">@Html.ActionLink("Details", "Details", new { id = item.Id })</button>
-                    <button class="btn waves-effect waves-light btn-info hidden-md-down">@Html.ActionLink("Delete", "Delete", new { id = item.Id })</button>
-                
+                    <button class="boton_editar">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
+                    <button class="boton_detalles">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button>
+                    <button class="boton_eliminar">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>
+
                 </td>
             </tr>
         }

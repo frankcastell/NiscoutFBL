@@ -338,7 +338,8 @@
     <Content Include="Content\assets\images\favicon.png" />
     <Content Include="Content\assets\images\logo-icon.png" />
     <Content Include="Content\assets\images\logo-text.png" />
-    <Content Include="Content\assets\images\Logo.png" />
+    <Content Include="Content\assets\images\Logov2.png" />
+    <Content Include="Content\assets\images\Logov3.png" />
     <Content Include="Content\assets\images\users\1.jpg" />
     <Content Include="Content\assets\images\users\2.jpg" />
     <Content Include="Content\assets\images\users\3.jpg" />
@@ -414,6 +415,7 @@
     <Content Include="Content\assets\plugins\perfect-scrollbar\js\perfect-scrollbar.js" />
     <Content Include="Content\assets\plugins\perfect-scrollbar\js\perfect-scrollbar.min.js" />
     <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\ButtonStyles.css" />
     <Content Include="Content\css\colors\default-dark.css" />
     <Content Include="Content\css\icons\font-awesome\css\font-awesome.css" />
     <Content Include="Content\css\icons\font-awesome\old\css\font-awesome.css" />

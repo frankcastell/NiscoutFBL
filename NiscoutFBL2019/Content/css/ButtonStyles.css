@@ -1,0 +1,52 @@
+﻿.boton_editar {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background: #29f68b;
+  position: relative;
+}
+.boton_editar:hover {
+  color: rgba(255, 255, 255, 1) !important;
+  box-shadow: 0 4px 16px rgba(49, 138, 172, 1);
+  transition: all 0.2s ease;
+}
+.boton_detalles {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background: #318aac;
+
+  position: relative;
+}
+.boton_detalles:hover {
+  color: rgba(255, 255, 255, 1) !important;
+  box-shadow: 0 4px 16px rgba(49, 138, 172, 1);
+  transition: all 0.2s ease;
+    }
+.boton_eliminar {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background: #d83434; 
+  position: relative;
+  border: 2px medium;
+}
+.boton_eliminar:hover {
+  color: rgba(255, 255, 255, 1) !important;
+  box-shadow: 0 4px 16px rgba(49, 138, 172, 1);
+  transition: all 0.2s ease;
+  
+}
+
