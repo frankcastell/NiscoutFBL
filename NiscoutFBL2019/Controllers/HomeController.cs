@@ -26,5 +26,10 @@ namespace NiscoutFBL2019.Controllers
 
             return View();
         }
+        public ActionResult NotFound()
+        {
+            
+            return View();
+        }
     }
 }
