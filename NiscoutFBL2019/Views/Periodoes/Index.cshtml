@@ -3,38 +3,48 @@
 @{
     ViewBag.Title = "Index";
 }
-
-
+<h2>Registros de Periodos</h2>
+<link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
 <p>
-    <a href="@Url.Action("Create","Periodoes")" class="btn waves-effect waves-light btn-info hidden-md-down"> Nuevo periodo</a>
-    @*@Html.ActionLink("Agregar nuevo periodo", "Create")*@
+    <a href="@Url.Action("Create","Periodoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Nuevo periodo</a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Desde)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hasta)
-        </th>
-        <th></th>
-    </tr>
+<div class="datagrid">
+    <div class="table-responsive m-t-20">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Desde)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hasta)
-        </td>
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.Id })*@
-          <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
-          <button class="btn waves-effect waves-red btn-info hidden-md-down">@Html.ActionLink("Details", "Details", new { id = item.Id })</button> 
-          <button class="btn waves-effect waves-light btn-danger hidden-md-down">@Html.ActionLink("Delete", "Delete", new { id = item.Id })</button>
-        </td>
-    </tr>
-}
+        <table class="table vm no-th-brd no-wrap pro-of-month">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Desde)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Hasta)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
 
-</table>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Desde)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hasta)
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.Id })*@
+                        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
+                        <button class="btn waves-effect waves-red btn-info hidden-md-down">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button>
+                        <button class="btn waves-effect waves-light btn-danger hidden-md-down">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>
+                    </td>
+                </tr>
+
+            }
+
+        </table>
+
+    </div>
+</div>
+
