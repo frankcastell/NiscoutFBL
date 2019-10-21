@@ -10,6 +10,7 @@ using NiscoutFBL2019.Models;
 
 namespace NiscoutFBL2019.Controllers
 {
+    [Authorize]
     public class Tipo_GrupoController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();

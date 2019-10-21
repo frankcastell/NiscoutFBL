@@ -10,6 +10,8 @@ using NiscoutFBL2019.Models;
 
 namespace NiscoutFBL2019.Controllers
 {
+    [Authorize]
+
     public class Membresia_JuvenilController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();

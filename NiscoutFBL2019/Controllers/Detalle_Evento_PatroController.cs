@@ -10,6 +10,8 @@ using NiscoutFBL2019.Models;
 
 namespace NiscoutFBL2019.Controllers
 {
+    [Authorize]
+
     public class Detalle_Evento_PatroController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
