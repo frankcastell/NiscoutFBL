@@ -12,7 +12,7 @@ namespace NiscoutFBL2019.Controllers
 {
     public class TutorsController : Controller
     {
-        [Authorize]
+       
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Tutors
