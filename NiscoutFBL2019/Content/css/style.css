@@ -1542,14 +1542,17 @@ ul#themecolors {
 *******************/
 .footer {
   bottom: 0;
-  color: #67757c;
+  color: #3b8b10;
   left: 0px;
   padding: 17px 15px;
   position: absolute;
   right: 0;
   border-top: 1px solid rgba(120, 130, 140, 0.13);
   background: #ffffff; }
-
+.footer:hover {
+	bottom: 0;
+    color: #5805ac;
+}
 /*******************
  scrollbar
 *******************/
@@ -1720,14 +1723,10 @@ Other comon js for all pages
       Tabla Css INi
       ------------------------
       **/
-  .datagrid table { 
+.datagrid table { 
 border-collapse: collapse;
 text-align: left; 
-display: block;
 width:100%;
-overflow-x: auto;
--ms-overflow-style: -ms-autohiding-scrollbar;
-
   } 
 
 .datagrid { 
@@ -1736,7 +1735,12 @@ background: #fff; overflow: hidden;
 border: 3px solid #652299;
 -webkit-border-radius: 2px; 
 -moz-border-radius: 2px; 
-border-radius: 6px; }
+border-radius: 6px; 
+display: block;
+width:100%;
+overflow-x: auto;
+-ms-overflow-style: -ms-autohiding-scrollbar;
+}
 
 .datagrid table td, 
 .datagrid table th { padding: 3px 7px; }
@@ -1762,47 +1766,55 @@ font-size: 16px;font-weight: normal; }
 background: #F4E3FF; 
 color: #4D1A75; }
 
-.datagrid table tbody td:first-child { border-left: none; }
+div.dhtmlx_window_active, div.dhx_modal_cover_dv { position: fixed !important; }
+  /**
+      ------------------------
+      Tabla Css End
+  */
+   /**
+      Tabla Css INi
+      ------------------------
+      **/
+.datagr table { 
+border-collapse: collapse;
+text-align: left; 
+width:100%;
+ } 
 
-.datagrid table tbody tr:last-child td { border-bottom: none; }
+.datagr { 
+font:bold normal 16px/150% italic, Helvetica, sans-serif; 
+background: #fff; overflow: hidden; 
+border: 3px solid #652299;
+-webkit-border-radius: 2px; 
+-moz-border-radius: 2px; 
+border-radius: 6px; 
+}
 
-.datagrid table tfoot td div { 
-border-top: 1px solid #652299;
-background: #F4E3FF;} 
+.datagr table td, 
+.datagr table th { padding: 3px 7px; }
 
-.datagrid table tfoot td { padding: 0; font-size: 12px } 
-
-.datagrid table tfoot td div{ padding: 2px; }
-
-.datagrid table tfoot td ul { 
-margin: 0;
-padding:0; 
-list-style: none; 
-text-align: right; }
-
-.datagrid table tfoot  li { display: inline; }
-
-.datagrid table tfoot li a { 
-text-decoration: none; 
-display: inline-block;  
-padding: 2px 8px; 
-margin: 1px;color: #FFFFFF;
-border: 1px solid #652299;
--webkit-border-radius: 3px; 
--moz-border-radius: 3px; 
-border-radius: 3px; 
+.datagr table thead th { 
 background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #652299), color-stop(1, #4D1A75) );
 background:-moz-linear-gradient( center top, #652299 5%, #4D1A75 100% );
 filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#652299', endColorstr='#4D1A75');
-background-color:#652299; }
+background-color:#652299; 
+color:#FFFFFF; 
+font-size: 15px; 
+font-weight: bold; 
+border-left: 2px solid #714399; }
 
-.datagrid table tfoot ul.active, 
-.datagrid table tfoot ul a:hover { 
-text-decoration: none;
-border-color: #4D1A75; 
-color: #FFFFFF; 
-background: none; 
-background-color:#652299;}
+.datagr table thead th:first-child { border: none; }
+
+.datagr table tbody td { 
+color: #000000; 
+border-left: 1px solid #E7BDFF;
+font-size: 16px;font-weight: normal; }
+
+.datagr table tbody .alt td { 
+background: #F4E3FF; 
+color: #4D1A75; }
+
+
 div.dhtmlx_window_active, div.dhx_modal_cover_dv { position: fixed !important; }
   /**
       ------------------------

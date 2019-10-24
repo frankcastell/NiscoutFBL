@@ -455,6 +455,8 @@
     <Content Include="Content\assets\plugins\perfect-scrollbar\js\perfect-scrollbar.js" />
     <Content Include="Content\assets\plugins\perfect-scrollbar\js\perfect-scrollbar.min.js" />
     <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\ButtonStyles.css" />
     <Content Include="Content\css\colors\default-dark.css" />
     <Content Include="Content\css\icons\font-awesome\css\font-awesome.css" />
