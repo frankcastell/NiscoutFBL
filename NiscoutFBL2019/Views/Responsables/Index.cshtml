@@ -8,6 +8,20 @@
 <p>
     <a href= "@Url.Action("Create", "Responsables")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Registrar Responsable</a>
 </p>
+@using (Html.BeginForm("Index", "Responsables", FormMethod.Get))
+{
+
+    <div>
+        @Html.TextBox("buscar", "", new { @class = "form-control" })
+       
+        <hr />
+        <input type="submit" value="Buscar" class="btn btn-outline-success"/>
+        <hr />
+    </div>
+}
+
+@if (Model != null)
+{
 
     <div class="datagrid">
         <table class="table vm no-th-brd no-wrap pro-of-month">
@@ -110,3 +124,4 @@
 
         </table>
     </div>
+}
