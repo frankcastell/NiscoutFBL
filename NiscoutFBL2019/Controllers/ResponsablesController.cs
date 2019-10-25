@@ -17,10 +17,23 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Responsables
-        public ActionResult Index()
+        public ActionResult Index(string buscar)
         {
-            var responsables = db.Responsable.Include(r => r.Departamento).Include(r => r.Periodo);
+            var responsables = from s in db.Responsable
+                               select s;
+            db.Responsable.Include(r => r.Departamento).Include(r => r.Periodo);
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                responsables = responsables.Where(s => s.Nombres.Contains(buscar));
+            }
             return View(responsables.ToList());
+
+            //var depto = from s in db.Departamentos
+            //            select s;
+            //if (!string.IsNullOrEmpty(searching))
+            //{
+            //    depto = depto.Where(s => s.Nombre_Departamento.Contains(searching));
+            //}
 
             //var personas = db.Personas.Include(p => p.Departamento);
             //return View(personas.ToList());

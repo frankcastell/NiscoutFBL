@@ -17,9 +17,16 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Departamentoes
-        public ActionResult Index()
+        public ActionResult Index( string searching)
         {
-            return View(db.Departamentos.ToList());
+            var depto = from s in db.Departamentos
+                        select s;
+            if(!string.IsNullOrEmpty(searching))
+            {
+                depto = depto.Where(s => s.Nombre_Departamento.Contains(searching));
+            }
+
+            return View(depto.ToList());
         }
 
         // GET: Departamentoes/Details/5
