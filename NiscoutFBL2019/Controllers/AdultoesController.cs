@@ -16,10 +16,17 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Adultoes
-        public ActionResult Index()
+        public ActionResult Index(string buscar)
         {
-            var adulto = db.Adultos.Include(a => a.Departamento);
-            return View(adulto.ToList());
+
+            var adulto = from s in db.Adultos
+                         select s; db.Adultos.Include(a => a.Departamento);
+            
+            if (!string.IsNullOrEmpty(buscar))
+            {
+                adulto = adulto.Where(s => s.Nombres.Contains(buscar));
+            }
+           return View(adulto.ToList());
         }
 
         // GET: Adultoes/Details/5
