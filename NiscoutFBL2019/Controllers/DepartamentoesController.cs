@@ -21,7 +21,16 @@ namespace NiscoutFBL2019.Controllers
         {
             var depto = from s in db.Departamentos
                         select s;
-            if(!string.IsNullOrEmpty(searching))
+            //if(searching == "Cod_Departamento")
+            //{
+            //    return View(depto.Where(x => x.Cod_Departamento == buscar|| buscar == null).ToList());
+            //}
+            //else
+            //{
+            //    return View(depto.Where(x => x.Nombre_Departamento.StartsWith(buscar) || buscar == null).ToList());
+            //}
+
+            if (!string.IsNullOrEmpty(searching))
             {
                 depto = depto.Where(s => s.Nombre_Departamento.Contains(searching));
             }
