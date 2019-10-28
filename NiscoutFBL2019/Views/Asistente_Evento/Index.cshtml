@@ -4,30 +4,58 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Hora_Llegada)
-        </th>
-        <th></th>
-    </tr>
+<link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hora_Llegada)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+@using (Html.BeginForm("Index", "Asistente_Evento", FormMethod.Get))
+{
+
+    <div>
+        <h2>Registros de Asistente de Evento</h2>
+        @Html.TextBox("busqueda")
+        <input  type="submit" value="Buscar" class="btn btn-outline-success" />
+        <hr />
+    </div>
 }
+<p>
+    <a href="@Url.Action("Create", "Asistente_Evento")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Registrar Nuevo Asistente Evento</a>
+</p>
+<hr />
 
+
+ <div class="datagr">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hora_Llegada)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+     @if (Model.Count() == 0)
+     {
+    <tr>
+        <td colspan="4"> No se ha encontrado ningún dato relacionado</td>
+    </tr>
+     }
+     else
+     {
+         foreach (var item in Model)
+         {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hora_Llegada)
+                    </td>
+                    <td>
+                        
+                        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
+                        <button class="btn waves-effect waves-red btn-info hidden-md-down">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button>
+                        <button class="btn waves-effect waves-light btn-danger hidden-md-down">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>
+                    </td>
+                </tr>
+         }
+     }
 </table>
+</div>
+
