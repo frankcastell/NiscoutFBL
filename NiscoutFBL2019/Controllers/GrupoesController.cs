@@ -17,9 +17,13 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Grupoes
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
             var grupos = db.Grupos.Include(g => g.Responsable).Include(g => g.Distrito);
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                grupos = grupos.Where(gr => gr.Nombre_Grupo.Contains(buscar));
+            }
             return View(grupos.ToList());
         }
 

@@ -17,9 +17,14 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Eventoes
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
             var eventos = db.Eventos.Include(e => e.SubGrupo);
+
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                eventos = eventos.Where(e => e.Nombre_Evento.Contains(buscar));
+            }
             return View(eventos.ToList());
         }
 
