@@ -38,11 +38,15 @@ body, html {
 	font-family: Poppins-Regular, sans-serif;
 }
 .header-w3l {
+   
+     margin-top: -130px;
     padding-top: 2em;
 }
-.header-w3l h1 {
-    font-size: 3.3em;
-    color: #f8f9fa;
+.header-w3l h1 {  
+   
+    text-align:center;
+    font-size: 3.1em;
+    color: #6c2a92;
     letter-spacing: 1px;
     font-weight: 300;
     text-align: center;
@@ -201,7 +205,12 @@ iframe {
   justify-content: space-between;
   padding: 177px 130px 33px 95px;
 }
-
+.Imagen{
+   height: 150px;
+    position: absolute;
+    top: 600px;
+    left: 650px
+}
 /*------------------------------------------------------------------
 [  ]*/
 .login100-pic {
@@ -220,6 +229,7 @@ iframe {
 }
 
 .login100-form-title {
+        padding-top: 55px;
   font-family: Poppins-Bold;
   font-size: 24px;
   color: #333333;
@@ -376,6 +386,7 @@ iframe {
   }
 
   .login100-pic {
+          padding-top: 55px;
     width: 35%;
   }
 
