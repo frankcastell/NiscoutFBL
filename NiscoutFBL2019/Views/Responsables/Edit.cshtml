@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <hr />
+   
     <div class="datagrid">
         <div class="form-horizontal">
             <br />
@@ -130,15 +130,12 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button class="btn waves-effect waves-purple btn-danger hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>
                 </div>
-            </div><hr />              
+            </div>             
          </div>
       </div>
         }
 
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-
+        
         @section Scripts {
             @Scripts.Render("~/bundles/jqueryval")
         }

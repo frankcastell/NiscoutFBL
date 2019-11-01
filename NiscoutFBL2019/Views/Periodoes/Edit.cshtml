@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     <div class="datagrid">
         <div class="form-horizontal">
-            <hr />
+            <br />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Id)
 
@@ -42,7 +42,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button class="btn waves-effect waves-purple btn-danger hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>
                 </div>
-            </div><hr />
+            </div>
           </div>
         </div>
         }
