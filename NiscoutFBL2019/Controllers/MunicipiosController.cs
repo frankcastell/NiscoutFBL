@@ -17,9 +17,14 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Municipios
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
             var municipios = db.Municipios.Include(m => m.Departamento);
+
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                municipios = municipios.Where(m => m.Nombre_Municipio.Contains(buscar));
+            }
             return View(municipios.ToList());
         }
 
