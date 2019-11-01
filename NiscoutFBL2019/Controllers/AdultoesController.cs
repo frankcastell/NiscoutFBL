@@ -47,7 +47,7 @@ namespace NiscoutFBL2019.Controllers
         // GET: Adultoes/Create
         public ActionResult Create()
         {
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace NiscoutFBL2019.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", adulto.DepartamentoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);
             return View(adulto);
         }
 
