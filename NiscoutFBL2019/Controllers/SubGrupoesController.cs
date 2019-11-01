@@ -16,9 +16,13 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: SubGrupoes
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
             var subGrupos = db.SubGrupos.Include(s => s.Asistente).Include(s => s.Tipo_Grupo).Include(s => s.Grupo);
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                subGrupos = subGrupos.Where(s => s.Nombre_Subgrupo.Contains(buscar));
+            }
             return View(subGrupos.ToList());
         }
 

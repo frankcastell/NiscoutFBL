@@ -5,9 +5,7 @@
 
 <h3>¿Está Seguro que desea Eliminar Este Registro...?</h3>
 
-
-   
-    <hr />
+<hr />
 <div class="datagrid">
 
     <table class="table vm no-th-brd no-wrap pro-of-month">
@@ -118,13 +116,13 @@
        
                  
             </table>
-    @using (Html.BeginForm())
-            {
+  @using (Html.BeginForm())
+  {
         @Html.AntiForgeryToken()
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <div  class="form-group">                    
-                    <input type="submit" value="Eliminar Registro" class="btn btn-outline-danger" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input title="Una vez eliminado, no se podrá recuperar" type="submit" value="Eliminar Registro" class="btn btn-outline-danger" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>

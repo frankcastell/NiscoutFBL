@@ -76,7 +76,7 @@ namespace NiscoutFBL2019.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", responsable.DepartamentoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", responsable.DepartamentoId);
             ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Id", responsable.PeriodoId);
             return View(responsable);
         }

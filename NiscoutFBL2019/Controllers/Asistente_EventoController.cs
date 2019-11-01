@@ -16,8 +16,14 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Asistente_Evento
-        public ActionResult Index()
+        public ActionResult Index( string busqueda)
         {
+            var asist_Evento = from asist in db.Asistente_Eventos
+                               select asist;
+            if (!string.IsNullOrEmpty(busqueda))
+            {
+                asist_Evento = asist_Evento.Where(asist => asist.Hora_Llegada.ToString().Contains(busqueda));
+            }
             return View(db.Asistente_Eventos.ToList());
         }
 

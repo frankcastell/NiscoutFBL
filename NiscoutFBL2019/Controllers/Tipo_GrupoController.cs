@@ -16,9 +16,16 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Tipo_Grupo
-        public ActionResult Index()
+        public ActionResult Index(string buscar)
         {
-            return View(db.Tipo_Grupos.ToList());
+            var tipoG = from tp in db.Tipo_Grupos
+                     select tp;
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                tipoG = tipoG.Where(tp => tp.Nombre_Tipo_Grupo.Contains(buscar));
+            }
+
+            return View(tipoG.ToList());
         }
 
         // GET: Tipo_Grupo/Details/5

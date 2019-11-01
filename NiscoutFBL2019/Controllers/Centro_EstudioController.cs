@@ -17,9 +17,17 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Centro_Estudio
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
-            return View(db.Centro_Estudios.ToList());
+            var centro = from ce in db.Centro_Estudios
+                         select ce;
+
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                centro = centro.Where(ce => ce.Nombre_Centro.Contains(buscar));
+            }
+
+            return View(centro.ToList());
         }
 
         // GET: Centro_Estudio/Details/5

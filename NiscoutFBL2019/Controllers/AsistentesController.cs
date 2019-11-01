@@ -17,9 +17,14 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Asistentes
-        public ActionResult Index()
+        public ActionResult Index(string  busqueda)
         {
             var asistentes = db.Asistentes.Include(a => a.Departamento);
+            
+            if (!string.IsNullOrEmpty(busqueda))
+            {
+                asistentes = asistentes.Where(s => s.Nombres.Contains(busqueda));
+            }
             return View(asistentes.ToList());
         }
 

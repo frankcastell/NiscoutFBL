@@ -5,21 +5,29 @@
 }
     
 <link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
+<h2>Registros de Responsables</h2>
 
-<div>
-       <div align="right">
+    <div align="left">
             @using (Html.BeginForm("Index", "Responsables", FormMethod.Get))
             {
-                <div>
-                    @Html.TextBox("buscar") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Buscar" class="btn btn-outline-success" />
+                <div align="right">
                     <hr />
+                        <a href="@Url.Action("Create", "Responsables")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Registrar Responsable</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        @Html.TextBox("buscar") 
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="submit" value="Buscar" class="btn btn-outline-success" />
+                        <hr />
                 </div>
             }
-        </div>
-    <p align="left">
-     <a href="@Url.Action("Create", "Responsables")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Registrar Responsable</a>
-    </p>
-</div>
+     </div>
 
     <div class="datagrid">
         <table class="table vm no-th-brd no-wrap pro-of-month">
@@ -131,4 +139,4 @@
 
         </table>
     </div>
-    }
+    

@@ -4,13 +4,33 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Registros de Periodos</h2>
+<h2>Registros de Cargos</h2>
 <link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
-<p>
-    <a href="@Url.Action("Create","Cargoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Agregar Nuevo Cargo</a>
-</p>
+<div align="left">
+    @using (Html.BeginForm("Index", "Cargoes", FormMethod.Get))
+    {
+        <div align="right">
+            <hr />
+            <a href="@Url.Action("Create", "Cargoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Agregar Nuevo Cargo</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+             @Html.TextBox("buscar")
+            &nbsp;&nbsp;&nbsp;
+            <input type="submit" value="Buscar" class="btn btn-outline-success"/>
+            <hr />
+        </div>
+    }
+</div>
+
 <div class="datagr">
-    <table>
+    <table >
         <thead>
             <tr>
                 <th>
@@ -22,8 +42,16 @@
                 <th></th>
             </tr>
         </thead>
-        @foreach (var item in Model)
-            {
+          @if (Model.Count() == 0)
+          {
+        <tr>
+            <td colspan="4"> No se ha encontrado ningún dato relacionado</td>
+        </tr>
+          }
+          else
+          {
+          foreach (var item in Model)
+          {
             <tbody>
                 <tr class="alt">
                     <td>
@@ -33,15 +61,17 @@
                         @Html.DisplayFor(modelItem => item.Nombre_Cargo)
                     </td>
                     <td>
-                        @*@Html.ActionLink("Edit", "Edit", new { id = item.Id })*@
+                      
                         <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
                         <button class="btn waves-effect waves-red btn-info hidden-md-down">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button>
                         <button class="btn waves-effect waves-light btn-danger hidden-md-down">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>
                     </td>
                 </tr>
             </tbody>
-        }
+          }
+      }
 
     </table>
 
 </div>
+

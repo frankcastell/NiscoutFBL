@@ -4,25 +4,32 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Registros de Adultos</h2>
+
 <link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
-<p>
-    <a href="@Url.Action("Create", "Adultoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Registrar Nuevo Adulto</a>
-</p>
-@using (Html.BeginForm("Index", "Adultoes", FormMethod.Get))
-{
+<h2>Registros de Adultos</h2>
+<div align="left">
+    @using (Html.BeginForm("Index", "Adultoes", FormMethod.Get))
+    { 
+        <div align="right">
+            <hr />
+            <a href="@Url.Action("Create", "Adultoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Registrar Nuevo Adulto</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <div>
-        @Html.TextBox("buscar", "", new { @class = "form-control" })
+            @Html.TextBox("buscar")
+            &nbsp; &nbsp; &nbsp; 
+            <input type="submit" value="Buscar" class="btn btn-outline-success" />
+            <hr />
+        </div>
+    }
+</div>
 
-        <hr />
-        <input type="submit" value="Buscar" class="btn btn-outline-success" />
-        <hr />
-    </div>
-}
-
-@if (Model != null)
-{
 
 <div class="datagrid">
     <table class="table vm no-th-brd no-wrap pro-of-month">
@@ -67,8 +74,16 @@
             <th></th>
         </tr>
     </thead>
-    @foreach (var item in Model)
-    {
+          @if (Model.Count() == 0)
+          {
+    <tr>
+        <td colspan="4"> No se ha encontrado ningún dato relacionado</td>
+    </tr>
+          }
+          else
+          {
+              foreach (var item in Model)
+              {
         <tbody>
             <tr class="alt">
                 <td>
@@ -115,8 +130,7 @@
                 </td>
             </tr>
             </tbody>
-    }
-
+              }
+          }
     </table>
     </div>
-}
