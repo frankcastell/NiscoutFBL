@@ -17,9 +17,17 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Cargoes
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
-            return View(db.Cargos.ToList());
+            var cargos = from c in db.Cargos
+                         select c;
+
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                cargos = cargos.Where(c => c.Nombre_Cargo.Contains(buscar));
+            }
+
+            return View(cargos.ToList());
         }
 
         // GET: Cargoes/Details/5

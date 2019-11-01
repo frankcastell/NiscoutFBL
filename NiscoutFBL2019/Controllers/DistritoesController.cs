@@ -17,9 +17,16 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Distritoes
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
-            return View(db.Distritos.ToList());
+            var distrito = from ds in db.Distritos
+                           select ds;
+                                       
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                distrito = distrito.Where(ds => ds.Nombre_Distrito.Contains(buscar));
+            }
+            return View(distrito.ToList());
         }
 
         // GET: Distritoes/Details/5

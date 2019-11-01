@@ -4,29 +4,34 @@
     ViewBag.Title = "Index";
 }
 <link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
+<h2>Registros de Asistente</h2>
+<div align="left">
+    @using (Html.BeginForm("Index", "Asistentes", FormMethod.Get))
+    {
+        <div align="right">
+            <hr />
+            <a href="@Url.Action("Create", "Asistentes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Registrar Nuevo Asistentes</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-@using (Html.BeginForm("Index", "Asistentes", FormMethod.Get))
-{
-
-    <div>
-        <h2>Registros de Asistente</h2>
-        @Html.TextBox("busqueda")
-        <input type="submit" value="Buscar" class="btn btn-outline-success" />
-        <hr />
-    </div>
-}
-<p>
-    <a href="@Url.Action("Create", "Asistentes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Registrar Nuevo Asistentes</a>
-</p>
-<hr />
+            @Html.TextBox("busqueda")
+            &nbsp;&nbsp;&nbsp;
+            <input type="submit" value="Buscar" class="btn btn-outline-success" />
+            <hr />
+        </div>
+    }
+</div>
 
 <div class="datagrid">
     <table class="table vm no-th-brd no-wrap pro-of-month">
         <thead>
                 <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)
-                    </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Cod_Persona)
                     </th>
@@ -60,6 +65,9 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Direccion)
                     </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)
+                    </th>
                     <th></th>
                 </tr>
             @if (Model.Count() == 0)
@@ -73,9 +81,7 @@
                 foreach (var item in Model)
                 {
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)
-                        </td>
+                        
                         <td>
                             @Html.DisplayFor(modelItem => item.Cod_Persona)
                         </td>
@@ -108,6 +114,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Direccion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)
                         </td>
                         <td>
 
