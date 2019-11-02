@@ -61,7 +61,11 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            else
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
             ViewBag.Asistente_EventoId = new SelectList(db.Asistente_Eventos, "Id", "Id", detalle_Evento_Patro.Asistente_EventoId);
             ViewBag.EventoId = new SelectList(db.Eventos, "Id", "Cod_Evento", detalle_Evento_Patro.EventoId);
             ViewBag.Local_EventoId = new SelectList(db.Local_Eventos, "Id", "Nombre", detalle_Evento_Patro.Local_EventoId);

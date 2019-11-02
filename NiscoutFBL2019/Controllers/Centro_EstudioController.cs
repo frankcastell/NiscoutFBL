@@ -96,6 +96,7 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            
             return View(centro_Estudio);
         }
 

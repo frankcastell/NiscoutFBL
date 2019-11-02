@@ -32,5 +32,10 @@ namespace NiscoutFBL2019.Controllers
             
             return View();
         }
+        public ActionResult Catalogos()
+        {
+
+            return View();
+        }
     }
 }
