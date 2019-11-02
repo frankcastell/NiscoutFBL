@@ -129,5 +129,20 @@
         }
 
         @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
+
+
+    <link href="~/Content/css/datepicker.min.css" rel="stylesheet" type="text/css">
+    <script src="~/Scripts/js/datepicker.min.js"></script>
+    <script src="~/Scripts/js/i18n/datepicker.es.js"></script>
+    <script>
+    $(function () {
+
+
+        $("#Fecha_Nac").datepicker({ language: 'es', dateFormat: 'dd-mm-yy' });
+
+  } );
+    </script>
+
+
+    @Scripts.Render("~/bundles/jqueryval")
         }
