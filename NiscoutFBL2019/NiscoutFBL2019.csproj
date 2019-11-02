@@ -502,6 +502,7 @@
     <Content Include="Content\scss\icons\themify-icons\ie7\ie7.css" />
     <Content Include="Content\scss\icons\themify-icons\ie7\ie7.js" />
     <Content Include="Content\scss\icons\themify-icons\themify-icons.css" />
+    <Content Include="Scripts\js\swiper.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1008,6 +1009,7 @@
     <Content Include="Login_v1\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Login_v1\vendor\bootstrap\css\bootstrap.min.css.map" />
     <None Include="Project_Readme.html" />
+    <Content Include="Views\Home\Catalogos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -63,7 +63,11 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            else
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
             ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Cod_Persona", subGrupo.AsistenteId);
             ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Cod_Tipo_Grupo", subGrupo.Tipo_GrupoId);
             ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Cod_Grupo", subGrupo.GrupoId);

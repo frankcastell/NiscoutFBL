@@ -59,7 +59,11 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            else
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
             ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Adulto.Etapa_AprobacionId);
             return View(membresia_Adulto);

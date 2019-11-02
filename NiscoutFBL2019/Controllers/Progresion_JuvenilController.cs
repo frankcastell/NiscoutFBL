@@ -57,7 +57,11 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            else
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
             ViewBag.Membresia_JuvenilId = new SelectList(db.Membresia_Juveniles, "Id", "Id", progresion_Juvenil.Membresia_JuvenilId);
             return View(progresion_Juvenil);
         }

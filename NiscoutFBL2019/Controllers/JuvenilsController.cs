@@ -58,7 +58,11 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            else
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro", juvenil.Centro_EstudioId);
             return View(juvenil);
         }
