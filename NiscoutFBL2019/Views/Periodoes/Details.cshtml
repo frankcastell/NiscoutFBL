@@ -4,41 +4,46 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Detalle de la Información</h2>
-<hr />
-<div class="datagrid">
-    <table class="table vm no-th-brd no-wrap pro-of-month">
-        <thead>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Desde)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Desde)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Hasta)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Hasta)
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-          </thead>
-     </table>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
-    </p> 
+<h2>Details</h2>
+
+<div>
+    <h4>Periodo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Desde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Desde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hasta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hasta)
+        </dd>
+
+    </dl>
 </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Volver", "Index")
+</p>
+@section Scripts {
+
+    <link href="~/Content/css/datepicker.min.css" rel="stylesheet" type="text/css">
+    <script src="~/Scripts/js/datepicker.min.js"></script>
+    <script src="~/Scripts/js/i18n/datepicker.es.js"></script>
+    <script>
+    $(function () {
+
+
+        $("#Desde").datepicker({ language: 'es', dateFormat: 'dd-mm-yy' });
+        $("#Hasta").datepicker({ language: 'es', dateFormat: 'dd-mm-yy' });
+
+  } );
+    </script>
+}
