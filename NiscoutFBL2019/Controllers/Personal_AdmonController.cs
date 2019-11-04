@@ -40,8 +40,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Personal_Admon/Create
         public ActionResult Create()
         {
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
-            ViewBag.CargoId = new SelectList(db.Cargos, "Id", "Cod_Cargo");
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
+            ViewBag.CargoId = new SelectList(db.Cargos, "Id", "Nombre_Cargo");
             return View();
         }
 
@@ -63,8 +63,8 @@ namespace NiscoutFBL2019.Controllers
             {
                 return RedirectToAction("Index");
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", personal_Admon.DepartamentoId);
-            ViewBag.CargoId = new SelectList(db.Cargos, "Id", "Cod_Cargo", personal_Admon.CargoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", personal_Admon.DepartamentoId);
+            ViewBag.CargoId = new SelectList(db.Cargos, "Id", "Nombre_Cargo", personal_Admon.CargoId);
             return View(personal_Admon);
         }
 

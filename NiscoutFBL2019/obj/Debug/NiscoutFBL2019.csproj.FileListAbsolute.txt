@@ -805,3 +805,4 @@ C:\Users\luism\OneDrive\Documentos\Nisc\NiscoutFBL2019\bin\es\Microsoft.Owin.Sec
 C:\Users\luism\OneDrive\Documentos\Nisc\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.csprojResolveAssemblyReference.cache
 C:\Users\luism\OneDrive\Documentos\Nisc\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.dll
 C:\Users\luism\OneDrive\Documentos\Nisc\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.pdb
+C:\Users\Ing. Francisco\Source\Repos\frankcastell\NiscoutFBL\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.csprojResolveAssemblyReference.cache
