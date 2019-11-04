@@ -4,13 +4,13 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Resgistrando nuevo periodo...</h2>
+<h2>Resgistrando Nuevo Periodo...</h2>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    <hr />
+ 
     <div class="datagrid">
                     <div class="form-horizontal">
                       <br />
@@ -33,7 +33,13 @@
 
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
                                 <input type="submit" value="Agregar" class="btn btn-outline-success" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Regresar a la lista", "Index")</button>
                             </div>
                         </div>

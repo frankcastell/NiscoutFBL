@@ -4,122 +4,135 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalle de la Información</h2>
 
-<div>
-    <h4>Personal_Admon</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Departamento.Cod_Departamento)
-        </dd>
+<div class="datagrid">
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Departamento.Cod_Departamento)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Cod_Persona)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Cod_Persona)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Nombres)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Nombres)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Apellidos)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Apellidos)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Fecha_Nac)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Fecha_Nac)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.E_Mail)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.E_Mail)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Cedula)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Cedula)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Sexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Sexo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Estado_Civil)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Estado_Civil)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Num_Pasaporte)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Num_Pasaporte)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Telefono)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Direccion)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Cargo.Cod_Cargo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Cargo.Cod_Cargo)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            </thead>
+        </table>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cod_Persona)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cod_Persona)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombres)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nombres)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Apellidos)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Apellidos)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha_Nac)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fecha_Nac)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.E_Mail)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.E_Mail)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cedula)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cedula)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Sexo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Sexo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Estado_Civil)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Estado_Civil)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Num_Pasaporte)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Num_Pasaporte)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Direccion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cargo.Cod_Cargo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cargo.Cod_Cargo)
-        </dd>
-
-    </dl>
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
 @section Scripts {
 
 
@@ -127,12 +140,12 @@
     <script src="~/Scripts/js/datepicker.min.js"></script>
     <script src="~/Scripts/js/i18n/datepicker.es.js"></script>
     <script>
-    $(function () {
+        $(function () {
 
 
-        $("#Fecha_Nac").datepicker({ language: 'es', dateFormat: 'dd-mm-yy' });
+            $("#Fecha_Nac").datepicker({ language: 'es', dateFormat: 'dd-mm-yy' });
 
-  } );
+        });
     </script>
 
 
