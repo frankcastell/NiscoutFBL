@@ -39,8 +39,10 @@ namespace NiscoutFBL2019
                              "~/Content/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css",
                              "~/Content/assets/plugins/c3-master/c3.min.css",
                              "~/Content/css/style.css",
+                             "~/Content/css/ButtonStyles.css",
                              "~/Content/css/pages/dashboard.css",
-                             "~/Content/css/colors/default-dark.css"));
+                             "~/Content/css/colors/default-dark.css"
+                             ));
         }
     }
 }

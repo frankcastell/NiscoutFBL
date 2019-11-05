@@ -59,7 +59,11 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            else
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
             ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Cod_Grupo", detalle_Grupo_Patro.GrupoId);
             ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Cod_Persona", detalle_Grupo_Patro.PatrocinadorId);
             return View(detalle_Grupo_Patro);

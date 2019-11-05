@@ -16,9 +16,14 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Sectors
-        public ActionResult Index()
+        public ActionResult Index( string searching)
         {
             var sectores = db.Sectores.Include(s => s.Municipio).Include(s => s.Distrito);
+
+            if(!string.IsNullOrEmpty(searching))
+            {
+                sectores = sectores.Where(s => s.Nombre_Sector.Contains(searching));
+            }
             return View(sectores.ToList());
         }
 
@@ -58,7 +63,11 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            else
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
             ViewBag.MunicipioId = new SelectList(db.Municipios, "Id", "Cod_Municipio", sector.MunicipioId);
             ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Cod_Distrito", sector.DistritoId);
             return View(sector);

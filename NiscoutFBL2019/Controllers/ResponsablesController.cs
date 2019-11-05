@@ -57,8 +57,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Responsables/Create
         public ActionResult Create()
         {
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
-            ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Id");
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
+            ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Desde");
             return View();
         }
 
@@ -75,9 +75,15 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            else
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", responsable.DepartamentoId);
-            ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Id", responsable.PeriodoId);
+            ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Desde", responsable.PeriodoId);
             return View(responsable);
         }
 
@@ -93,8 +99,8 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", responsable.DepartamentoId);
-            ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Id", responsable.PeriodoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", responsable.DepartamentoId);
+            ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Desde", responsable.PeriodoId);
             return View(responsable);
         }
 

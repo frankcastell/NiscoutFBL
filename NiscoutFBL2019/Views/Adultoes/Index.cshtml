@@ -4,9 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-
-<link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
+@Styles.Render("Content","Slide_Catal","css")
+@Styles.Render("Content","css")
 <h2>Registros de Adultos</h2>
+
 <div align="left">
     @using (Html.BeginForm("Index", "Adultoes", FormMethod.Get))
     { 
@@ -36,7 +37,8 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
+                @*@Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)*@
+                Nombre de Depto
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cod_Persona)
@@ -85,7 +87,7 @@
               foreach (var item in Model)
               {
         <tbody>
-            <tr class="alt">
+            <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Departamento.Cod_Departamento)
                 </td>
