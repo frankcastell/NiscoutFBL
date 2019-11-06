@@ -4,42 +4,47 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Registro de Progresion Juvenil</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "Progresion_Juvenil")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Agregar Progresion Juvenil</a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Cod_Etapa_Prog)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion_Etapa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Membresia_Juvenil.Id)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cod_Etapa_Prog)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion_Etapa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Membresia_Juvenil.Id)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+<div class="datagr">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cod_Etapa_Prog)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion_Etapa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Membresia_Juvenil.Id)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr class="alt">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cod_Etapa_Prog)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion_Etapa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Membresia_Juvenil.Id)
+                    </td>
+                    <td>
+                        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
+                        <button class="btn waves-effect waves-red btn-info hidden-md-down">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button>
+                        <button class="btn waves-effect waves-light btn-danger hidden-md-down">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>
+                    </td>
+                </tr>
+            }
 
-</table>
+    </table>
+    </div>

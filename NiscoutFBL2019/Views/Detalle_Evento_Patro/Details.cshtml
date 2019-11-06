@@ -4,63 +4,73 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalle de la Información</h2>
 
-<div>
-    <h4>Detalle_Evento_Patro</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Asistente_Evento.Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Asistente_Evento.Id)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Evento.Cod_Evento)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Evento.Cod_Evento)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Local_Evento.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Local_Evento.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Patrocinador.Cod_Persona)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Patrocinador.Cod_Persona)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Desde)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Desde)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Hasta)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Hasta)
-        </dd>
-
-    </dl>
+<div class="datagrid">
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Asistente_Evento.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Asistente_Evento.Id)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Evento.Cod_Evento)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Evento.Cod_Evento)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Local_Evento.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Local_Evento.Nombre)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Patrocinador.Cod_Persona)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Patrocinador.Cod_Persona)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Desde)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Desde)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Hasta)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Hasta)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+    </table>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
+     </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

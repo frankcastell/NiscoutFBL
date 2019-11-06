@@ -4,36 +4,41 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Etapa Aprobacion</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "Etapa_Aprobacion")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Agregar Etapa Aprobacion</a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Cod_Etapa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cod_Etapa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+<div class="datagr">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cod_Etapa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Estado)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+           @foreach (var item in Model)
+            {
+                <tr class="alt">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cod_Etapa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado)
+                    </td>
+                    <td>
+                        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
+                        <button class="btn waves-effect waves-red btn-info hidden-md-down">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button>
+                        <button class="btn waves-effect waves-light btn-danger hidden-md-down">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>
+                    </td>
+                </tr>
+            }
 
-</table>
+    </table>
+    </div>
