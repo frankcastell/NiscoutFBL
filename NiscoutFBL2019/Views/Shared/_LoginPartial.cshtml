@@ -1,23 +1,27 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = " mr-auto" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    @*<ul class="nav navbar-nav navbar-right">*@
-        <ul class="navbar-nav mr-auto">        
-           <li class="nav-item dropdown">
-                <p>@Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Usuario" })</p>             
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Salir
-               </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>                   
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a>
-                    </div>
-                </li>                        
+        @*<ul class="nav navbar-nav navbar-right">*@
+      
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Usuario" })
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="~/Content/assets/images/users/3.jpg" alt="user" class="profile-pic">
+       
+        </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="@Url.Action("ChangePassword", "Manage")">Contraseña
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a>
+                </div>
+            </li>
         </ul>
     }
 }
@@ -28,3 +32,4 @@ else
         <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
+@*@Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Usuario" }*@
