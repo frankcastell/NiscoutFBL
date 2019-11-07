@@ -4,52 +4,55 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Registrando Nueva Membresia Juvenil</h2>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Membresia_Juvenil</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.SubGrupoId, "SubGrupoId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SubGrupoId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SubGrupoId, "", new { @class = "text-danger" })
+    <div class="datagrid">
+        <div class="form-horizontal">
+            <br />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.SubGrupoId, "SubGrupoId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("SubGrupoId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SubGrupoId, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.JuvenilId, "JuvenilId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("JuvenilId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.JuvenilId, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.JuvenilId, "JuvenilId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("JuvenilId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.JuvenilId, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TutorId, "TutorId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("TutorId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.TutorId, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.TutorId, "TutorId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("TutorId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TutorId, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="Agregar" class="btn btn-outline-success" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Regresar a la lista", "Index")</button>
+                </div>
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

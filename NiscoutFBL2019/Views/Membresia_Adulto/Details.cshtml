@@ -4,71 +4,84 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalle de la Información</h2>
 
-<div>
-    <h4>Membresia_Adulto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Adulto.Cod_Persona)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Adulto.Cod_Persona)
-        </dd>
+<div class="datagrid">
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Adulto.Cod_Persona)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Adulto.Cod_Persona)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion1.Cod_Etapa)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Etapa_Aprobacion1.Cod_Etapa)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Carta_Compromiso)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Carta_Compromiso)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Carta_Intencion)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Carta_Intencion)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Record_Policia)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Record_Policia)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Carta_Ref_Personal)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Certifi_Salvo_Peligro)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+    </table>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Etapa_Aprobacion1.Cod_Etapa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Etapa_Aprobacion1.Cod_Etapa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Carta_Compromiso)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Carta_Compromiso)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Carta_Intencion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Carta_Intencion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Record_Policia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Record_Policia)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Carta_Ref_Personal)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Certifi_Salvo_Peligro)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    </p>
+    </div>
+   

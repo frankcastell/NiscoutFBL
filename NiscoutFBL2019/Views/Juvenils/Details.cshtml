@@ -4,23 +4,35 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalle de la Informacion</h2>
 
-<div>
-    <h4>Juvenil</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Centro_Estudio.Cod_Centro)
-        </dt>
+<div class="datagrid">
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Centro_Estudio.Cod_Centro)
+                </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Centro_Estudio.Cod_Centro)
-        </dd>
+                <td>
+                    @Html.DisplayFor(model => model.Centro_Estudio.Cod_Centro)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+    </table>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
 
-    </dl>
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

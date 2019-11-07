@@ -17,9 +17,14 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Membresia_Adulto
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
             var membresia_Adultos = db.Membresia_Adultos.Include(m => m.Adulto).Include(m => m.Etapa_Aprobacion1);
+
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                membresia_Adultos = membresia_Adultos.Where(ma => ma.Adulto.Nombres.Contains(buscar));
+            }
             return View(membresia_Adultos.ToList());
         }
 
