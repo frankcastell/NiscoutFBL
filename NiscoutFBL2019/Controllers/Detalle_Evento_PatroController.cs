@@ -17,9 +17,14 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Detalle_Evento_Patro
-        public ActionResult Index()
+        public ActionResult Index( string searching)
         {
             var detalle_Evento_Patros = db.Detalle_Evento_Patros.Include(d => d.Asistente_Evento).Include(d => d.Evento).Include(d => d.Local_Evento).Include(d => d.Patrocinador);
+
+            if(!string.IsNullOrEmpty(searching))
+            {
+                detalle_Evento_Patros = detalle_Evento_Patros.Where(dep => dep.Local_Evento.Nombre.Contains(searching));
+            }
             return View(detalle_Evento_Patros.ToList());
         }
 

@@ -4,45 +4,58 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>¿Está Seguro que desea Eliminar Este Registro...?</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Progresion_Juvenil</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cod_Etapa_Prog)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cod_Etapa_Prog)
-        </dd>
+<div class="datagrid">
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+            <tr>
+                <td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion_Etapa)
-        </dt>
+                    @Html.DisplayNameFor(model => model.Cod_Etapa_Prog)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Cod_Etapa_Prog)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Descripcion_Etapa)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Descripcion_Etapa)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Membresia_Juvenil.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Membresia_Juvenil.Id)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+    </table>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion_Etapa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Membresia_Juvenil.Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Membresia_Juvenil.Id)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="form-group">
+                    <input title="Una vez eliminado, no se podrá recuperar" type="submit" value="Eliminar Registro" class="btn btn-outline-danger" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>
+                </div>
+            </div>
         </div>
     }
 </div>
+

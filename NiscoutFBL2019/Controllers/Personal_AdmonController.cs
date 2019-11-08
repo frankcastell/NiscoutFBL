@@ -16,9 +16,14 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Personal_Admon
-        public ActionResult Index()
+        public ActionResult Index( string busqueda)
         {
             var personal_admon = db.Personal_Admon.Include(p => p.Departamento).Include(p => p.Cargo);
+
+            if(!string.IsNullOrEmpty(busqueda))
+            {
+                personal_admon = personal_admon.Where(pa => pa.Nombres.Contains(busqueda));
+            }
             return View(personal_admon.ToList());
         }
 

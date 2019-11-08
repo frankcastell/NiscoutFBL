@@ -17,9 +17,14 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Patrocinadors
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
             var patrocinadores = db.Patrocinadores.Include(p => p.Departamento);
+
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                patrocinadores = patrocinadores.Where(p => p.Nombre_Insti.Contains(buscar));
+            }
             return View(patrocinadores.ToList());
         }
 

@@ -17,9 +17,14 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Detalle_Grupo_Patro
-        public ActionResult Index()
+        public ActionResult Index( string searching)
         {
             var detalle_Grupo_Patros = db.Detalle_Grupo_Patros.Include(d => d.Grupo).Include(d => d.Patrocinador);
+
+            if(!string.IsNullOrEmpty(searching))
+            {
+                detalle_Grupo_Patros = detalle_Grupo_Patros.Where(dgp => dgp.Patrocinador.Nombres.Contains(searching));
+            }
             return View(detalle_Grupo_Patros.ToList());
         }
 
