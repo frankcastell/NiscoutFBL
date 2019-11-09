@@ -192,36 +192,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Acceso_Datos\AccesoLogin.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AccesoLogin.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Acceso_Datos\AccesoLogin.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AccesoLogin.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Acceso_Datos\AccesoLogin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AccesoLogin.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Acceso_Datos\AspNetRoles.cs">
-      <DependentUpon>AccesoLogin.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Acceso_Datos\AspNetUserClaims.cs">
-      <DependentUpon>AccesoLogin.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Acceso_Datos\AspNetUserLogins.cs">
-      <DependentUpon>AccesoLogin.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Acceso_Datos\AspNetUsers.cs">
-      <DependentUpon>AccesoLogin.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Acceso_Datos\C__MigrationHistory.cs">
-      <DependentUpon>AccesoLogin.tt</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -363,16 +333,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Acceso_Datos\AccesoLogin.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AccesoLogin.edmx</DependentUpon>
-      <LastGenOutput>AccesoLogin.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Acceso_Datos\AccesoLogin.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AccesoLogin.edmx</DependentUpon>
-      <LastGenOutput>AccesoLogin.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\assets\images\big\img1.jpg" />
     <Content Include="Content\assets\images\custom-select.png" />
     <Content Include="Content\assets\images\favicon.png" />
@@ -947,13 +907,6 @@
     <Content Include="Content\scss\widgets\topbar-mail.scss" />
     <Content Include="Content\scss\widgets\weather-widget.scss" />
     <Content Include="Content\scss\widgets\widgets.scss" />
-    <EntityDeploy Include="Acceso_Datos\AccesoLogin.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AccesoLogin.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Acceso_Datos\AccesoLogin.edmx.diagram">
-      <DependentUpon>AccesoLogin.edmx</DependentUpon>
-    </Content>
     <Content Include="Login_v1\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Login_v1\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Login_v1\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />

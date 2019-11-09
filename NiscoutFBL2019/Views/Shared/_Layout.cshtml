@@ -1,4 +1,5 @@
-﻿
+﻿@using Microsoft.AspNet.Identity
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -159,44 +160,48 @@
                             </ul>
                         </li>
                         <!-- Personas-->
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa  fa-user-plus"></i> <span>Personas</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-double-right pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="@Url.Action("Index","Adultoes")"><i class="fa fa-check-square-o"></i> Adultos</a></li>
-                                <li><a href="@Url.Action("Index","Patrocinadors")"><i class="fa fa-check-square-o"></i> Patrocinador</a></li>
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-edit"></i> <span>Jovenes</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-double-right pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="@Url.Action("Index","Juvenils")"><i class="fa fa-check-square-o"></i> Joveniles</a></li>
-                                        <li><a href="@Url.Action("Index","Centro_Estudio")"><i class="fa fa-check-square-o"></i> Centro de Estudio</a></li>
-                                        <li><a href="@Url.Action("Index","Progresion_Juvenil")"><i class="fa fa-check-square-o"></i> Progreción Jovenil</a></li>
-                                    </ul>
-                                </li>
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-edit"></i> <span>Administradors</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-double-right pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="@Url.Action("Index","Personal_Admon")"><i class="fa fa-check-square-o"></i> Administración</a></li>
-                                        <li><a href="@Url.Action("Index","Cargoes")"><i class="fa fa-check-square-o"></i> Cargos</a></li>
-                                        <li><a href="@Url.Action("Index","Periodoes")"><i class="fa fa-check-square-o"></i> Periodo</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                        @*@if (User.IsInRole("Manager"))*@
+                        @*{*@
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa  fa-user-plus"></i> <span>Personas</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-double-right pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("Index","Adultoes")"><i class="fa fa-check-square-o"></i> Adultos</a></li>
+                                    <li><a href="@Url.Action("Index","Patrocinadors")"><i class="fa fa-check-square-o"></i> Patrocinador</a></li>
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-edit"></i> <span>Jovenes</span>
+                                            <span class="pull-right-container">
+                                                <i class="fa fa-angle-double-right pull-right"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li><a href="@Url.Action("Index","Juvenils")"><i class="fa fa-check-square-o"></i> Joveniles</a></li>
+                                            <li><a href="@Url.Action("Index","Centro_Estudio")"><i class="fa fa-check-square-o"></i> Centro de Estudio</a></li>
+                                            <li><a href="@Url.Action("Index","Progresion_Juvenil")"><i class="fa fa-check-square-o"></i> Progreción Jovenil</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-edit"></i> <span>Administradors</span>
+                                            <span class="pull-right-container">
+                                                <i class="fa fa-angle-double-right pull-right"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li><a href="@Url.Action("Index","Personal_Admon")"><i class="fa fa-check-square-o"></i> Administración</a></li>
+                                            <li><a href="@Url.Action("Index","Cargoes")"><i class="fa fa-check-square-o"></i> Cargos</a></li>
+                                            <li><a href="@Url.Action("Index","Periodoes")"><i class="fa fa-check-square-o"></i> Periodo</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        @*}*@
+                        
 
                         <!-- Eventos-->
                         <li class="treeview">
