@@ -830,7 +830,7 @@ sidebar navigation
         margin: 15px 0; }
   .sidebar-nav > ul > li > a i {
     width: 45px;
-    font-size: 33px;
+    font-size: 20px;
     display: inline-block;
     vertical-align: middle;
     color: rgba(0, 0, 0, 0.4); }
@@ -1030,6 +1030,16 @@ File: scss
   z-index: 50; }
   .topbar .navbar-collapse {
     padding: 0 10px; }
+  .navbar-collapse.side
+  .topbar .navbar-collapse.sider{
+      
+    float: left;
+    background-color: transparent;
+    background-image: none;
+    padding: 13px 15px;
+    font-family: fontAwesome;
+}
+  
   .topbar .top-navbar {
     min-height: 70px;
     padding: 0px; }
