@@ -39,7 +39,7 @@ body, html {
 }
 .header-w3l {
    
-    margin-top: -135px;
+    margin-top: -160px;
     padding-top: 1em;
 }
 .header-w3l h1 {  
@@ -207,11 +207,11 @@ iframe {
 }
 .Imagen{
    
-    height: 75px;
+    height: 60px;
     border-radius: 12px;
     position:  absolute     ;
-    top:35px;
-    left: 32px;
+    top:600px;
+    left: 200px;
 }
 /*------------------------------------------------------------------
 [  ]*/

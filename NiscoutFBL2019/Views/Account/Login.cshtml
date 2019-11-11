@@ -46,12 +46,18 @@
 
                     <img src="~/Login_v1/images/1.png" alt="IMG">
                 </div>
-                <section id="loginForm">
+                <section id="loginForm"style="border-color: #be51c1;
+  border-width: 1px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-bottom: 10px;
+  border-style: solid;
+  -webkit-border-radius: 10px">
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                         @Html.AntiForgeryToken()
                         <span class="login100-form-title">
-                            Iniciar Sección
+                            Iniciar Seción
                         </span>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
