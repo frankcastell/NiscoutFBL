@@ -47,9 +47,9 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Create()
         {
             ViewBag.Asistente_EventoId = new SelectList(db.Asistente_Eventos, "Id", "Id");
-            ViewBag.EventoId = new SelectList(db.Eventos, "Id", "Cod_Evento");
+            ViewBag.EventoId = new SelectList(db.Eventos, "Id", "Nombre_Evento");
             ViewBag.Local_EventoId = new SelectList(db.Local_Eventos, "Id", "Nombre");
-            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Cod_Persona");
+            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Nombres");
             return View();
         }
 
@@ -72,9 +72,9 @@ namespace NiscoutFBL2019.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Asistente_EventoId = new SelectList(db.Asistente_Eventos, "Id", "Id", detalle_Evento_Patro.Asistente_EventoId);
-            ViewBag.EventoId = new SelectList(db.Eventos, "Id", "Cod_Evento", detalle_Evento_Patro.EventoId);
+            ViewBag.EventoId = new SelectList(db.Eventos, "Id", "Nombre_Evento", detalle_Evento_Patro.EventoId);
             ViewBag.Local_EventoId = new SelectList(db.Local_Eventos, "Id", "Nombre", detalle_Evento_Patro.Local_EventoId);
-            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Cod_Persona", detalle_Evento_Patro.PatrocinadorId);
+            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Nombres", detalle_Evento_Patro.PatrocinadorId);
             return View(detalle_Evento_Patro);
         }
 
