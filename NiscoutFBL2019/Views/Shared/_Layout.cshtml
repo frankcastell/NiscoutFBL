@@ -47,10 +47,12 @@
         <!-- ============================================================== -->
         <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
+               
                 <!-- ============================================================== -->
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
+                    
                     <a class="navbar-brand" href="@Url.Action("Index","Home")">
                         <!-- Logo icon -->
                         <b>
@@ -63,16 +65,29 @@
                         </span>
                     </a>
                 </div>
+             
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
+               
                 <div class="navbar-collapse">
+                   
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
+                   
                     <ul class="navbar-nav mr-auto">
                         <!-- This is  -->
-                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-green" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        
+                        <li class="nav-item">
+                          
+                          
+
+                         <a class="nav-link nav-toggler hidden-md-up waves-effect waves-green btn btn-info navbar-btn" href="javascript:void(0)">
+                            <i class="ti-close ti-menu"> </i>
+                             
+                         </a>
+                         </li>
                     </ul>
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
@@ -111,9 +126,50 @@
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
+                    
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-light" href="@Url.Action("Index", "Home")" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Inicio</span></a></li>
-                        <!-- Miembro-->
+                        <li> <a class="waves-effect waves-light" href="@Url.Action("Index", "Home")" aria-expanded="false"><i class="fa fa-home"></i><span class="hide-menu">Inicio</span></a></li>
+                        <!-- Personas-->
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa  fa-user-plus"></i> <span>Personas</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-double-right pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="@Url.Action("Index","Adultoes")"><i class="fa fa-check-square-o"></i> Adultos</a></li>
+                                <li><a href="@Url.Action("Index","Patrocinadors")"><i class="fa fa-check-square-o"></i> Patrocinador</a></li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-edit"></i> <span>Jovenes</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-double-right pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="@Url.Action("Index","Juvenils")"><i class="fa fa-check-square-o"></i> Joveniles</a></li>
+                                        <li><a href="@Url.Action("Index","Centro_Estudio")"><i class="fa fa-check-square-o"></i> Centro de Estudio</a></li>
+                                        <li><a href="@Url.Action("Index","Progresion_Juvenil")"><i class="fa fa-check-square-o"></i> Progreción Jovenil</a></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-edit"></i> <span>Administradors</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-double-right pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="@Url.Action("Index","Personal_Admon")"><i class="fa fa-check-square-o"></i> Administración</a></li>
+                                        <li><a href="@Url.Action("Index","Cargoes")"><i class="fa fa-check-square-o"></i> Cargos</a></li>
+                                        <li><a href="@Url.Action("Index","Periodoes")"><i class="fa fa-check-square-o"></i> Periodo</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                         <!-- Miembro-->
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa  fa-male"></i> <span>Miembros</span>
@@ -158,45 +214,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <!-- Personas-->
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa  fa-user-plus"></i> <span>Personas</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-double-right pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="@Url.Action("Index","Adultoes")"><i class="fa fa-check-square-o"></i> Adultos</a></li>
-                                <li><a href="@Url.Action("Index","Patrocinadors")"><i class="fa fa-check-square-o"></i> Patrocinador</a></li>
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-edit"></i> <span>Jovenes</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-double-right pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="@Url.Action("Index","Juvenils")"><i class="fa fa-check-square-o"></i> Joveniles</a></li>
-                                        <li><a href="@Url.Action("Index","Centro_Estudio")"><i class="fa fa-check-square-o"></i> Centro de Estudio</a></li>
-                                        <li><a href="@Url.Action("Index","Progresion_Juvenil")"><i class="fa fa-check-square-o"></i> Progreción Jovenil</a></li>
-                                    </ul>
-                                </li>
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-edit"></i> <span>Administradors</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-double-right pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="@Url.Action("Index","Personal_Admon")"><i class="fa fa-check-square-o"></i> Administración</a></li>
-                                        <li><a href="@Url.Action("Index","Cargoes")"><i class="fa fa-check-square-o"></i> Cargos</a></li>
-                                        <li><a href="@Url.Action("Index","Periodoes")"><i class="fa fa-check-square-o"></i> Periodo</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                        
 
                         <!-- Eventos-->
                         <li class="treeview">
