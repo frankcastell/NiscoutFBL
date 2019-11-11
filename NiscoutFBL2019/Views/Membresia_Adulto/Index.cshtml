@@ -7,7 +7,7 @@
 <h2>Registros de Membresia Adulto</h2>
 
 <div align="left">
-    @using (Html.BeginForm("Index", "Memnresia_Adulto", FormMethod.Get))
+    @using (Html.BeginForm("Index", "Membresia_Adulto", FormMethod.Get))
             {
         <div align="right">
             <hr />
@@ -17,8 +17,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
             @Html.TextBox("buscar")
             &nbsp;&nbsp;&nbsp;&nbsp;
@@ -69,7 +68,7 @@
                 {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Adulto.Cod_Persona)
+                        @Html.DisplayFor(modelItem => item.Adulto.Nombres)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Etapa_Aprobacion1.Cod_Etapa)
@@ -90,6 +89,8 @@
                         @Html.DisplayFor(modelItem => item.Certifi_Salvo_Peligro)
                     </td>
                     <td>
+                        <button class="btn waves-effect waves-purple btn-primary hidden-md-down">@Html.ActionLink("Renovar", "Create", new { id = item.Id })</button>
+
                         <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
                         <button class="btn waves-effect waves-red btn-info hidden-md-down">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button>
                         <button class="btn waves-effect waves-light btn-danger hidden-md-down">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>

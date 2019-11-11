@@ -19,18 +19,15 @@ File: scss
 /*Top bar
 *******************/
 .topbar {
-  background:  #8A2BE2; }
+  background:  #5f2090; }
   .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
     display: none; }
   .topbar .top-navbar .navbar-nav > .nav-item > span {
     color: #398bf7; }
   .topbar .navbar-light .navbar-nav .nav-item > a.nav-link {
-    color: #ffffff; }
+    color: #fbfbfb; }
     .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:hover, .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:focus {
-      color: #ffffff !important; 
-      display: inline-block;
-          overflow: visible;
-    }
+      color: #8A2BE2 !important; }
 
 .logo-center .topbar .navbar-header {
   text-align: center;
@@ -107,7 +104,7 @@ a.link:hover, a.link:focus {
 *******************/
 .card-no-border .left-sidebar,
 .card-no-border .sidebar-nav {
-    background: #8A2BE2;
+    background: #fbfbfb;
 }
 
 .mini-sidebar .sidebar-nav {
@@ -130,18 +127,18 @@ a.link:hover, a.link:focus {
   background: #398bf7; }
 
 .sidebar-nav > ul > li.active > a {
-  color: #d8e80e;
+  color: #9b53b3;
   border-color: #398bf7; }
   .sidebar-nav > ul > li.active > a i {
-    color: #12cf3d; }
+    color: #9b53b3; }
 
 .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
-  color: #ffffff; }
+  color: #398bf7; }
   .sidebar-nav ul li a.active i, .sidebar-nav ul li a:hover i {
-    color: #37e80d; }
+    color: #398bf7; }
 
 .sidebar-nav ul li.nav-small-cap {
-  color: #687384; }
+  color: #398bf7; }
 
 @media (min-width: 768px) {
   .mini-sidebar .sidebar-nav #sidebarnav > li:hover > a {
