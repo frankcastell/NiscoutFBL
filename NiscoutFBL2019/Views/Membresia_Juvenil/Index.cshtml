@@ -18,10 +18,10 @@
                     @Html.DisplayNameFor(model => model.Juvenil.Id)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.SubGrupo.Cod_Subgrupo)
+                    @Html.DisplayNameFor(model => model.SubGrupo.Nombre_Subgrupo )
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Tutor.Cod_Persona)
+                    @Html.DisplayNameFor(model => model.Tutor.Nombres)
                 </th>
                 <th></th>
             </tr>
@@ -33,10 +33,10 @@
                         @Html.DisplayFor(modelItem => item.Juvenil.Id)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.SubGrupo.Cod_Subgrupo)
+                        @Html.DisplayFor(modelItem => item.SubGrupo.Nombre_Subgrupo )
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Tutor.Cod_Persona)
+                        @Html.DisplayFor(modelItem => item.Tutor.Nombres)
                     </td>
                     <td>
                         <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>

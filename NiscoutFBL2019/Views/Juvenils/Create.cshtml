@@ -15,9 +15,9 @@
             <br />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                @Html.LabelFor(model => model.Centro_EstudioId, "Centro_EstudioId", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Centro_EstudioId, "Centro de Estudio", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("Centro_EstudioId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("Centro_EstudioId", null, "--- Seleccione ---", htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.Centro_EstudioId, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -31,7 +31,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Regresar a la lista", "Index")</button>
+                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn-success hidden-md-down">Regresar a la lista</a>
                 </div>
             </div>
         </div>

@@ -46,7 +46,7 @@ namespace NiscoutFBL2019.Controllers
         // GET: Patrocinadors/Create
         public ActionResult Create()
         {
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return RedirectToAction("Index");
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", patrocinador.DepartamentoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", patrocinador.DepartamentoId);
             return View(patrocinador);
         }
 
