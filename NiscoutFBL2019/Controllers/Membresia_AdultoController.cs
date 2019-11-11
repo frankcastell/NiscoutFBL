@@ -46,8 +46,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Adulto/Create
         public ActionResult Create()
         {
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona");
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa");
+            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Nombres");
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
             return View();
         }
 
@@ -69,8 +69,8 @@ namespace NiscoutFBL2019.Controllers
             {
                 return RedirectToAction("Index");
             }
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Adulto.Etapa_AprobacionId);
+            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Nombres", membresia_Adulto);
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Adulto.Etapa_AprobacionId);
             return View(membresia_Adulto);
         }
 

@@ -42,8 +42,8 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Create()
         {
             ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Id");
-            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo");
-            ViewBag.TutorId = new SelectList(db.Personas, "Id", "Cod_Persona");
+            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo");
+            ViewBag.TutorId = new SelectList(db.Personas, "Id", "Nombres");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace NiscoutFBL2019.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Id", membresia_Juvenil.JuvenilId);
-            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo", membresia_Juvenil.SubGrupoId);
-            ViewBag.TutorId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Juvenil.TutorId);
+            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo", membresia_Juvenil.SubGrupoId);
+            ViewBag.TutorId = new SelectList(db.Personas, "Id", "Nombres", membresia_Juvenil.TutorId);
             return View(membresia_Juvenil);
         }
 

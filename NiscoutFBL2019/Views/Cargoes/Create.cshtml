@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Resgistrando nuevo Cargos...</h2>
+<h2>Resgistrando Nuevo Cargos...</h2>
 
 
 @using (Html.BeginForm()) 
@@ -42,7 +42,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Regresar a la lista", "Index")</button>
+                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn-success hidden-md-down">Regresar a la lista</a>
                 </div>
             </div>
         </div>

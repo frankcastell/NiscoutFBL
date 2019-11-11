@@ -55,17 +55,17 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.AdultoId, "AdultoId", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.AdultoId, "Adulto", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("AdultoId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("AdultoId", null, "--- Seleccione ---", htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.AdultoId, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Etapa_AprobacionId, "Etapa_AprobacionId", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Etapa_AprobacionId, "Etapa_Aprobacion", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("Etapa_AprobacionId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("Etapa_AprobacionId", null, "--- Seleccione ---", htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.Etapa_AprobacionId, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -79,7 +79,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Regresar a la lista", "Index")</button>
+                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn-success hidden-md-down">Regresar a la lista</a>
                 </div>
             </div>
         </div>
