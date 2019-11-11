@@ -7,7 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NiscoutFBL2019.Models;
-
+using Microsoft.AspNet.Identity
+    ;
 namespace NiscoutFBL2019.Controllers
 {
     [Authorize]

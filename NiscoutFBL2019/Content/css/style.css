@@ -799,10 +799,10 @@ sidebar navigation
     .sidebar-nav ul li {
       list-style: none; }
       .sidebar-nav ul li a {
-        color: #ffffff;
+        color: #5f2090;
         padding: 8px 35px 8px 15px;
         display: block;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 400; }
         .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
           color: #398bf7; }
@@ -993,7 +993,7 @@ File: scss
     display: none; }
 
 .page-wrapper {
-  background: #f4f6f9;
+  background: #fbfbfb;
   padding-bottom: 60px;
   position: relative; }
 
@@ -1552,7 +1552,7 @@ ul#themecolors {
 *******************/
 .footer {
   bottom: 0;
-  color: #3b8b10;
+  color: #9b53b3;
   left: 0px;
   padding: 17px 15px;
   position: absolute;
@@ -1561,7 +1561,7 @@ ul#themecolors {
   background: #ffffff; }
 .footer:hover {
 	bottom: 0;
-    color: #5805ac;
+    color: #398bf7;
 }
 /*******************
  scrollbar
