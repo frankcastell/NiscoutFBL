@@ -14,7 +14,7 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Centro_Estudio.Cod_Centro)
+                   Centro de estudio
                 </th>
                 <th></th>
             </tr>
@@ -23,7 +23,7 @@
             {
                 <tr class="alt">
                     <td>
-                        @Html.DisplayFor(modelItem => item.Centro_Estudio.Cod_Centro)
+                        @Html.DisplayFor(modelItem => item.Centro_Estudio.Nombre_Centro)
                     </td>
                     <td>
                         <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>

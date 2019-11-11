@@ -23,17 +23,17 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.PatrocinadorId, "PatrocinadorId", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.PatrocinadorId, "Patrocinador", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("PatrocinadorId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("PatrocinadorId", null,"--- Seleccione ---", htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.PatrocinadorId, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.EventoId, "EventoId", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.EventoId, "Evento", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("EventoId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("EventoId", null,"--- Seleccione Evento---", htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.EventoId, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -47,15 +47,15 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Local_EventoId, "Local_EventoId", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Local_EventoId, "Local_Evento", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("Local_EventoId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("Local_EventoId", null,"--- Seleccione Local ---", htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.Local_EventoId, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Asistente_EventoId, "Asistente_EventoId", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Asistente_EventoId, "Asistente_Evento", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("Asistente_EventoId", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.Asistente_EventoId, "", new { @class = "text-danger" })

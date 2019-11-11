@@ -35,13 +35,9 @@
 <div class="datagrid">
     <table class="table vm no-th-brd no-wrap pro-of-month">
     <thead>
-        <tr>
+        <tr>          
             <th>
-                @*@Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)*@
-                Nombre de Depto
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cod_Persona)
+                Código
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nombres)
@@ -73,6 +69,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Direccion)
             </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)*@
+                Nombre de Depto
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -88,9 +88,6 @@
               {
         <tbody>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Departamento.Cod_Departamento)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Cod_Persona)
                 </td>
@@ -123,6 +120,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)
                 </td>
                 <td>
                     <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
