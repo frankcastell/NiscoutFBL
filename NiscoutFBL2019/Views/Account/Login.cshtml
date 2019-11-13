@@ -47,12 +47,12 @@
                     <img src="~/Login_v1/images/1.png" alt="IMG">
                 </div>
                 <section id="loginForm"style="border-color: #be51c1;
-  border-width: 1px;
-  padding-left:10px;
-  padding-right:10px;
-  padding-bottom: 10px;
-  border-style: solid;
-  -webkit-border-radius: 10px">
+                                              border-width: 1px;
+                                              padding-left:10px;
+                                              padding-right:10px;
+                                              padding-bottom: 10px;
+                                              border-style: solid;
+                                              -webkit-border-radius: 10px">
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                         @Html.AntiForgeryToken()
