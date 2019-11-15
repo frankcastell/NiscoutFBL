@@ -828,12 +828,14 @@ sidebar navigation
         background: rgba(120, 130, 140, 0.13);
         display: block;
         margin: 15px 0; }
-  .sidebar-nav > ul > li > a i {
-    width: 45px;
-    font-size: 20px;
-    display: inline-block;
-    vertical-align: middle;
-    color: rgba(0, 0, 0, 0.4); }
+    .sidebar-nav > ul > li > a i {
+        width: 45px;
+        font-size: 22px;
+        display: inline-block;
+        vertical-align: middle;
+        color: #5f2090;
+    }
+
   .sidebar-nav > ul > li > a .label {
     float: right;
     margin-top: 6px; }

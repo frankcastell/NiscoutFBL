@@ -52,7 +52,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">
                         <!-- Logo icon -->
                         <b>
                             <img src="~/Content/assets/images/Logov2.png" alt="página principal" class="dark-logo"/>
@@ -113,125 +113,28 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-light" href="@Url.Action("Index", "Home")" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Inicio</span></a></li>
-                        <!-- Miembro-->
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa  fa-male"></i> <span>Miembros</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-double-right pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li class="active"><a href="@Url.Action("Index","Membresia_Adulto")"><i class="fa  fa-address-card"></i> Membresia Adultos</a></li>
-                                <li><a href="@Url.Action("Index","Membresia_Juvenil")"><i class="fa fa-address-card"></i> Membresia Juvenil</a></li>
-                                <li><a href="@Url.Action("Index","Tutors")"><i class="fa fa-address-card"></i> Tutor</a></li>
-                                <li><a href="@Url.Action("Index","Etapa_Aprobacion")"><i class="fa fa-address-card"></i> Etapa_Aprobacion</a></li>
-                            </ul>
-                        </li>
-                        <!-- Grupos-->
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa  fa-group"></i> <span>Grupos</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-double-right pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="@Url.Action("Index","Grupoes")"><i class="fa fa-check-square-o"></i> Grupos</a></li>
-                                <li><a href="@Url.Action("Index","Responsables")"><i class="fa fa-check-square-o"></i> Responsables</a></li>
-                                <li><a href="@Url.Action("Index","SubGrupoes")"><i class="fa fa-check-square-o"></i> Sub_Grupos</a></li>
-                                <li><a href="@Url.Action("Index","Asistentes")"><i class="fa fa-check-square-o"></i> Asistente</a></li>
-                                <li><a href="@Url.Action("Index","Tipo_Grupo")"><i class="fa fa-check-square-o"></i> Tipo_Grupos</a></li>
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-edit"></i> <span>Ubicacion</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-double-right pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="@Url.Action("Index","Distritoes")"><i class="fa fa-check-square-o"></i> Distritos</a></li>
-                                        <li><a href="@Url.Action("Index","Departamentoe")"><i class="fa fa-check-square-o"></i> Departamento</a></li>
-                                        <li><a href="@Url.Action("Index","Municipios")"><i class="fa fa-check-square-o"></i> Municipio</a></li>
-                                        <li><a href="@Url.Action("Index","Sectors")"><i class="fa fa-check-square-o"></i> Sector</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- Personas-->
-                        @*@if (User.IsInRole("Manager"))*@
-                        @*{*@
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa  fa-user-plus"></i> <span>Personas</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-double-right pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("Index","Adultoes")"><i class="fa fa-check-square-o"></i> Adultos</a></li>
-                                    <li><a href="@Url.Action("Index","Patrocinadors")"><i class="fa fa-check-square-o"></i> Patrocinador</a></li>
-                                    <li class="treeview">
-                                        <a href="#">
-                                            <i class="fa fa-edit"></i> <span>Jovenes</span>
-                                            <span class="pull-right-container">
-                                                <i class="fa fa-angle-double-right pull-right"></i>
-                                            </span>
-                                        </a>
-                                        <ul class="treeview-menu">
-                                            <li><a href="@Url.Action("Index","Juvenils")"><i class="fa fa-check-square-o"></i> Joveniles</a></li>
-                                            <li><a href="@Url.Action("Index","Centro_Estudio")"><i class="fa fa-check-square-o"></i> Centro de Estudio</a></li>
-                                            <li><a href="@Url.Action("Index","Progresion_Juvenil")"><i class="fa fa-check-square-o"></i> Progreción Jovenil</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="treeview">
-                                        <a href="#">
-                                            <i class="fa fa-edit"></i> <span>Administradors</span>
-                                            <span class="pull-right-container">
-                                                <i class="fa fa-angle-double-right pull-right"></i>
-                                            </span>
-                                        </a>
-                                        <ul class="treeview-menu">
-                                            <li><a href="@Url.Action("Index","Personal_Admon")"><i class="fa fa-check-square-o"></i> Administración</a></li>
-                                            <li><a href="@Url.Action("Index","Cargoes")"><i class="fa fa-check-square-o"></i> Cargos</a></li>
-                                            <li><a href="@Url.Action("Index","Periodoes")"><i class="fa fa-check-square-o"></i> Periodo</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        @*}*@
-                        
+       
+                   @if(User.IsInRole("Admin"))
+                   {
+                       @Html.Partial("_AdminPartial")
+                   }
+                   else 
 
-                        <!-- Eventos-->
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa  fa-newspaper-o"></i> <span>Eventos</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-double-right pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="@Url.Action("Index","Eventoes")"><i class="fa fa-check-square-o"></i> Eventos</a></li>
-                                <li><a href="@Url.Action("Index","Local_Evento")"><i class="fa fa-check-square-o"></i> Local_Evento</a></li>
-                                <li><a href="@Url.Action("Index","Asistente_Evento")"><i class="fa fa-check-square-o"></i> Asistente_Eventos</a></li>
-                                
-                                
-                            </ul>
-                            </li>
-                                <li> <a class="waves-effect waves-light" href="@Url.Action("Catalogos", "Home")" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Catálogos</span></a></li>
-                               
-                                <li> <a class="waves-effect waves-green" href="@Url.Action("Index","Detalle_Evento_Patro")" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Detalle E_Patro..</span></a></li>
-                                <li> <a class="waves-effect waves-green" href="@Url.Action("Index","Detalle_Grupo_Patro")" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Detalle G_Patro..</span></a></li>
+                   if(User.IsInRole("Manager"))
+                       {
+                         @Html.Partial("_SiderbarPartial")
+                   }
+                   else
+                       if (User.IsInRole("Usuario"))
+                   {
+                        @Html.Partial("_UsuarioPartial")
+                   }
 
-                                <li> <a class="waves-effect waves-dark" href="@Url.Action("NotFound", "Home")" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">Error 404</span></a></li>
-                            </ul>
 
-                            <div class="text-center m-t-30">
-                                <a href="@Url.Action("Shared","_Layout")" class="btn waves-effect waves-light btn-info hidden-md-down"> Navegar más</a>
+                </ul>
+                    
+                </nav>
 
-                            </div>
-</nav>
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -254,7 +157,7 @@
             <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- footer -->
-            <!-- ============================================================== -->
+            <!-- ======-======================================================== -->
             <footer  align="right" class="footer" title="Desarrollado por ==>> Ing. Fancisco Castellón & Ing. Brayan Obando & Ing. Jorge Mendoza"> <b><strong>© 2019 Niscout FBL - Asociación de Scouts de Nicaragua</strong></b></footer>
             <!-- ============================================================== -->
             <!-- End footer -->

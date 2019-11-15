@@ -10,8 +10,9 @@
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
-                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Usuario" })
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                
+                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", routeValues: null, htmlAttributes: new { title = "Usuario" })
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="~/Content/assets/images/users/3.jpg" alt="user" class="profile-pic">
        
         </a>
