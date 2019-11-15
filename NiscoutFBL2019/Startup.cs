@@ -61,6 +61,11 @@ namespace NiscoutFBL2019
                 string PWD = "12345678";
 
                 var chkUser = ManejadorUsuario.Create(user, PWD);
+                //si se creo con exito
+                if (chkUser.Succeeded)
+                {
+                    ManejadorUsuario.AddToRole(user.Id, "Manager");
+                }
             }
 
             //Verificamos la excistencia de los roles por defecto
@@ -79,6 +84,11 @@ namespace NiscoutFBL2019
                 string PWD = "12345678";
 
                 var chkUser = ManejadorUsuario.Create(user, PWD);
+                //si se creo con exito
+                if (chkUser.Succeeded)
+                {
+                    ManejadorUsuario.AddToRole(user.Id, "Usuario");
+                }
             }
         }
     }
