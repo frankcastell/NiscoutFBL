@@ -224,6 +224,7 @@
     <Compile Include="Controllers\Membresia_JuvenilController.cs" />
     <Compile Include="Controllers\MunicipiosController.cs" />
     <Compile Include="Controllers\PatrocinadorsController.cs" />
+    <Compile Include="Controllers\PDFController.cs" />
     <Compile Include="Controllers\PeriodoesController.cs" />
     <Compile Include="Controllers\Personal_AdmonController.cs" />
     <Compile Include="Controllers\PersonasController.cs" />
@@ -726,6 +727,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Login_v1\vendor\animate\" />
+    <Folder Include="Views\PDF\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
