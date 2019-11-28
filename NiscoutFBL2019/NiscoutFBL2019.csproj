@@ -727,7 +727,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Login_v1\vendor\animate\" />
-    <Folder Include="Views\PDF\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -992,6 +991,7 @@
     <Content Include="Login_v1\vendor\bootstrap\css\bootstrap.min.css.map" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Home\Catalogos.cshtml" />
+    <Content Include="Views\PDF\PDF.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
