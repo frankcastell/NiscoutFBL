@@ -19,9 +19,9 @@ namespace NiscoutFBL2019.Controllers
         // GET: Responsables
         public ActionResult Index(string buscar)
         {
-            var responsables = from s in db.Responsable
+            var responsables = from s in db.Responsables
                                select s;
-            db.Responsable.Include(r => r.Departamento).Include(r => r.Periodo);
+            db.Responsables.Include(r => r.Departamento).Include(r => r.Periodo);
             if(!string.IsNullOrEmpty(buscar))
             {
                 responsables = responsables.Where(s => s.Nombres.Contains(buscar));

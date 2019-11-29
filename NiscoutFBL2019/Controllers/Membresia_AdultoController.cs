@@ -46,7 +46,7 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Adulto/Create
         public ActionResult Create()
         {
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Nombres");
+            ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres");
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
             return View();
         }
