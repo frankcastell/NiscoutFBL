@@ -808,3 +808,5 @@ C:\Users\Ing. Francisco\Source\Repos\frankcastell\NiscoutFBL\NiscoutFBL2019\obj\
 C:\Users\Ing. Francisco\Source\Repos\frankcastell\NiscoutFBL\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.pdb
 C:\Users\Ing. Francisco\Source\Repos\frankcastell\NiscoutFBL\NiscoutFBL2019\bin\itextsharp.dll
 C:\Users\Ing. Francisco\Source\Repos\frankcastell\NiscoutFBL\NiscoutFBL2019\bin\itextsharp.xml
+C:\Users\brayan obando\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\itextsharp.dll
+C:\Users\brayan obando\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\itextsharp.xml
