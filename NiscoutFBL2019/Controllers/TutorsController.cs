@@ -18,7 +18,7 @@ namespace NiscoutFBL2019.Controllers
         // GET: Tutors
         public ActionResult Index( string buscar)
         {
-            var tutor = db.Tutor.Include(t => t.Departamento);
+            var tutor = db.Tutores.Include(t => t.Departamento);
 
             if(!string.IsNullOrEmpty(buscar))
             {

@@ -46,7 +46,7 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Adulto/Create
         public ActionResult Create()
         {
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Nombres");
+            ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres");
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
             return View();
         }
@@ -69,6 +69,31 @@ namespace NiscoutFBL2019.Controllers
             {
                 return RedirectToAction("Index");
             }
+            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Nombres", membresia_Adulto);
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Adulto.Etapa_AprobacionId);
+            return View(membresia_Adulto);
+        }
+        // GET: Membresia_Adulto/Create
+        [AllowAnonymous]
+        public ActionResult MembresiaAdulto(int idAdulto)
+        {            
+            ViewBag.AdultoId  = db.Adultos.Where(x=>x.Id == idAdulto).FirstOrDefault();           
+            //ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres");            //ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
+            return View();
+        }
+        // POST: Membresia_Adulto/Create
+        [AllowAnonymous]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MembresiaAdulto([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,AdultoId,Etapa_AprobacionId")] Membresia_Adulto membresia_Adulto)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Membresia_Adultos.Add(membresia_Adulto);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+           
             ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Nombres", membresia_Adulto);
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Adulto.Etapa_AprobacionId);
             return View(membresia_Adulto);
