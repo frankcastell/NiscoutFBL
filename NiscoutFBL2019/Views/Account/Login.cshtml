@@ -33,7 +33,9 @@
 
     <div class="limiter">
         <div class="container-login100">
-            <img class="Imagen"  src="~/Login_v1/images/3.jpg" alt="IMG" >
+            <div>
+                <img class="Imagen"  src="~/Login_v1/images/3.jpg" alt="IMG" >
+            </div>
             <div class="wrap-login100">
                 <div class="header-w3l">
                     <h1>
@@ -44,9 +46,11 @@
                 </div>
                 <div class="login100-pic js-tilt" data-tilt>
 
-                    <img src="~/Login_v1/images/1.png" alt="IMG">
-                </div>
-                <section id="loginForm"style="border-color: #be51c1;
+                    <img src="~/Login_v1/images/1.png" alt="IMG" style="width: 70%; height: 70%;">                  
+                </div>                
+                <section id="loginForm"style="margin-right:-20px;
+                                               margin-top:-20px;
+                                              border-color: #be51c1;
                                               border-width: 1px;
                                               padding-left:10px;
                                               padding-right:10px;
@@ -80,9 +84,7 @@
                             </div>
                         </div>
                         <div class="text-center p-t-12">
-                            <span class="txt1">
-                                Forgot
-                            </span>
+                            
                             <a class="txt2" href="#">
                                 <p>
                                     @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
@@ -95,11 +97,12 @@
                                 Iniciar
                             </button>
                         </div>
+                        
 
-                        @*<div class="container-login100-form-btn">
-                            <input type="submit" value="Iniciar sesión" class="calendar" />
-
-                        </div>*@
+                        <div class="container-fluid" style="margin-top:15px;">                                    
+                            <a href="@Url.Action("#")" class="btn waves-effect waves-light btn-outline-success hidden-md-down"> Membrecia Adulto</a>
+                            <a href="@Url.Action("#")" class="btn waves-effect waves-light btn-outline-success hidden-md-down"> Membrecia Juvenil</a>
+                                </div>
                         @*<div class="text-center p-t-136">
                             <a class="txt2" href="#">
                                 <p>

@@ -15,6 +15,7 @@ namespace NiscoutFBL2019.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -52,7 +53,9 @@ namespace NiscoutFBL2019.Controllers
             }
         }
 
-        //
+       
+        
+
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)

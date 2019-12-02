@@ -13,6 +13,7 @@ namespace NiscoutFBL2019.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        public ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -50,6 +51,21 @@ namespace NiscoutFBL2019.Controllers
             }
         }
 
+        //listado de Usuaraio
+        public ActionResult ListUsuario()
+        {
+            var result = db.Users.ToList();
+
+            var data = (from item in result
+                        orderby item.Id ascending
+                        select new
+                        {
+                            usuario = item.UserName,
+                            rol = item.Roles,
+                            id = item.Id
+                        });
+            return View(result);
+        }
         //
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
