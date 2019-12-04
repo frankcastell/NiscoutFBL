@@ -7,8 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NiscoutFBL2019.Models;
-using Microsoft.AspNet.Identity
-    ;
+using Microsoft.Reporting.WebForms;
+using Microsoft.AspNet.Identity;
+using NiscoutFBL2019.Models.ReporteScouts;
 namespace NiscoutFBL2019.Controllers
 {
     [Authorize]
@@ -49,6 +50,45 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Create()
         {
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
+            return View();
+        }
+
+        // clases similar al dataset
+        public class adultosR
+        {
+           public string Column1 { get; set; }
+           public  string Column2 { get; set; }
+        }
+
+        // Listando 
+        public List<adultosR> GetAdulto()
+        {
+            return (from item in db.Adultos.ToList()
+                    
+                    select new adultosR
+                    {
+                        Column1 = item.Nombres,
+                        Column2 = item.Apellidos
+                       
+                    }).ToList();
+        }
+
+        // Listando ala vista
+        public ActionResult RepAdulto()
+        {
+            //var fecha = DateTime;
+            DataSetScout.DataTable1DataTable p = new DataSetScout.DataTable1DataTable();
+            ReportViewer rpt = new ReportViewer();
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/ReporteAdulto.rdlc");
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", GetAdulto()));
+            rpt.LocalReport.Refresh();
+
+            rpt.AsyncRendering = false;
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
             return View();
         }
 
