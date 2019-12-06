@@ -18,6 +18,7 @@ namespace NiscoutFBL2019.Models
         public Etapa_Aprobacion()
         {
             this.Membresia_Adultos = new HashSet<Membresia_Adulto>();
+            this.Membresia_Juveniles = new HashSet<Membresia_Juvenil>();
         }
     
         public int Id { get; set; }
@@ -26,5 +27,7 @@ namespace NiscoutFBL2019.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Membresia_Adulto> Membresia_Adultos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Membresia_Juvenil> Membresia_Juveniles { get; set; }
     }
 }

@@ -91,7 +91,7 @@ namespace NiscoutFBL2019.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(progresion_Juvenil).State = EntityState.Modified;
+                db.Entry(progresion_Juvenil).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

@@ -4,47 +4,114 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Registro de Membresia Juvenil</h2>
+<h2>Index</h2>
 
 <p>
-    <a href="@Url.Action("Create", "Membresia_Juvenil")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Agregar Membresia Juvenil</a>
+    @Html.ActionLink("Create New", "Create")
 </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cod_Persona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_Nac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.E_Mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado_Civil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Num_Pasaporte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubGrupo.Cod_Subgrupo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Juvenil.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Cod_Etapa)
+        </th>
+        <th></th>
+    </tr>
 
-<div class="datagr">
-    <table>
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Juvenil.Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SubGrupo.Nombre_Subgrupo )
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Tutor.Nombres)
-                </th>
-                <th></th>
-            </tr>
-            </thead>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Juvenil.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SubGrupo.Nombre_Subgrupo )
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tutor.Nombres)
-                    </td>
-                    <td>
-                        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
-                        <button class="btn waves-effect waves-red btn-info hidden-md-down">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button>
-                        <button class="btn waves-effect waves-light btn-danger hidden-md-down">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>
-                    </td>
-                </tr>
-            }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cod_Persona)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_Nac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.E_Mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cedula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado_Civil)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Num_Pasaporte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departamento.Cod_Departamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubGrupo.Cod_Subgrupo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Juvenil.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Etapa_Aprobacion.Cod_Etapa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
 
-    </table>
-    </div>
+</table>

@@ -87,6 +87,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult MembresiaAdulto([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,AdultoId,Etapa_AprobacionId")] Membresia_Adulto membresia_Adulto)
         {
+            membresia_Adulto.Etapa_AprobacionId = 2;
             if (ModelState.IsValid)
             {
                 db.Membresia_Adultos.Add(membresia_Adulto);
@@ -125,7 +126,7 @@ namespace NiscoutFBL2019.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(membresia_Adulto).State = EntityState.Modified;
+                db.Entry(membresia_Adulto).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

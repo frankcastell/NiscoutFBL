@@ -121,6 +121,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -269,7 +270,7 @@
     <Compile Include="Controllers\SectorsController.cs" />
     <Compile Include="Controllers\SubGrupoesController.cs" />
     <Compile Include="Controllers\Tipo_GrupoController.cs" />
-    <Compile Include="Controllers\TutorsController.cs" />
+    <Compile Include="Controllers\TutoriasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -374,7 +375,7 @@
     <Compile Include="Models\Tipo_Grupo.cs">
       <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Tutor.cs">
+    <Compile Include="Models\Tutoria.cs">
       <DependentUpon>ModeloNiscoutFBL.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -512,6 +513,17 @@
     <Content Include="Content\scss\icons\themify-icons\ie7\ie7.css" />
     <Content Include="Content\scss\icons\themify-icons\ie7\ie7.js" />
     <Content Include="Content\scss\icons\themify-icons\themify-icons.css" />
+    <Content Include="Models\ModeloNiscoutFBL.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModeloNiscoutFBL.Context.cs</LastGenOutput>
+      <DependentUpon>ModeloNiscoutFBL.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ModeloNiscoutFBL.edmx.sql" />
+    <Content Include="Models\ModeloNiscoutFBL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModeloNiscoutFBL.cs</LastGenOutput>
+      <DependentUpon>ModeloNiscoutFBL.edmx</DependentUpon>
+    </Content>
     <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\js\swiper.min.js" />
     <Content Include="favicon.ico" />
@@ -551,17 +563,6 @@
     <Content Include="Login_v1\vendor\select2\select2.min.css" />
     <Content Include="Login_v1\vendor\select2\select2.min.js" />
     <Content Include="Login_v1\vendor\tilt\tilt.jquery.min.js" />
-    <Content Include="Models\ModeloNiscoutFBL.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModeloNiscoutFBL.Context.cs</LastGenOutput>
-      <DependentUpon>ModeloNiscoutFBL.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ModeloNiscoutFBL.edmx.sql" />
-    <Content Include="Models\ModeloNiscoutFBL.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModeloNiscoutFBL.cs</LastGenOutput>
-      <DependentUpon>ModeloNiscoutFBL.edmx</DependentUpon>
-    </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -752,16 +753,6 @@
     <Content Include="Views\Juvenils\Details.cshtml" />
     <Content Include="Views\Juvenils\Edit.cshtml" />
     <Content Include="Views\Juvenils\Index.cshtml" />
-    <Content Include="Views\Membresia_Juvenil\Create.cshtml" />
-    <Content Include="Views\Membresia_Juvenil\Delete.cshtml" />
-    <Content Include="Views\Membresia_Juvenil\Details.cshtml" />
-    <Content Include="Views\Membresia_Juvenil\Edit.cshtml" />
-    <Content Include="Views\Membresia_Juvenil\Index.cshtml" />
-    <Content Include="Views\Tutors\Create.cshtml" />
-    <Content Include="Views\Tutors\Delete.cshtml" />
-    <Content Include="Views\Tutors\Details.cshtml" />
-    <Content Include="Views\Tutors\Edit.cshtml" />
-    <Content Include="Views\Tutors\Index.cshtml" />
     <Content Include="Views\Detalle_Evento_Patro\Create.cshtml" />
     <Content Include="Views\Detalle_Evento_Patro\Delete.cshtml" />
     <Content Include="Views\Detalle_Evento_Patro\Details.cshtml" />
@@ -1052,6 +1043,16 @@
     <Content Include="Views\Manage\ListUsuario.cshtml" />
     <Content Include="Views\Adultoes\Solicitud.cshtml" />
     <Content Include="Views\Membresia_Adulto\MembresiaAdulto.cshtml" />
+    <Content Include="Views\Tutorias\Create.cshtml" />
+    <Content Include="Views\Tutorias\Delete.cshtml" />
+    <Content Include="Views\Tutorias\Details.cshtml" />
+    <Content Include="Views\Tutorias\Edit.cshtml" />
+    <Content Include="Views\Tutorias\Index.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\Create.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\Delete.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\Details.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\Edit.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
