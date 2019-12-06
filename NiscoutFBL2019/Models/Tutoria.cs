@@ -12,15 +12,19 @@ namespace NiscoutFBL2019.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Tutor : Persona
+    public partial class Tutoria
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tutor()
+        public Tutoria()
         {
             this.Membresia_Juveniles = new HashSet<Membresia_Juvenil>();
         }
     
+        public int Id { get; set; }
+        public string Parentezco { get; set; }
+        public int PersonaId { get; set; }
     
+        public virtual Persona Persona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Membresia_Juvenil> Membresia_Juveniles { get; set; }
     }

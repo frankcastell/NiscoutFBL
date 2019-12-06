@@ -87,7 +87,7 @@ namespace NiscoutFBL2019.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(periodo).State = EntityState.Modified;
+                db.Entry(periodo).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

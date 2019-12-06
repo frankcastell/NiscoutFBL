@@ -10,122 +10,112 @@ using NiscoutFBL2019.Models;
 
 namespace NiscoutFBL2019.Controllers
 {
-    public class TutorsController : Controller
+    public class TutoriasController : Controller
     {
-       
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
-        // GET: Tutors
-        public ActionResult Index( string buscar)
+        // GET: Tutorias
+        public ActionResult Index()
         {
-            var tutor = db.Tutores.Include(t => t.Departamento);
-
-            if(!string.IsNullOrEmpty(buscar))
-            {
-                tutor = tutor.Where(tu => tu.Nombres.Contains(buscar));
-            }
-            return View(tutor.ToList());
+            var tutorias = db.Tutorias.Include(t => t.Persona);
+            return View(tutorias.ToList());
         }
 
-        // GET: Tutors/Details/5
+        // GET: Tutorias/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tutor tutor = (Tutor)db.Personas.Find(id);
-            if (tutor == null)
+            Tutoria tutoria = db.Tutorias.Find(id);
+            if (tutoria == null)
             {
                 return HttpNotFound();
             }
-            return View(tutor);
+            return View(tutoria);
         }
 
-        // GET: Tutors/Create
+        // GET: Tutorias/Create
         public ActionResult Create()
         {
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
+            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Cod_Persona");
             return View();
         }
 
-        // POST: Tutors/Create
+        // POST: Tutorias/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId")] Tutor tutor)
+        public ActionResult Create([Bind(Include = "Id,Parentezco,PersonaId")] Tutoria tutoria)
         {
             if (ModelState.IsValid)
             {
-                db.Personas.Add(tutor);
+                db.Tutorias.Add(tutoria);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("Index");
-            }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", tutor.DepartamentoId);
-            return View(tutor);
+
+            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Cod_Persona", tutoria.PersonaId);
+            return View(tutoria);
         }
 
-        // GET: Tutors/Edit/5
+        // GET: Tutorias/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tutor tutor = (Tutor)db.Personas.Find(id);
-            if (tutor == null)
+            Tutoria tutoria = db.Tutorias.Find(id);
+            if (tutoria == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", tutor.DepartamentoId);
-            return View(tutor);
+            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Cod_Persona", tutoria.PersonaId);
+            return View(tutoria);
         }
 
-        // POST: Tutors/Edit/5
+        // POST: Tutorias/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId")] Tutor tutor)
+        public ActionResult Edit([Bind(Include = "Id,Parentezco,PersonaId")] Tutoria tutoria)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tutor).State = EntityState.Modified;
+                db.Entry(tutoria).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", tutor.DepartamentoId);
-            return View(tutor);
+            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Cod_Persona", tutoria.PersonaId);
+            return View(tutoria);
         }
 
-        // GET: Tutors/Delete/5
+        // GET: Tutorias/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tutor tutor = (Tutor)db.Personas.Find(id);
-            if (tutor == null)
+            Tutoria tutoria = db.Tutorias.Find(id);
+            if (tutoria == null)
             {
                 return HttpNotFound();
             }
-            return View(tutor);
+            return View(tutoria);
         }
 
-        // POST: Tutors/Delete/5
+        // POST: Tutorias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tutor tutor = (Tutor)db.Personas.Find(id);
-            db.Personas.Remove(tutor);
+            Tutoria tutoria = db.Tutorias.Find(id);
+            db.Tutorias.Remove(tutoria);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

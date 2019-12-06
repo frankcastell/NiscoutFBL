@@ -14,6 +14,12 @@ namespace NiscoutFBL2019.Models
     
     public partial class Persona
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Persona()
+        {
+            this.Tutorias = new HashSet<Tutoria>();
+        }
+    
         public int Id { get; set; }
         public string Cod_Persona { get; set; }
         public string Nombres { get; set; }
@@ -29,5 +35,7 @@ namespace NiscoutFBL2019.Models
         public int DepartamentoId { get; set; }
     
         public virtual Departamento Departamento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tutoria> Tutorias { get; set; }
     }
 }

@@ -9,7 +9,6 @@
     <EntitySet Name="Eventos" EntityType="ModeloNiscoutFBL.Evento" />
     <EntitySet Name="Membresia_Adultos" EntityType="ModeloNiscoutFBL.Membresia_Adulto" />
     <EntitySet Name="Personas" EntityType="ModeloNiscoutFBL.Persona" />
-    <EntitySet Name="Membresia_Juveniles" EntityType="ModeloNiscoutFBL.Membresia_Juvenil" />
     <EntitySet Name="SubGrupos" EntityType="ModeloNiscoutFBL.SubGrupo" />
     <EntitySet Name="Grupos" EntityType="ModeloNiscoutFBL.Grupo" />
     <EntitySet Name="Etapa_Aprobaciones" EntityType="ModeloNiscoutFBL.Etapa_Aprobacion" />
@@ -59,7 +58,7 @@
     </AssociationSet>
     <AssociationSet Name="SubGrupoMembresia_Juvenil" Association="ModeloNiscoutFBL.SubGrupoMembresia_Juvenil">
       <End Role="SubGrupo" EntitySet="SubGrupos" />
-      <End Role="Membresia_Juvenil" EntitySet="Membresia_Juveniles" />
+      <End Role="Membresia_Juvenil" EntitySet="Personas" />
     </AssociationSet>
     <AssociationSet Name="Tipo_GrupoSubGrupo" Association="ModeloNiscoutFBL.Tipo_GrupoSubGrupo">
       <End Role="Tipo_Grupo" EntitySet="Tipo_Grupos" />
@@ -75,11 +74,7 @@
     </AssociationSet>
     <AssociationSet Name="JuvenilMembresia_Juvenil" Association="ModeloNiscoutFBL.JuvenilMembresia_Juvenil">
       <End Role="Juvenil" EntitySet="Juveniles" />
-      <End Role="Membresia_Juvenil" EntitySet="Membresia_Juveniles" />
-    </AssociationSet>
-    <AssociationSet Name="TutorMembresia_Juvenil" Association="ModeloNiscoutFBL.TutorMembresia_Juvenil">
-      <End Role="Tutor" EntitySet="Personas" />
-      <End Role="Membresia_Juvenil" EntitySet="Membresia_Juveniles" />
+      <End Role="Membresia_Juvenil" EntitySet="Personas" />
     </AssociationSet>
     <AssociationSet Name="Centro_EstudioJuvenil" Association="ModeloNiscoutFBL.Centro_EstudioJuvenil">
       <End Role="Centro_Estudio" EntitySet="Centro_Estudios" />
@@ -91,7 +86,7 @@
     </AssociationSet>
     <EntitySet Name="Progresion_Juveniles" EntityType="ModeloNiscoutFBL.Progresion_Juvenil" />
     <AssociationSet Name="Membresia_JuvenilProgresion_Juvenil" Association="ModeloNiscoutFBL.Membresia_JuvenilProgresion_Juvenil">
-      <End Role="Membresia_Juvenil" EntitySet="Membresia_Juveniles" />
+      <End Role="Membresia_Juvenil" EntitySet="Personas" />
       <End Role="Progresion_Juvenil" EntitySet="Progresion_Juveniles" />
     </AssociationSet>
     <EntitySet Name="Detalle_Evento_Patros" EntityType="ModeloNiscoutFBL.Detalle_Evento_Patro" />
@@ -121,6 +116,19 @@
     <AssociationSet Name="Asistente_EventoDetalle_Evento_Patro" Association="ModeloNiscoutFBL.Asistente_EventoDetalle_Evento_Patro">
       <End Role="Asistente_Evento" EntitySet="Asistente_Eventos" />
       <End Role="Detalle_Evento_Patro" EntitySet="Detalle_Evento_Patros" />
+    </AssociationSet>
+    <AssociationSet Name="Etapa_AprobacionMembresia_Juvenil" Association="ModeloNiscoutFBL.Etapa_AprobacionMembresia_Juvenil">
+      <End Role="Etapa_Aprobacion" EntitySet="Etapa_Aprobaciones" />
+      <End Role="Membresia_Juvenil" EntitySet="Personas" />
+    </AssociationSet>
+    <EntitySet Name="Tutorias" EntityType="ModeloNiscoutFBL.Tutoria" />
+    <AssociationSet Name="PersonaTutoria" Association="ModeloNiscoutFBL.PersonaTutoria">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Tutoria" EntitySet="Tutorias" />
+    </AssociationSet>
+    <AssociationSet Name="TutoriaMembresia_Juvenil" Association="ModeloNiscoutFBL.TutoriaMembresia_Juvenil">
+      <End Role="Tutoria" EntitySet="Tutorias" />
+      <End Role="Membresia_Juvenil" EntitySet="Personas" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Periodo">
@@ -231,9 +239,17 @@
     <Property Name="Direccion" Type="String" Nullable="false" />
     <NavigationProperty Name="Departamento" Relationship="ModeloNiscoutFBL.DepartamentoPersona" FromRole="Persona" ToRole="Departamento" />
     <Property Name="DepartamentoId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tutorias" Relationship="ModeloNiscoutFBL.PersonaTutoria" FromRole="Persona" ToRole="Tutoria" />
   </EntityType>
-  <EntityType Name="Tutor" BaseType="ModeloNiscoutFBL.Persona">
-    <NavigationProperty Name="Membresia_Juveniles" Relationship="ModeloNiscoutFBL.TutorMembresia_Juvenil" FromRole="Tutor" ToRole="Membresia_Juvenil" />
+  <EntityType Name="Tutoria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Parentezco" Type="String" Nullable="false" />
+    <NavigationProperty Name="Persona" Relationship="ModeloNiscoutFBL.PersonaTutoria" FromRole="Tutoria" ToRole="Persona" />
+    <Property Name="PersonaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Membresia_Juveniles" Relationship="ModeloNiscoutFBL.TutoriaMembresia_Juvenil" FromRole="Tutoria" ToRole="Membresia_Juvenil" />
   </EntityType>
   <EntityType Name="Patrocinador" BaseType="ModeloNiscoutFBL.Persona">
     <Property Name="Nombre_Insti" Type="String" Nullable="false" />
@@ -242,18 +258,15 @@
     <NavigationProperty Name="Detalle_Evento_Patros" Relationship="ModeloNiscoutFBL.PatrocinadorDetalle_Evento_Patro" FromRole="Patrocinador" ToRole="Detalle_Evento_Patro" />
     <NavigationProperty Name="Detalle_Grupo_Patros" Relationship="ModeloNiscoutFBL.PatrocinadorDetalle_Grupo_Patro" FromRole="Patrocinador" ToRole="Detalle_Grupo_Patro" />
   </EntityType>
-  <EntityType Name="Membresia_Juvenil">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  <EntityType Name="Membresia_Juvenil" BaseType="ModeloNiscoutFBL.Persona">
     <NavigationProperty Name="SubGrupo" Relationship="ModeloNiscoutFBL.SubGrupoMembresia_Juvenil" FromRole="Membresia_Juvenil" ToRole="SubGrupo" />
     <Property Name="SubGrupoId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Juvenil" Relationship="ModeloNiscoutFBL.JuvenilMembresia_Juvenil" FromRole="Membresia_Juvenil" ToRole="Juvenil" />
     <Property Name="JuvenilId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Tutor" Relationship="ModeloNiscoutFBL.TutorMembresia_Juvenil" FromRole="Membresia_Juvenil" ToRole="Tutor" />
-    <Property Name="TutorId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Progresion_Juveniles" Relationship="ModeloNiscoutFBL.Membresia_JuvenilProgresion_Juvenil" FromRole="Membresia_Juvenil" ToRole="Progresion_Juvenil" />
+    <NavigationProperty Name="Etapa_Aprobacion" Relationship="ModeloNiscoutFBL.Etapa_AprobacionMembresia_Juvenil" FromRole="Membresia_Juvenil" ToRole="Etapa_Aprobacion" />
+    <Property Name="Etapa_AprobacionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tutoria" Relationship="ModeloNiscoutFBL.TutoriaMembresia_Juvenil" FromRole="Membresia_Juvenil" ToRole="Tutoria" />
   </EntityType>
   <EntityType Name="SubGrupo">
     <Key>
@@ -299,6 +312,7 @@
     <Property Name="Cod_Etapa" Type="String" Nullable="false" />
     <Property Name="Estado" Type="String" Nullable="false" />
     <NavigationProperty Name="Membresia_Adultos" Relationship="ModeloNiscoutFBL.Etapa_AprobacionMembresia_Adulto" FromRole="Etapa_Aprobacion" ToRole="Membresia_Adulto" />
+    <NavigationProperty Name="Membresia_Juveniles" Relationship="ModeloNiscoutFBL.Etapa_AprobacionMembresia_Juvenil" FromRole="Etapa_Aprobacion" ToRole="Membresia_Juvenil" />
   </EntityType>
   <EntityType Name="Personal_Admon" BaseType="ModeloNiscoutFBL.Persona">
     <NavigationProperty Name="Cargo" Relationship="ModeloNiscoutFBL.CargoPersonal_Admon" FromRole="Personal_Admon" ToRole="Cargo" />
@@ -526,18 +540,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="TutorMembresia_Juvenil">
-    <End Type="ModeloNiscoutFBL.Tutor" Role="Tutor" Multiplicity="1" />
-    <End Type="ModeloNiscoutFBL.Membresia_Juvenil" Role="Membresia_Juvenil" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Tutor">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Membresia_Juvenil">
-        <PropertyRef Name="TutorId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="Centro_EstudioJuvenil">
     <End Type="ModeloNiscoutFBL.Centro_Estudio" Role="Centro_Estudio" Multiplicity="1" />
     <End Type="ModeloNiscoutFBL.Juvenil" Role="Juvenil" Multiplicity="*" />
@@ -702,5 +704,33 @@
         <PropertyRef Name="Asistente_EventoId" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <Association Name="Etapa_AprobacionMembresia_Juvenil">
+    <End Type="ModeloNiscoutFBL.Etapa_Aprobacion" Role="Etapa_Aprobacion" Multiplicity="1" />
+    <End Type="ModeloNiscoutFBL.Membresia_Juvenil" Role="Membresia_Juvenil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etapa_Aprobacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Membresia_Juvenil">
+        <PropertyRef Name="Etapa_AprobacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonaTutoria">
+    <End Type="ModeloNiscoutFBL.Persona" Role="Persona" Multiplicity="1" />
+    <End Type="ModeloNiscoutFBL.Tutoria" Role="Tutoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tutoria">
+        <PropertyRef Name="PersonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TutoriaMembresia_Juvenil">
+    <End Type="ModeloNiscoutFBL.Tutoria" Role="Tutoria" Multiplicity="1" />
+    <End Type="ModeloNiscoutFBL.Membresia_Juvenil" Role="Membresia_Juvenil" Multiplicity="*" />
   </Association>
 </Schema>

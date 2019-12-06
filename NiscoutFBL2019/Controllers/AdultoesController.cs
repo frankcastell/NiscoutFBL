@@ -125,14 +125,14 @@ namespace NiscoutFBL2019.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Solicitud(int idAdulto, [Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId")] Adulto adulto)
+        public ActionResult Solicitud([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId")] Adulto adulto)
         {
              
             if (ModelState.IsValid)
             {
                 db.Personas.Add(adulto);
                 db.SaveChanges();
-                return RedirectToAction("MembresiaAdulto","Membresia_Adulto", new {adulto.Id});
+                return RedirectToAction("MembresiaAdulto","Membresia_Adulto", new { idAdulto=adulto.Id});
             }
            
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);
@@ -157,7 +157,7 @@ namespace NiscoutFBL2019.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(adulto).State = EntityState.Modified;
+                db.Entry(adulto).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -173,7 +173,7 @@ namespace NiscoutFBL2019.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(adulto).State = EntityState.Modified;
+                db.Entry(adulto).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
