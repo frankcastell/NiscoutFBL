@@ -74,7 +74,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Membresia_Juvenil membresia_Juvenil = db.Membresia_Juvenil.Find(id);
+            Membresia_Juvenil membresia_Juvenil = db.Membresia_Juveniles.Find(id);
             if (membresia_Juvenil == null)
             {
                 return HttpNotFound();
@@ -113,7 +113,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Membresia_Juvenil membresia_Juvenil = db.Membresia_Juvenil.Find(id);
+            Membresia_Juvenil membresia_Juvenil = db.Membresia_Juveniles.Find(id);
             if (membresia_Juvenil == null)
             {
                 return HttpNotFound();
@@ -126,7 +126,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Membresia_Juvenil membresia_Juvenil = db.Membresia_Juvenil.Find(id);
+            Membresia_Juvenil membresia_Juvenil = db.Membresia_Juveniles.Find(id);
             db.Personas.Remove(membresia_Juvenil);
             db.SaveChanges();
             return RedirectToAction("Index");
