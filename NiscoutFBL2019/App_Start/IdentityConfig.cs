@@ -86,6 +86,11 @@ namespace NiscoutFBL2019
             }
             return manager;
         }
+
+        internal Task AddToRolesAsync(string id, object selectedRoles)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     // Configure el administrador de inicios de sesión que se usa en esta aplicación.

@@ -39,6 +39,10 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Juvenil/Create
         public ActionResult Create()
         {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "1", Text = "Hombre" },
+                new SelectListItem { Value = "2", Text = "Mujer" }
+                                               }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
             ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo");
             ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Id");

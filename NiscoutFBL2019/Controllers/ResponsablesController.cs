@@ -99,6 +99,10 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "1", Text = "Hombre" },
+                new SelectListItem { Value = "2", Text = "Mujer" }
+                                               }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", responsable.DepartamentoId);
             ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Desde", responsable.PeriodoId);
             return View(responsable);

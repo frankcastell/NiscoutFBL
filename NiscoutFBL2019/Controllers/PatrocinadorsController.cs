@@ -46,6 +46,10 @@ namespace NiscoutFBL2019.Controllers
         // GET: Patrocinadors/Create
         public ActionResult Create()
         {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "1", Text = "Hombre" },
+                new SelectListItem { Value = "2", Text = "Mujer" }
+                                               }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
         }
