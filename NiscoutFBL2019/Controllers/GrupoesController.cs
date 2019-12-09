@@ -45,8 +45,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Grupoes/Create
         public ActionResult Create()
         {
-            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Cod_Persona");
-            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Cod_Distrito");
+            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Nombres");
+            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Nombre_Distrito");
             return View();
         }
 
@@ -68,8 +68,8 @@ namespace NiscoutFBL2019.Controllers
             {
                 return RedirectToAction("Index");
             }
-            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Cod_Persona", grupo.ResponsableId);
-            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Cod_Distrito", grupo.DistritoId);
+            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Nombres", grupo.ResponsableId);
+            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Nombre_Distrito", grupo.DistritoId);
             return View(grupo);
         }
 
