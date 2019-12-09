@@ -939,3 +939,4 @@ C:\Users\luism\Source\Repos\NiscoutFBL\NiscoutFBL2019\obj\Debug\RdlCompile.cache
 C:\Users\luism\Source\Repos\NiscoutFBL\NiscoutFBL2019\obj\Debug\RdlCompile.compiled
 C:\Users\luism\Source\Repos\NiscoutFBL\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.dll
 C:\Users\luism\Source\Repos\NiscoutFBL\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.pdb
+C:\Users\Ing. Francisco\Source\Repos\frankcastell\NiscoutFBL\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.csprojResolveAssemblyReference.cache

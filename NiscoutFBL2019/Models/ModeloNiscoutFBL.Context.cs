@@ -51,7 +51,6 @@ namespace NiscoutFBL2019.Models
         public virtual DbSet<Patrocinador> Patrocinadores { get; set; }
         public virtual DbSet<Personal_Admon> Personal_Admon { get; set; }
         public virtual DbSet<Tutoria> Tutorias { get; set; }
-
-
+        
     }
 }
