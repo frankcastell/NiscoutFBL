@@ -17,7 +17,7 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Juvenil
         public ActionResult Index()
         {
-            var personas = db.Personas.Include(m => m.Departamento).Include(m => m.SubGrupo).Include(m => m.Juvenil).Include(m => m.Etapa_Aprobacion);
+            var personas = db.Membresia_Juveniles.Include(m => m.Departamento).Include(m => m.SubGrupo).Include(m => m.Juvenil).Include(m => m.Etapa_Aprobacion);
             return View(personas.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Membresia_Juvenil membresia_Juvenil = db.Personas.Find(id);
+            Membresia_Juvenil membresia_Juvenil = db.Membresia_Juveniles.Find(id);
             if (membresia_Juvenil == null)
             {
                 return HttpNotFound();
@@ -74,7 +74,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Membresia_Juvenil membresia_Juvenil = db.Personas.Find(id);
+            Membresia_Juvenil membresia_Juvenil = db.Membresia_Juveniles.Find(id);
             if (membresia_Juvenil == null)
             {
                 return HttpNotFound();
@@ -113,7 +113,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Membresia_Juvenil membresia_Juvenil = db.Personas.Find(id);
+            Membresia_Juvenil membresia_Juvenil = db.Membresia_Juveniles.Find(id);
             if (membresia_Juvenil == null)
             {
                 return HttpNotFound();
@@ -126,7 +126,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Membresia_Juvenil membresia_Juvenil = db.Personas.Find(id);
+            Membresia_Juvenil membresia_Juvenil = db.Membresia_Juveniles.Find(id);
             db.Personas.Remove(membresia_Juvenil);
             db.SaveChanges();
             return RedirectToAction("Index");

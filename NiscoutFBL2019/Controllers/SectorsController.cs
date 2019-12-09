@@ -45,8 +45,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Sectors/Create
         public ActionResult Create()
         {
-            ViewBag.MunicipioId = new SelectList(db.Municipios, "Id", "Cod_Municipio");
-            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Cod_Distrito");
+            ViewBag.MunicipioId = new SelectList(db.Municipios, "Id", "Nombre_Municipio");
+            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Nombre_Distrito");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return RedirectToAction("Index");
             }
-            ViewBag.MunicipioId = new SelectList(db.Municipios, "Id", "Cod_Municipio", sector.MunicipioId);
+            ViewBag.MunicipioId = new SelectList(db.Municipios, "Id", "Nombre_Municipio", sector.MunicipioId);
             ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Cod_Distrito", sector.DistritoId);
             return View(sector);
         }

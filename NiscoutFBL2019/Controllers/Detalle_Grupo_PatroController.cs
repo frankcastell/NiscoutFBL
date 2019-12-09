@@ -46,8 +46,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Detalle_Grupo_Patro/Create
         public ActionResult Create()
         {
-            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Cod_Grupo");
-            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Cod_Persona");
+            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo");
+            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Nombres");
             return View();
         }
 
@@ -69,8 +69,8 @@ namespace NiscoutFBL2019.Controllers
             {
                 return RedirectToAction("Index");
             }
-            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Cod_Grupo", detalle_Grupo_Patro.GrupoId);
-            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Cod_Persona", detalle_Grupo_Patro.PatrocinadorId);
+            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo", detalle_Grupo_Patro.GrupoId);
+            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Nombres", detalle_Grupo_Patro.PatrocinadorId);
             return View(detalle_Grupo_Patro);
         }
 
@@ -86,8 +86,8 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Cod_Grupo", detalle_Grupo_Patro.GrupoId);
-            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Cod_Persona", detalle_Grupo_Patro.PatrocinadorId);
+            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo", detalle_Grupo_Patro.GrupoId);
+            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Nombres", detalle_Grupo_Patro.PatrocinadorId);
             return View(detalle_Grupo_Patro);
         }
 
@@ -104,8 +104,8 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Cod_Grupo", detalle_Grupo_Patro.GrupoId);
-            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Cod_Persona", detalle_Grupo_Patro.PatrocinadorId);
+            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo", detalle_Grupo_Patro.GrupoId);
+            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Nombres", detalle_Grupo_Patro.PatrocinadorId);
             return View(detalle_Grupo_Patro);
         }
 

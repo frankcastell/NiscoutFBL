@@ -32,16 +32,16 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Cod_Sector)
+                   Codigo
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Nombre_Sector)
+                   Sector
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Municipio.Cod_Municipio)
+                   Municipio
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Distrito.Cod_Distrito)
+                   Distrito
                 </th>
                 <th></th>
             </tr>
@@ -64,10 +64,10 @@
                     @Html.DisplayFor(modelItem => item.Nombre_Sector)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Municipio.Cod_Municipio)
+                    @Html.DisplayFor(modelItem => item.Municipio.Nombre_Municipio)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Distrito.Cod_Distrito)
+                    @Html.DisplayFor(modelItem => item.Distrito.Nombre_Distrito)
                 </td>
                 <td>
                     <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>

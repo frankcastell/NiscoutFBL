@@ -35,13 +35,13 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Cod_Grupo)
+                   Codigo Grupo
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Nombre_Grupo)
+                    Nombre Grupo
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Num_Solicitud)
+                    Numero de Solicitud
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Pañoleta)
@@ -50,16 +50,16 @@
                     @Html.DisplayNameFor(model => model.Insignia)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Sello_Grupo)
+                    Sello
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Carta_Solicitud)
+                   Carta Solicitud
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Responsable.Cod_Persona)
+                    Responsable
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Distrito.Cod_Distrito)
+                   Distritos
                 </th>
                 <th></th>
             </tr>
@@ -97,10 +97,10 @@
                     @Html.DisplayFor(modelItem => item.Carta_Solicitud)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Responsable.Cod_Persona)
+                    @Html.DisplayFor(modelItem => item.Responsable.Nombres )
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Distrito.Cod_Distrito)
+                    @Html.DisplayFor(modelItem => item.Distrito.Nombre_Distrito )
                 </td>
                 <td>
                     <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>

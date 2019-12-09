@@ -44,9 +44,9 @@ namespace NiscoutFBL2019.Controllers
         // GET: SubGrupoes/Create
         public ActionResult Create()
         {
-            ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Cod_Persona");
-            ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Cod_Tipo_Grupo");
-            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Cod_Grupo");
+            ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Nombres");
+            ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Nombre_Tipo_Grupo");
+            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo");
             return View();
         }
 

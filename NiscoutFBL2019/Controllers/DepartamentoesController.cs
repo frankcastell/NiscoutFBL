@@ -57,7 +57,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nombre_Departamento")] Departamento departamento)
+        public ActionResult Create([Bind(Include = "Id,Cod_Departamento,Nombre_Departamento")] Departamento departamento)
         {
             if (ModelState.IsValid)
             {
