@@ -46,6 +46,11 @@ namespace NiscoutFBL2019.Controllers
         // GET: Juvenils/Create
         public ActionResult Create()
         {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "1", Text = "Hombre" },
+                new SelectListItem { Value = "2", Text = "Mujer" }
+                                               }, "Value", "Text");
+
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro");
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
@@ -71,7 +76,43 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
             return View(juvenil);
         }
+        //--------------------------------------------------------------inicio
 
+        // GET: Juvenils/Create  Nuevo
+        [AllowAnonymous]
+        public ActionResult SolicitudJuvenil()
+        {
+            // Codigo para sexo
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "1", Text = "Hombre" },
+                new SelectListItem { Value = "2", Text = "Mujer" }
+                                               }, "Value", "Text");
+
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
+            ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro");
+            ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
+            return View();
+        }
+
+        //Nuevo ...
+        [AllowAnonymous]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SolicitudJuvenil([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Centro_EstudioId,TutoriaId")] Juvenil juvenil)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Personas.Add(juvenil);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", juvenil.DepartamentoId);
+            ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro", juvenil.Centro_EstudioId);
+            ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
+            return View(juvenil);
+        }
+        //------------------------------------------------------------*------------------------------fin
         // GET: Juvenils/Edit/5
         public ActionResult Edit(int? id)
         {

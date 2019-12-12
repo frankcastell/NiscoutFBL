@@ -487,6 +487,24 @@
     <Content Include="Content\css\pages\table-pages.css" />
     <Content Include="Content\css\spinners.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\Ico\eliminar.png" />
+    <Content Include="Content\Ico\email 2.png" />
+    <Content Include="Content\Ico\email.png" />
+    <Content Include="Content\Ico\guardar.png" />
+    <Content Include="Content\Ico\imprimir.png" />
+    <Content Include="Content\Ico\location.png" />
+    <Content Include="Content\Ico\Logo.png" />
+    <Content Include="Content\Ico\Logoo.jpg" />
+    <Content Include="Content\Ico\Logov1.png" />
+    <Content Include="Content\Ico\Logov2.png" />
+    <Content Include="Content\Ico\lupa.png" />
+    <Content Include="Content\Ico\Marca.png" />
+    <Content Include="Content\Ico\Nuevo.png" />
+    <Content Include="Content\Ico\tel 1.png" />
+    <Content Include="Content\Ico\tel.png" />
+    <Content Include="Content\Ico\ubicacion.png" />
+    <Content Include="Content\Ico\Ver_detalles.png" />
+    <Content Include="Content\Ico\whatsapp.png" />
     <Content Include="Content\scss\icons\font-awesome\css\font-awesome.css" />
     <Content Include="Content\scss\icons\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\scss\icons\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -1052,6 +1070,9 @@
     <Content Include="Views\Membresia_Adulto\Details.cshtml" />
     <Content Include="Views\Membresia_Adulto\Edit.cshtml" />
     <Content Include="Views\Membresia_Adulto\Index.cshtml" />
+    <Content Include="Views\Juvenils\SolicitudJuvenil.cshtml" />
+    <Content Include="Views\Membresia_Adulto\MembreAdulto.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\MembreJuvenil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
