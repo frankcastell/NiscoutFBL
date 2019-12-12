@@ -60,6 +60,12 @@ namespace NiscoutFBL2019.Controllers
             {
                 db.Personas.Add(persona);
                 db.SaveChanges();
+
+
+                //generar el carnet
+                //persona.Cod_Persona = "NS-" + System.DateTime.Today.Year.ToString() + persona.Id.ToString();
+                
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
             else

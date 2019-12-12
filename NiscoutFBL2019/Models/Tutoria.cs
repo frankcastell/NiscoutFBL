@@ -17,7 +17,7 @@ namespace NiscoutFBL2019.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tutoria()
         {
-            this.Membresia_Juveniles = new HashSet<Membresia_Juvenil>();
+            this.Juveniles = new HashSet<Juvenil>();
         }
     
         public int Id { get; set; }
@@ -26,6 +26,6 @@ namespace NiscoutFBL2019.Models
     
         public virtual Persona Persona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Membresia_Juvenil> Membresia_Juveniles { get; set; }
+        public virtual ICollection<Juvenil> Juveniles { get; set; }
     }
 }

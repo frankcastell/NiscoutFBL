@@ -12,7 +12,7 @@ namespace NiscoutFBL2019.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Membresia_Juvenil : Persona
+    public partial class Membresia_Juvenil
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Membresia_Juvenil()
@@ -21,14 +21,15 @@ namespace NiscoutFBL2019.Models
         }
     
         public int SubGrupoId { get; set; }
-        public int JuvenilId { get; set; }
         public int Etapa_AprobacionId { get; set; }
+        public int JuvenilId { get; set; }
+        public string Annio { get; set; }
+        public int Id { get; set; }
     
         public virtual SubGrupo SubGrupo { get; set; }
+        public virtual Etapa_Aprobacion Etapa_Aprobacion { get; set; }
         public virtual Juvenil Juvenil { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Progresion_Juvenil> Progresion_Juveniles { get; set; }
-        public virtual Etapa_Aprobacion Etapa_Aprobacion { get; set; }
-        public virtual Tutoria Tutoria { get; set; }
     }
 }

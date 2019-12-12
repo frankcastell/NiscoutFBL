@@ -20,10 +20,11 @@ namespace NiscoutFBL2019.Models
         public byte Record_Policia { get; set; }
         public byte Carta_Ref_Personal { get; set; }
         public byte Certifi_Salvo_Peligro { get; set; }
-        public int AdultoId { get; set; }
+        public string Annio { get; set; }
         public int Etapa_AprobacionId { get; set; }
+        public int AdultoId { get; set; }
     
+        public virtual Etapa_Aprobacion Etapa_Aprobacion { get; set; }
         public virtual Adulto Adulto { get; set; }
-        public virtual Etapa_Aprobacion Etapa_Aprobacion1 { get; set; }
     }
 }

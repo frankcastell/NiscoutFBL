@@ -10,21 +10,14 @@ using NiscoutFBL2019.Models;
 
 namespace NiscoutFBL2019.Controllers
 {
-    [Authorize]
-
     public class Membresia_AdultoController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Membresia_Adulto
-        public ActionResult Index( string buscar)
+        public ActionResult Index()
         {
-            var membresia_Adultos = db.Membresia_Adultos.Include(m => m.Adulto).Include(m => m.Etapa_Aprobacion1);
-
-            if(!string.IsNullOrEmpty(buscar))
-            {
-                membresia_Adultos = membresia_Adultos.Where(ma => ma.Adulto.Nombres.Contains(buscar));
-            }
+            var membresia_Adultos = db.Membresia_Adultos.Include(m => m.Etapa_Aprobacion).Include(m => m.Adulto);
             return View(membresia_Adultos.ToList());
         }
 
@@ -46,8 +39,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Adulto/Create
         public ActionResult Create()
         {
-            ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres");
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa");
+            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona");
             return View();
         }
 
@@ -56,7 +49,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,AdultoId,Etapa_AprobacionId")] Membresia_Adulto membresia_Adulto)
+        public ActionResult Create([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto)
         {
             if (ModelState.IsValid)
             {
@@ -64,39 +57,9 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("Index");
-            }
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Nombres", membresia_Adulto);
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Adulto.Etapa_AprobacionId);
-            return View(membresia_Adulto);
-        }
-        // GET: Membresia_Adulto/Create
-        [AllowAnonymous]
-        public ActionResult MembresiaAdulto(int idAdulto)
-        {            
-            ViewBag.AdultoId  = db.Adultos.Where(x=>x.Id == idAdulto).FirstOrDefault();           
-            //ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres");            //ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
-            return View();
-        }
-        // POST: Membresia_Adulto/Create
-        [AllowAnonymous]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult MembresiaAdulto([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,AdultoId,Etapa_AprobacionId")] Membresia_Adulto membresia_Adulto)
-        {
-            membresia_Adulto.Etapa_AprobacionId = 2;
-            if (ModelState.IsValid)
-            {
-                db.Membresia_Adultos.Add(membresia_Adulto);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-           
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Nombres", membresia_Adulto);
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Adulto.Etapa_AprobacionId);
+
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Adulto.Etapa_AprobacionId);
+            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
             return View(membresia_Adulto);
         }
 
@@ -112,8 +75,8 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Adulto.Etapa_AprobacionId);
+            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
             return View(membresia_Adulto);
         }
 
@@ -122,7 +85,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,AdultoId,Etapa_AprobacionId")] Membresia_Adulto membresia_Adulto)
+        public ActionResult Edit([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto)
         {
             if (ModelState.IsValid)
             {
@@ -130,8 +93,8 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Adulto.Etapa_AprobacionId);
+            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
             return View(membresia_Adulto);
         }
 

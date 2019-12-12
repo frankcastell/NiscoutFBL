@@ -10,8 +10,6 @@ using NiscoutFBL2019.Models;
 
 namespace NiscoutFBL2019.Controllers
 {
-    [Authorize]
-
     public class JuvenilsController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
@@ -19,8 +17,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Juvenils
         public ActionResult Index()
         {
-            var juveniles = db.Juveniles.Include(j => j.Centro_Estudio);
-            return View(juveniles.ToList());
+            var juvenil = db.Juveniles.Include(j => j.Departamento).Include(j => j.Centro_Estudio).Include(j => j.Tutoria);
+            return View(juvenil.ToList());
         }
 
         // GET: Juvenils/Details/5
@@ -41,7 +39,9 @@ namespace NiscoutFBL2019.Controllers
         // GET: Juvenils/Create
         public ActionResult Create()
         {
-            ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro");
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
+            ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro");
+            ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
             return View();
         }
 
@@ -50,20 +50,18 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Centro_EstudioId")] Juvenil juvenil)
+        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Centro_EstudioId,TutoriaId")] Juvenil juvenil)
         {
             if (ModelState.IsValid)
             {
-                db.Juveniles.Add(juvenil);
+                db.Personas.Add(juvenil);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("Index");
-            }
-            ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro", juvenil.Centro_EstudioId);
+
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", juvenil.DepartamentoId);
+            ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro", juvenil.Centro_EstudioId);
+            ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
             return View(juvenil);
         }
 
@@ -79,7 +77,9 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", juvenil.DepartamentoId);
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro", juvenil.Centro_EstudioId);
+            ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
             return View(juvenil);
         }
 
@@ -88,7 +88,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Centro_EstudioId")] Juvenil juvenil)
+        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Centro_EstudioId,TutoriaId")] Juvenil juvenil)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,9 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", juvenil.DepartamentoId);
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro", juvenil.Centro_EstudioId);
+            ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
             return View(juvenil);
         }
 
@@ -121,7 +123,7 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Juvenil juvenil = db.Juveniles.Find(id);
-            db.Juveniles.Remove(juvenil);
+            db.Personas.Remove(juvenil);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -17,8 +17,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Juvenil
         public ActionResult Index()
         {
-            var personas = db.Membresia_Juveniles.Include(m => m.Departamento).Include(m => m.SubGrupo).Include(m => m.Juvenil).Include(m => m.Etapa_Aprobacion);
-            return View(personas.ToList());
+            var membresia_JuvenilSet = db.Membresia_Juveniles.Include(m => m.SubGrupo).Include(m => m.Etapa_Aprobacion).Include(m => m.Juvenil);
+            return View(membresia_JuvenilSet.ToList());
         }
 
         // GET: Membresia_Juvenil/Details/5
@@ -39,14 +39,9 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Juvenil/Create
         public ActionResult Create()
         {
-            ViewBag.sexo = new SelectList(new[] {
-                new SelectListItem { Value = "1", Text = "Hombre" },
-                new SelectListItem { Value = "2", Text = "Mujer" }
-                                               }, "Value", "Text");
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
             ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo");
-            ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Id");
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa");
+            ViewBag.JuvenilId = new SelectList(db.Personas, "Id", "Cod_Persona");
             return View();
         }
 
@@ -55,19 +50,18 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,SubGrupoId,JuvenilId,Etapa_AprobacionId")] Membresia_Juvenil membresia_Juvenil)
+        public ActionResult Create([Bind(Include = "SubGrupoId,Etapa_AprobacionId,JuvenilId,Annio,Id")] Membresia_Juvenil membresia_Juvenil)
         {
             if (ModelState.IsValid)
             {
-                db.Personas.Add(membresia_Juvenil);
+                db.Membresia_Juveniles.Add(membresia_Juvenil);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", membresia_Juvenil.DepartamentoId);
             ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo", membresia_Juvenil.SubGrupoId);
-            ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Id", membresia_Juvenil.JuvenilId);
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Juvenil.Etapa_AprobacionId);
+            ViewBag.JuvenilId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Juvenil.JuvenilId);
             return View(membresia_Juvenil);
         }
 
@@ -83,10 +77,9 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", membresia_Juvenil.DepartamentoId);
             ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo", membresia_Juvenil.SubGrupoId);
-            ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Id", membresia_Juvenil.JuvenilId);
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Juvenil.Etapa_AprobacionId);
+            ViewBag.JuvenilId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Juvenil.JuvenilId);
             return View(membresia_Juvenil);
         }
 
@@ -95,7 +88,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,SubGrupoId,JuvenilId,Etapa_AprobacionId")] Membresia_Juvenil membresia_Juvenil)
+        public ActionResult Edit([Bind(Include = "SubGrupoId,Etapa_AprobacionId,JuvenilId,Annio,Id")] Membresia_Juvenil membresia_Juvenil)
         {
             if (ModelState.IsValid)
             {
@@ -103,10 +96,9 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", membresia_Juvenil.DepartamentoId);
             ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo", membresia_Juvenil.SubGrupoId);
-            ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Id", membresia_Juvenil.JuvenilId);
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Juvenil.Etapa_AprobacionId);
+            ViewBag.JuvenilId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Juvenil.JuvenilId);
             return View(membresia_Juvenil);
         }
 
@@ -131,7 +123,7 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Membresia_Juvenil membresia_Juvenil = db.Membresia_Juveniles.Find(id);
-            db.Personas.Remove(membresia_Juvenil);
+            db.Membresia_Juveniles.Remove(membresia_Juvenil);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

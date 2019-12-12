@@ -56,9 +56,9 @@ namespace NiscoutFBL2019
 
                 //creamos un primer usuario para ese rol
                 var user = new ApplicationUser();
-                user.UserName = "juannoruega1@gmail.com";
-                user.Email = "juannoruega1@gmail.com";
-                string PWD = "12345678";
+                user.UserName = "brayanoz105@gmail.com";
+                user.Email = "brayanoz105@gmail.com";
+                string PWD = "123456789";
 
                 var chkUser = ManejadorUsuario.Create(user, PWD);
                 //si se creo con exito

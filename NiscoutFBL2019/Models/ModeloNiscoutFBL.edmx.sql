@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/06/2019 15:47:15
--- Generated from EDMX file: C:\Users\Ing. Francisco\Source\Repos\frankcastell\NiscoutFBL\NiscoutFBL2019\Models\ModeloNiscoutFBL.edmx
+-- Date Created: 12/11/2019 22:39:49
+-- Generated from EDMX file: C:\Users\brayan obando\Source\Repos\NiscoutFBL\NiscoutFBL2019\Models\ModeloNiscoutFBL.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -35,12 +35,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_DistritoSector]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Sectores] DROP CONSTRAINT [FK_DistritoSector];
 GO
-IF OBJECT_ID(N'[dbo].[FK_AdultoMembresia_Adulto]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Membresia_Adultos] DROP CONSTRAINT [FK_AdultoMembresia_Adulto];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Etapa_AprobacionMembresia_Adulto]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Membresia_Adultos] DROP CONSTRAINT [FK_Etapa_AprobacionMembresia_Adulto];
-GO
 IF OBJECT_ID(N'[dbo].[FK_CargoPersonal_Admon]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Personas_Personal_Admon] DROP CONSTRAINT [FK_CargoPersonal_Admon];
 GO
@@ -48,7 +42,7 @@ IF OBJECT_ID(N'[dbo].[FK_AsistenteSubGrupo]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[SubGrupos] DROP CONSTRAINT [FK_AsistenteSubGrupo];
 GO
 IF OBJECT_ID(N'[dbo].[FK_SubGrupoMembresia_Juvenil]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Personas_Membresia_Juvenil] DROP CONSTRAINT [FK_SubGrupoMembresia_Juvenil];
+    ALTER TABLE [dbo].[Membresia_JuvenilSet] DROP CONSTRAINT [FK_SubGrupoMembresia_Juvenil];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Tipo_GrupoSubGrupo]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[SubGrupos] DROP CONSTRAINT [FK_Tipo_GrupoSubGrupo];
@@ -59,17 +53,11 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_SubGrupoEvento]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Eventos] DROP CONSTRAINT [FK_SubGrupoEvento];
 GO
-IF OBJECT_ID(N'[dbo].[FK_JuvenilMembresia_Juvenil]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Personas_Membresia_Juvenil] DROP CONSTRAINT [FK_JuvenilMembresia_Juvenil];
-GO
 IF OBJECT_ID(N'[dbo].[FK_Centro_EstudioJuvenil]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Juveniles] DROP CONSTRAINT [FK_Centro_EstudioJuvenil];
+    ALTER TABLE [dbo].[Personas_Juvenil] DROP CONSTRAINT [FK_Centro_EstudioJuvenil];
 GO
 IF OBJECT_ID(N'[dbo].[FK_DistritoGrupo]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Grupos] DROP CONSTRAINT [FK_DistritoGrupo];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Membresia_JuvenilProgresion_Juvenil]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Progresion_Juveniles] DROP CONSTRAINT [FK_Membresia_JuvenilProgresion_Juvenil];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PatrocinadorDetalle_Evento_Patro]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Detalle_Evento_Patros] DROP CONSTRAINT [FK_PatrocinadorDetalle_Evento_Patro];
@@ -90,19 +78,28 @@ IF OBJECT_ID(N'[dbo].[FK_Asistente_EventoDetalle_Evento_Patro]', 'F') IS NOT NUL
     ALTER TABLE [dbo].[Detalle_Evento_Patros] DROP CONSTRAINT [FK_Asistente_EventoDetalle_Evento_Patro];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Etapa_AprobacionMembresia_Juvenil]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Personas_Membresia_Juvenil] DROP CONSTRAINT [FK_Etapa_AprobacionMembresia_Juvenil];
+    ALTER TABLE [dbo].[Membresia_JuvenilSet] DROP CONSTRAINT [FK_Etapa_AprobacionMembresia_Juvenil];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PersonaTutoria]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Tutorias] DROP CONSTRAINT [FK_PersonaTutoria];
 GO
-IF OBJECT_ID(N'[dbo].[FK_TutoriaMembresia_Juvenil]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Personas_Membresia_Juvenil] DROP CONSTRAINT [FK_TutoriaMembresia_Juvenil];
+IF OBJECT_ID(N'[dbo].[FK_TutoriaJuvenil]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Personas_Juvenil] DROP CONSTRAINT [FK_TutoriaJuvenil];
+GO
+IF OBJECT_ID(N'[dbo].[FK_JuvenilMembresia_Juvenil]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Membresia_JuvenilSet] DROP CONSTRAINT [FK_JuvenilMembresia_Juvenil];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Etapa_AprobacionMembresia_Adulto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Membresia_Adultos] DROP CONSTRAINT [FK_Etapa_AprobacionMembresia_Adulto];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AdultoMembresia_Adulto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Membresia_Adultos] DROP CONSTRAINT [FK_AdultoMembresia_Adulto];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Membresia_JuvenilProgresion_Juvenil]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Progresion_Juveniles] DROP CONSTRAINT [FK_Membresia_JuvenilProgresion_Juvenil];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Responsable_inherits_Persona]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Personas_Responsable] DROP CONSTRAINT [FK_Responsable_inherits_Persona];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Adulto_inherits_Persona]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Personas_Adulto] DROP CONSTRAINT [FK_Adulto_inherits_Persona];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Personal_Admon_inherits_Persona]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Personas_Personal_Admon] DROP CONSTRAINT [FK_Personal_Admon_inherits_Persona];
@@ -110,11 +107,14 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Asistente_inherits_Persona]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Personas_Asistente] DROP CONSTRAINT [FK_Asistente_inherits_Persona];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Membresia_Juvenil_inherits_Persona]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Personas_Membresia_Juvenil] DROP CONSTRAINT [FK_Membresia_Juvenil_inherits_Persona];
+IF OBJECT_ID(N'[dbo].[FK_Juvenil_inherits_Persona]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Personas_Juvenil] DROP CONSTRAINT [FK_Juvenil_inherits_Persona];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Patrocinador_inherits_Persona]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Personas_Patrocinador] DROP CONSTRAINT [FK_Patrocinador_inherits_Persona];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Adulto_inherits_Persona]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Personas_Adulto] DROP CONSTRAINT [FK_Adulto_inherits_Persona];
 GO
 
 -- --------------------------------------------------
@@ -157,9 +157,6 @@ GO
 IF OBJECT_ID(N'[dbo].[Cargos]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Cargos];
 GO
-IF OBJECT_ID(N'[dbo].[Juveniles]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Juveniles];
-GO
 IF OBJECT_ID(N'[dbo].[Centro_Estudios]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Centro_Estudios];
 GO
@@ -184,11 +181,11 @@ GO
 IF OBJECT_ID(N'[dbo].[Tutorias]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Tutorias];
 GO
+IF OBJECT_ID(N'[dbo].[Membresia_JuvenilSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Membresia_JuvenilSet];
+GO
 IF OBJECT_ID(N'[dbo].[Personas_Responsable]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Personas_Responsable];
-GO
-IF OBJECT_ID(N'[dbo].[Personas_Adulto]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Personas_Adulto];
 GO
 IF OBJECT_ID(N'[dbo].[Personas_Personal_Admon]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Personas_Personal_Admon];
@@ -196,11 +193,14 @@ GO
 IF OBJECT_ID(N'[dbo].[Personas_Asistente]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Personas_Asistente];
 GO
-IF OBJECT_ID(N'[dbo].[Personas_Membresia_Juvenil]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Personas_Membresia_Juvenil];
+IF OBJECT_ID(N'[dbo].[Personas_Juvenil]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Personas_Juvenil];
 GO
 IF OBJECT_ID(N'[dbo].[Personas_Patrocinador]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Personas_Patrocinador];
+GO
+IF OBJECT_ID(N'[dbo].[Personas_Adulto]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Personas_Adulto];
 GO
 
 -- --------------------------------------------------
@@ -271,8 +271,9 @@ CREATE TABLE [dbo].[Membresia_Adultos] (
     [Record_Policia] tinyint  NOT NULL,
     [Carta_Ref_Personal] tinyint  NOT NULL,
     [Certifi_Salvo_Peligro] tinyint  NOT NULL,
-    [AdultoId] int  NOT NULL,
-    [Etapa_AprobacionId] int  NOT NULL
+    [Annio] nvarchar(max)  NOT NULL,
+    [Etapa_AprobacionId] int  NOT NULL,
+    [AdultoId] int  NOT NULL
 );
 GO
 
@@ -283,11 +284,11 @@ CREATE TABLE [dbo].[Personas] (
     [Nombres] nvarchar(max)  NOT NULL,
     [Apellidos] nvarchar(max)  NOT NULL,
     [Fecha_Nac] datetime  NOT NULL,
-    [E_Mail] nvarchar(max)  NOT NULL,
-    [Cedula] nvarchar(max)  NOT NULL,
+    [E_Mail] nvarchar(max)  NULL,
+    [Cedula] nvarchar(max)  NULL,
     [Sexo] nvarchar(max)  NOT NULL,
-    [Estado_Civil] nvarchar(max)  NOT NULL,
-    [Num_Pasaporte] nvarchar(max)  NOT NULL,
+    [Estado_Civil] nvarchar(max)  NULL,
+    [Num_Pasaporte] nvarchar(max)  NULL,
     [Telefono] int  NOT NULL,
     [Direccion] nvarchar(max)  NOT NULL,
     [DepartamentoId] int  NOT NULL
@@ -334,13 +335,6 @@ CREATE TABLE [dbo].[Cargos] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Cod_Cargo] nvarchar(max)  NOT NULL,
     [Nombre_Cargo] nvarchar(max)  NOT NULL
-);
-GO
-
--- Creating table 'Juveniles'
-CREATE TABLE [dbo].[Juveniles] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [Centro_EstudioId] int  NOT NULL
 );
 GO
 
@@ -419,15 +413,19 @@ CREATE TABLE [dbo].[Tutorias] (
 );
 GO
 
--- Creating table 'Personas_Responsable'
-CREATE TABLE [dbo].[Personas_Responsable] (
-    [PeriodoId] int  NOT NULL,
-    [Id] int  NOT NULL
+-- Creating table 'Membresia_JuvenilSet'
+CREATE TABLE [dbo].[Membresia_JuvenilSet] (
+    [SubGrupoId] int  NOT NULL,
+    [Etapa_AprobacionId] int  NOT NULL,
+    [JuvenilId] int  NOT NULL,
+    [Annio] nvarchar(max)  NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL
 );
 GO
 
--- Creating table 'Personas_Adulto'
-CREATE TABLE [dbo].[Personas_Adulto] (
+-- Creating table 'Personas_Responsable'
+CREATE TABLE [dbo].[Personas_Responsable] (
+    [PeriodoId] int  NOT NULL,
     [Id] int  NOT NULL
 );
 GO
@@ -445,13 +443,11 @@ CREATE TABLE [dbo].[Personas_Asistente] (
 );
 GO
 
--- Creating table 'Personas_Membresia_Juvenil'
-CREATE TABLE [dbo].[Personas_Membresia_Juvenil] (
-    [SubGrupoId] int  NOT NULL,
-    [JuvenilId] int  NOT NULL,
-    [Etapa_AprobacionId] int  NOT NULL,
-    [Id] int  NOT NULL,
-    [Tutoria_Id] int  NOT NULL
+-- Creating table 'Personas_Juvenil'
+CREATE TABLE [dbo].[Personas_Juvenil] (
+    [Centro_EstudioId] int  NOT NULL,
+    [TutoriaId] int  NOT NULL,
+    [Id] int  NOT NULL
 );
 GO
 
@@ -460,6 +456,12 @@ CREATE TABLE [dbo].[Personas_Patrocinador] (
     [Nombre_Insti] nvarchar(max)  NOT NULL,
     [Nombre_Representante] nvarchar(max)  NOT NULL,
     [Trabajo] nvarchar(max)  NOT NULL,
+    [Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'Personas_Adulto'
+CREATE TABLE [dbo].[Personas_Adulto] (
     [Id] int  NOT NULL
 );
 GO
@@ -540,12 +542,6 @@ ADD CONSTRAINT [PK_Cargos]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Juveniles'
-ALTER TABLE [dbo].[Juveniles]
-ADD CONSTRAINT [PK_Juveniles]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
 -- Creating primary key on [Id] in table 'Centro_Estudios'
 ALTER TABLE [dbo].[Centro_Estudios]
 ADD CONSTRAINT [PK_Centro_Estudios]
@@ -594,15 +590,15 @@ ADD CONSTRAINT [PK_Tutorias]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Personas_Responsable'
-ALTER TABLE [dbo].[Personas_Responsable]
-ADD CONSTRAINT [PK_Personas_Responsable]
+-- Creating primary key on [Id] in table 'Membresia_JuvenilSet'
+ALTER TABLE [dbo].[Membresia_JuvenilSet]
+ADD CONSTRAINT [PK_Membresia_JuvenilSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Personas_Adulto'
-ALTER TABLE [dbo].[Personas_Adulto]
-ADD CONSTRAINT [PK_Personas_Adulto]
+-- Creating primary key on [Id] in table 'Personas_Responsable'
+ALTER TABLE [dbo].[Personas_Responsable]
+ADD CONSTRAINT [PK_Personas_Responsable]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -618,15 +614,21 @@ ADD CONSTRAINT [PK_Personas_Asistente]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Personas_Membresia_Juvenil'
-ALTER TABLE [dbo].[Personas_Membresia_Juvenil]
-ADD CONSTRAINT [PK_Personas_Membresia_Juvenil]
+-- Creating primary key on [Id] in table 'Personas_Juvenil'
+ALTER TABLE [dbo].[Personas_Juvenil]
+ADD CONSTRAINT [PK_Personas_Juvenil]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- Creating primary key on [Id] in table 'Personas_Patrocinador'
 ALTER TABLE [dbo].[Personas_Patrocinador]
 ADD CONSTRAINT [PK_Personas_Patrocinador]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Personas_Adulto'
+ALTER TABLE [dbo].[Personas_Adulto]
+ADD CONSTRAINT [PK_Personas_Adulto]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -724,36 +726,6 @@ ON [dbo].[Sectores]
     ([DistritoId]);
 GO
 
--- Creating foreign key on [AdultoId] in table 'Membresia_Adultos'
-ALTER TABLE [dbo].[Membresia_Adultos]
-ADD CONSTRAINT [FK_AdultoMembresia_Adulto]
-    FOREIGN KEY ([AdultoId])
-    REFERENCES [dbo].[Personas_Adulto]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_AdultoMembresia_Adulto'
-CREATE INDEX [IX_FK_AdultoMembresia_Adulto]
-ON [dbo].[Membresia_Adultos]
-    ([AdultoId]);
-GO
-
--- Creating foreign key on [Etapa_AprobacionId] in table 'Membresia_Adultos'
-ALTER TABLE [dbo].[Membresia_Adultos]
-ADD CONSTRAINT [FK_Etapa_AprobacionMembresia_Adulto]
-    FOREIGN KEY ([Etapa_AprobacionId])
-    REFERENCES [dbo].[Etapa_Aprobaciones]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Etapa_AprobacionMembresia_Adulto'
-CREATE INDEX [IX_FK_Etapa_AprobacionMembresia_Adulto]
-ON [dbo].[Membresia_Adultos]
-    ([Etapa_AprobacionId]);
-GO
-
 -- Creating foreign key on [CargoId] in table 'Personas_Personal_Admon'
 ALTER TABLE [dbo].[Personas_Personal_Admon]
 ADD CONSTRAINT [FK_CargoPersonal_Admon]
@@ -784,8 +756,8 @@ ON [dbo].[SubGrupos]
     ([AsistenteId]);
 GO
 
--- Creating foreign key on [SubGrupoId] in table 'Personas_Membresia_Juvenil'
-ALTER TABLE [dbo].[Personas_Membresia_Juvenil]
+-- Creating foreign key on [SubGrupoId] in table 'Membresia_JuvenilSet'
+ALTER TABLE [dbo].[Membresia_JuvenilSet]
 ADD CONSTRAINT [FK_SubGrupoMembresia_Juvenil]
     FOREIGN KEY ([SubGrupoId])
     REFERENCES [dbo].[SubGrupos]
@@ -795,7 +767,7 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SubGrupoMembresia_Juvenil'
 CREATE INDEX [IX_FK_SubGrupoMembresia_Juvenil]
-ON [dbo].[Personas_Membresia_Juvenil]
+ON [dbo].[Membresia_JuvenilSet]
     ([SubGrupoId]);
 GO
 
@@ -844,23 +816,8 @@ ON [dbo].[Eventos]
     ([SubGrupoId]);
 GO
 
--- Creating foreign key on [JuvenilId] in table 'Personas_Membresia_Juvenil'
-ALTER TABLE [dbo].[Personas_Membresia_Juvenil]
-ADD CONSTRAINT [FK_JuvenilMembresia_Juvenil]
-    FOREIGN KEY ([JuvenilId])
-    REFERENCES [dbo].[Juveniles]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_JuvenilMembresia_Juvenil'
-CREATE INDEX [IX_FK_JuvenilMembresia_Juvenil]
-ON [dbo].[Personas_Membresia_Juvenil]
-    ([JuvenilId]);
-GO
-
--- Creating foreign key on [Centro_EstudioId] in table 'Juveniles'
-ALTER TABLE [dbo].[Juveniles]
+-- Creating foreign key on [Centro_EstudioId] in table 'Personas_Juvenil'
+ALTER TABLE [dbo].[Personas_Juvenil]
 ADD CONSTRAINT [FK_Centro_EstudioJuvenil]
     FOREIGN KEY ([Centro_EstudioId])
     REFERENCES [dbo].[Centro_Estudios]
@@ -870,7 +827,7 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_Centro_EstudioJuvenil'
 CREATE INDEX [IX_FK_Centro_EstudioJuvenil]
-ON [dbo].[Juveniles]
+ON [dbo].[Personas_Juvenil]
     ([Centro_EstudioId]);
 GO
 
@@ -887,21 +844,6 @@ GO
 CREATE INDEX [IX_FK_DistritoGrupo]
 ON [dbo].[Grupos]
     ([DistritoId]);
-GO
-
--- Creating foreign key on [Membresia_JuvenilId] in table 'Progresion_Juveniles'
-ALTER TABLE [dbo].[Progresion_Juveniles]
-ADD CONSTRAINT [FK_Membresia_JuvenilProgresion_Juvenil]
-    FOREIGN KEY ([Membresia_JuvenilId])
-    REFERENCES [dbo].[Personas_Membresia_Juvenil]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Membresia_JuvenilProgresion_Juvenil'
-CREATE INDEX [IX_FK_Membresia_JuvenilProgresion_Juvenil]
-ON [dbo].[Progresion_Juveniles]
-    ([Membresia_JuvenilId]);
 GO
 
 -- Creating foreign key on [PatrocinadorId] in table 'Detalle_Evento_Patros'
@@ -994,8 +936,8 @@ ON [dbo].[Detalle_Evento_Patros]
     ([Asistente_EventoId]);
 GO
 
--- Creating foreign key on [Etapa_AprobacionId] in table 'Personas_Membresia_Juvenil'
-ALTER TABLE [dbo].[Personas_Membresia_Juvenil]
+-- Creating foreign key on [Etapa_AprobacionId] in table 'Membresia_JuvenilSet'
+ALTER TABLE [dbo].[Membresia_JuvenilSet]
 ADD CONSTRAINT [FK_Etapa_AprobacionMembresia_Juvenil]
     FOREIGN KEY ([Etapa_AprobacionId])
     REFERENCES [dbo].[Etapa_Aprobaciones]
@@ -1005,7 +947,7 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_Etapa_AprobacionMembresia_Juvenil'
 CREATE INDEX [IX_FK_Etapa_AprobacionMembresia_Juvenil]
-ON [dbo].[Personas_Membresia_Juvenil]
+ON [dbo].[Membresia_JuvenilSet]
     ([Etapa_AprobacionId]);
 GO
 
@@ -1024,33 +966,84 @@ ON [dbo].[Tutorias]
     ([PersonaId]);
 GO
 
--- Creating foreign key on [Tutoria_Id] in table 'Personas_Membresia_Juvenil'
-ALTER TABLE [dbo].[Personas_Membresia_Juvenil]
-ADD CONSTRAINT [FK_TutoriaMembresia_Juvenil]
-    FOREIGN KEY ([Tutoria_Id])
+-- Creating foreign key on [TutoriaId] in table 'Personas_Juvenil'
+ALTER TABLE [dbo].[Personas_Juvenil]
+ADD CONSTRAINT [FK_TutoriaJuvenil]
+    FOREIGN KEY ([TutoriaId])
     REFERENCES [dbo].[Tutorias]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_TutoriaMembresia_Juvenil'
-CREATE INDEX [IX_FK_TutoriaMembresia_Juvenil]
-ON [dbo].[Personas_Membresia_Juvenil]
-    ([Tutoria_Id]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_TutoriaJuvenil'
+CREATE INDEX [IX_FK_TutoriaJuvenil]
+ON [dbo].[Personas_Juvenil]
+    ([TutoriaId]);
+GO
+
+-- Creating foreign key on [JuvenilId] in table 'Membresia_JuvenilSet'
+ALTER TABLE [dbo].[Membresia_JuvenilSet]
+ADD CONSTRAINT [FK_JuvenilMembresia_Juvenil]
+    FOREIGN KEY ([JuvenilId])
+    REFERENCES [dbo].[Personas_Juvenil]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_JuvenilMembresia_Juvenil'
+CREATE INDEX [IX_FK_JuvenilMembresia_Juvenil]
+ON [dbo].[Membresia_JuvenilSet]
+    ([JuvenilId]);
+GO
+
+-- Creating foreign key on [Etapa_AprobacionId] in table 'Membresia_Adultos'
+ALTER TABLE [dbo].[Membresia_Adultos]
+ADD CONSTRAINT [FK_Etapa_AprobacionMembresia_Adulto]
+    FOREIGN KEY ([Etapa_AprobacionId])
+    REFERENCES [dbo].[Etapa_Aprobaciones]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Etapa_AprobacionMembresia_Adulto'
+CREATE INDEX [IX_FK_Etapa_AprobacionMembresia_Adulto]
+ON [dbo].[Membresia_Adultos]
+    ([Etapa_AprobacionId]);
+GO
+
+-- Creating foreign key on [AdultoId] in table 'Membresia_Adultos'
+ALTER TABLE [dbo].[Membresia_Adultos]
+ADD CONSTRAINT [FK_AdultoMembresia_Adulto]
+    FOREIGN KEY ([AdultoId])
+    REFERENCES [dbo].[Personas_Adulto]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AdultoMembresia_Adulto'
+CREATE INDEX [IX_FK_AdultoMembresia_Adulto]
+ON [dbo].[Membresia_Adultos]
+    ([AdultoId]);
+GO
+
+-- Creating foreign key on [Membresia_JuvenilId] in table 'Progresion_Juveniles'
+ALTER TABLE [dbo].[Progresion_Juveniles]
+ADD CONSTRAINT [FK_Membresia_JuvenilProgresion_Juvenil]
+    FOREIGN KEY ([Membresia_JuvenilId])
+    REFERENCES [dbo].[Membresia_JuvenilSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Membresia_JuvenilProgresion_Juvenil'
+CREATE INDEX [IX_FK_Membresia_JuvenilProgresion_Juvenil]
+ON [dbo].[Progresion_Juveniles]
+    ([Membresia_JuvenilId]);
 GO
 
 -- Creating foreign key on [Id] in table 'Personas_Responsable'
 ALTER TABLE [dbo].[Personas_Responsable]
 ADD CONSTRAINT [FK_Responsable_inherits_Persona]
-    FOREIGN KEY ([Id])
-    REFERENCES [dbo].[Personas]
-        ([Id])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Id] in table 'Personas_Adulto'
-ALTER TABLE [dbo].[Personas_Adulto]
-ADD CONSTRAINT [FK_Adulto_inherits_Persona]
     FOREIGN KEY ([Id])
     REFERENCES [dbo].[Personas]
         ([Id])
@@ -1075,9 +1068,9 @@ ADD CONSTRAINT [FK_Asistente_inherits_Persona]
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Id] in table 'Personas_Membresia_Juvenil'
-ALTER TABLE [dbo].[Personas_Membresia_Juvenil]
-ADD CONSTRAINT [FK_Membresia_Juvenil_inherits_Persona]
+-- Creating foreign key on [Id] in table 'Personas_Juvenil'
+ALTER TABLE [dbo].[Personas_Juvenil]
+ADD CONSTRAINT [FK_Juvenil_inherits_Persona]
     FOREIGN KEY ([Id])
     REFERENCES [dbo].[Personas]
         ([Id])
@@ -1087,6 +1080,15 @@ GO
 -- Creating foreign key on [Id] in table 'Personas_Patrocinador'
 ALTER TABLE [dbo].[Personas_Patrocinador]
 ADD CONSTRAINT [FK_Patrocinador_inherits_Persona]
+    FOREIGN KEY ([Id])
+    REFERENCES [dbo].[Personas]
+        ([Id])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Id] in table 'Personas_Adulto'
+ALTER TABLE [dbo].[Personas_Adulto]
+ADD CONSTRAINT [FK_Adulto_inherits_Persona]
     FOREIGN KEY ([Id])
     REFERENCES [dbo].[Personas]
         ([Id])
