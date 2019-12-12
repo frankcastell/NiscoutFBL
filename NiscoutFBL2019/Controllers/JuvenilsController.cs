@@ -15,10 +15,17 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Juvenils
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
             var juvenil = db.Juveniles.Include(j => j.Departamento).Include(j => j.Centro_Estudio).Include(j => j.Tutoria);
+
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                juvenil = juvenil.Where(j => j.Nombres.Contains(buscar));
+            }
             return View(juvenil.ToList());
+
+
         }
 
         // GET: Juvenils/Details/5
