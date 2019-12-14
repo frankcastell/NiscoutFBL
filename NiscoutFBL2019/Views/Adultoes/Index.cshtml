@@ -13,9 +13,10 @@
     { 
         <div align="right">
             <hr />
-            <a href="@Url.Action("RepAdulto", "Adultoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Reporte</a>
-
-            <a href="@Url.Action("Create", "Adultoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Registrar Nuevo Adulto</a>
+            <a href="@Url.Action("RepAdulto", "Adultoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Imprimir <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" /></a>
+            
+            <a href="@Url.Action("Create", "Adultoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down">
+                Registrar Nuevo Adulto  <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")"/></a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -27,7 +28,7 @@
             @Html.TextBox("buscar")
             &nbsp; &nbsp; 
            
-                <input  type="submit" value="Buscar" class="btn btn-outline-success"  />
+                <input type="image" value="Buscar" class="btn btn-outline-success"width="25" src="@Url.Content("~/Content/Ico/imprimir.png")"/>
             
                 <hr />
 </div>
