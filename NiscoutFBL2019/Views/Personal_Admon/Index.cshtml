@@ -11,7 +11,8 @@
     {
         <div align="right">
             <hr />
-            <a href="@Url.Action("Create", "Personal_Admon")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Registrar Nuevo Personal Admon</a>
+            <a href="@Url.Action("Create", "Personal_Admon")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Registrar Nuevo Personal Admon
+                <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" /></a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -23,7 +24,10 @@
 
             @Html.TextBox("busqueda")
             &nbsp;&nbsp;&nbsp;
-            <input type="submit" value="Buscar" class="btn btn-outline-success" />
+            <div>
+                <input type="submit" value="Buscar" class="btn btn-outline-success">
+                <img width="25" src="~/Content/Ico/lupa.png" />
+            </div>
             <hr />
         </div>
     }
