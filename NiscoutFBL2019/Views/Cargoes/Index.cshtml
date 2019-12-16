@@ -9,27 +9,25 @@
 <div align="left">
     @using (Html.BeginForm("Index", "Cargoes", FormMethod.Get))
     {
-        <div align="right">
-            <hr />
-            <a href="@Url.Action("Create", "Cargoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Agregar Nuevo Cargo
-                <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" /></a>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-             @Html.TextBox("buscar")
-            &nbsp;&nbsp;&nbsp;
+        <div align="right">
             <div>
-                <input type="submit" value="Buscar" class="btn btn-outline-success">
-                <img width="25" src="~/Content/Ico/lupa.png" />
+                <hr />
+
+                @Html.TextBox("buscar")
+                <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info" title="Buscar Registro">
+
+                <a href="@Url.Action("Create", "Cargoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar un Adulto">
+                    Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
+                </a>
+                <a href="@Url.Action("RepAdulto", "Adultoes")" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+                    <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
+                </a>
+
+                <hr />
             </div>
-            <hr />
         </div>
+
     }
 </div>
 
@@ -65,11 +63,16 @@
                         @Html.DisplayFor(modelItem => item.Nombre_Cargo)
                     </td>
                     <td>
-                      
-                        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
-                        <button class="btn waves-effect waves-red btn-info hidden-md-down">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button>
-                        <button class="btn waves-effect waves-light btn-danger hidden-md-down">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>
-                    </td>
+                        <a href="@Url.Action("Edit", "Cargoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                            <img width="25" src="~/Content/Ico/Editar.png" />
+                        </a>
+                        <a href="@Url.Action("Details", "Cargoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                            <img width="25" src="~/Content/Ico/Ver_detalles.png" />
+                        </a>
+                        <a href="@Url.Action("Delete", "Cargoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                            <img width="25" src="~/Content/Ico/eliminar.png" />
+                        </a>
+                     </td>
                 </tr>
             </tbody>
           }
