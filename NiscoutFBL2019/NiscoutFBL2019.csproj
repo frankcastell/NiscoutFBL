@@ -487,6 +487,8 @@
     <Content Include="Content\css\pages\table-pages.css" />
     <Content Include="Content\css\spinners.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\Ico\cancelar.png" />
+    <Content Include="Content\Ico\Editar.png" />
     <Content Include="Content\Ico\eliminar.png" />
     <Content Include="Content\Ico\email 2.png" />
     <Content Include="Content\Ico\email.png" />
@@ -500,10 +502,12 @@
     <Content Include="Content\Ico\lupa.png" />
     <Content Include="Content\Ico\Marca.png" />
     <Content Include="Content\Ico\Nuevo.png" />
+    <Content Include="Content\Ico\Renovar.png" />
     <Content Include="Content\Ico\tel 1.png" />
     <Content Include="Content\Ico\tel.png" />
     <Content Include="Content\Ico\ubicacion.png" />
     <Content Include="Content\Ico\Ver_detalles.png" />
+    <Content Include="Content\Ico\Volver.png" />
     <Content Include="Content\Ico\whatsapp.png" />
     <Content Include="Content\scss\icons\font-awesome\css\font-awesome.css" />
     <Content Include="Content\scss\icons\font-awesome\css\font-awesome.min.css" />

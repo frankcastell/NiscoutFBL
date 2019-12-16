@@ -45,10 +45,6 @@ namespace NiscoutFBL2019.Controllers
             }
             return View(adulto);
         }
-
-        
-
-
         // GET: Adultoes/Create
         public ActionResult Create()
         {
@@ -153,6 +149,11 @@ namespace NiscoutFBL2019.Controllers
         // GET: Adultoes/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "1", Text = "Hombre" },
+                new SelectListItem { Value = "2", Text = "Mujer" }
+                                               }, "Value", "Text");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
