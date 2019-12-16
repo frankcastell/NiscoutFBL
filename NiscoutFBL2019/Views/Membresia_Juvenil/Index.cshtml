@@ -4,48 +4,78 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Registros de Membrecia Juvenil</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Annio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubGrupo.Cod_Subgrupo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Cod_Etapa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Juvenil.Cod_Persona)
-        </th>
-        <th></th>
-    </tr>
+<div align="left">
+    @using (Html.BeginForm("Index", "Membresia_Juveni", FormMethod.Get))
+            {
+        <div align="right">
+            <hr />
+            <a href="@Url.Action("Create", "Membresia_Juveni")" class="btn waves-effect waves-light btn-outline-info hidden-md-down">
+                Registrar Miembro
+                <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
+            </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Annio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubGrupo.Cod_Subgrupo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Etapa_Aprobacion.Cod_Etapa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Juvenil.Cod_Persona)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
 
-</table>
+            @Html.TextBox("buscar")
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <div>
+                <input type="submit" value="Buscar" class="btn btn-outline-success">
+                <img width="25" src="~/Content/Ico/lupa.png" />
+            </div>
+            <hr />
+        </div>
+    }
+</div>
+
+<div class="datagrid">
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Annio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubGrupo.Cod_Subgrupo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Cod_Etapa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Juvenil.Cod_Persona)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Annio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubGrupo.Cod_Subgrupo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Etapa_Aprobacion.Cod_Etapa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Juvenil.Cod_Persona)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+    </table>
+    </div>

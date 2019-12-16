@@ -63,6 +63,36 @@ namespace NiscoutFBL2019.Controllers
             return View(membresia_Adulto);
         }
 
+        // Nueva vista ....................................Inicio
+        [AllowAnonymous]
+        public ActionResult MembreAdulto()
+        {
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa");
+            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona");
+            return View();
+        }
+
+        // POST: Membresia_Adulto/Create
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        [AllowAnonymous]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult  MembreAdulto([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Membresia_Adultos.Add(membresia_Adulto);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Adulto.Etapa_AprobacionId);
+            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
+            return View(membresia_Adulto);
+        }
+        //---------------------------------------Final vista
+
         // GET: Membresia_Adulto/Edit/5
         public ActionResult Edit(int? id)
         {
