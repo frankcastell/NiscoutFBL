@@ -47,8 +47,8 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Create()
         {
             ViewBag.sexo = new SelectList(new[] {
-                new SelectListItem { Value = "1", Text = "Hombre" },
-                new SelectListItem { Value = "2", Text = "Mujer" }
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
@@ -79,6 +79,10 @@ namespace NiscoutFBL2019.Controllers
         // GET: Patrocinadors/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -99,6 +103,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Nombre_Insti,Nombre_Representante,Trabajo")] Patrocinador patrocinador)
         {
+           
             if (ModelState.IsValid)
             {
                 db.Entry(patrocinador).State = System.Data.Entity.EntityState.Modified;

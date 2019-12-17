@@ -16,9 +16,14 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Personas
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
             var personas = db.Personas.Include(p => p.Departamento);
+
+            if(!string.IsNullOrEmpty(buscar))
+            {
+                personas = personas.Where(x => x.Nombres.Contains(buscar));
+            }
             return View(personas.ToList());
         }
 
@@ -41,8 +46,8 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Create()
         {
             ViewBag.sexo = new SelectList(new[] {
-                new SelectListItem { Value = "1", Text = "Hombre" },
-                new SelectListItem { Value = "2", Text = "Mujer" }
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
@@ -80,6 +85,10 @@ namespace NiscoutFBL2019.Controllers
         // GET: Personas/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -100,6 +109,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId")] Persona persona)
         {
+           
             if (ModelState.IsValid)
             {
                 db.Entry(persona).State = System.Data.Entity.EntityState.Modified;

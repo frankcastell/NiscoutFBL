@@ -7,8 +7,9 @@
 <link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
 <hr />
 <p>
-    <a href="@Url.Action("Create","Periodoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Agregar Nuevo periodo
-        <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" /></a>
+    <a href="@Url.Action("Create", "Periodoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar Nuevo Periodo">
+        Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
+    </a>
 </p>
 <hr />
 <div class="datagr">   
@@ -35,9 +36,16 @@
                             @Html.DisplayFor(modelItem => item.Hasta)
                         </td>
                         <td>
-                            <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
-                            <button class="btn waves-effect waves-red btn-info hidden-md-down">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button>
-                            <button class="btn waves-effect waves-light btn-danger hidden-md-down">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>
+
+                            <a href="@Url.Action("Edit", "Periodoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                                <img width="25" src="~/Content/Ico/Editar.png" />
+                            </a>
+                            <a href="@Url.Action("Details", "Periodoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                                <img width="25" src="~/Content/Ico/Ver_detalles.png" />
+                            </a>
+                            <a href="@Url.Action("Delete", "Periodoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                                <img width="25" src="~/Content/Ico/eliminar.png" />
+                            </a>
                         </td>
                     </tr>
                 </tbody>

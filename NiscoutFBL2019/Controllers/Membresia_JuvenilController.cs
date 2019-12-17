@@ -15,9 +15,14 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Membresia_Juvenil
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
             var membresia_JuvenilSet = db.Membresia_Juveniles.Include(m => m.SubGrupo).Include(m => m.Etapa_Aprobacion).Include(m => m.Juvenil);
+
+            if (!string.IsNullOrEmpty(buscar))
+            {
+                membresia_JuvenilSet = membresia_JuvenilSet.Where(x => x.Juvenil.Nombres.Contains(buscar));
+            }
             return View(membresia_JuvenilSet.ToList());
         }
 
