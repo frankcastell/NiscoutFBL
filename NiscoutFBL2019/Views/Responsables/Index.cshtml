@@ -31,9 +31,7 @@
         <table class="table vm no-th-brd no-wrap pro-of-month">
             <thead>
                 <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)
-                    </th>
+                    
                     <th>
                         @Html.DisplayNameFor(model => model.Cod_Persona)
                     </th>
@@ -68,6 +66,9 @@
                         @Html.DisplayNameFor(model => model.Direccion)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.Periodo)
                     </th>
                     <th></th>
@@ -85,9 +86,7 @@
                 {
                     
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)
-                            </td>
+                           
                             <td>
                                 @Html.DisplayFor(modelItem => item.Cod_Persona)
                             </td>
@@ -120,6 +119,9 @@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Direccion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Periodo)

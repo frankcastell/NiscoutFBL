@@ -51,7 +51,7 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
 
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro");
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
             return View();
@@ -71,7 +71,7 @@ namespace NiscoutFBL2019.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", juvenil.DepartamentoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", juvenil.DepartamentoId);
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro", juvenil.Centro_EstudioId);
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
             return View(juvenil);
@@ -88,7 +88,7 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
 
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro");
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
             return View();
@@ -107,7 +107,7 @@ namespace NiscoutFBL2019.Controllers
                 return RedirectToAction("MembreJuvenil","Membresia_Juvenil", new { idjuvenil = juvenil.Id });
             }
 
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", juvenil.DepartamentoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", juvenil.DepartamentoId);
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro", juvenil.Centro_EstudioId);
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
             return View(juvenil);
@@ -129,7 +129,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", juvenil.DepartamentoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", juvenil.DepartamentoId);
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro", juvenil.Centro_EstudioId);
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
             return View(juvenil);
@@ -148,7 +148,7 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", juvenil.DepartamentoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", juvenil.DepartamentoId);
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Cod_Centro", juvenil.Centro_EstudioId);
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
             return View(juvenil);
