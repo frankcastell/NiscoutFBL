@@ -7,11 +7,15 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NiscoutFBL2019.Models;
+using System.Web.Helpers;
+using System.IO;
 
 namespace NiscoutFBL2019.Controllers
 {
+    [Authorize]
     public class Membresia_AdultoController : Controller
     {
+       
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Membresia_Adulto
@@ -54,15 +58,37 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto)
+        public ActionResult Create(HttpPostedFileBase imageload, [Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Membresia_Adultos.Add(membresia_Adulto);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
+                if (ModelState.IsValid)
+                {
+
+                    if (imageload != null && imageload.ContentLength > 0)
+                    {
+                        byte[] imagenData = null;
+                        using (var imagen = new BinaryReader(imageload.InputStream))
+                        {
+                            imagenData = imagen.ReadBytes(imageload.ContentLength);
+                        }
+                        //membresia_Adulto.Carta_Compromiso = imagenData;
+                        //https://youtu.be/hHYiHIsFL9o
+                        //https://www.youtube.com/results?search_query=+asp.net+mvc+5+insert+type+of+byte+into+an+image
+
+                    }
+                    db.Membresia_Adultos.Add(membresia_Adulto);
+                    db.SaveChanges();
+
+                }
+            }
+            catch (ReadOnlyException)
+            {
+                ModelState.AddModelError("","No se han guardado los cambios, verifique la información" );
+                 return RedirectToAction("Index");
+            }
+           
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Adulto.Etapa_AprobacionId);
             ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
             return View(membresia_Adulto);
@@ -83,7 +109,7 @@ namespace NiscoutFBL2019.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult  MembreAdulto([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto)
+        public ActionResult MembreAdulto([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto)
         {
             if (ModelState.IsValid)
             {
