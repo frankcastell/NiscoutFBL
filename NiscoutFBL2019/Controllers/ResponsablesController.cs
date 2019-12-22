@@ -28,15 +28,7 @@ namespace NiscoutFBL2019.Controllers
             }
             return View(responsables.ToList());
 
-            //var depto = from s in db.Departamentos
-            //            select s;
-            //if (!string.IsNullOrEmpty(searching))
-            //{
-            //    depto = depto.Where(s => s.Nombre_Departamento.Contains(searching));
-            //}
-
-            //var personas = db.Personas.Include(p => p.Departamento);
-            //return View(personas.ToList());
+           
         }
 
         // GET: Responsables/Details/5
@@ -57,6 +49,10 @@ namespace NiscoutFBL2019.Controllers
         // GET: Responsables/Create
         public ActionResult Create()
         {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Desde");
             return View();
@@ -90,6 +86,10 @@ namespace NiscoutFBL2019.Controllers
         // GET: Responsables/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -99,10 +99,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.sexo = new SelectList(new[] {
-                new SelectListItem { Value = "1", Text = "Hombre" },
-                new SelectListItem { Value = "2", Text = "Mujer" }
-                                               }, "Value", "Text");
+           
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", responsable.DepartamentoId);
             ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Desde", responsable.PeriodoId);
             return View(responsable);

@@ -47,8 +47,8 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Create()
         {
             ViewBag.sexo = new SelectList(new[] {
-                new SelectListItem { Value = "1", Text = "Hombre" },
-                new SelectListItem { Value = "2", Text = "Mujer" }
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
@@ -84,8 +84,8 @@ namespace NiscoutFBL2019.Controllers
         {
             // Codigo para sexo
             ViewBag.sexo = new SelectList(new[] {
-                new SelectListItem { Value = "1", Text = "Hombre" },
-                new SelectListItem { Value = "2", Text = "Mujer" }
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento");
@@ -104,7 +104,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 db.Personas.Add(juvenil);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Membresia_Juvenil","Membresia_Juvenil", new { idjuvenil = juvenil.Id });
             }
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", juvenil.DepartamentoId);
@@ -116,6 +116,10 @@ namespace NiscoutFBL2019.Controllers
         // GET: Juvenils/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

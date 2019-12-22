@@ -49,8 +49,8 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Create()
         {
             ViewBag.sexo = new SelectList(new[] {
-                new SelectListItem { Value = "1", Text = "Hombre" },
-                new SelectListItem { Value = "2", Text = "Mujer" }
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
@@ -121,8 +121,8 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Solicitud()
         {
             ViewBag.sexo = new SelectList(new[] {
-                new SelectListItem { Value = "1", Text = "Hombre" },
-                new SelectListItem { Value = "2", Text = "Mujer" }
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
@@ -150,8 +150,8 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Edit(int? id)
         {
             ViewBag.sexo = new SelectList(new[] {
-                new SelectListItem { Value = "1", Text = "Hombre" },
-                new SelectListItem { Value = "2", Text = "Mujer" }
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
 
             if (id == null)

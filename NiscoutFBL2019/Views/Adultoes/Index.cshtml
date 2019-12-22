@@ -11,12 +11,13 @@
 <div align="left">
     @using (Html.BeginForm("Index", "Adultoes", FormMethod.Get))
     {
-        <div align="right">           
+        <div align="right">
+           
             <div>
                 <hr />
                
                 @Html.TextBox("buscar")
-                <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info"  title="Buscar Registro">
+                <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info" >
 
                 <a href="@Url.Action("Create", "Adultoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar un Adulto">
                     Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
@@ -69,7 +70,7 @@
                 @Html.DisplayNameFor(model => model.Direccion)
             </th>
             <th>
-                @*@Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)*@
+               
                 Nombre de Depto
             </th>
             <th></th>
@@ -124,7 +125,9 @@
                     @Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)
                 </td>
                 <td>
-                   <a href="@Url.Action("Edit", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                 
+                  
+                    <a href="@Url.Action("Edit", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
                         <img width="25" src="~/Content/Ico/Editar.png" />
                     </a>
                     <a href="@Url.Action("Details", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
@@ -132,7 +135,8 @@
                     </a>
                     <a href="@Url.Action("Delete", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
                         <img width="25" src="~/Content/Ico/eliminar.png" />
-                    </a>                 
+                    </a>
+                 
                     
                 </td>
             </tr>

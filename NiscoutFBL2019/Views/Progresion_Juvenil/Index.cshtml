@@ -7,8 +7,10 @@
 <h2>Registro de Progresion Juvenil</h2>
 
 <p>
-    <a href="@Url.Action("Create", "Progresion_Juvenil")" class="btn waves-effect waves-light btn-outline-info hidden-md-down"> Agregar Progresion Juvenil
-        <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" /></a>
+
+    <a href="@Url.Action("Create", "Progresion_Juvenil")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Progresion Juvenil">
+        Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
+    </a>
 </p>
 
 <div class="datagr">
@@ -26,10 +28,19 @@
                 </th>
                 <th></th>
             </tr>
-            </thead>
-            @foreach (var item in Model)
+        </thead>
+
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="4"> No se ha encontrado ningún dato relacionado</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
             {
-                <tr class="alt">
+                <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Cod_Etapa_Prog)
                     </td>
@@ -40,12 +51,19 @@
                         @Html.DisplayFor(modelItem => item.Membresia_Juvenil.Id)
                     </td>
                     <td>
-                        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar", "Edit", new { id = item.Id })</button>
-                        <button class="btn waves-effect waves-red btn-info hidden-md-down">@Html.ActionLink("Detalles", "Details", new { id = item.Id })</button>
-                        <button class="btn waves-effect waves-light btn-danger hidden-md-down">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</button>
+                        <a href="@Url.Action("Edit", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                            <img width="25" src="~/Content/Ico/Editar.png" />
+                        </a>
+                        <a href="@Url.Action("Details", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                            <img width="25" src="~/Content/Ico/Ver_detalles.png" />
+                        </a>
+                        <a href="@Url.Action("Delete", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                            <img width="25" src="~/Content/Ico/eliminar.png" />
+                        </a>
+
                     </td>
                 </tr>
             }
-
+        }
     </table>
-    </div>
+</div>

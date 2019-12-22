@@ -4,47 +4,60 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalle de la Información...</h2>
 
-<div>
-    <h4>Membresia_Juvenil</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Annio)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Annio)
-        </dd>
+<div class="datagrid">
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Annio)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Annio)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.SubGrupo.Cod_Subgrupo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.SubGrupo.Cod_Subgrupo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Cod_Etapa)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Etapa_Aprobacion.Cod_Etapa)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Juvenil.Cod_Persona)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Juvenil.Cod_Persona)
+                </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SubGrupo.Cod_Subgrupo)
-        </dt>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+    </table>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
 
-        <dd>
-            @Html.DisplayFor(model => model.SubGrupo.Cod_Subgrupo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Cod_Etapa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Etapa_Aprobacion.Cod_Etapa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Juvenil.Cod_Persona)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Juvenil.Cod_Persona)
-        </dd>
-
-    </dl>
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

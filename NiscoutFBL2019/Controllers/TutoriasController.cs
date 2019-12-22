@@ -15,9 +15,10 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Tutorias
-        public ActionResult Index()
+        public ActionResult Index( )
         {
             var tutorias = db.Tutorias.Include(t => t.Persona);
+
             return View(tutorias.ToList());
         }
 
