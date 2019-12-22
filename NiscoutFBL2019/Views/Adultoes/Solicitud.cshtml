@@ -1,6 +1,9 @@
 ﻿@model NiscoutFBL2019.Models.Adulto
 
-<h4>Datos Personales...</h4>
+
+    <h4 style="text-align:center" class="form-control" ><strong>Paso #1 Registro de Datos Personales...</strong> </h4>
+
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -109,23 +112,19 @@
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Agregar Registro" class="btn btn-outline-success" />
+                    <button class="btn waves-effect waves-purple btn-danger hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>                   
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn waves-effect waves-purple btn-danger hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>
+                    <input type="submit" value="Siguiente..." class="btn btn-outline-success" />
                 </div>
             </div>
         </div>
     </div>
 }
 
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 @section Scripts {
 
 

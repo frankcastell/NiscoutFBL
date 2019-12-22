@@ -96,11 +96,14 @@ namespace NiscoutFBL2019.Controllers
 
         // Nueva vista ....................................Inicio
         [AllowAnonymous]
-        public ActionResult MembreAdulto()
+        public ActionResult MembreAdulto(int idAdulto)
         {
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa");
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona");
+            // ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa");
+            // ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres");
+            ViewBag.AdultoId = db.Adultos.Where(x => x.Id == idAdulto).FirstOrDefault();
+            Adulto adulto = ViewBag.AdultoId;
             return View();
+            
         }
 
         // POST: Membresia_Adulto/Create
@@ -111,6 +114,8 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult MembreAdulto([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto)
         {
+            
+            membresia_Adulto.Etapa_AprobacionId = 2;
             if (ModelState.IsValid)
             {
                 db.Membresia_Adultos.Add(membresia_Adulto);
@@ -119,7 +124,7 @@ namespace NiscoutFBL2019.Controllers
             }
 
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Adulto.Etapa_AprobacionId);
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
+            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Nombres", membresia_Adulto.AdultoId);
             return View(membresia_Adulto);
         }
         //---------------------------------------Final vista

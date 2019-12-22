@@ -135,12 +135,12 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Solicitud([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId")] Adulto adulto)
         {
-             
+            
             if (ModelState.IsValid)
             {
                 db.Personas.Add(adulto);
                 db.SaveChanges();
-                return RedirectToAction("MembresiaAdulto","Membresia_Adulto", new { idAdulto=adulto.Id});
+                return RedirectToAction("MembreAdulto","Membresia_Adulto", new { idAdulto = adulto.Id});
             }
            
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);

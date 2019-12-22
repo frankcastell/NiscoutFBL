@@ -104,7 +104,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 db.Personas.Add(juvenil);
                 db.SaveChanges();
-                return RedirectToAction("Membresia_Juvenil","Membresia_Juvenil", new { idjuvenil = juvenil.Id });
+                return RedirectToAction("MembreJuvenil","Membresia_Juvenil", new { idjuvenil = juvenil.Id });
             }
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", juvenil.DepartamentoId);
