@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/11/2019 22:39:49
--- Generated from EDMX file: C:\Users\brayan obando\Source\Repos\NiscoutFBL\NiscoutFBL2019\Models\ModeloNiscoutFBL.edmx
+-- Date Created: 12/23/2019 09:05:34
+-- Generated from EDMX file: C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\Models\ModeloNiscoutFBL.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -266,11 +266,11 @@ GO
 -- Creating table 'Membresia_Adultos'
 CREATE TABLE [dbo].[Membresia_Adultos] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Carta_Compromiso] tinyint  NOT NULL,
-    [Carta_Intencion] tinyint  NOT NULL,
-    [Record_Policia] tinyint  NOT NULL,
-    [Carta_Ref_Personal] tinyint  NOT NULL,
-    [Certifi_Salvo_Peligro] tinyint  NOT NULL,
+    [Carta_Compromiso] varbinary(max)  NOT NULL,
+    [Carta_Intencion] varbinary(max)  NOT NULL,
+    [Record_Policia] varbinary(max)  NOT NULL,
+    [Carta_Ref_Personal] varbinary(max)  NOT NULL,
+    [Certifi_Salvo_Peligro] varbinary(max)  NOT NULL,
     [Annio] nvarchar(max)  NOT NULL,
     [Etapa_AprobacionId] int  NOT NULL,
     [AdultoId] int  NOT NULL
@@ -313,12 +313,12 @@ CREATE TABLE [dbo].[Grupos] (
     [Cod_Grupo] nvarchar(max)  NOT NULL,
     [Nombre_Grupo] nvarchar(max)  NOT NULL,
     [Num_Solicitud] int  NOT NULL,
-    [Pañoleta] tinyint  NOT NULL,
-    [Insignia] tinyint  NOT NULL,
-    [Sello_Grupo] tinyint  NOT NULL,
+    [Pañoleta] varbinary(max)  NOT NULL,
+    [Insignia] varbinary(max)  NOT NULL,
+    [Sello_Grupo] varbinary(max)  NOT NULL,
     [ResponsableId] int  NOT NULL,
     [DistritoId] int  NOT NULL,
-    [Carta_Solicitud] tinyint  NOT NULL
+    [Carta_Solicitud] varbinary(max)  NOT NULL
 );
 GO
 

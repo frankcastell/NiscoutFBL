@@ -690,11 +690,6 @@
     <Content Include="Views\Distritoes\Details.cshtml" />
     <Content Include="Views\Distritoes\Edit.cshtml" />
     <Content Include="Views\Distritoes\Index.cshtml" />
-    <Content Include="Views\Grupoes\Create.cshtml" />
-    <Content Include="Views\Grupoes\Delete.cshtml" />
-    <Content Include="Views\Grupoes\Details.cshtml" />
-    <Content Include="Views\Grupoes\Edit.cshtml" />
-    <Content Include="Views\Grupoes\Index.cshtml" />
     <Content Include="Views\Tipo_Grupo\Create.cshtml" />
     <Content Include="Views\Tipo_Grupo\Delete.cshtml" />
     <Content Include="Views\Tipo_Grupo\Details.cshtml" />
@@ -1069,14 +1064,19 @@
     <Content Include="Views\Membresia_Juvenil\Details.cshtml" />
     <Content Include="Views\Membresia_Juvenil\Edit.cshtml" />
     <Content Include="Views\Membresia_Juvenil\Index.cshtml" />
+    <Content Include="Views\Juvenils\SolicitudJuvenil.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\MembreJuvenil.cshtml" />
+    <Content Include="Views\Grupoes\Create.cshtml" />
+    <Content Include="Views\Grupoes\Delete.cshtml" />
+    <Content Include="Views\Grupoes\Details.cshtml" />
+    <Content Include="Views\Grupoes\Edit.cshtml" />
+    <Content Include="Views\Grupoes\Index.cshtml" />
     <Content Include="Views\Membresia_Adulto\Create.cshtml" />
     <Content Include="Views\Membresia_Adulto\Delete.cshtml" />
     <Content Include="Views\Membresia_Adulto\Details.cshtml" />
     <Content Include="Views\Membresia_Adulto\Edit.cshtml" />
     <Content Include="Views\Membresia_Adulto\Index.cshtml" />
-    <Content Include="Views\Juvenils\SolicitudJuvenil.cshtml" />
     <Content Include="Views\Membresia_Adulto\MembreAdulto.cshtml" />
-    <Content Include="Views\Membresia_Juvenil\MembreJuvenil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

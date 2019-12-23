@@ -227,11 +227,11 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Carta_Compromiso" Type="tinyint" Nullable="false" />
-    <Property Name="Carta_Intencion" Type="tinyint" Nullable="false" />
-    <Property Name="Record_Policia" Type="tinyint" Nullable="false" />
-    <Property Name="Carta_Ref_Personal" Type="tinyint" Nullable="false" />
-    <Property Name="Certifi_Salvo_Peligro" Type="tinyint" Nullable="false" />
+    <Property Name="Carta_Compromiso" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Carta_Intencion" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Record_Policia" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Carta_Ref_Personal" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Certifi_Salvo_Peligro" Type="varbinary(max)" Nullable="false" />
     <Property Name="Annio" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Etapa_AprobacionId" Type="int" Nullable="false" />
     <Property Name="AdultoId" Type="int" Nullable="false" />
@@ -274,12 +274,12 @@
     <Property Name="Cod_Grupo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Nombre_Grupo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Num_Solicitud" Type="int" Nullable="false" />
-    <Property Name="Pañoleta" Type="tinyint" Nullable="false" />
-    <Property Name="Insignia" Type="tinyint" Nullable="false" />
-    <Property Name="Sello_Grupo" Type="tinyint" Nullable="false" />
+    <Property Name="Pañoleta" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Insignia" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Sello_Grupo" Type="varbinary(max)" Nullable="false" />
     <Property Name="ResponsableId" Type="int" Nullable="false" />
     <Property Name="DistritoId" Type="int" Nullable="false" />
-    <Property Name="Carta_Solicitud" Type="tinyint" Nullable="false" />
+    <Property Name="Carta_Solicitud" Type="varbinary(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Etapa_Aprobaciones">
     <Key>
@@ -1045,11 +1045,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Carta_Compromiso" Type="Byte" Nullable="false" />
-          <Property Name="Carta_Intencion" Type="Byte" Nullable="false" />
-          <Property Name="Record_Policia" Type="Byte" Nullable="false" />
-          <Property Name="Carta_Ref_Personal" Type="Byte" Nullable="false" />
-          <Property Name="Certifi_Salvo_Peligro" Type="Byte" Nullable="false" />
+          <Property Name="Carta_Compromiso" Type="Binary" Nullable="false" />
+          <Property Name="Carta_Intencion" Type="Binary" Nullable="false" />
+          <Property Name="Record_Policia" Type="Binary" Nullable="false" />
+          <Property Name="Carta_Ref_Personal" Type="Binary" Nullable="false" />
+          <Property Name="Certifi_Salvo_Peligro" Type="Binary" Nullable="false" />
           <Property Name="Annio" Type="String" Nullable="false" />
           <NavigationProperty Name="Etapa_Aprobacion" Relationship="ModeloNiscoutFBL.Etapa_AprobacionMembresia_Adulto" FromRole="Membresia_Adulto" ToRole="Etapa_Aprobacion" />
           <Property Name="Etapa_AprobacionId" Type="Int32" Nullable="false" />
@@ -1135,15 +1135,15 @@
           <Property Name="Cod_Grupo" Type="String" Nullable="false" />
           <Property Name="Nombre_Grupo" Type="String" Nullable="false" />
           <Property Name="Num_Solicitud" Type="Int32" Nullable="false" />
-          <Property Name="Pañoleta" Type="Byte" Nullable="false" />
-          <Property Name="Insignia" Type="Byte" Nullable="false" />
-          <Property Name="Sello_Grupo" Type="Byte" Nullable="false" />
+          <Property Name="Pañoleta" Type="Binary" Nullable="false" />
+          <Property Name="Insignia" Type="Binary" Nullable="false" />
+          <Property Name="Sello_Grupo" Type="Binary" Nullable="false" />
           <NavigationProperty Name="Responsable" Relationship="ModeloNiscoutFBL.ResponsableGrupo" FromRole="Grupo" ToRole="Responsable" />
           <Property Name="ResponsableId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="SubGrupos" Relationship="ModeloNiscoutFBL.GrupoSubGrupo" FromRole="Grupo" ToRole="SubGrupo" />
           <NavigationProperty Name="Distrito" Relationship="ModeloNiscoutFBL.DistritoGrupo" FromRole="Grupo" ToRole="Distrito" />
           <Property Name="DistritoId" Type="Int32" Nullable="false" />
-          <Property Name="Carta_Solicitud" Type="Byte" Nullable="false" />
+          <Property Name="Carta_Solicitud" Type="Binary" Nullable="false" />
           <NavigationProperty Name="Detalle_Grupo_Patros" Relationship="ModeloNiscoutFBL.GrupoDetalle_Grupo_Patro" FromRole="Grupo" ToRole="Detalle_Grupo_Patro" />
         </EntityType>
         <EntityType Name="Etapa_Aprobacion">

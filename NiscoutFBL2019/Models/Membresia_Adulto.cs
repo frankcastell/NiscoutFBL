@@ -15,11 +15,11 @@ namespace NiscoutFBL2019.Models
     public partial class Membresia_Adulto
     {
         public int Id { get; set; }
-        public byte Carta_Compromiso { get; set; }
-        public byte Carta_Intencion { get; set; }
-        public byte Record_Policia { get; set; }
-        public byte Carta_Ref_Personal { get; set; }
-        public byte Certifi_Salvo_Peligro { get; set; }
+        public byte[] Carta_Compromiso { get; set; }
+        public byte[] Carta_Intencion { get; set; }
+        public byte[] Record_Policia { get; set; }
+        public byte[] Carta_Ref_Personal { get; set; }
+        public byte[] Certifi_Salvo_Peligro { get; set; }
         public string Annio { get; set; }
         public int Etapa_AprobacionId { get; set; }
         public int AdultoId { get; set; }

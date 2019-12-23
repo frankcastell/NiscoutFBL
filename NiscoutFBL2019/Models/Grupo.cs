@@ -25,12 +25,12 @@ namespace NiscoutFBL2019.Models
         public string Cod_Grupo { get; set; }
         public string Nombre_Grupo { get; set; }
         public int Num_Solicitud { get; set; }
-        public byte Pañoleta { get; set; }
-        public byte Insignia { get; set; }
-        public byte Sello_Grupo { get; set; }
+        public byte[] Pañoleta { get; set; }
+        public byte[] Insignia { get; set; }
+        public byte[] Sello_Grupo { get; set; }
         public int ResponsableId { get; set; }
         public int DistritoId { get; set; }
-        public byte Carta_Solicitud { get; set; }
+        public byte[] Carta_Solicitud { get; set; }
     
         public virtual Responsable Responsable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -17,13 +17,13 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Juvenil
         public ActionResult Index( string buscar)
         {
-            var membresia_JuvenilSet = db.Membresia_Juveniles.Include(m => m.SubGrupo).Include(m => m.Etapa_Aprobacion).Include(m => m.Juvenil);
+            var membresia_Juveniles = db.Membresia_Juveniles.Include(m => m.SubGrupo).Include(m => m.Etapa_Aprobacion).Include(m => m.Juvenil);
 
             if (!string.IsNullOrEmpty(buscar))
             {
-                membresia_JuvenilSet = membresia_JuvenilSet.Where(x => x.Juvenil.Nombres.Contains(buscar));
+                membresia_Juveniles = membresia_Juveniles.Where(x => x.Juvenil.Nombres.Contains(buscar));
             }
-            return View(membresia_JuvenilSet.ToList());
+            return View(membresia_Juveniles.ToList());
         }
 
         // GET: Membresia_Juvenil/Details/5

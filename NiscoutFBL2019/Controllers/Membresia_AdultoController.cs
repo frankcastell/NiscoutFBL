@@ -7,26 +7,18 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NiscoutFBL2019.Models;
-using System.Web.Helpers;
 using System.IO;
 
 namespace NiscoutFBL2019.Controllers
 {
-    [Authorize]
     public class Membresia_AdultoController : Controller
     {
-       
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Membresia_Adulto
-        public ActionResult Index( string buscar)
+        public ActionResult Index()
         {
             var membresia_Adultos = db.Membresia_Adultos.Include(m => m.Etapa_Aprobacion).Include(m => m.Adulto);
-
-            if(!string.IsNullOrEmpty(buscar))
-            {
-                membresia_Adultos = membresia_Adultos.Where(x => x.Adulto.Nombres.Contains(buscar));
-            }
             return View(membresia_Adultos.ToList());
         }
 
@@ -50,6 +42,7 @@ namespace NiscoutFBL2019.Controllers
         {
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa");
             ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona");
+
             return View();
         }
 
@@ -58,41 +51,69 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(HttpPostedFileBase imageload, [Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto)
+        public ActionResult Create([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto,
+                        HttpPostedFileBase imageload, HttpPostedFileBase image2,
+                        HttpPostedFileBase image3, HttpPostedFileBase image4, 
+                        HttpPostedFileBase image5)
         {
-            try
+            if (imageload != null && imageload.ContentLength > 0)
             {
-
-                if (ModelState.IsValid)
+                byte[] imagenData1 = null;
+                using (var imagen = new BinaryReader(imageload.InputStream))
                 {
-
-                    if (imageload != null && imageload.ContentLength > 0)
-                    {
-                        byte[] imagenData = null;
-                        using (var imagen = new BinaryReader(imageload.InputStream))
-                        {
-                            imagenData = imagen.ReadBytes(imageload.ContentLength);
-                        }
-                        //membresia_Adulto.Carta_Compromiso = imagenData;
-                        //https://youtu.be/hHYiHIsFL9o
-                        //https://www.youtube.com/results?search_query=+asp.net+mvc+5+insert+type+of+byte+into+an+image
-
-                    }
-                    db.Membresia_Adultos.Add(membresia_Adulto);
-                    db.SaveChanges();
-
+                    imagenData1 = imagen.ReadBytes(imageload.ContentLength);
                 }
+                membresia_Adulto.Carta_Compromiso = imagenData1;
+                //https://www.youtube.com/results?search_query=+asp.net+mvc+5+insert+type+of+byte+into+an+image
             }
-            catch (ReadOnlyException)
+            if (image2 != null && image2.ContentLength > 0)
             {
-                ModelState.AddModelError("","No se han guardado los cambios, verifique la información" );
-                 return RedirectToAction("Index");
+                byte[] imagenData2 = null;
+                using (var img2 = new BinaryReader(image2.InputStream))
+                {
+                    imagenData2 = img2.ReadBytes(image2.ContentLength);
+                }
+                membresia_Adulto.Carta_Intencion = imagenData2;
             }
-           
+            if (image3 != null && image3.ContentLength > 0)
+            {
+                byte[] imagenData3 = null;
+                using (var img3 = new BinaryReader(image3.InputStream))
+                {
+                    imagenData3 = img3.ReadBytes(image3.ContentLength);
+                }
+                membresia_Adulto.Record_Policia = imagenData3;
+            }
+            if (image4 != null && image4.ContentLength > 0)
+            {
+                byte[] imagenData4 = null;
+                using (var img4 = new BinaryReader(image4.InputStream))
+                {
+                    imagenData4 = img4.ReadBytes(image4.ContentLength);
+                }
+                membresia_Adulto.Carta_Ref_Personal = imagenData4;
+            }
+            if (image5 != null && image5.ContentLength > 0)
+            {
+                byte[] imagenData5 = null;
+                using (var img5 = new BinaryReader(image5.InputStream))
+                {
+                    imagenData5 = img5.ReadBytes(image5.ContentLength);
+                }
+                membresia_Adulto.Carta_Ref_Personal = imagenData5;
+            }
+            if (ModelState.IsValid)
+            {
+                db.Membresia_Adultos.Add(membresia_Adulto);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Adulto.Etapa_AprobacionId);
             ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
             return View(membresia_Adulto);
         }
+        // PENDIENTE LA CORRECIÓN CON EL MÁSTER RECIBIR PARÁMETRO
 
         // Nueva vista ....................................Inicio
         [AllowAnonymous]
@@ -103,7 +124,7 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.AdultoId = db.Adultos.Where(x => x.Id == idAdulto).FirstOrDefault();
             Adulto adulto = ViewBag.AdultoId;
             return View();
-            
+
         }
 
         // POST: Membresia_Adulto/Create
@@ -114,7 +135,6 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult MembreAdulto([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto)
         {
-            
             membresia_Adulto.Etapa_AprobacionId = 2;
             if (ModelState.IsValid)
             {

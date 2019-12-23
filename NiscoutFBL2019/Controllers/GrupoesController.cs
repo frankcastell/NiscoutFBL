@@ -10,20 +10,14 @@ using NiscoutFBL2019.Models;
 
 namespace NiscoutFBL2019.Controllers
 {
-    [Authorize]
-
     public class GrupoesController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Grupoes
-        public ActionResult Index( string buscar)
+        public ActionResult Index()
         {
             var grupos = db.Grupos.Include(g => g.Responsable).Include(g => g.Distrito);
-            if(!string.IsNullOrEmpty(buscar))
-            {
-                grupos = grupos.Where(gr => gr.Nombre_Grupo.Contains(buscar));
-            }
             return View(grupos.ToList());
         }
 
@@ -45,8 +39,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Grupoes/Create
         public ActionResult Create()
         {
-            ViewBag.ResponsableId = new SelectList(db.Responsables, "Id", "Nombres");
-            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Nombre_Distrito");
+            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Cod_Persona");
+            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Cod_Distrito");
             return View();
         }
 
@@ -63,13 +57,9 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("Index");
-            }
-            ViewBag.ResponsableId = new SelectList(db.Responsables, "Id", "Nombres", grupo.ResponsableId);
-            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Nombre_Distrito", grupo.DistritoId);
+
+            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Cod_Persona", grupo.ResponsableId);
+            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Cod_Distrito", grupo.DistritoId);
             return View(grupo);
         }
 
@@ -85,8 +75,8 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ResponsableId = new SelectList(db.Responsables, "Id", "Nombres", grupo.ResponsableId);
-            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Nombre_Distrito", grupo.DistritoId);
+            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Cod_Persona", grupo.ResponsableId);
+            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Cod_Distrito", grupo.DistritoId);
             return View(grupo);
         }
 
@@ -103,8 +93,8 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ResponsableId = new SelectList(db.Responsables, "Id", "Nombres", grupo.ResponsableId);
-            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Nombre_Distrito", grupo.DistritoId);
+            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Cod_Persona", grupo.ResponsableId);
+            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Cod_Distrito", grupo.DistritoId);
             return View(grupo);
         }
 

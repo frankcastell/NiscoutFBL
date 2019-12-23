@@ -25,6 +25,7 @@ namespace NiscoutFBL2019.Models
             throw new UnintentionalCodeFirstException();
         }
 
+
         public virtual DbSet<Periodo> Periodos { get; set; }
         public virtual DbSet<Departamento> Departamentos { get; set; }
         public virtual DbSet<Municipio> Municipios { get; set; }
@@ -52,6 +53,5 @@ namespace NiscoutFBL2019.Models
         public virtual DbSet<Patrocinador> Patrocinadores { get; set; }
         public virtual DbSet<Personal_Admon> Personal_Admon { get; set; }
         public virtual DbSet<Tutoria> Tutorias { get; set; }
-
     }
 }

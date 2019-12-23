@@ -4,98 +4,87 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Detalle de la Informacion</h2>
+<h2>Details</h2>
 
-<div class="datagrid">
-    <table class="table vm no-th-brd no-wrap pro-of-month">
-        <thead>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Cod_Grupo)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Cod_Grupo)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Nombre_Grupo)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Nombre_Grupo)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Num_Solicitud)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Num_Solicitud)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Pañoleta)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Pañoleta)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Insignia)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Insignia)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Sello_Grupo)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Sello_Grupo)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Carta_Solicitud)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Carta_Solicitud)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Responsable.Cod_Persona)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Responsable.Cod_Persona)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Distrito.Cod_Distrito)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Distrito.Cod_Distrito)
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-        </thead>
-        </table>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
+<div>
+    <h4>Grupo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cod_Grupo)
+        </dt>
 
-    </p>    
+        <dd>
+            @Html.DisplayFor(model => model.Cod_Grupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Grupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Grupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Num_Solicitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Num_Solicitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pañoleta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pañoleta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Insignia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Insignia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sello_Grupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sello_Grupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carta_Solicitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carta_Solicitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Responsable.Cod_Persona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Responsable.Cod_Persona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Distrito.Cod_Distrito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distrito.Cod_Distrito)
+        </dd>
+
+    </dl>
 </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
