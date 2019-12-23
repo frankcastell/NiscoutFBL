@@ -40,8 +40,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Adulto/Create
         public ActionResult Create()
         {
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa");
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona");
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
+            ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres");
 
             return View();
         }
@@ -55,6 +55,8 @@ namespace NiscoutFBL2019.Controllers
                         HttpPostedFileBase imageload, HttpPostedFileBase image2,
                         HttpPostedFileBase image3, HttpPostedFileBase image4, 
                         HttpPostedFileBase image5)
+        {
+        if (ModelState.IsValid)
         {
             if (imageload != null && imageload.ContentLength > 0)
             {
@@ -102,15 +104,14 @@ namespace NiscoutFBL2019.Controllers
                 }
                 membresia_Adulto.Carta_Ref_Personal = imagenData5;
             }
-            if (ModelState.IsValid)
-            {
+           
                 db.Membresia_Adultos.Add(membresia_Adulto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Adulto.Etapa_AprobacionId);
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Adulto.Etapa_AprobacionId);
+            ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres", membresia_Adulto.AdultoId);
             return View(membresia_Adulto);
         }
         // PENDIENTE LA CORRECIÓN CON EL MÁSTER RECIBIR PARÁMETRO
