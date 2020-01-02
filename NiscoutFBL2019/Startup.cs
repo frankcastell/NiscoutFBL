@@ -10,7 +10,7 @@ namespace NiscoutFBL2019
 
     public partial class Startup
     {
-        
+
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
@@ -34,6 +34,8 @@ namespace NiscoutFBL2019
                 ManejadorRol.Create(rol);
                 //creamos un primer usuario para ese rol
                 var user = new ApplicationUser();
+                user.Nombre = "Juana";
+                user.Apellido = "Morales";
                 user.UserName = "juanacuba1@gmail.com";
                 user.Email = "juanacuba1@gmail.com";
                 string PWD = "12345678";
@@ -56,6 +58,8 @@ namespace NiscoutFBL2019
 
                 //creamos un primer usuario para ese rol
                 var user = new ApplicationUser();
+                user.Nombre = "Brayan";
+                user.Apellido = "De Jesus";
                 user.UserName = "brayanoz105@gmail.com";
                 user.Email = "brayanoz105@gmail.com";
                 string PWD = "123456789";
@@ -79,6 +83,8 @@ namespace NiscoutFBL2019
 
                 //creamos un primer usuario para ese rol
                 var user = new ApplicationUser();
+                user.Nombre = "Francisco";
+                user.Apellido = "Catellon";
                 user.UserName = "francast16@gmail.com";
                 user.Email = "francast16@gmail.com";
                 string PWD = "12345678";
@@ -90,6 +96,29 @@ namespace NiscoutFBL2019
                     ManejadorUsuario.AddToRole(user.Id, "Usuario");
                 }
             }
+                //Verificamos la excistencia de los roles por defecto
+                if (!ManejadorRol.RoleExists("Consultor"))
+                {
+                    //sino existe, se crea el rol y se asigna un nuevo usuario con ese rol
+
+                    var rol = new IdentityRole();
+                    rol.Name = "Consultor";
+                    ManejadorRol.Create(rol);
+                    //creamos un primer usuario para ese rol consultor
+                    var user = new ApplicationUser();
+                    user.Nombre = "Jorge";
+                    user.Apellido = "Gaitan";
+                    user.UserName = "jorge@gmail.com";
+                    user.Email = "jorge@gmail.com";
+                    string PWD = "12345678";
+
+                    var chkUser = ManejadorUsuario.Create(user, PWD);
+                    //si se creo con exito
+                    if (chkUser.Succeeded)
+                    {
+                        ManejadorUsuario.AddToRole(user.Id, "Consultor");
+                    }
+                }
+            }
         }
     }
-}

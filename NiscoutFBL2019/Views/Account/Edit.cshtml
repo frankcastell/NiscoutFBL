@@ -1,0 +1,147 @@
+﻿
+@model NiscoutFBL2019.Models.EditViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar Datos</h2>
+
+<input id="Id" name="Id" value="@Model.Id" readonly hidden />
+
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    @*<div class="col-md-12">
+        <div class="box box-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-black" style="background: url('/Content/dist/img/photo1.png') center center;">
+                <h5 class="widget-user-desc"></h5>
+            </div>
+            <div class="widget-user-image">
+                <img class="img-circle" id="imgPrev" src="@Url.Action("Image", "Account", new {id = Model.Id } )" alt="User Avatar" style="width: 90px; height:90px">
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-4 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header"></h5>
+                            <span class="description-text"></span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-4 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header">Imagen de perfil</h5>
+                            <span class="description-text"><a href="#" onclick="showDialog()">Buscar <i class="fa fa-upload"></i></a></span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-4">
+                        <div class="description-block">
+                            <h5 class="description-header"></h5>
+                            <span class="description-text"></span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-md-2 border-right"></div>
+                    <div class="col-md-8 border-right">*@
+
+
+
+    @using (Html.BeginForm("Edit", "Account", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Nombre, "Usuario", new { @class = "col-md-4 control-label" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", @placeholder = "usuario 123" })
+            </div>
+        </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "alguien@ejemplo.com" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Roles, new { @class = "col-md-4 control-label" })
+                                <div class="col-md-6">
+                                    <select class="form-control" id="Roles" name="Roles" multiple>
+                                        @foreach (var item in ViewBag.Roles)
+                                        {
+                                            <option value="@item.Id"> @item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            @*<input type="file" name="ImagenPerfil" id="ImagenPerfil" onchange="mostrarVista(this)" style="display: none" />
+                                <div class="form-group">
+                                    <div class="col-md-offset-4 col-md-10">*@
+                            <a class="btn btn-success" href="@Url.Action("Index")">
+                                <span>
+                                    <i class="fa fa-arrow-left"></i>
+                                </span>
+                                Regresar a Lista
+                            </a>
+                                    <input type="submit" class="btn btn-info" value="Guardar Cambios" />
+                                    <a class="btn btn-danger" href="@Url.Action("ForgotPassword")">
+
+                                        Cambiar Contraseña
+                                        <span>
+                                            <i class="fa fa-arrow-right"></i>
+                                        </span>
+                                    </a>
+
+
+
+    }
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/select2/select2.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/select2/select2.min.js"></script>
+    <script>
+        var values = @Html.Raw(ViewBag.Asignaciones);
+
+        $(document).ready(function () {
+            //Cambiar multiselect
+
+            $("#Roles").select2();
+
+            $("#Roles").val(values.rol).trigger('change');
+        });
+        //$(function () {
+        //    $("#Roles").select2();
+
+        //    $("#Roles").val(values.Roles).trigger('change');
+        //})
+        //function showDialog() {
+        //    $("input[id='ImagenPerfil']").click();
+        //}
+
+        function mostrarVista(input) {
+            if (input.files && input.files[0]) {
+                var imageDir = new FileReader();
+                imageDir.onload = function (e) {
+                    $('#imgPrev').attr('src', e.target.result);
+                }
+                imageDir.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}
+
+

@@ -19,11 +19,7 @@ namespace NiscoutFBL2019.Models
         public IList<UserLoginInfo> CurrentLogins { get; set; }
         public IList<AuthenticationDescription> OtherLogins { get; set; }
     }
-    public class ListUserViewModel
-    {
-        public IList<ApplicationUser> users { get; set; }
-        public IList<string> roles { get; set; }
-    }
+   
 
     public class FactorViewModel
     {

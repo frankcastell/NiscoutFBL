@@ -1,0 +1,69 @@
+﻿@model IEnumerable < NiscoutFBL2019.Models.UserRoles >
+    @{
+    ViewBag.Title = "Index";
+}
+<h2>Usuarios del sistema</h2>
+
+<p>
+    <button onclick="location.href='@Url.Action("Register")'" type="button" class="btn btn-success">Nuevo Usuario</button>
+</p>
+<div class="stylepagination">
+    <table id="usersadm" class="table nowrap table-bordered table-hover display">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Correo
+                </th>
+                <th>
+                   Rol
+                </th>
+                <th><span class="glyphicon glyphicon-cog"></span> Administrar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName )
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role )
+                    </td>
+                    <td style="text-align: center;">
+                        <div class="btn-group btn-group-sm">
+                            @using (Html.BeginForm("Delete", "Account", new { id = item.Id }))
+                            {
+                                <button class="btn btn-danger btn-xs" type="submit">Dar de BAJA</button>
+                            }
+                            @using (Html.BeginForm("Edit", "Account", new { id = item.Id }))
+                            {
+                                <button class="btn btn-danger btn-xs" type="submit">Editar</button>
+                            }
+                            @*<button onclick="location.href='@Url.Action("Delete", "Account", new { id = item.Id })'" type="button" class="btn btn-default">Eliminar</button>*@
+                            @*<button onclick="location.href='@Url.Action("Edit", "Account", new { id = item.Id })'" type="button" class="btn btn-default">editar</button>*@
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
