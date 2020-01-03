@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear Un Nuevo Rol</h2>
+
+@using (Html.BeginForm("Create", "Roles", FormMethod.Post))
+{
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <input name="roleDescripcion" id="roleDescripcion" type="text" class="form-control" />
+    <input type="submit" name="SubmitButton" value="Guardar" />
+}

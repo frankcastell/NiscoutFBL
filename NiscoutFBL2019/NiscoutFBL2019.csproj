@@ -267,6 +267,7 @@
     <Compile Include="Controllers\PersonasController.cs" />
     <Compile Include="Controllers\Progresion_JuvenilController.cs" />
     <Compile Include="Controllers\ResponsablesController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SectorsController.cs" />
     <Compile Include="Controllers\SubGrupoesController.cs" />
     <Compile Include="Controllers\Tipo_GrupoController.cs" />
@@ -705,11 +706,11 @@
     <Content Include="Views\Local_Evento\Details.cshtml" />
     <Content Include="Views\Local_Evento\Edit.cshtml" />
     <Content Include="Views\Local_Evento\Index.cshtml" />
-    <Content Include="Views\Progresion_Juvenil\Create.cshtml" />
-    <Content Include="Views\Progresion_Juvenil\Delete.cshtml" />
-    <Content Include="Views\Progresion_Juvenil\Details.cshtml" />
-    <Content Include="Views\Progresion_Juvenil\Edit.cshtml" />
-    <Content Include="Views\Progresion_Juvenil\Index.cshtml" />
+    <Content Include="Progresion_Juvenil\Create.cshtml" />
+    <Content Include="Progresion_Juvenil\Delete.cshtml" />
+    <Content Include="Progresion_Juvenil\Details.cshtml" />
+    <Content Include="Progresion_Juvenil\Edit.cshtml" />
+    <Content Include="Progresion_Juvenil\Index.cshtml" />
     <Content Include="Views\Centro_Estudio\Create.cshtml" />
     <Content Include="Views\Centro_Estudio\Delete.cshtml" />
     <Content Include="Views\Centro_Estudio\Details.cshtml" />
@@ -1047,7 +1048,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Views\Home\Catalogos.cshtml" />
     <Content Include="Views\Adultoes\RepAdulto.cshtml" />
-    <Content Include="Views\Manage\ListUsuario.cshtml" />
     <Content Include="Views\Adultoes\Solicitud.cshtml" />
     <Content Include="Views\Tutorias\Create.cshtml" />
     <Content Include="Views\Tutorias\Delete.cshtml" />
@@ -1077,6 +1077,12 @@
     <Content Include="Views\Membresia_Adulto\Edit.cshtml" />
     <Content Include="Views\Membresia_Adulto\Index.cshtml" />
     <Content Include="Views\Membresia_Adulto\MembreAdulto.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Index2.cshtml" />
+    <Content Include="Views\Account\Roles.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

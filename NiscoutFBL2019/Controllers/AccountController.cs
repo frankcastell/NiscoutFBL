@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using NiscoutFBL2019.Models;
+using System.Net;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace NiscoutFBL2019.Controllers
 {
@@ -18,7 +21,14 @@ namespace NiscoutFBL2019.Controllers
         
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private List<string> asignacionesLista;
+        private ApplicationDbContext db = new ApplicationDbContext();
+        public JsonResult Listar()
+        {
 
+            var list = db.Users.ToList();
+            return Json(new { data = list }, JsonRequestBehavior.AllowGet);
+        }
         public AccountController()
         {
         }
@@ -53,8 +63,31 @@ namespace NiscoutFBL2019.Controllers
             }
         }
 
-       
-        
+        public ActionResult Roles(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = db.Users.Find(id);
+
+            var roles =db.Roles.ToList();
+
+            
+
+            var rol = (from item in roles
+                       join u in user.Roles
+                       on item.Id equals u.RoleId
+                       select item.Name).ToList<string>();
+
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(rol);
+        }
+
+
 
         // GET: /Account/Login
         [AllowAnonymous]
@@ -136,12 +169,204 @@ namespace NiscoutFBL2019.Controllers
                     return View(model);
             }
         }
-
-        //
-        // GET: /Account/Register
         [Authorize]
+        public ActionResult Index()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var sql = @"
+            SELECT AspNetUsers.UserName,Nombre,Apellido, AspNetRoles.Name As Role
+            FROM AspNetUsers 
+            LEFT JOIN AspNetUserRoles ON  AspNetUserRoles.UserId = AspNetUsers.Id 
+            LEFT JOIN AspNetRoles ON AspNetRoles.Id = AspNetUserRoles.RoleId";
+                //WHERE AspNetUsers.Id = @Id";
+                //var idParam = new SqlParameter("Id", theUserId);
+
+                var result = context.Database.SqlQuery<UserRoles>(sql).ToList();
+                return View(result);
+            }
+        }
+
+        // Editando datos
+        [Authorize]
+        [AllowAnonymous]
+        public ActionResult Edit(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = db.Users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+
+            EditViewModel model = new EditViewModel {  Email = user.Email, Nombre = user.Nombre, Apellido = user.Apellido, Id = id };
+            var roles = db.Roles.ToList();
+            var rol = (from item in roles
+                       join u in user.Roles
+                       on item.Id equals u.RoleId
+                       select item.Id).ToList<string>();
+            asignacionesLista = rol;
+            ViewBag.Roles = roles;
+            ViewBag.Asignaciones = JsonConvert.SerializeObject(new { rol });
+
+            return View(model);
+        }
+
+
+        [Authorize]
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(EditViewModel model)
+        {
+            ViewBag.Roles = db.Roles.ToList();
+            ViewBag.Asignaciones = JsonConvert.SerializeObject(new { asignacionesLista });
+            if (ModelState.IsValid)
+            {
+                var buser = db.Users.Find(model.Id);
+                if (buser == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                var rolList = db.Roles.ToList();
+                buser.Nombre = model.Nombre;
+                buser.Apellido = model.Apellido;
+                buser.Email = model.Email;                
+                db.Entry(buser).State = System.Data.Entity.EntityState.Modified;
+                int jk = await db.SaveChangesAsync();
+
+
+                //if (Request.Files.Count > 0)
+                //{
+                //    //Actualizando imagen del perfil
+                //    HttpPostedFileBase file = Request.Files["ImagenPerfil"];
+                //    if (file != null)
+                //    {
+
+                //        buser.ImagenPerfil = new byte[file.ContentLength];
+                //        file.InputStream.Read(buser.ImagenPerfil, 0, file.ContentLength);
+                //        int im = await db.SaveChangesAsync();
+                //    }
+                //}
+
+                //}
+
+                //Actualizando roles
+                var Roles = Request["Roles"];
+                string[] rolId = Roles.Split(',').ToArray();
+
+                List<string> rolesViejos = (from item in rolList
+                                            join u in buser.Roles
+                                            on item.Id equals u.RoleId
+                                            select u.RoleId).ToList();
+                List<string> insertar = new List<string>();
+                List<string> eliminar = new List<string>();
+
+                //Si en los roles viejos no estan los id de los roles nuevos, signfica que hay que insertarlos
+                for (int i = 0; i < rolId.Length; i++)
+                {
+                    if (!rolesViejos.Contains(rolId[i]))
+                        insertar.Add(rolId[i]);
+                }
+
+
+                //Si en los roles nuevos no hay id de roles viejos significa que hay que eliminarlos
+                for (int i = 0; i < rolesViejos.Count; i++)
+                {
+                    if (!rolId.Contains(rolesViejos[i]))
+                        eliminar.Add(rolesViejos[i]);
+                }
+
+                int result = 0;
+                if (eliminar.Count > 0)
+                {
+                    string sqlDelete = @"DELETE FROM dbo.AspNetUserRoles WHERE UserId = '{0}' AND RoleId= '{1}'";
+
+                    foreach (var item in eliminar)
+                    {
+                        result = db.Database.ExecuteSqlCommand(string.Format(sqlDelete, buser.Id, item));
+                    }
+                }
+
+                if (insertar.Count > 0)
+                {
+                    string sqlAdd = @"INSERT INTO dbo.AspNetUserRoles VALUES ('{0}', '{1}')";
+                    //Asignar el rol
+                    foreach (var rol in insertar)
+                    {
+                        result = db.Database.ExecuteSqlCommand((string.Format(sqlAdd, buser.Id, rol)));
+                    }
+                }
+
+                db.Entry(buser).State = System.Data.Entity.EntityState.Modified;
+                int fin = await db.SaveChangesAsync();
+                return RedirectToAction("Index", "Account");
+
+            }
+
+            // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
+            return View(model);
+        }
+        [Authorize]
+        public ActionResult Details(string Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = db.Users.Find(Id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            var roles = db.Roles.ToList();
+            var rol = (from item in roles
+                       join u in user.Roles
+                       on item.Id equals u.RoleId
+                       select item.Name).ToArray<string>();
+            EditViewModel model = new EditViewModel { Nombre = user.Nombre,Apellido=user.Apellido, Email = user.Email, Roles = rol };
+            return View(model);
+        }
+        // Metodo Eliminar Usuario
+        public ActionResult Delete(string Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = db.Users.Find(Id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            var roles = db.Roles.ToList();
+            var rol = (from item in roles
+                       join u in user.Roles
+                       on item.Id equals u.RoleId
+                       select item.Name).ToArray<string>();
+            EditViewModel model = new EditViewModel { Nombre = user.Nombre, Apellido = user.Apellido, Email = user.Email,  Roles = rol };
+            return View(model);
+        }
+        [Authorize]
+        [HttpPost]
+        public ActionResult Delete(EditViewModel model)
+        {
+            var user = db.Users.Find(model.Id);
+            db.Users.Remove(user);
+            int final = db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+       
+        // GET: /Account/Register
+        [Authorize]        
         public ActionResult Register()
         {
+            ViewBag.Roles = new SelectList(db.Roles, "Name", "Name");
             return View();
         }
 
@@ -154,23 +379,28 @@ namespace NiscoutFBL2019.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Nombre = model.Nombre, Apellido = model.Apellido };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    //Asignar el rol
+                    foreach (var rol in model.Roles)
+                    {
+                        await UserManager.AddToRoleAsync(user.Id, rol);
+                    }
                     // Para obtener más información sobre cómo habilitar la confirmación de cuenta y el restablecimiento de contraseña, visite http://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Account");
                 }
                 AddErrors(result);
+                ViewBag.Roles = new SelectList(db.Roles, "Name", "Name");
             }
-
+            ViewBag.Roles = new SelectList(db.Roles, "Name", "Name");
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             return View(model);
         }

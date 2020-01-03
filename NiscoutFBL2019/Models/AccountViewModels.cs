@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace NiscoutFBL2019.Models
@@ -21,6 +22,15 @@ namespace NiscoutFBL2019.Models
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
         public string ReturnUrl { get; set; }
         public bool RememberMe { get; set; }
+    }
+    //listando roles 
+    public class UserRoles
+    {
+        public string Id { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string UserName { get; set; }
+        public string Role { get; set; }
     }
 
     public class VerifyCodeViewModel
@@ -64,6 +74,15 @@ namespace NiscoutFBL2019.Models
 
     public class RegisterViewModel
     {
+        //agregando campo nombre
+        [Required]
+        [Display(Name = "Nombre")]
+        public string Nombre { get; set; }
+        //agregando campo Apellido
+        [Required]
+        [Display(Name = "Apellido")]
+        public string Apellido { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Correo electrónico")]
@@ -79,6 +98,41 @@ namespace NiscoutFBL2019.Models
         [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
+        [Required]
+        [Display(Name = "Rol de usuario")]
+        public string[] Roles { get; set; }
+    }
+    public class EditViewModel
+    {
+    //Agregado Datos Pra editar 
+        public string Id { get; set; }
+        //agregando campo nombre
+        [Required]
+        [Display(Name = "Nombre")]
+        public string Nombre { get; set; }
+        //agregando campo Apellido
+        [Required]
+        [Display(Name = "Apellido")]
+        public string Apellido { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Correo electrónico")]
+        public string Email { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Contraseña")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirmar contraseña")]
+        [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
+        public string ConfirmPassword { get; set; }
+        [Required]
+        [Display(Name = "Rol de usuario")]
+        public string[] Roles { get; set; }
     }
 
     public class ResetPasswordViewModel
