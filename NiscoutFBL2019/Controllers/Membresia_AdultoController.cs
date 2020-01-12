@@ -52,70 +52,99 @@ namespace NiscoutFBL2019.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto,
-                        HttpPostedFileBase imageload, HttpPostedFileBase image2,
-                        HttpPostedFileBase image3, HttpPostedFileBase image4, 
+                        HttpPostedFileBase image1,
+                        HttpPostedFileBase image2, 
+                        HttpPostedFileBase image3,
+                        HttpPostedFileBase image4,
                         HttpPostedFileBase image5)
         {
-        if (ModelState.IsValid)
-        {
-            if (imageload != null && imageload.ContentLength > 0)
+            if (ModelState.IsValid)
             {
-                byte[] imagenData1 = null;
-                using (var imagen = new BinaryReader(imageload.InputStream))
-                {
-                    imagenData1 = imagen.ReadBytes(imageload.ContentLength);
-                }
-                membresia_Adulto.Carta_Compromiso = imagenData1;
-                //https://www.youtube.com/results?search_query=+asp.net+mvc+5+insert+type+of+byte+into+an+image
-            }
-            if (image2 != null && image2.ContentLength > 0)
-            {
-                byte[] imagenData2 = null;
-                using (var img2 = new BinaryReader(image2.InputStream))
-                {
-                    imagenData2 = img2.ReadBytes(image2.ContentLength);
-                }
-                membresia_Adulto.Carta_Intencion = imagenData2;
-            }
-            if (image3 != null && image3.ContentLength > 0)
-            {
-                byte[] imagenData3 = null;
-                using (var img3 = new BinaryReader(image3.InputStream))
-                {
-                    imagenData3 = img3.ReadBytes(image3.ContentLength);
-                }
-                membresia_Adulto.Record_Policia = imagenData3;
-            }
-            if (image4 != null && image4.ContentLength > 0)
-            {
-                byte[] imagenData4 = null;
-                using (var img4 = new BinaryReader(image4.InputStream))
-                {
-                    imagenData4 = img4.ReadBytes(image4.ContentLength);
-                }
-                membresia_Adulto.Carta_Ref_Personal = imagenData4;
-            }
-            if (image5 != null && image5.ContentLength > 0)
-            {
-                byte[] imagenData5 = null;
-                using (var img5 = new BinaryReader(image5.InputStream))
-                {
-                    imagenData5 = img5.ReadBytes(image5.ContentLength);
-                }
-                membresia_Adulto.Carta_Ref_Personal = imagenData5;
-            }
-           
+                membresia_Adulto.Carta_Compromiso = tobyte(image1);
+                membresia_Adulto.Carta_Intencion = tobyte(image2);
+                membresia_Adulto.Record_Policia = tobyte(image3);
+                membresia_Adulto.Carta_Ref_Personal = tobyte(image4);
+                membresia_Adulto.Certifi_Salvo_Peligro = tobyte(image5);
+
                 db.Membresia_Adultos.Add(membresia_Adulto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Adulto.Etapa_AprobacionId);
             ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres", membresia_Adulto.AdultoId);
             return View(membresia_Adulto);
         }
         // PENDIENTE LA CORRECIÓN CON EL MÁSTER RECIBIR PARÁMETRO
+        public Byte[] tobyte(HttpPostedFileBase image1)
+        {
+           
 
+            byte[] buffer;
+            using (Stream stream = image1.InputStream)
+            {
+                buffer = new byte[stream.Length - 1];
+                stream.Read(buffer, 0, buffer.Length);
+            }
+                //    {
+                //        imagenData1 = img1.ReadBytes(image1.ContentLength);
+                //    }
+                //}
+                return buffer;
+        }
+       
+        public Byte[] ruta2(HttpPostedFileBase image2)
+        {             
+            Membresia_Adulto membresia_Adulto = new Membresia_Adulto();
+            byte[] imagenData2 = null;
+            if (image2 != null && image2.ContentLength > 0)
+            {               
+                using (var img2 = new BinaryReader(image2.InputStream))
+                {
+                    imagenData2 = img2.ReadBytes(image2.ContentLength);
+                }              
+            }
+            return imagenData2;
+        }
+        public Byte[] ruta3(HttpPostedFileBase image3)
+        {
+            Membresia_Adulto membresia_Adulto = new Membresia_Adulto();
+            byte[] imagenData3 = null;
+            if (image3 != null && image3.ContentLength > 0)
+            {
+                
+                using (var img3 = new BinaryReader(image3.InputStream))
+                {
+                    imagenData3 = img3.ReadBytes(image3.ContentLength);
+                }               
+            }
+            return imagenData3;
+        }
+        public Byte[] ruta4(HttpPostedFileBase image4)
+        {
+            Membresia_Adulto membresia_Adulto = new Membresia_Adulto();
+            byte[] imagenData4 = null;
+            if (image4 != null && image4.ContentLength > 0)
+            {
+                using (var img4 = new BinaryReader(image4.InputStream))
+                {
+                    imagenData4 = img4.ReadBytes(image4.ContentLength);
+                }
+            }
+            return imagenData4;
+        }
+        public Byte[] ruta5(HttpPostedFileBase image5)
+        {
+            Membresia_Adulto membresia_Adulto = new Membresia_Adulto();
+            byte[] imagenData5 = null;
+            if (image5 != null && image5.ContentLength > 0)
+            {
+                using (var img5 = new BinaryReader(image5.InputStream))
+                {
+                    imagenData5 = img5.ReadBytes(image5.ContentLength);
+                }
+            }
+            return imagenData5;
+        }
         // Nueva vista ....................................Inicio
         [AllowAnonymous]
         public ActionResult MembreAdulto(int idAdulto)
@@ -162,8 +191,8 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Adulto.Etapa_AprobacionId);
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Adulto.Etapa_AprobacionId);
+            ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres", membresia_Adulto.AdultoId);
             return View(membresia_Adulto);
         }
 
@@ -172,16 +201,26 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto)
+        public ActionResult Edit([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId")] Membresia_Adulto membresia_Adulto,
+                        HttpPostedFileBase image1,
+                        HttpPostedFileBase image2,
+                        HttpPostedFileBase image3,
+                        HttpPostedFileBase image4,
+                        HttpPostedFileBase image5)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(membresia_Adulto).State = System.Data.Entity.EntityState.Modified;
+                membresia_Adulto.Carta_Compromiso = tobyte(image1);
+                membresia_Adulto.Carta_Intencion = ruta2(image2);
+                membresia_Adulto.Record_Policia = ruta3(image3);
+                membresia_Adulto.Carta_Ref_Personal = ruta4(image4);
+                membresia_Adulto.Certifi_Salvo_Peligro = ruta5(image5);
+                db.Entry(membresia_Adulto).State = System.Data.Entity.EntityState.Modified;                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Adulto.Etapa_AprobacionId);
-            ViewBag.AdultoId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Adulto.AdultoId);
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Adulto.Etapa_AprobacionId);
+            ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres", membresia_Adulto.AdultoId);
             return View(membresia_Adulto);
         }
 

@@ -68,20 +68,25 @@
             {
                 <tbody>
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Carta_Compromiso)
+                        <td>                            
+                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Compromiso)" width="900" height="600" type="application/pdf"> </object>
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Carta_Intencion)
+                          @*<img src="@String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.Carta_Intencion));" />*@
+                         <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Intencion)" width="900" height="600" type="application/pdf"> </object>
+
+                        </td> 
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.Record_Policia)*@
+                            "Recórd Policía"
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Record_Policia)
+                            @*@Html.DisplayFor(modelItem => item.Carta_Ref_Personal)*@
+                            "Carta Ref_Personal"
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Carta_Ref_Personal)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Certifi_Salvo_Peligro)
+                         @*   @Html.DisplayFor(modelItem => item.Certifi_Salvo_Peligro)*@
+                            "Certificado Salvo"
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Annio)
