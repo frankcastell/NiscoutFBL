@@ -207,12 +207,12 @@ iframe {
 }
 
 .Imagen{
-   max-width:15%;
+  max-width: 7%;
     height: auto;
-    border-radius: 12px;
-    position:  relative    ;
-    top:550px;
-    left: 220px;
+    border-radius: 11px;
+    position: relative;
+    top: 625px;
+    left: 191px;
 }
 /*------------------------------------------------------------------
 [  ]*/

@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NiscoutFBL2019.Models;
+using NiscoutFBL2019.Models.ReporteScouts;
+using Microsoft.Reporting.WebForms;
 
 namespace NiscoutFBL2019.Controllers
 {
@@ -43,6 +45,7 @@ namespace NiscoutFBL2019.Controllers
             return View(patrocinador);
         }
 
+      
         // GET: Patrocinadors/Create
         public ActionResult Create()
         {
@@ -51,6 +54,47 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
+            return View();
+        }
+        //Reporte de patrocinador Clase similares aldataset
+        public class PatroRep
+        {
+            public string Column1 { get; set; }
+            public string Column2 { get; set; }
+            public string Column3 { get; set; }
+            public string Column4 { get; set; }
+            public string Column5 { get; set; }
+        }
+        // Listando 
+        public List<PatroRep> GetPatron()
+        {
+            return (from item in db.Patrocinadores.ToList()
+
+                    select new PatroRep
+                    {
+                        Column1 = item.Nombre_Insti,
+                        Column2 = item.Nombre_Representante,
+                        Column3 = item.Telefono.ToString(),
+                        Column4 = item.Trabajo,
+                        Column5 = item.Direccion
+                    }).ToList();
+        }
+        // Listando ala vista
+        public ActionResult RepPatro()
+        {
+            //var fecha = DateTime;
+            DataSetScout.DataTable2DataTable p = new DataSetScout.DataTable2DataTable();
+            ReportViewer rpt = new ReportViewer();
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepPatro.rdlc");
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", GetPatron()));
+            rpt.LocalReport.Refresh();
+
+            rpt.AsyncRendering = false;
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
             return View();
         }
 
