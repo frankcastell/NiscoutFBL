@@ -114,14 +114,14 @@
     <member name="T:Microsoft.VisualStudio.TemplateWizard.WizardRunKind">
       <summary>Specifies constants that define the different templates the template wizard can create.</summary>
     </member>
+    <member name="F:Microsoft.VisualStudio.TemplateWizard.WizardRunKind.AsMultiProject">
+      <summary>A new multi-project template.</summary>
+    </member>
     <member name="F:Microsoft.VisualStudio.TemplateWizard.WizardRunKind.AsNewItem">
       <summary>A new item template.</summary>
     </member>
     <member name="F:Microsoft.VisualStudio.TemplateWizard.WizardRunKind.AsNewProject">
       <summary>A new project template.</summary>
-    </member>
-    <member name="F:Microsoft.VisualStudio.TemplateWizard.WizardRunKind.AsMultiProject">
-      <summary>A new multi-project template.</summary>
     </member>
   </members>
 </doc>
