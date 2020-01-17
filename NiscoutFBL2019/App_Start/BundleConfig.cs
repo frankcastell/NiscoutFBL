@@ -42,6 +42,7 @@ namespace NiscoutFBL2019
                              "~/Content/css/ButtonStyles.css",
                              "~/Content/css/pages/dashboard.css",
                              "~/Content/css/colors/default-dark.css"
+                            
                              ));
         }
     }
