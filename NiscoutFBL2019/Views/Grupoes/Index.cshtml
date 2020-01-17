@@ -4,8 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Registro de Grupos</h2>
-<link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
+<h2>Registros de Grupos</h2>
 
 <div align="left">
     @using (Html.BeginForm("Index", "Grupoes", FormMethod.Get))
@@ -86,16 +85,23 @@
                         @Html.DisplayFor(modelItem => item.Num_Solicitud)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Pañoleta)
+                        @*@Html.DisplayFor(modelItem => item.Pañoleta)*@
+                        @*Archivo "Pañoleta" Abjuntado*@
+                        <object data="data:application/png;base64,@System.Convert.ToBase64String(item.Pañoleta)" width="300" height="100" type="application/png"> </object>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Insignia)
+                        @*@Html.DisplayFor(modelItem => item.Insignia)*@
+                      @*  Archivo "Insignia" Abjuntado*@
+                        <object data="data:application/png;base64,@System.Convert.ToBase64String(item.Insignia)" width="300" height="100" type="application/png"> </object>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Sello_Grupo)
+                       @* @Html.DisplayFor(modelItem => item.Sello_Grupo)*@
+                        @*Archivo "Sello" Abjuntado*@
+                        <object data="data:application/png;base64,@System.Convert.ToBase64String(item.Sello_Grupo)" width="300" height="100" type="application/png"> </object>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Carta_Solicitud)
+                     @*   @Html.DisplayFor(modelItem => item.Carta_Solicitud)*@
+                        <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Solicitud)" width="300" height="100" type="application/pdf"> </object>
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Responsable.Nombres)
