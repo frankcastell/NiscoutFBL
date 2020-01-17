@@ -62,6 +62,16 @@ namespace NiscoutFBL2019.Controllers
         {
            public string Column1 { get; set; }
            public  string Column2 { get; set; }
+            public string Column3 { get; set; }
+            public string Column4 { get; set; }
+            public string Column5 { get; set; }
+            public string Column6 { get; set; }
+            public string Column7 { get; set; }
+            public string Column8 { get; set; }
+            public string Column9 { get; set; }
+            public string Column10 { get; set; }
+            public string Column11 { get; set; }
+          
         }
 
         // Listando 
@@ -72,8 +82,18 @@ namespace NiscoutFBL2019.Controllers
                     select new adultosR
                     {
                         Column1 = item.Nombres,
-                        Column2 = item.Apellidos
+                        Column2 = item.Apellidos,
+                        Column3 = item.Cedula ,
+                        Column4 = item.E_Mail,
+                        Column5 = item.Fecha_Nac.ToString("yyyy-MM-dd"),
+                        Column6 = item.Sexo,
+                        Column7 = item.Telefono.ToString(),
+                        Column8 = item.Direccion,
+                        Column9 = item.Departamento.Nombre_Departamento.ToString(),
+                        Column10 = item.Num_Pasaporte,
+                        Column11 = item.Estado_Civil
                        
+
                     }).ToList();
         }
 
@@ -84,10 +104,10 @@ namespace NiscoutFBL2019.Controllers
             DataSetScout.DataTable1DataTable p = new DataSetScout.DataTable1DataTable();
             ReportViewer rpt = new ReportViewer();
             rpt.ProcessingMode = ProcessingMode.Local;
-            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/ReporteAdulto.rdlc");
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepAdultos.rdlc");
             rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", GetAdulto()));
             rpt.LocalReport.Refresh();
-
+           
             rpt.AsyncRendering = false;
             rpt.SizeToReportContent = true;
             rpt.ShowPrintButton = true;
