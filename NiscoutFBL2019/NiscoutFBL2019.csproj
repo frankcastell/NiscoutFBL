@@ -475,6 +475,7 @@
     <Content Include="Content\assets\plugins\perfect-scrollbar\js\perfect-scrollbar.jquery.min.js" />
     <Content Include="Content\assets\plugins\perfect-scrollbar\js\perfect-scrollbar.js" />
     <Content Include="Content\assets\plugins\perfect-scrollbar\js\perfect-scrollbar.min.js" />
+    <Content Include="Content\css\adminlte.min.css" />
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
@@ -1049,6 +1050,7 @@
     <Content Include="Models\ReporteScouts\DataSetScout.xsc">
       <DependentUpon>DataSetScout.xsd</DependentUpon>
     </Content>
+    <Content Include="Content\scss\widgets\_backgrounds.scss" />
     <None Include="Models\ReporteScouts\DataSetScout.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

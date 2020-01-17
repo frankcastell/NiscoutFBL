@@ -16,6 +16,7 @@ namespace NiscoutFBL2019.Controllers
     public class AdultoesController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
+        public static int Contador = 0;
 
         // GET: Adultoes
         public ActionResult Index(string buscar)
@@ -54,6 +55,7 @@ namespace NiscoutFBL2019.Controllers
                                                }, "Value", "Text");
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
+            ViewBag.Contador = db.Adultos.Count();
             return View();
         }
 
