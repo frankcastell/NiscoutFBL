@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NiscoutFBL2019.Models;
+using System.IO;
 
 namespace NiscoutFBL2019.Controllers
 {
@@ -49,10 +50,20 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Grupo,Nombre_Grupo,Num_Solicitud,Pañoleta,Insignia,Sello_Grupo,ResponsableId,DistritoId,Carta_Solicitud")] Grupo grupo)
+        public ActionResult Create([Bind(Include = "Id,Cod_Grupo,Nombre_Grupo,Num_Solicitud,Pañoleta,Insignia,Sello_Grupo,ResponsableId,DistritoId,Carta_Solicitud")] Grupo grupo,
+                        HttpPostedFileBase image1,
+                        HttpPostedFileBase image2,
+                        HttpPostedFileBase image3,
+                        HttpPostedFileBase image4)
         {
             if (ModelState.IsValid)
             {
+               
+                grupo.Pañoleta = ruta2(image1);
+                grupo.Insignia = ruta2(image2);
+                grupo.Sello_Grupo = ruta2(image3);
+                grupo.Carta_Solicitud = tobyte(image4);
+
                 db.Grupos.Add(grupo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -62,7 +73,33 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Nombre_Distrito", grupo.DistritoId);
             return View(grupo);
         }
-
+        public Byte[] tobyte(HttpPostedFileBase image)
+        {
+            byte[] buffer;
+            using (Stream stream = image.InputStream)
+            {
+                buffer = new byte[stream.Length - 1];
+                stream.Read(buffer, 0, buffer.Length);
+            }
+            //    {
+            //        imagenData1 = img1.ReadBytes(image1.ContentLength);
+            //    }
+            //}
+            return buffer;
+        }
+        public Byte[] ruta2(HttpPostedFileBase archivo)
+        {
+            Membresia_Adulto membresia_Adulto = new Membresia_Adulto();
+            byte[] imagenData2 = null;
+            if (archivo != null && archivo.ContentLength > 0)
+            {
+                using (var img2 = new BinaryReader(archivo.InputStream))
+                {
+                    imagenData2 = img2.ReadBytes(archivo.ContentLength);
+                }
+            }
+            return imagenData2;
+        }
         // GET: Grupoes/Edit/5
         public ActionResult Edit(int? id)
         {

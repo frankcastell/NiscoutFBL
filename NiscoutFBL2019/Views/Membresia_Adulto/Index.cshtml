@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-<h2>Registros de Membrecia Adulto</h2>
+<h2>Registros de Membresía Adulto</h2>
 
 <div align="left">
     @using (Html.BeginForm("Index", "Membresia_Adulto", FormMethod.Get))
@@ -69,11 +69,11 @@
                 <tbody>
                     <tr>
                         <td>                            
-                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Compromiso)" width="900" height="600" type="application/pdf"> </object>
+                         <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Compromiso)" width="300" height="100" type="application/pdf"> </object>
                         </td>
                         <td>
                           @*<img src="@String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.Carta_Intencion));" />*@
-                         <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Intencion)" width="900" height="600" type="application/pdf"> </object>
+                         <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Intencion)" width="300" height="100" type="application/pdf"> </object>
 
                         </td> 
                         <td>

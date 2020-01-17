@@ -1571,3 +1571,23 @@ C:\Users\Jorge\Documents\Nis\NiscoutFBL2019\obj\Debug\RdlCompile.cache
 C:\Users\Jorge\Documents\Nis\NiscoutFBL2019\obj\Debug\RdlCompile.compiled
 C:\Users\Jorge\Documents\Nis\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.dll
 C:\Users\Jorge\Documents\Nis\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.pdb
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\de\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\fr\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\it\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\ja\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\ko\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\pt\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\ru\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Ing. Francisco\Source\Repos\NiscoutFBL\NiscoutFBL2019\bin\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
