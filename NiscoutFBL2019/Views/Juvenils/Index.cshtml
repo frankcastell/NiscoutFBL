@@ -9,24 +9,24 @@
 <div align="left">
     @using (Html.BeginForm("Index", "Juvenils", FormMethod.Get))
     {
-                <div align="right">
+        <div align="right">
 
-                    <div>
-                        <hr />
+            <div>
+                <hr />
 
-                        @Html.TextBox("buscar")
-                        <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
+                @Html.TextBox("buscar")
+                <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
 
-                        <a href="@Url.Action("Create", "Juvenils")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar un Adulto">
-                            Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
-                        </a>
-                        <a href="@Url.Action("ReporJovenes", "Reportes")" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
-                            <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
-                        </a>
+                <a href="@Url.Action("Create", "Juvenils")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar un Adulto">
+                    Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
+                </a>
+                <a href="@Url.Action("ReporJovenes", "Reportes")" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+                    <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
+                </a>
 
-                        <hr />
-                    </div>
-                </div>
+                <hr />
+            </div>
+        </div>
 
     }
 </div>
@@ -70,10 +70,20 @@
                     @Html.DisplayNameFor(model => model.Direccion)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
+                    @Html.DisplayNameFor(model => model.Profesion)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Centro_Estudio.Cod_Centro)
+                    @Html.DisplayNameFor(model => model.Centro_Laboral)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tipo_Sangre)
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)*@
+                    Departamento
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Centro_Estudio.Nombre_Centro)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Tutoria.Parentezco)
@@ -127,10 +137,19 @@
                             @Html.DisplayFor(modelItem => item.Direccion)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Departamento.Cod_Departamento)
+                            @Html.DisplayFor(modelItem => item.Profesion)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Centro_Estudio.Cod_Centro)
+                            @Html.DisplayFor(modelItem => item.Centro_Laboral)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tipo_Sangre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Centro_Estudio.Nombre_Centro)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Tutoria.Parentezco)
@@ -146,9 +165,7 @@
                                 <img width="25" src="~/Content/Ico/eliminar.png" />
                             </a>
 
-                            @*<button class="btn waves-effect waves-light btn-danger hidden-md-down">@Html.ActionLink("Renovar", "Renovar", new { id = item.Id })</button>*@
-
-                        </td>
+                         </td>
                     </tr>
                 </tbody>
             }

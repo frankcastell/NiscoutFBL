@@ -4,68 +4,76 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Detalle de la Informacion</h2>
+<h2>Detalle de la Información...</h2>
 
-  <div class="datagrid">
+<div class="datagrid">
 
-     <table class="table vm no-th-brd no-wrap pro-of-month">
-         <thead>
-             <tr>
-                 <td>
-                     @Html.DisplayNameFor(model => model.Cod_Centro)
-                 </td>
-                 <td>
-                     @Html.DisplayFor(model => model.Cod_Centro)
-                 </td>
-             </tr>
-             <tr>
-                 <td>
-                     @Html.DisplayNameFor(model => model.Nombre_Centro)
-                 </td>
-                 <td>
-                     @Html.DisplayFor(model => model.Nombre_Centro)
-                 </td>
-             </tr>
-             <tr>
-                 <td>
-                     @Html.DisplayNameFor(model => model.Turno)
-                 </td>
-                 <td>
-                     @Html.DisplayFor(model => model.Turno)
-                 </td>
-             </tr>
-             <tr>
-                 <td>
-                     @Html.DisplayNameFor(model => model.Telefono)
-                 </td>
-                 <td>
-                     @Html.DisplayFor(model => model.Telefono)
-                 </td>
-             </tr>
-             <tr>
-                 <td>
-                     @Html.DisplayNameFor(model => model.E_Mail)
-                 </td>
-                 <td>
-                     @Html.DisplayFor(model => model.E_Mail)
-                 </td>
-             </tr>
-             <tr>
-                 <td></td>
-                 <td></td>
-             </tr>
-             </thead>
-             </table>
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Cod_Centro)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Cod_Centro)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Nombre_Centro)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Nombre_Centro)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Turno)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Turno)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Telefono)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.E_Mail)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.E_Mail)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Grado)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Grado)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+    </table>
 
-      <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
 
-      </p>
+    </p>
 </div>

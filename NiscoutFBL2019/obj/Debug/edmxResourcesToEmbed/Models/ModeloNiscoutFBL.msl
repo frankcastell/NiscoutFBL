@@ -75,6 +75,8 @@
           <ScalarProperty Name="Annio" ColumnName="Annio" />
           <ScalarProperty Name="Etapa_AprobacionId" ColumnName="Etapa_AprobacionId" />
           <ScalarProperty Name="AdultoId" ColumnName="AdultoId" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="SubGrupoId" ColumnName="SubGrupoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -94,6 +96,9 @@
           <ScalarProperty Name="Telefono" ColumnName="Telefono" />
           <ScalarProperty Name="Direccion" ColumnName="Direccion" />
           <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+          <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+          <ScalarProperty Name="Centro_Laboral" ColumnName="Centro_Laboral" />
+          <ScalarProperty Name="Tipo_Sangre" ColumnName="Tipo_Sangre" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Responsable)">
@@ -113,19 +118,19 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Juvenil)">
-        <MappingFragment StoreEntitySet="Personas_Juvenil">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Centro_EstudioId" ColumnName="Centro_EstudioId" />
-          <ScalarProperty Name="TutoriaId" ColumnName="TutoriaId" />
-        </MappingFragment>
-      </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Patrocinador)">
         <MappingFragment StoreEntitySet="Personas_Patrocinador">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nombre_Insti" ColumnName="Nombre_Insti" />
           <ScalarProperty Name="Nombre_Representante" ColumnName="Nombre_Representante" />
           <ScalarProperty Name="Trabajo" ColumnName="Trabajo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Juvenil)">
+        <MappingFragment StoreEntitySet="Personas_Juvenil">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Centro_EstudioId" ColumnName="Centro_EstudioId" />
+          <ScalarProperty Name="TutoriaId" ColumnName="TutoriaId" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Adulto)">
@@ -143,6 +148,7 @@
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="AsistenteId" ColumnName="AsistenteId" />
           <ScalarProperty Name="Tipo_GrupoId" ColumnName="Tipo_GrupoId" />
+          <ScalarProperty Name="Membresia_AdultoId" ColumnName="Membresia_AdultoId" />
           <ScalarProperty Name="GrupoId" ColumnName="GrupoId" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -160,6 +166,7 @@
           <ScalarProperty Name="ResponsableId" ColumnName="ResponsableId" />
           <ScalarProperty Name="DistritoId" ColumnName="DistritoId" />
           <ScalarProperty Name="Carta_Solicitud" ColumnName="Carta_Solicitud" />
+          <ScalarProperty Name="Estado_Grupo" ColumnName="Estado_Grupo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -190,6 +197,7 @@
           <ScalarProperty Name="Turno" ColumnName="Turno" />
           <ScalarProperty Name="Telefono" ColumnName="Telefono" />
           <ScalarProperty Name="E_Mail" ColumnName="E_Mail" />
+          <ScalarProperty Name="Grado" ColumnName="Grado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -231,8 +239,8 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Desde" ColumnName="Desde" />
           <ScalarProperty Name="PatrocinadorId" ColumnName="PatrocinadorId" />
-          <ScalarProperty Name="GrupoId" ColumnName="GrupoId" />
           <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="GrupoId" ColumnName="GrupoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -264,9 +272,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Membresia_JuvenilSet">
+    <EntitySetMapping Name="Membresia_Juveniles">
       <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Membresia_Juvenil)">
-        <MappingFragment StoreEntitySet="Membresia_JuvenilSet">
+        <MappingFragment StoreEntitySet="Membresia_Juveniles">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SubGrupoId" ColumnName="SubGrupoId" />
           <ScalarProperty Name="Etapa_AprobacionId" ColumnName="Etapa_AprobacionId" />

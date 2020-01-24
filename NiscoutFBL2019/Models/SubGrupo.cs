@@ -19,6 +19,7 @@ namespace NiscoutFBL2019.Models
         {
             this.Membresia_Juveniles = new HashSet<Membresia_Juvenil>();
             this.Eventos = new HashSet<Evento>();
+            this.Membresia_Adultos = new HashSet<Membresia_Adulto>();
         }
     
         public int Id { get; set; }
@@ -27,14 +28,17 @@ namespace NiscoutFBL2019.Models
         public string Descripcion { get; set; }
         public int AsistenteId { get; set; }
         public int Tipo_GrupoId { get; set; }
+        public int Membresia_AdultoId { get; set; }
         public int GrupoId { get; set; }
     
         public virtual Asistente Asistente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Membresia_Juvenil> Membresia_Juveniles { get; set; }
         public virtual Tipo_Grupo Tipo_Grupo { get; set; }
-        public virtual Grupo Grupo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Evento> Eventos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Membresia_Adulto> Membresia_Adultos { get; set; }
+        public virtual Grupo Grupo { get; set; }
     }
 }

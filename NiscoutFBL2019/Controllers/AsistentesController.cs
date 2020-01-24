@@ -11,16 +11,15 @@ using NiscoutFBL2019.Models;
 namespace NiscoutFBL2019.Controllers
 {
     [Authorize]
-
     public class AsistentesController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Asistentes
-        public ActionResult Index(string  busqueda)
+        public ActionResult Index(string busqueda)
         {
             var asistentes = db.Asistentes.Include(a => a.Departamento);
-            
+
             if (!string.IsNullOrEmpty(busqueda))
             {
                 asistentes = asistentes.Where(s => s.Nombres.Contains(busqueda));
@@ -35,7 +34,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Asistente asistente = (Asistente)db.Personas.Find(id);
+            Asistente asistente = db.Asistentes.Find(id);
             if (asistente == null)
             {
                 return HttpNotFound();
@@ -46,6 +45,10 @@ namespace NiscoutFBL2019.Controllers
         // GET: Asistentes/Create
         public ActionResult Create()
         {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
         }
@@ -55,7 +58,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId")] Asistente asistente)
+        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Asistente asistente)
         {
             if (ModelState.IsValid)
             {
@@ -63,11 +66,7 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("Index");
-            }
+
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", asistente.DepartamentoId);
             return View(asistente);
         }
@@ -75,16 +74,20 @@ namespace NiscoutFBL2019.Controllers
         // GET: Asistentes/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Asistente asistente = (Asistente)db.Personas.Find(id);
+            Asistente asistente = db.Asistentes.Find(id);
             if (asistente == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", asistente.DepartamentoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", asistente.DepartamentoId);
             return View(asistente);
         }
 
@@ -93,7 +96,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId")] Asistente asistente)
+        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Asistente asistente)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +104,7 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", asistente.DepartamentoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", asistente.DepartamentoId);
             return View(asistente);
         }
 
@@ -112,7 +115,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Asistente asistente = (Asistente)db.Personas.Find(id);
+            Asistente asistente = db.Asistentes.Find(id);
             if (asistente == null)
             {
                 return HttpNotFound();
@@ -125,7 +128,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Asistente asistente = (Asistente)db.Personas.Find(id);
+            Asistente asistente = db.Asistentes.Find(id);
             db.Personas.Remove(asistente);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -33,5 +33,6 @@ namespace NiscoutFBL2019.Models
         {
             return new ApplicationDbContext();
         }
+
     }
 }

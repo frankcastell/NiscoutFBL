@@ -16,10 +16,11 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: SubGrupoes
-        public ActionResult Index( string buscar)
+        public ActionResult Index(string buscar)
         {
             var subGrupos = db.SubGrupos.Include(s => s.Asistente).Include(s => s.Tipo_Grupo).Include(s => s.Grupo);
-            if(!string.IsNullOrEmpty(buscar))
+
+            if (!string.IsNullOrEmpty(buscar))
             {
                 subGrupos = subGrupos.Where(s => s.Nombre_Subgrupo.Contains(buscar));
             }
@@ -55,7 +56,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Subgrupo,Nombre_Subgrupo,Descripcion,AsistenteId,Tipo_GrupoId,GrupoId")] SubGrupo subGrupo)
+        public ActionResult Create([Bind(Include = "Id,Cod_Subgrupo,Nombre_Subgrupo,Descripcion,AsistenteId,Tipo_GrupoId,Membresia_AdultoId,GrupoId")] SubGrupo subGrupo)
         {
             if (ModelState.IsValid)
             {
@@ -63,14 +64,10 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("Index");
-            }
-            ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Cod_Persona", subGrupo.AsistenteId);
-            ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Cod_Tipo_Grupo", subGrupo.Tipo_GrupoId);
-            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Cod_Grupo", subGrupo.GrupoId);
+
+            ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Nombres", subGrupo.AsistenteId);
+            ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Nombre_Tipo_Grupo", subGrupo.Tipo_GrupoId);
+            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo", subGrupo.GrupoId);
             return View(subGrupo);
         }
 
@@ -86,9 +83,9 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Cod_Persona", subGrupo.AsistenteId);
-            ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Cod_Tipo_Grupo", subGrupo.Tipo_GrupoId);
-            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Cod_Grupo", subGrupo.GrupoId);
+            ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Nombres", subGrupo.AsistenteId);
+            ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Nombre_Tipo_Grupo", subGrupo.Tipo_GrupoId);
+            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo", subGrupo.GrupoId);
             return View(subGrupo);
         }
 
@@ -97,7 +94,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cod_Subgrupo,Nombre_Subgrupo,Descripcion,AsistenteId,Tipo_GrupoId,GrupoId")] SubGrupo subGrupo)
+        public ActionResult Edit([Bind(Include = "Id,Cod_Subgrupo,Nombre_Subgrupo,Descripcion,AsistenteId,Tipo_GrupoId,Membresia_AdultoId,GrupoId")] SubGrupo subGrupo)
         {
             if (ModelState.IsValid)
             {
@@ -105,9 +102,9 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Cod_Persona", subGrupo.AsistenteId);
-            ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Cod_Tipo_Grupo", subGrupo.Tipo_GrupoId);
-            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Cod_Grupo", subGrupo.GrupoId);
+            ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Nombres", subGrupo.AsistenteId);
+            ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Nombre_Tipo_Grupo", subGrupo.Tipo_GrupoId);
+            ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo", subGrupo.GrupoId);
             return View(subGrupo);
         }
 

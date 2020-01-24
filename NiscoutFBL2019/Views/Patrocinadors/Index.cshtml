@@ -29,55 +29,65 @@
 <div class="datagrid">
     <table class="table vm no-th-brd no-wrap pro-of-month">
         <thead>
-        <tr>
-            <th>
-                Nombre de Depto
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cod_Persona)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombres)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Apellidos)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fecha_Nac)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.E_Mail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cedula)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sexo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado_Civil)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Num_Pasaporte)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Direccion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre_Insti)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre_Representante)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Trabajo)
-            </th>
-            <th></th>
-        </tr>
-     </thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cod_Persona)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombres)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellidos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha_Nac)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.E_Mail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cedula)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sexo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Estado_Civil)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Num_Pasaporte)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Profesion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Centro_Laboral)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tipo_Sangre)
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)*@
+                    Departamento
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre_Insti)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre_Representante)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Trabajo)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
         @if (Model.Count() == 0)
         {
@@ -90,9 +100,6 @@
             foreach (var item in Model)
             {
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)
-                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Cod_Persona)
                     </td>
@@ -127,6 +134,18 @@
                         @Html.DisplayFor(modelItem => item.Direccion)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.Profesion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Centro_Laboral)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipo_Sangre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Nombre_Insti)
                     </td>
                     <td>
@@ -136,7 +155,6 @@
                         @Html.DisplayFor(modelItem => item.Trabajo)
                     </td>
                     <td>
-
                         <a href="@Url.Action("Edit", "Patrocinadors",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
                             <img width="25" src="~/Content/Ico/Editar.png" />
                         </a>
@@ -152,4 +170,4 @@
         }
 
     </table>
-    </div>
+</div>

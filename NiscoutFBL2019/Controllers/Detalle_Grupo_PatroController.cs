@@ -11,21 +11,21 @@ using NiscoutFBL2019.Models;
 namespace NiscoutFBL2019.Controllers
 {
     [Authorize]
-
     public class Detalle_Grupo_PatroController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Detalle_Grupo_Patro
-        public ActionResult Index( string searching)
+        public ActionResult Index(string searching)
         {
-            var detalle_Grupo_Patros = db.Detalle_Grupo_Patros.Include(d => d.Grupo).Include(d => d.Patrocinador);
+            var detalle_Grupo_Patros = db.Detalle_Grupo_Patros.Include(d => d.Patrocinador).Include(d => d.Grupo);
 
-            if(!string.IsNullOrEmpty(searching))
+            if (!string.IsNullOrEmpty(searching))
             {
                 detalle_Grupo_Patros = detalle_Grupo_Patros.Where(dgp => dgp.Patrocinador.Nombres.Contains(searching));
             }
             return View(detalle_Grupo_Patros.ToList());
+           
         }
 
         // GET: Detalle_Grupo_Patro/Details/5
@@ -46,8 +46,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Detalle_Grupo_Patro/Create
         public ActionResult Create()
         {
+            ViewBag.PatrocinadorId = new SelectList(db.Patrocinadores, "Id", "Nombre_Insti");
             ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo");
-            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Nombres");
             return View();
         }
 
@@ -56,7 +56,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Desde,PatrocinadorId,GrupoId,Hasta")] Detalle_Grupo_Patro detalle_Grupo_Patro)
+        public ActionResult Create([Bind(Include = "Id,Desde,PatrocinadorId,Hasta,GrupoId")] Detalle_Grupo_Patro detalle_Grupo_Patro)
         {
             if (ModelState.IsValid)
             {
@@ -64,13 +64,9 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("Index");
-            }
+
+            ViewBag.PatrocinadorId = new SelectList(db.Patrocinadores, "Id", "Nombre_Insti", detalle_Grupo_Patro.PatrocinadorId);
             ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo", detalle_Grupo_Patro.GrupoId);
-            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Nombres", detalle_Grupo_Patro.PatrocinadorId);
             return View(detalle_Grupo_Patro);
         }
 
@@ -86,8 +82,8 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.PatrocinadorId = new SelectList(db.Patrocinadores, "Id", "Nombre_Insti", detalle_Grupo_Patro.PatrocinadorId);
             ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo", detalle_Grupo_Patro.GrupoId);
-            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Nombres", detalle_Grupo_Patro.PatrocinadorId);
             return View(detalle_Grupo_Patro);
         }
 
@@ -96,7 +92,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Desde,PatrocinadorId,GrupoId,Hasta")] Detalle_Grupo_Patro detalle_Grupo_Patro)
+        public ActionResult Edit([Bind(Include = "Id,Desde,PatrocinadorId,Hasta,GrupoId")] Detalle_Grupo_Patro detalle_Grupo_Patro)
         {
             if (ModelState.IsValid)
             {
@@ -104,8 +100,8 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.PatrocinadorId = new SelectList(db.Patrocinadores, "Id", "Nombre_Insti", detalle_Grupo_Patro.PatrocinadorId);
             ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo", detalle_Grupo_Patro.GrupoId);
-            ViewBag.PatrocinadorId = new SelectList(db.Personas, "Id", "Nombres", detalle_Grupo_Patro.PatrocinadorId);
             return View(detalle_Grupo_Patro);
         }
 

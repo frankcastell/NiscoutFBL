@@ -23,8 +23,11 @@ namespace NiscoutFBL2019.Models
         public string Annio { get; set; }
         public int Etapa_AprobacionId { get; set; }
         public int AdultoId { get; set; }
+        public string Cargo { get; set; }
+        public int SubGrupoId { get; set; }
     
         public virtual Etapa_Aprobacion Etapa_Aprobacion { get; set; }
         public virtual Adulto Adulto { get; set; }
+        public virtual SubGrupo SubGrupo { get; set; }
     }
 }

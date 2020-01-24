@@ -24,7 +24,6 @@ namespace NiscoutFBL2019.Models
         {
             throw new UnintentionalCodeFirstException();
         }
-
         public virtual DbSet<Periodo> Periodos { get; set; }
         public virtual DbSet<Departamento> Departamentos { get; set; }
         public virtual DbSet<Municipio> Municipios { get; set; }

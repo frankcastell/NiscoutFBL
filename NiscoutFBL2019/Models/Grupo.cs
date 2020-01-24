@@ -17,8 +17,8 @@ namespace NiscoutFBL2019.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Grupo()
         {
-            this.SubGrupos = new HashSet<SubGrupo>();
             this.Detalle_Grupo_Patros = new HashSet<Detalle_Grupo_Patro>();
+            this.SubGrupos = new HashSet<SubGrupo>();
         }
     
         public int Id { get; set; }
@@ -31,12 +31,13 @@ namespace NiscoutFBL2019.Models
         public int ResponsableId { get; set; }
         public int DistritoId { get; set; }
         public byte[] Carta_Solicitud { get; set; }
+        public string Estado_Grupo { get; set; }
     
         public virtual Responsable Responsable { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SubGrupo> SubGrupos { get; set; }
         public virtual Distrito Distrito { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Detalle_Grupo_Patro> Detalle_Grupo_Patros { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SubGrupo> SubGrupos { get; set; }
     }
 }

@@ -13,17 +13,16 @@ using Microsoft.Reporting.WebForms;
 namespace NiscoutFBL2019.Controllers
 {
     [Authorize]
-
     public class PatrocinadorsController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Patrocinadors
-        public ActionResult Index( string buscar)
+        public ActionResult Index(string buscar)
         {
             var patrocinadores = db.Patrocinadores.Include(p => p.Departamento);
 
-            if(!string.IsNullOrEmpty(buscar))
+            if (!string.IsNullOrEmpty(buscar))
             {
                 patrocinadores = patrocinadores.Where(p => p.Nombre_Insti.Contains(buscar));
             }
@@ -37,7 +36,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patrocinador patrocinador = (Patrocinador)db.Personas.Find(id);
+            Patrocinador patrocinador = db.Patrocinadores.Find(id);
             if (patrocinador == null)
             {
                 return HttpNotFound();
@@ -45,7 +44,6 @@ namespace NiscoutFBL2019.Controllers
             return View(patrocinador);
         }
 
-      
         // GET: Patrocinadors/Create
         public ActionResult Create()
         {
@@ -53,6 +51,7 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
+
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
         }
@@ -64,6 +63,8 @@ namespace NiscoutFBL2019.Controllers
             public string Column3 { get; set; }
             public string Column4 { get; set; }
             public string Column5 { get; set; }
+            //agregar nuevas columnas x los campos
+
         }
         // Listando 
         public List<PatroRep> GetPatron()
@@ -98,12 +99,13 @@ namespace NiscoutFBL2019.Controllers
             return View();
         }
 
+
         // POST: Patrocinadors/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Nombre_Insti,Nombre_Representante,Trabajo")] Patrocinador patrocinador)
+        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,Nombre_Insti,Nombre_Representante,Trabajo")] Patrocinador patrocinador)
         {
             if (ModelState.IsValid)
             {
@@ -111,11 +113,7 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("Index");
-            }
+
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", patrocinador.DepartamentoId);
             return View(patrocinador);
         }
@@ -131,12 +129,12 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patrocinador patrocinador = (Patrocinador)db.Personas.Find(id);
+            Patrocinador patrocinador = db.Patrocinadores.Find(id);
             if (patrocinador == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", patrocinador.DepartamentoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", patrocinador.DepartamentoId);
             return View(patrocinador);
         }
 
@@ -145,16 +143,15 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Nombre_Insti,Nombre_Representante,Trabajo")] Patrocinador patrocinador)
+        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,Nombre_Insti,Nombre_Representante,Trabajo")] Patrocinador patrocinador)
         {
-           
             if (ModelState.IsValid)
             {
                 db.Entry(patrocinador).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", patrocinador.DepartamentoId);
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", patrocinador.DepartamentoId);
             return View(patrocinador);
         }
 
@@ -165,7 +162,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Patrocinador patrocinador = (Patrocinador)db.Personas.Find(id);
+            Patrocinador patrocinador = db.Patrocinadores.Find(id);
             if (patrocinador == null)
             {
                 return HttpNotFound();
@@ -178,7 +175,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Patrocinador patrocinador = (Patrocinador)db.Personas.Find(id);
+            Patrocinador patrocinador = db.Patrocinadores.Find(id);
             db.Personas.Remove(patrocinador);
             db.SaveChanges();
             return RedirectToAction("Index");

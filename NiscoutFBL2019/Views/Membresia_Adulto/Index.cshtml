@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
+
 <h2>Registros de Membresía Adulto</h2>
 
 <div align="left">
@@ -48,10 +49,16 @@
                     @Html.DisplayNameFor(model => model.Annio)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Cargo)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Cod_Etapa)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Adulto.Cod_Persona)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubGrupo.Cod_Subgrupo)
                 </th>
                 <th></th>
             </tr>
@@ -68,37 +75,38 @@
             {
                 <tbody>
                     <tr>
-                        <td>                            
-                         <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Compromiso)" width="300" height="100" type="application/pdf"> </object>
+                        <td>
+                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Compromiso)" width="300" height="100" type="application/pdf"> </object>
                         </td>
                         <td>
-                          @*<img src="@String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.Carta_Intencion));" />*@
-                         <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Intencion)" width="300" height="100" type="application/pdf"> </object>
-
-                        </td> 
+                            @*<img src="@String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.Carta_Intencion));" />*@
+                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Intencion)" width="300" height="100" type="application/pdf"> </object>
+                         </td> 
                         <td>
-                            @*@Html.DisplayFor(modelItem => item.Record_Policia)*@
-                            "Recórd Policía"
+                            @Html.DisplayFor(modelItem => item.Record_Policia)
                         </td>
                         <td>
-                            @*@Html.DisplayFor(modelItem => item.Carta_Ref_Personal)*@
-                            "Carta Ref_Personal"
+                            @Html.DisplayFor(modelItem => item.Carta_Ref_Personal)
                         </td>
                         <td>
-                         @*   @Html.DisplayFor(modelItem => item.Certifi_Salvo_Peligro)*@
-                            "Certificado Salvo"
+                            @Html.DisplayFor(modelItem => item.Certifi_Salvo_Peligro)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Annio)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Etapa_Aprobacion.Cod_Etapa)
+                            @Html.DisplayFor(modelItem => item.Cargo)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Adulto.Cod_Persona)
+                            @Html.DisplayFor(modelItem => item.Etapa_Aprobacion.Estado)
                         </td>
                         <td>
-
+                            @Html.DisplayFor(modelItem => item.Adulto.Nombres)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SubGrupo.Nombre_Subgrupo)
+                        </td>
+                        <td>
                             <a href="@Url.Action("Edit", "Membresia_Adulto",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
                                 <img width="25" src="~/Content/Ico/Editar.png" />
                             </a>
@@ -115,80 +123,3 @@
         }
     </table>
 </div>
-
-
-@*@model IEnumerable<NiscoutFBL2019.Models.Membresia_Adulto>
-
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Carta_Compromiso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Carta_Intencion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Record_Policia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Annio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Cod_Etapa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Adulto.Cod_Persona)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Carta_Compromiso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Carta_Intencion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Record_Policia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Carta_Ref_Personal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Certifi_Salvo_Peligro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Annio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Etapa_Aprobacion.Cod_Etapa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Adulto.Cod_Persona)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>*@

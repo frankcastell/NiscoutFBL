@@ -10,26 +10,25 @@ using NiscoutFBL2019.Models;
 using Microsoft.Reporting.WebForms;
 using Microsoft.AspNet.Identity;
 using NiscoutFBL2019.Models.ReporteScouts;
+
 namespace NiscoutFBL2019.Controllers
 {
     [Authorize]
     public class AdultoesController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
-        public static int Contador = 0;
 
+        public static int Contador = 0;
         // GET: Adultoes
         public ActionResult Index(string buscar)
         {
+            var adulto = db.Adultos.Include(a => a.Departamento);
 
-            var adulto = from s in db.Adultos
-                         select s; db.Adultos.Include(a => a.Departamento);
-            
             if (!string.IsNullOrEmpty(buscar))
             {
                 adulto = adulto.Where(s => s.Nombres.Contains(buscar));
             }
-           return View(adulto.ToList());
+            return View(adulto.ToList());
         }
 
         // GET: Adultoes/Details/5
@@ -39,13 +38,14 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Adulto adulto = (Adulto)db.Personas.Find(id);
+            Adulto adulto = db.Adultos.Find(id);
             if (adulto == null)
             {
                 return HttpNotFound();
             }
             return View(adulto);
         }
+
         // GET: Adultoes/Create
         public ActionResult Create()
         {
@@ -62,8 +62,8 @@ namespace NiscoutFBL2019.Controllers
         // clases similar al dataset
         public class adultosR
         {
-           public string Column1 { get; set; }
-           public  string Column2 { get; set; }
+            public string Column1 { get; set; }
+            public string Column2 { get; set; }
             public string Column3 { get; set; }
             public string Column4 { get; set; }
             public string Column5 { get; set; }
@@ -73,19 +73,20 @@ namespace NiscoutFBL2019.Controllers
             public string Column9 { get; set; }
             public string Column10 { get; set; }
             public string Column11 { get; set; }
-          
+            //agregar otra columan x los campos nuevos
+
         }
 
         // Listando 
         public List<adultosR> GetAdulto()
         {
             return (from item in db.Adultos.ToList()
-                    
+
                     select new adultosR
                     {
                         Column1 = item.Nombres,
                         Column2 = item.Apellidos,
-                        Column3 = item.Cedula ,
+                        Column3 = item.Cedula,
                         Column4 = item.E_Mail,
                         Column5 = item.Fecha_Nac.ToString("yyyy-MM-dd"),
                         Column6 = item.Sexo,
@@ -94,7 +95,7 @@ namespace NiscoutFBL2019.Controllers
                         Column9 = item.Departamento.Nombre_Departamento.ToString(),
                         Column10 = item.Num_Pasaporte,
                         Column11 = item.Estado_Civil
-                       
+
 
                     }).ToList();
         }
@@ -109,7 +110,7 @@ namespace NiscoutFBL2019.Controllers
             rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepAdultos.rdlc");
             rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", GetAdulto()));
             rpt.LocalReport.Refresh();
-           
+
             rpt.AsyncRendering = false;
             rpt.SizeToReportContent = true;
             rpt.ShowPrintButton = true;
@@ -123,7 +124,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId")] Adulto adulto)
+        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto)
         {
             if (ModelState.IsValid)
             {
@@ -131,15 +132,11 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("Index");
-            }
+
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);
             return View(adulto);
         }
-        [AllowAnonymous]
+
         public ActionResult Solicitud()
         {
             ViewBag.sexo = new SelectList(new[] {
@@ -149,22 +146,23 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
         }
+        //solicitud
         // POST: Adultoes/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Solicitud([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId")] Adulto adulto)
+        public ActionResult Solicitud([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto)
         {
-            
+
             if (ModelState.IsValid)
             {
                 db.Personas.Add(adulto);
                 db.SaveChanges();
-                return RedirectToAction("MembreAdulto","Membresia_Adulto", new { idAdulto = adulto.Id});
+                return RedirectToAction("MembreAdulto", "Membresia_Adulto", new { idAdulto = adulto.Id });
             }
-           
+
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);
             return View(adulto);
         }
@@ -175,12 +173,11 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Adulto adulto = (Adulto)db.Personas.Find(id);
+            Adulto adulto = db.Adultos.Find(id);
             if (adulto == null)
             {
                 return HttpNotFound();
@@ -188,7 +185,7 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Cod_Departamento", adulto.DepartamentoId);
             return View(adulto);
         }
-        public ActionResult Renovar([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId")] Adulto adulto)
+        public ActionResult Renovar([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto)
         {
             if (ModelState.IsValid)
             {
@@ -204,7 +201,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId")] Adulto adulto)
+        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto)
         {
             if (ModelState.IsValid)
             {
@@ -223,7 +220,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Adulto adulto = (Adulto)db.Personas.Find(id);
+            Adulto adulto = db.Adultos.Find(id);
             if (adulto == null)
             {
                 return HttpNotFound();
@@ -236,7 +233,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Adulto adulto = (Adulto)db.Personas.Find(id);
+            Adulto adulto = db.Adultos.Find(id);
             db.Personas.Remove(adulto);
             db.SaveChanges();
             return RedirectToAction("Index");
