@@ -136,14 +136,36 @@
             </div>
         </div>
 
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" value="Actualizar Registro" class="btn btn-outline-success" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn waves-effect waves-purple btn-danger hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>
             </div>
         </div>
     </div>
 }
+@section Scripts {
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+    <link href="~/Content/css/datepicker.min.css" rel="stylesheet" type="text/css">
+    <script src="~/Scripts/js/datepicker.min.js"></script>
+    <script src="~/Scripts/js/i18n/datepicker.es.js"></script>
+    <script>
+    $(function () {
+
+
+        $("#Fecha_Nac").datepicker({ language: 'es', dateFormat: 'dd-mm-yy' });
+
+  } );
+    </script>
+
+
+    @Scripts.Render("~/bundles/jqueryval")
+}

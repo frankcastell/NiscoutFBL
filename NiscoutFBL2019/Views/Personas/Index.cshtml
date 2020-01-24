@@ -3,115 +3,142 @@
 @{
     ViewBag.Title = "Index";
 }
+<h2>Registros de Personas</h2>
 
-<h2>Index</h2>
+<link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Cod_Persona)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombres)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Apellidos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha_Nac)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.E_Mail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cedula)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sexo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado_Civil)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Num_Pasaporte)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Profesion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Centro_Laboral)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo_Sangre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
-        </th>
-        <th></th>
-    </tr>
+<div align="left">
+    @using (Html.BeginForm("Index", "Personas", FormMethod.Get))
+    {
+        <div align="right">
+            <hr />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cod_Persona)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombres)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Apellidos)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha_Nac)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.E_Mail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cedula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sexo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado_Civil)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Num_Pasaporte)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Profesion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Centro_Laboral)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo_Sangre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Departamento.Cod_Departamento)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+            @Html.TextBox("buscar")
+            <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
 
-</table>
+            <a href="@Url.Action("Create", "Personas")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Nuevo Personas">
+                Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
+            </a>
+            <a href="@Url.Action("RepAdulto", "Personas")" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+                <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
+            </a>
+            <hr />
+        </div>
+    }
+</div>
+<div class="datagrid">
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cod_Persona)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombres)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellidos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha_Nac)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.E_Mail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cedula)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sexo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Estado_Civil)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Num_Pasaporte)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Profesion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Centro_Laboral)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tipo_Sangre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cod_Persona)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombres)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellidos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha_Nac)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.E_Mail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cedula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sexo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado_Civil)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Num_Pasaporte)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Direccion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Profesion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Centro_Laboral)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipo_Sangre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Departamento.Cod_Departamento)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                            <img width="25" src="~/Content/Ico/Editar.png" />
+                        </a>
+                        <a href="@Url.Action("Details", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                            <img width="25" src="~/Content/Ico/Ver_detalles.png" />
+                        </a>
+                        <a href="@Url.Action("Delete", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                            <img width="25" src="~/Content/Ico/eliminar.png" />
+                        </a>
+                    </td>
+                </tr>
+            }
+
+    </table>
+ </div>

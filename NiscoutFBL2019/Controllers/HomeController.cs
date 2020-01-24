@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NiscoutFBL2019.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,8 +10,17 @@ namespace NiscoutFBL2019.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
+        public static int Contador = 0;
+        public static int ContadorJ = 0;
+        public static int ContAJ = 0;
+
         public ActionResult Index()
         {
+            ViewBag.Contador = db.Adultos.Count();
+            ViewBag.ContadorJ = db.Juveniles.Count();
+
+            ViewBag.ContAJ = (ViewBag.Contador + ViewBag.ContadorJ);
             return View();
         }
 
