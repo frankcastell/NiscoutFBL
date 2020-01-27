@@ -4,135 +4,145 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalle de la Informacion</h2>
 
-<div>
-    <h4>Persona</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cod_Persona)
-        </dt>
+<div class="datagrid">
 
-        <dd>
-            @Html.DisplayFor(model => model.Cod_Persona)
-        </dd>
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+            <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Cod_Persona)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombres)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Cod_Persona)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombres)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Nombres)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Apellidos)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Nombres)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Apellidos)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha_Nac)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Apellidos)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fecha_Nac)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Fecha_Nac)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.E_Mail)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Fecha_Nac)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.E_Mail)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.E_Mail)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cedula)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.E_Mail)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cedula)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Cedula)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sexo)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Cedula)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sexo)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Estado_Civil)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Sexo)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Estado_Civil)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Estado_Civil)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Num_Pasaporte)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Estado_Civil)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Num_Pasaporte)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Num_Pasaporte)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Num_Pasaporte)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Telefono)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Direccion)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Profesion)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Direccion)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Profesion)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Profesion)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Centro_Laboral)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Profesion)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Centro_Laboral)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Centro_Laboral)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipo_Sangre)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Centro_Laboral)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tipo_Sangre)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Tipo_Sangre)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Tipo_Sangre)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Departamento.Cod_Departamento)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
+            </td>
 
-    </dl>
+            <td>
+                @Html.DisplayFor(model => model.Departamento.Cod_Departamento)
+            </td>
+        </tr>
+        </thead>
+    </table>
+    <p>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

@@ -4,36 +4,65 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Registros de Tutores</h2>
+<link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Parentezco)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Persona.Cod_Persona)
-        </th>
-        <th></th>
-    </tr>
+<div align="left">
+    @using (Html.BeginForm("Index", "Tutorias", FormMethod.Get))
+    {
+        <div align="right">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Parentezco)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Persona.Cod_Persona)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+            <div>
+                <hr />
 
-</table>
+                <a href="@Url.Action("Create", "Tutorias")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Nuevo Tutor">
+                    Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
+                </a>
+                <a href="@Url.Action("RepAdulto", "Tutorias")" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+                    <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
+                </a>
+
+                <hr />
+            </div>
+        </div>
+    }
+</div>
+<div class="datagr">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Parentezco)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Persona.Cod_Persona)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parentezco)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Persona.Cod_Persona)
+                    </td>
+                    <td>
+
+                        <a href="@Url.Action("Edit", "Tutorias",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                            <img width="25" src="~/Content/Ico/Editar.png" />
+                        </a>
+                        <a href="@Url.Action("Details", "Tutorias",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                            <img width="25" src="~/Content/Ico/Ver_detalles.png" />
+                        </a>
+                        <a href="@Url.Action("Delete", "Tutorias",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                            <img width="25" src="~/Content/Ico/eliminar.png" />
+                        </a>
+                    </td>
+                </tr>
+            }
+
+    </table>
+    </div>
