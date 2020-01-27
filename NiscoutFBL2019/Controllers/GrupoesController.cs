@@ -11,14 +11,21 @@ using System.IO;
 
 namespace NiscoutFBL2019.Controllers
 {
+    [Authorize]
     public class GrupoesController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Grupoes
-        public ActionResult Index()
+        public ActionResult Index(string buscar)
         {
             var grupos = db.Grupos.Include(g => g.Responsable).Include(g => g.Distrito);
+
+            if (!string.IsNullOrEmpty(buscar))
+            {
+                grupos = grupos.Where(j => j.Nombre_Grupo.Contains(buscar));
+            }
+          
             return View(grupos.ToList());
         }
 
@@ -50,25 +57,61 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Grupo,Nombre_Grupo,Num_Solicitud,Pañoleta,Insignia,Sello_Grupo,ResponsableId,DistritoId,Carta_Solicitud")] Grupo grupo,
-                        HttpPostedFileBase image1,
+        public ActionResult Create([Bind(Include = "Id,Cod_Grupo,Nombre_Grupo,Num_Solicitud,Pañoleta,Insignia,Sello_Grupo,ResponsableId,DistritoId,Carta_Solicitud,Estado_Grupo")] Grupo grupo,
+                         HttpPostedFileBase image1,
                         HttpPostedFileBase image2,
                         HttpPostedFileBase image3,
                         HttpPostedFileBase image4)
         {
             if (ModelState.IsValid)
             {
-               
+
                 grupo.Pañoleta = ruta2(image1);
                 grupo.Insignia = ruta2(image2);
                 grupo.Sello_Grupo = ruta2(image3);
                 grupo.Carta_Solicitud = tobyte(image4);
 
+            
                 db.Grupos.Add(grupo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ResponsableId = new SelectList(db.Responsables, "Id", "Nombres", grupo.ResponsableId);
+            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Nombre_Distrito", grupo.DistritoId);
+            return View(grupo);
+        }
+
+        // GET: Grupoes/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Grupo grupo = db.Grupos.Find(id);
+            if (grupo == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Nombres", grupo.ResponsableId);
+            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Nombre_Distrito", grupo.DistritoId);
+            return View(grupo);
+        }
+
+        // POST: Grupoes/Edit/5
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Cod_Grupo,Nombre_Grupo,Num_Solicitud,Pañoleta,Insignia,Sello_Grupo,ResponsableId,DistritoId,Carta_Solicitud,Estado_Grupo")] Grupo grupo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(grupo).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
             ViewBag.ResponsableId = new SelectList(db.Responsables, "Id", "Nombres", grupo.ResponsableId);
             ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Nombre_Distrito", grupo.DistritoId);
             return View(grupo);
@@ -99,40 +142,6 @@ namespace NiscoutFBL2019.Controllers
                 }
             }
             return imagenData2;
-        }
-        // GET: Grupoes/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Grupo grupo = db.Grupos.Find(id);
-            if (grupo == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Cod_Persona", grupo.ResponsableId);
-            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Cod_Distrito", grupo.DistritoId);
-            return View(grupo);
-        }
-
-        // POST: Grupoes/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cod_Grupo,Nombre_Grupo,Num_Solicitud,Pañoleta,Insignia,Sello_Grupo,ResponsableId,DistritoId,Carta_Solicitud")] Grupo grupo)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(grupo).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Cod_Persona", grupo.ResponsableId);
-            ViewBag.DistritoId = new SelectList(db.Distritos, "Id", "Cod_Distrito", grupo.DistritoId);
-            return View(grupo);
         }
 
         // GET: Grupoes/Delete/5

@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Detalle de la Información</h2>
+<h2>Detalle de la Información...</h2>
 
 <div class="datagrid">
     <table class="table vm no-th-brd no-wrap pro-of-month">
@@ -86,7 +86,7 @@
                     @Html.DisplayNameFor(model => model.Telefono)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.Telefono)
+                   @Html.DisplayFor(model => model.Telefono)
                 </td>
             </tr>
             <tr>
@@ -99,18 +99,42 @@
             </tr>
             <tr>
                 <td>
-                    @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
+                    @Html.DisplayNameFor(model => model.Profesion)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.Departamento.Cod_Departamento)
+                    @Html.DisplayFor(model => model.Profesion)
                 </td>
             </tr>
             <tr>
                 <td>
-                    @Html.DisplayNameFor(model => model.Centro_Estudio.Cod_Centro)
+                    @Html.DisplayNameFor(model => model.Centro_Laboral)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.Centro_Estudio.Cod_Centro)
+                    @Html.DisplayFor(model => model.Centro_Laboral)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Tipo_Sangre)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Tipo_Sangre)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Departamento.Nombre_Departamento)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Centro_Estudio.Nombre_Centro)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Centro_Estudio.Nombre_Centro)
                 </td>
             </tr>
             <tr>
@@ -120,7 +144,6 @@
                 <td>
                     @Html.DisplayFor(model => model.Tutoria.Parentezco)
                 </td>
-
             </tr>
             <tr>
                 <td></td>
@@ -137,7 +160,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
-      
+
     </p>
 </div>
 

@@ -33,6 +33,9 @@ namespace NiscoutFBL2019.Models
         public int Telefono { get; set; }
         public string Direccion { get; set; }
         public int DepartamentoId { get; set; }
+        public string Profesion { get; set; }
+        public string Centro_Laboral { get; set; }
+        public string Tipo_Sangre { get; set; }
     
         public virtual Departamento Departamento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -12,22 +12,6 @@
         <thead>
             <tr>
                 <td>
-                    @Html.DisplayNameFor(model => model.Grupo.Cod_Grupo)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Grupo.Cod_Grupo)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Patrocinador.Cod_Persona)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Patrocinador.Cod_Persona)
-                </td>
-            </tr>
-            <tr>
-                <td>
                     @Html.DisplayNameFor(model => model.Desde)
                 </td>
                 <td>
@@ -43,14 +27,31 @@
                 </td>
             </tr>
             <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Patrocinador.Cod_Persona)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Patrocinador.Cod_Persona)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Grupo.Cod_Grupo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Grupo.Cod_Grupo)
+                </td>
+            </tr>
+            <tr>
                 <td></td>
                 <td></td>
             </tr>
         </thead>
     </table>
 
+
     @using (Html.BeginForm())
-            {
+    {
         @Html.AntiForgeryToken()
 
         <div class="col-md-offset-2 col-md-10">
@@ -63,4 +64,3 @@
         </div>
     }
 </div>
-

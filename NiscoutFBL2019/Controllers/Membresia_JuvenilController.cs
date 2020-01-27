@@ -10,6 +10,7 @@ using NiscoutFBL2019.Models;
 
 namespace NiscoutFBL2019.Controllers
 {
+    [Authorize]
     public class Membresia_JuvenilController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
@@ -44,9 +45,9 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Juvenil/Create
         public ActionResult Create()
         {
-            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo");
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa");
-            ViewBag.JuvenilId = new SelectList(db.Personas, "Id", "Cod_Persona");
+            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo");
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
+            ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Nombres");
             return View();
         }
 
@@ -64,9 +65,9 @@ namespace NiscoutFBL2019.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo", membresia_Juvenil.SubGrupoId);
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Juvenil.Etapa_AprobacionId);
-            ViewBag.JuvenilId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Juvenil.JuvenilId);
+            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo", membresia_Juvenil.SubGrupoId);
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Juvenil.Etapa_AprobacionId);
+            ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Nombres", membresia_Juvenil.JuvenilId);
             return View(membresia_Juvenil);
         }
         // Nueva Vista --------------------------INICIO
@@ -74,9 +75,9 @@ namespace NiscoutFBL2019.Controllers
         [AllowAnonymous]
         public ActionResult MembreJuvenil()
         {
-            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo");
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa");
-            ViewBag.JuvenilId = new SelectList(db.Personas, "Id", "Cod_Persona");
+            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo");
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
+            ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Nombres");
             return View();
         }
 
@@ -95,9 +96,9 @@ namespace NiscoutFBL2019.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo", membresia_Juvenil.SubGrupoId);
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Juvenil.Etapa_AprobacionId);
-            ViewBag.JuvenilId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Juvenil.JuvenilId);
+            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo", membresia_Juvenil.SubGrupoId);
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Juvenil.Etapa_AprobacionId);
+            ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Nombres", membresia_Juvenil.JuvenilId);
             return View(membresia_Juvenil);
         }
         // ----------------------------------------FINAL
@@ -114,9 +115,9 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo", membresia_Juvenil.SubGrupoId);
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Juvenil.Etapa_AprobacionId);
-            ViewBag.JuvenilId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Juvenil.JuvenilId);
+            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo", membresia_Juvenil.SubGrupoId);
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Juvenil.Etapa_AprobacionId);
+            ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Nombres", membresia_Juvenil.JuvenilId);
             return View(membresia_Juvenil);
         }
 
@@ -133,9 +134,9 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo", membresia_Juvenil.SubGrupoId);
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Cod_Etapa", membresia_Juvenil.Etapa_AprobacionId);
-            ViewBag.JuvenilId = new SelectList(db.Personas, "Id", "Cod_Persona", membresia_Juvenil.JuvenilId);
+            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo", membresia_Juvenil.SubGrupoId);
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado", membresia_Juvenil.Etapa_AprobacionId);
+            ViewBag.JuvenilId = new SelectList(db.Juveniles, "Id", "Nombres", membresia_Juvenil.JuvenilId);
             return View(membresia_Juvenil);
         }
 

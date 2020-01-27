@@ -4,27 +4,11 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Detalle de la Información</h2>
+<h2>Detalle de la Información...</h2>
 
 <div class="datagrid">
     <table class="table vm no-th-brd no-wrap pro-of-month">
         <thead>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Grupo.Cod_Grupo)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Grupo.Cod_Grupo)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Patrocinador.Cod_Persona)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Patrocinador.Cod_Persona)
-                </td>
-            </tr>
             <tr>
                 <td>
                     @Html.DisplayNameFor(model => model.Desde)
@@ -39,6 +23,22 @@
                 </td>
                 <td>
                     @Html.DisplayFor(model => model.Hasta)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Patrocinador.Cod_Persona)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Patrocinador.Cod_Persona)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Grupo.Cod_Grupo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Grupo.Cod_Grupo)
                 </td>
             </tr>
             <tr>

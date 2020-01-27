@@ -1,24 +1,16 @@
 ﻿@model NiscoutFBL2019.Models.Adulto
+
 @{
     ViewBag.Title = "Delete";
 }
 
-<h3>¿Está Seguro que desea Eliminar Este Registro...?</h3>
 
+<h3>¿Está Seguro que desea Eliminar Este Registro...?</h3>
 
 <div class="datagrid">
 
     <table class="table vm no-th-brd no-wrap pro-of-month">
         <thead>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Departamento.Cod_Departamento)
-                </td>
-            </tr>
-                
             <tr>
                 <td>
                     @Html.DisplayNameFor(model => model.Cod_Persona)
@@ -106,25 +98,57 @@
                 <td>
                     @Html.DisplayFor(model => model.Direccion)
                 </td>
-           
-             </tr>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Profesion)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Profesion)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Centro_Laboral)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Centro_Laboral)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Tipo_Sangre)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Tipo_Sangre)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Departamento.Nombre_Departamento)
+                </td>
+            </tr>
+
             <tr>
                 <td></td>
                 <td></td>
-            </tr>           
-            </thead>
-       
-                 
-            </table>
+            </tr>
+        </thead>
+
+
+    </table>
     @Html.AntiForgeryToken()
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <div  class="form-group">                    
-                    <input title="Una vez eliminado, no se podrá recuperar" type="submit" value="Eliminar Registro" class="btn btn-outline-danger" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn-success hidden-md-down">Cancelar</a>
-                </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <div class="form-group">
+                <input title="Una vez eliminado, no se podrá recuperar" type="submit" value="Eliminar Registro" class="btn btn-outline-danger" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn-success hidden-md-down">Cancelar</a>
             </div>
-        </div>           
+        </div>
+    </div>
 </div>

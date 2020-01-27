@@ -17,8 +17,8 @@ namespace NiscoutFBL2019.Models
         public int Id { get; set; }
         public System.DateTime Desde { get; set; }
         public int PatrocinadorId { get; set; }
-        public int GrupoId { get; set; }
         public System.DateTime Hasta { get; set; }
+        public int GrupoId { get; set; }
     
         public virtual Patrocinador Patrocinador { get; set; }
         public virtual Grupo Grupo { get; set; }

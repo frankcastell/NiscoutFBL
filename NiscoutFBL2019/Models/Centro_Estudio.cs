@@ -26,6 +26,7 @@ namespace NiscoutFBL2019.Models
         public string Turno { get; set; }
         public int Telefono { get; set; }
         public string E_Mail { get; set; }
+        public string Grado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Juvenil> Juveniles { get; set; }

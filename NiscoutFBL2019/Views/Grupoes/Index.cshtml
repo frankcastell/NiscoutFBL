@@ -35,13 +35,13 @@
         <thead>
             <tr>
                 <th>
-                    Codigo Grupo
+                    @Html.DisplayNameFor(model => model.Cod_Grupo)
                 </th>
                 <th>
-                    Nombre Grupo
+                    @Html.DisplayNameFor(model => model.Nombre_Grupo)
                 </th>
                 <th>
-                    Numero de Solicitud
+                    @Html.DisplayNameFor(model => model.Num_Solicitud)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Pañoleta)
@@ -50,19 +50,21 @@
                     @Html.DisplayNameFor(model => model.Insignia)
                 </th>
                 <th>
-                    Sello
+                    @Html.DisplayNameFor(model => model.Sello_Grupo)
                 </th>
                 <th>
-                    Carta Solicitud
+                    @Html.DisplayNameFor(model => model.Carta_Solicitud)
                 </th>
                 <th>
-                    Responsable
+                    @Html.DisplayNameFor(model => model.Estado_Grupo)
                 </th>
                 <th>
-                    Distritos
+                    @Html.DisplayNameFor(model => model.Responsable.Nombres)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Distrito.Nombre_Distrito)
                 </th>
                 <th></th>
-            </tr>
         </thead>
         @if (Model.Count() == 0)
         {
@@ -85,23 +87,19 @@
                         @Html.DisplayFor(modelItem => item.Num_Solicitud)
                     </td>
                     <td>
-                        @*@Html.DisplayFor(modelItem => item.Pañoleta)*@
-                        @*Archivo "Pañoleta" Abjuntado*@
-                        <object data="data:application/png;base64,@System.Convert.ToBase64String(item.Pañoleta)" width="300" height="100" type="application/png"> </object>
+                        @Html.DisplayFor(modelItem => item.Pañoleta)
                     </td>
                     <td>
-                        @*@Html.DisplayFor(modelItem => item.Insignia)*@
-                      @*  Archivo "Insignia" Abjuntado*@
-                        <object data="data:application/png;base64,@System.Convert.ToBase64String(item.Insignia)" width="300" height="100" type="application/png"> </object>
+                        @Html.DisplayFor(modelItem => item.Insignia)
                     </td>
                     <td>
-                       @* @Html.DisplayFor(modelItem => item.Sello_Grupo)*@
-                        @*Archivo "Sello" Abjuntado*@
-                        <object data="data:application/png;base64,@System.Convert.ToBase64String(item.Sello_Grupo)" width="300" height="100" type="application/png"> </object>
+                        @Html.DisplayFor(modelItem => item.Sello_Grupo)
                     </td>
                     <td>
-                     @*   @Html.DisplayFor(modelItem => item.Carta_Solicitud)*@
-                        <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Solicitud)" width="300" height="100" type="application/pdf"> </object>
+                        @Html.DisplayFor(modelItem => item.Carta_Solicitud)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado_Grupo)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Responsable.Nombres)
@@ -125,85 +123,3 @@
         }
     </table>
 </div>
-
-@*@model IEnumerable<NiscoutFBL2019.Models.Grupo>
-
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Cod_Grupo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre_Grupo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Num_Solicitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pañoleta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Insignia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sello_Grupo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Carta_Solicitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Responsable.Cod_Persona)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Distrito.Cod_Distrito)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cod_Grupo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre_Grupo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Num_Solicitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pañoleta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Insignia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sello_Grupo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Carta_Solicitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Responsable.Cod_Persona)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Distrito.Cod_Distrito)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>*@

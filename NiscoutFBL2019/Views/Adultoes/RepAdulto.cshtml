@@ -11,17 +11,15 @@
     <title>Vista Previa</title>
     <style>
         iframe {
-            margin-left:20%;
+            margin-left: 20%;
             border: none;
-          
-
         }
     </style>
 </head>
-<body >
+<body>
 
     <div style="">
-        @Html.ReportViewer(ViewBag.rpt as Microsoft.Reporting.WebForms.ReportViewer, new { @Style = " height:600px; width: 100%;"})
+        @Html.ReportViewer(ViewBag.rpt as Microsoft.Reporting.WebForms.ReportViewer, new { @Style = " height:600px; width: 100%;" })
     </div>
 </body>
 </html>

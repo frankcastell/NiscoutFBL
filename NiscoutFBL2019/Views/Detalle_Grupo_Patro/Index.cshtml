@@ -15,7 +15,7 @@
                 @Html.TextBox("searching")
                 <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info" title="Buscar Registro">
 
-                <a href="@Url.Action("Create", "Detalle_Grupo_Patro")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar Detalle Evento">
+                <a href="@Url.Action("Create", "Detalle_Grupo_Patro")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar Detalle Grupo">
                     Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
                 </a>
                 <a href="@Url.Action("RepAdulto", "Adultoes")" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
@@ -28,48 +28,47 @@
 
     }
 </div>
-
 <div class="datagr">
     <table>
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Grupo.Cod_Grupo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Patrocinador.Cod_Persona)
-                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Desde)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Hasta)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Patrocinador.Nombres)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Grupo.Nombre_Grupo)
+                </th>
                 <th></th>
             </tr>
-            </thead>
-          @if (Model.Count() == 0)
-          {
+        </thead>
+        @if (Model.Count() == 0)
+        {
             <tr>
                 <td colspan="4"> No se ha encontrado ningún dato relacionado</td>
             </tr>
-          }
-          else
-          {
-              foreach (var item in Model)
-              {
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
                 <tr class="alt">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Grupo.Cod_Grupo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Patrocinador.Cod_Persona)
-                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Desde)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Hasta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patrocinador.Nombres)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grupo.Nombre_Grupo)
                     </td>
                     <td>
                         <a href="@Url.Action("Edit", "Detalle_Grupo_Patro",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
@@ -81,9 +80,9 @@
                         <a href="@Url.Action("Delete", "Detalle_Grupo_Patro",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
                             <img width="25" src="~/Content/Ico/eliminar.png" />
                         </a>
-                     </td>
+                    </td>
                 </tr>
-              }
-          }
+            }
+        }
     </table>
-    </div>
+</div>

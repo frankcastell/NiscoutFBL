@@ -10,15 +10,15 @@ using NiscoutFBL2019.Models;
 
 namespace NiscoutFBL2019.Controllers
 {
+    [Authorize]
     public class TutoriasController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Tutorias
-        public ActionResult Index( )
+        public ActionResult Index()
         {
             var tutorias = db.Tutorias.Include(t => t.Persona);
-
             return View(tutorias.ToList());
         }
 
@@ -40,7 +40,7 @@ namespace NiscoutFBL2019.Controllers
         // GET: Tutorias/Create
         public ActionResult Create()
         {
-            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Cod_Persona");
+            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace NiscoutFBL2019.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Cod_Persona", tutoria.PersonaId);
+            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
             return View(tutoria);
         }
 
@@ -74,7 +74,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Cod_Persona", tutoria.PersonaId);
+            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
             return View(tutoria);
         }
 
@@ -91,7 +91,7 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Cod_Persona", tutoria.PersonaId);
+            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
             return View(tutoria);
         }
 
