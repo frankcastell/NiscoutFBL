@@ -148,7 +148,6 @@
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="AsistenteId" ColumnName="AsistenteId" />
           <ScalarProperty Name="Tipo_GrupoId" ColumnName="Tipo_GrupoId" />
-          <ScalarProperty Name="Membresia_AdultoId" ColumnName="Membresia_AdultoId" />
           <ScalarProperty Name="GrupoId" ColumnName="GrupoId" />
         </MappingFragment>
       </EntityTypeMapping>

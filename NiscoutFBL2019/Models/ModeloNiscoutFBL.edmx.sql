@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/22/2020 20:49:18
+-- Date Created: 01/27/2020 16:52:35
 -- Generated from EDMX file: C:\Users\brayan obando\Source\Repos\NiscoutFBL\NiscoutFBL2019\Models\ModeloNiscoutFBL.edmx
 -- --------------------------------------------------
 
@@ -311,7 +311,6 @@ CREATE TABLE [dbo].[SubGrupos] (
     [Descripcion] nvarchar(max)  NOT NULL,
     [AsistenteId] int  NOT NULL,
     [Tipo_GrupoId] int  NOT NULL,
-    [Membresia_AdultoId] int  NOT NULL,
     [GrupoId] int  NOT NULL
 );
 GO

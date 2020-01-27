@@ -297,7 +297,6 @@
     <NavigationProperty Name="Tipo_Grupo" Relationship="ModeloNiscoutFBL.Tipo_GrupoSubGrupo" FromRole="SubGrupo" ToRole="Tipo_Grupo" />
     <Property Name="Tipo_GrupoId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Eventos" Relationship="ModeloNiscoutFBL.SubGrupoEvento" FromRole="SubGrupo" ToRole="Evento" />
-    <Property Name="Membresia_AdultoId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Membresia_Adultos" Relationship="ModeloNiscoutFBL.SubGrupoMembresia_Adulto" FromRole="SubGrupo" ToRole="Membresia_Adulto" />
     <NavigationProperty Name="Grupo" Relationship="ModeloNiscoutFBL.GrupoSubGrupo" FromRole="SubGrupo" ToRole="Grupo" />
     <Property Name="GrupoId" Type="Int32" Nullable="false" />

@@ -19,11 +19,11 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Index(string buscar)
         {
             var subGrupos = db.SubGrupos.Include(s => s.Asistente).Include(s => s.Tipo_Grupo).Include(s => s.Grupo);
-
             if (!string.IsNullOrEmpty(buscar))
             {
                 subGrupos = subGrupos.Where(s => s.Nombre_Subgrupo.Contains(buscar));
             }
+         
             return View(subGrupos.ToList());
         }
 
@@ -56,7 +56,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Subgrupo,Nombre_Subgrupo,Descripcion,AsistenteId,Tipo_GrupoId,Membresia_AdultoId,GrupoId")] SubGrupo subGrupo)
+        public ActionResult Create([Bind(Include = "Id,Cod_Subgrupo,Nombre_Subgrupo,Descripcion,AsistenteId,Tipo_GrupoId,GrupoId")] SubGrupo subGrupo)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cod_Subgrupo,Nombre_Subgrupo,Descripcion,AsistenteId,Tipo_GrupoId,Membresia_AdultoId,GrupoId")] SubGrupo subGrupo)
+        public ActionResult Edit([Bind(Include = "Id,Cod_Subgrupo,Nombre_Subgrupo,Descripcion,AsistenteId,Tipo_GrupoId,GrupoId")] SubGrupo subGrupo)
         {
             if (ModelState.IsValid)
             {

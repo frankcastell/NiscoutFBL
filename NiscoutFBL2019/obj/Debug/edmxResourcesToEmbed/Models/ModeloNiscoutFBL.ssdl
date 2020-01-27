@@ -268,7 +268,6 @@
     <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="AsistenteId" Type="int" Nullable="false" />
     <Property Name="Tipo_GrupoId" Type="int" Nullable="false" />
-    <Property Name="Membresia_AdultoId" Type="int" Nullable="false" />
     <Property Name="GrupoId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Grupos">

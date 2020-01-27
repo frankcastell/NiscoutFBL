@@ -28,7 +28,6 @@ namespace NiscoutFBL2019.Models
         public string Descripcion { get; set; }
         public int AsistenteId { get; set; }
         public int Tipo_GrupoId { get; set; }
-        public int Membresia_AdultoId { get; set; }
         public int GrupoId { get; set; }
     
         public virtual Asistente Asistente { get; set; }

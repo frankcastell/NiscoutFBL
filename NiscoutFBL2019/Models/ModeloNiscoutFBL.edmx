@@ -273,7 +273,6 @@
     <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="AsistenteId" Type="int" Nullable="false" />
     <Property Name="Tipo_GrupoId" Type="int" Nullable="false" />
-    <Property Name="Membresia_AdultoId" Type="int" Nullable="false" />
     <Property Name="GrupoId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Grupos">
@@ -1158,7 +1157,6 @@
           <NavigationProperty Name="Tipo_Grupo" Relationship="ModeloNiscoutFBL.Tipo_GrupoSubGrupo" FromRole="SubGrupo" ToRole="Tipo_Grupo" />
           <Property Name="Tipo_GrupoId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Eventos" Relationship="ModeloNiscoutFBL.SubGrupoEvento" FromRole="SubGrupo" ToRole="Evento" />
-          <Property Name="Membresia_AdultoId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Membresia_Adultos" Relationship="ModeloNiscoutFBL.SubGrupoMembresia_Adulto" FromRole="SubGrupo" ToRole="Membresia_Adulto" />
           <NavigationProperty Name="Grupo" Relationship="ModeloNiscoutFBL.GrupoSubGrupo" FromRole="SubGrupo" ToRole="Grupo" />
           <Property Name="GrupoId" Type="Int32" Nullable="false" />
@@ -1784,7 +1782,6 @@
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="AsistenteId" ColumnName="AsistenteId" />
           <ScalarProperty Name="Tipo_GrupoId" ColumnName="Tipo_GrupoId" />
-          <ScalarProperty Name="Membresia_AdultoId" ColumnName="Membresia_AdultoId" />
           <ScalarProperty Name="GrupoId" ColumnName="GrupoId" />
         </MappingFragment>
       </EntityTypeMapping>
