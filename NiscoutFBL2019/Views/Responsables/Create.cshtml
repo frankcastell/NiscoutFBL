@@ -105,7 +105,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.DepartamentoId, "DepartamentoId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.DepartamentoId, "Departamento", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.DropDownList("DepartamentoId", null, htmlAttributes: new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.DepartamentoId, "", new { @class = "text-danger" })
@@ -151,14 +151,6 @@
                         <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Cancelar Registro">
                             <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
                         </a>
-                        @*&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="submit" value="Agregar" class="btn btn-outline-success" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn-success hidden-md-down">Regresar a la lista</a>*@
                     </div>
                 </div>
             </div>

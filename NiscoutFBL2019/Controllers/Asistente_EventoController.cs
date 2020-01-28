@@ -45,6 +45,7 @@ namespace NiscoutFBL2019.Controllers
         // GET: Asistente_Evento/Create
         public ActionResult Create()
         {
+           
             return View();
         }
 
