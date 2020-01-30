@@ -10,12 +10,14 @@ using NiscoutFBL2019.Models;
 using Microsoft.Reporting.WebForms;
 using Microsoft.AspNet.Identity;
 using NiscoutFBL2019.Models.ReporteScouts;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace NiscoutFBL2019.Controllers
 {
     [Authorize]
     public class AdultoesController : Controller
     {
+ 
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         public static int Contador = 0;
@@ -131,19 +133,38 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto)
+        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto, string txtpass)
         {
             if (ModelState.IsValid)
             {
-                db.Personas.Add(adulto);
+                
+                    db.Personas.Add(adulto);
                 db.SaveChanges();
+                //accedemos al modelo de la seguridad integrada
+                ApplicationDbContext context = new ApplicationDbContext();
+                //definimos las variables manejadoras de roles y usuarios
+                var ManejadorRol = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                var ManejadorUsuario = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+                var user = new ApplicationUser();
+                user.Nombre = adulto.Nombres;
+                user.Apellido = adulto.Apellidos;
+                user.UserName = adulto.E_Mail;
+                user.Email = adulto.E_Mail;
+                string PWD = txtpass;
+                var chkUser = ManejadorUsuario.Create(user, PWD);
+                //si se creo con exito
+                if (chkUser.Succeeded)
+                {
+                    ManejadorUsuario.AddToRole(user.Id, "Usuario");
+                }
                 return RedirectToAction("Index");
             }
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);
             return View(adulto);
         }
-
+        [AllowAnonymous]
         public ActionResult Solicitud()
         {
             ViewBag.sexo = new SelectList(new[] {
