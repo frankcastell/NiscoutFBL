@@ -61,7 +61,8 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Persona persona)
         {
-            if (ModelState.IsValid)
+          
+             if (ModelState.IsValid)
             {
                 db.Personas.Add(persona);
                 db.SaveChanges();
