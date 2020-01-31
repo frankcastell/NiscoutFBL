@@ -4,101 +4,108 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>¿Está Seguro que desea Eliminar Esta Membresia...?</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Membresia_Adulto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Carta_Compromiso)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Carta_Compromiso)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Carta_Intencion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Carta_Intencion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Record_Policia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Record_Policia)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Carta_Ref_Personal)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Certifi_Salvo_Peligro)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Annio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Annio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cargo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cargo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Cod_Etapa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Etapa_Aprobacion.Cod_Etapa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Adulto.Cod_Persona)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Adulto.Cod_Persona)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SubGrupo.Cod_Subgrupo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SubGrupo.Cod_Subgrupo)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+<div class="datagrid">
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Carta_Compromiso)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Carta_Compromiso)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Carta_Intencion)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Carta_Intencion)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Record_Policia)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Record_Policia)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Carta_Ref_Personal)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Certifi_Salvo_Peligro)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Annio)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Annio)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Cargo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Cargo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Etapa_Aprobacion.Estado)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Adulto.Nombres)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Adulto.Nombres)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.SubGrupo.Nombre_Subgrupo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.SubGrupo.Nombre_Subgrupo)
+                </td>
+            </tr>
+        </thead>
+    </table>
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="form-group">
+                    <input title="Una vez eliminado, no se podrá recuperar" type="submit" value="Eliminar Registro" class="btn btn-outline-danger" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn-success hidden-md-down">Cancelar</a>
+                </div>
+            </div>
         </div>
     }
+
 </div>
+
