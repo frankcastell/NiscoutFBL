@@ -36,6 +36,9 @@ namespace NiscoutFBL2019.Controllers.ReportesNiscouts
             public string Column11 { get; set;}
             public string Column12 { get; set;}
             public string Column13 { get; set;}
+            public string Column14 { get; set; }
+            public string Column15 { get; set; }
+            public string Column16 { get; set; }
         }
         // Listando 
         public List<AdminR> GetAdmin()
@@ -56,6 +59,9 @@ namespace NiscoutFBL2019.Controllers.ReportesNiscouts
                         Column10 = item.Num_Pasaporte,
                         Column11 = item.Estado_Civil,
                         Column12=item.Cargo.Nombre_Cargo,
+                        Column14=item.Centro_Laboral,
+                        Column15=item.Profesion,
+                        Column16=item.Tipo_Sangre,
                         Column13=item.Cod_Persona
                        
                       }).ToList();

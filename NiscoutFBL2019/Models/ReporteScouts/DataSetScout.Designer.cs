@@ -2396,6 +2396,12 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             private global::System.Data.DataColumn columnColumn13;
             
+            private global::System.Data.DataColumn columnColumn14;
+            
+            private global::System.Data.DataColumn columnColumn15;
+            
+            private global::System.Data.DataColumn columnColumn16;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable3DataTable() {
@@ -2535,6 +2541,30 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Column14Column {
+                get {
+                    return this.columnColumn14;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Column15Column {
+                get {
+                    return this.columnColumn15;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Column16Column {
+                get {
+                    return this.columnColumn16;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2570,7 +2600,23 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable3Row AddDataTable3Row(string Column1, string Column2, string Column3, string Column4, string Column5, string Column6, string Column7, string Column8, string Column9, string Column10, string Column11, string Column12, string Column13) {
+            public DataTable3Row AddDataTable3Row(
+                        string Column1, 
+                        string Column2, 
+                        string Column3, 
+                        string Column4, 
+                        string Column5, 
+                        string Column6, 
+                        string Column7, 
+                        string Column8, 
+                        string Column9, 
+                        string Column10, 
+                        string Column11, 
+                        string Column12, 
+                        string Column13, 
+                        string Column14, 
+                        string Column15, 
+                        string Column16) {
                 DataTable3Row rowDataTable3Row = ((DataTable3Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Column1,
@@ -2585,7 +2631,10 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                         Column10,
                         Column11,
                         Column12,
-                        Column13};
+                        Column13,
+                        Column14,
+                        Column15,
+                        Column16};
                 rowDataTable3Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable3Row);
                 return rowDataTable3Row;
@@ -2621,6 +2670,9 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 this.columnColumn11 = base.Columns["Column11"];
                 this.columnColumn12 = base.Columns["Column12"];
                 this.columnColumn13 = base.Columns["Column13"];
+                this.columnColumn14 = base.Columns["Column14"];
+                this.columnColumn15 = base.Columns["Column15"];
+                this.columnColumn16 = base.Columns["Column16"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2652,6 +2704,12 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 base.Columns.Add(this.columnColumn12);
                 this.columnColumn13 = new global::System.Data.DataColumn("Column13", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnColumn13);
+                this.columnColumn14 = new global::System.Data.DataColumn("Column14", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnColumn14);
+                this.columnColumn15 = new global::System.Data.DataColumn("Column15", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnColumn15);
+                this.columnColumn16 = new global::System.Data.DataColumn("Column16", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnColumn16);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4013,6 +4071,54 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Column14 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable3.Column14Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Column14\' in table \'DataTable3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable3.Column14Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Column15 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable3.Column15Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Column15\' in table \'DataTable3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable3.Column15Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Column16 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable3.Column16Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Column16\' in table \'DataTable3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable3.Column16Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsColumn1Null() {
                 return this.IsNull(this.tableDataTable3.Column1Column);
             }
@@ -4165,6 +4271,42 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetColumn13Null() {
                 this[this.tableDataTable3.Column13Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsColumn14Null() {
+                return this.IsNull(this.tableDataTable3.Column14Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetColumn14Null() {
+                this[this.tableDataTable3.Column14Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsColumn15Null() {
+                return this.IsNull(this.tableDataTable3.Column15Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetColumn15Null() {
+                this[this.tableDataTable3.Column15Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsColumn16Null() {
+                return this.IsNull(this.tableDataTable3.Column16Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetColumn16Null() {
+                this[this.tableDataTable3.Column16Column] = global::System.Convert.DBNull;
             }
         }
         
