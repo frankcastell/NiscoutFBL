@@ -139,11 +139,22 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId,Cargo,SubGrupoId")] Membresia_Adulto membresia_Adulto)
+        public ActionResult Edit([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId,Cargo,SubGrupoId")] Membresia_Adulto membresia_Adulto, 
+                        HttpPostedFileBase image1,
+                        HttpPostedFileBase image2,
+                        HttpPostedFileBase image3,
+                        HttpPostedFileBase image4,
+                        HttpPostedFileBase image5)
         {
             membresia_Adulto.Etapa_AprobacionId = 2;
             if (ModelState.IsValid)
             {
+                membresia_Adulto.Carta_Compromiso = tobyte(image1);
+                membresia_Adulto.Carta_Intencion = tobyte(image2);
+                membresia_Adulto.Record_Policia = tobyte(image3);
+                membresia_Adulto.Carta_Ref_Personal = tobyte(image4);
+                membresia_Adulto.Certifi_Salvo_Peligro = tobyte(image5);
+
                 db.Entry(membresia_Adulto).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -46,19 +46,19 @@
                     @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Annio)
+                    @*@Html.DisplayNameFor(model => model.Annio)*@Año
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Cargo)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Cod_Etapa)
+                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Estado)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Adulto.Cod_Persona)
+                    @Html.DisplayNameFor(model => model.Adulto.Nombres)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.SubGrupo.Cod_Subgrupo)
+                    @Html.DisplayNameFor(model => model.SubGrupo.Nombre_Subgrupo)
                 </th>
                 <th></th>
             </tr>
@@ -76,20 +76,20 @@
                 <tbody>
                     <tr>
                         <td>
-                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Compromiso)" width="300" height="100" type="application/pdf"> </object>
+                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Compromiso)" width="200" height="75" type="application/pdf"> </object>
                         </td>
                         <td>
                             @*<img src="@String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.Carta_Intencion));" />*@
-                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Intencion)" width="300" height="100" type="application/pdf"> </object>
+                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Intencion)" width="200" height="75" type="application/pdf"> </object>
                          </td> 
                         <td>
-                            @Html.DisplayFor(modelItem => item.Record_Policia)
+                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Record_Policia)" width="200" height="75" type="application/pdf"> </object>
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Carta_Ref_Personal)
+                           <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Ref_Personal)" width="200" height="75" type="application/pdf"> </object>
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Certifi_Salvo_Peligro)
+                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Certifi_Salvo_Peligro)" width="200" height="75" type="application/pdf"> </object>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Annio)
