@@ -179,6 +179,9 @@ FROM            Departamentos INNER JOIN
               <xs:element name="Column11" msprop:Generator_ColumnVarNameInTable="columnColumn11" msprop:Generator_ColumnPropNameInRow="Column11" msprop:Generator_ColumnPropNameInTable="Column11Column" msprop:Generator_UserColumnName="Column11" type="xs:string" minOccurs="0" />
               <xs:element name="Column12" msprop:Generator_ColumnVarNameInTable="columnColumn12" msprop:Generator_ColumnPropNameInRow="Column12" msprop:Generator_ColumnPropNameInTable="Column12Column" msprop:Generator_UserColumnName="Column12" type="xs:string" minOccurs="0" />
               <xs:element name="Column13" msprop:Generator_ColumnVarNameInTable="columnColumn13" msprop:Generator_ColumnPropNameInRow="Column13" msprop:Generator_ColumnPropNameInTable="Column13Column" msprop:Generator_UserColumnName="Column13" type="xs:string" minOccurs="0" />
+              <xs:element name="Column14" msprop:Generator_ColumnVarNameInTable="columnColumn14" msprop:Generator_ColumnPropNameInRow="Column14" msprop:Generator_ColumnPropNameInTable="Column14Column" msprop:Generator_UserColumnName="Column14" type="xs:string" minOccurs="0" />
+              <xs:element name="Column15" msprop:Generator_ColumnVarNameInTable="columnColumn15" msprop:Generator_ColumnPropNameInRow="Column15" msprop:Generator_ColumnPropNameInTable="Column15Column" msprop:Generator_UserColumnName="Column15" type="xs:string" minOccurs="0" />
+              <xs:element name="Column16" msprop:Generator_ColumnVarNameInTable="columnColumn16" msprop:Generator_ColumnPropNameInRow="Column16" msprop:Generator_ColumnPropNameInTable="Column16Column" msprop:Generator_UserColumnName="Column16" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

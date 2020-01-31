@@ -45,7 +45,7 @@ namespace NiscoutFBL2019.Controllers
         // GET: SubGrupoes/Create
         public ActionResult Create()
         {
-            ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Nombres");
+            ViewBag.AsistenteId = new SelectList(db.Asistentes, "Id", "Nombres");
             ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Nombre_Tipo_Grupo");
             ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo");
             return View();
@@ -65,7 +65,7 @@ namespace NiscoutFBL2019.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Nombres", subGrupo.AsistenteId);
+            ViewBag.AsistenteId = new SelectList(db.Asistentes, "Id", "Nombres", subGrupo.AsistenteId);
             ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Nombre_Tipo_Grupo", subGrupo.Tipo_GrupoId);
             ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo", subGrupo.GrupoId);
             return View(subGrupo);
@@ -83,7 +83,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Nombres", subGrupo.AsistenteId);
+            ViewBag.AsistenteId = new SelectList(db.Asistentes, "Id", "Nombres", subGrupo.AsistenteId);
             ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Nombre_Tipo_Grupo", subGrupo.Tipo_GrupoId);
             ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo", subGrupo.GrupoId);
             return View(subGrupo);
@@ -102,7 +102,7 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AsistenteId = new SelectList(db.Personas, "Id", "Nombres", subGrupo.AsistenteId);
+            ViewBag.AsistenteId = new SelectList(db.Asistentes, "Id", "Nombres", subGrupo.AsistenteId);
             ViewBag.Tipo_GrupoId = new SelectList(db.Tipo_Grupos, "Id", "Nombre_Tipo_Grupo", subGrupo.Tipo_GrupoId);
             ViewBag.GrupoId = new SelectList(db.Grupos, "Id", "Nombre_Grupo", subGrupo.GrupoId);
             return View(subGrupo);
