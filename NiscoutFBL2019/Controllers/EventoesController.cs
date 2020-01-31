@@ -68,7 +68,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return RedirectToAction("Index");
             }
-            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo", evento.SubGrupoId);
+            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo", evento.SubGrupoId);
             return View(evento);
         }
 
@@ -84,7 +84,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo", evento.SubGrupoId);
+            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo", evento.SubGrupoId);
             return View(evento);
         }
 
@@ -101,7 +101,7 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Cod_Subgrupo", evento.SubGrupoId);
+            ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo", evento.SubGrupoId);
             return View(evento);
         }
 

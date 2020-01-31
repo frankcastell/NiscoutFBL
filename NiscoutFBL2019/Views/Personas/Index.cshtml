@@ -73,7 +73,7 @@
                     @Html.DisplayNameFor(model => model.Tipo_Sangre)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
+                    @Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)
                 </th>
                 <th></th>
             </tr>
@@ -124,7 +124,7 @@
                         @Html.DisplayFor(modelItem => item.Tipo_Sangre)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Departamento.Cod_Departamento)
+                        @Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)
                     </td>
                     <td>
                         <a href="@Url.Action("Edit", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">

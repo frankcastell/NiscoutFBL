@@ -31,17 +31,18 @@
     <table class="table vm no-th-brd no-wrap pro-of-month">
         <thead>
             <tr>
+               
                 <th>
-                    @Html.DisplayNameFor(model => model.Annio)
+                    @Html.DisplayNameFor(model => model.SubGrupo.Nombre_Subgrupo)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.SubGrupo.Cod_Subgrupo)
+                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Estado)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Cod_Etapa)
+                    @Html.DisplayNameFor(model => model.Juvenil.Nombres)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Juvenil.Cod_Persona)
+                    @*@Html.DisplayNameFor(model => model.Annio)*@Año
                 </th>
                 <th></th>
             </tr>
@@ -58,17 +59,18 @@
             {
                 <tbody>
                     <tr>
+                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SubGrupo.Nombre_Subgrupo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Etapa_Aprobacion.Estado)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Juvenil.Nombres)
+                        </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Annio)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SubGrupo.Cod_Subgrupo)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Etapa_Aprobacion.Cod_Etapa)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Juvenil.Cod_Persona)
                         </td>
                         <td>
                           

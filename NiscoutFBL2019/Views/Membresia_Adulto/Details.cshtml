@@ -4,95 +4,110 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalle de la Informacion...</h2>
 
-<div>
-    <h4>Membresia_Adulto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Carta_Compromiso)
-        </dt>
+<div class="datagrid">
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+          
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Carta_Compromiso)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.Carta_Compromiso)
+                    @*<object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Compromiso)" width="200" height="75" type="application/pdf"> </object>*@
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Carta_Intencion)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Carta_Intencion)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Record_Policia)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Record_Policia)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Carta_Ref_Personal)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Certifi_Salvo_Peligro)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Annio)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Annio)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Cargo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Cargo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Etapa_Aprobacion.Estado)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Adulto.Nombres)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Adulto.Nombres)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.SubGrupo.Nombre_Subgrupo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.SubGrupo.Nombre_Subgrupo)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            
+        </thead>
+    </table>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
 
-        <dd>
-            @Html.DisplayFor(model => model.Carta_Compromiso)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Carta_Intencion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Carta_Intencion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Record_Policia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Record_Policia)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Carta_Ref_Personal)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Certifi_Salvo_Peligro)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Annio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Annio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cargo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cargo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Cod_Etapa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Etapa_Aprobacion.Cod_Etapa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Adulto.Cod_Persona)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Adulto.Cod_Persona)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SubGrupo.Cod_Subgrupo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SubGrupo.Cod_Subgrupo)
-        </dd>
-
-    </dl>
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

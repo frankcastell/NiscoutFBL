@@ -11,36 +11,37 @@
 
     <table class="table vm no-th-brd no-wrap pro-of-month">
         <thead>
+           
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.SubGrupo.Nombre_Subgrupo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.SubGrupo.Nombre_Subgrupo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Etapa_Aprobacion.Estado)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Juvenil.Nombres)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Juvenil.Nombres)
+                </td>
+            </tr>
             <tr>
                 <td>
                     @Html.DisplayNameFor(model => model.Annio)
                 </td>
                 <td>
                     @Html.DisplayFor(model => model.Annio)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.SubGrupo.Cod_Subgrupo)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.SubGrupo.Cod_Subgrupo)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Cod_Etapa)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Etapa_Aprobacion.Cod_Etapa)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Juvenil.Cod_Persona)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Juvenil.Cod_Persona)
                 </td>
             </tr>
             <tr>
