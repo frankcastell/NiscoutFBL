@@ -82,7 +82,10 @@ namespace NiscoutFBL2019.Controllers
             public string Column9 { get; set; }
             public string Column10 { get; set; }
             public string Column11 { get; set; }
-            //agregar otra columan x los campos nuevos
+            public string Column12 { get; set; }
+            public string Column13 { get; set; }
+            public string Column14 { get; set; }
+            
 
         }
 
@@ -103,7 +106,10 @@ namespace NiscoutFBL2019.Controllers
                         Column8 = item.Direccion,
                         Column9 = item.Departamento.Nombre_Departamento.ToString(),
                         Column10 = item.Num_Pasaporte,
-                        Column11 = item.Estado_Civil
+                        Column11 = item.Estado_Civil,
+                        Column12= item.Centro_Laboral,
+                        Column13= item.Profesion,
+                        Column14= item.Tipo_Sangre
 
 
                     }).ToList();
