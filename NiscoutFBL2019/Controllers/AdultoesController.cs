@@ -10,12 +10,14 @@ using NiscoutFBL2019.Models;
 using Microsoft.Reporting.WebForms;
 using Microsoft.AspNet.Identity;
 using NiscoutFBL2019.Models.ReporteScouts;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace NiscoutFBL2019.Controllers
 {
     [Authorize]
     public class AdultoesController : Controller
     {
+ 
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         public static int Contador = 0;
@@ -49,13 +51,20 @@ namespace NiscoutFBL2019.Controllers
         // GET: Adultoes/Create
         public ActionResult Create()
         {
+            // Validando Sexo
             ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
+            //Validando Estado Civil
+            ViewBag.Estado_Civil = new SelectList(new[] {
+                new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
+                new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
+                new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
+                new SelectListItem { Value = "Agutados", Text = "Aguntados" }
+                                               }, "Value", "Text");
 
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
-            ViewBag.Contador = db.Adultos.Count();
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");           
             return View();
         }
 
@@ -73,7 +82,10 @@ namespace NiscoutFBL2019.Controllers
             public string Column9 { get; set; }
             public string Column10 { get; set; }
             public string Column11 { get; set; }
-            //agregar otra columan x los campos nuevos
+            public string Column12 { get; set; }
+            public string Column13 { get; set; }
+            public string Column14 { get; set; }
+            
 
         }
 
@@ -94,7 +106,10 @@ namespace NiscoutFBL2019.Controllers
                         Column8 = item.Direccion,
                         Column9 = item.Departamento.Nombre_Departamento.ToString(),
                         Column10 = item.Num_Pasaporte,
-                        Column11 = item.Estado_Civil
+                        Column11 = item.Estado_Civil,
+                        Column12= item.Centro_Laboral,
+                        Column13= item.Profesion,
+                        Column14= item.Tipo_Sangre
 
 
                     }).ToList();
@@ -124,24 +139,50 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto)
+        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto, string txtpass)
         {
             if (ModelState.IsValid)
             {
-                db.Personas.Add(adulto);
+                
+                    db.Personas.Add(adulto);
                 db.SaveChanges();
+                //accedemos al modelo de la seguridad integrada
+                ApplicationDbContext context = new ApplicationDbContext();
+                //definimos las variables manejadoras de roles y usuarios
+                var ManejadorRol = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                var ManejadorUsuario = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+                var user = new ApplicationUser();
+                user.Nombre = adulto.Nombres;
+                user.Apellido = adulto.Apellidos;
+                user.UserName = adulto.E_Mail;
+                user.Email = adulto.E_Mail;
+                string PWD = txtpass;
+                var chkUser = ManejadorUsuario.Create(user, PWD);
+                //si se creo con exito
+                if (chkUser.Succeeded)
+                {
+                    ManejadorUsuario.AddToRole(user.Id, "Usuario");
+                }
                 return RedirectToAction("Index");
             }
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);
             return View(adulto);
         }
-
+        [AllowAnonymous]
         public ActionResult Solicitud()
         {
             ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+            //Validando Estado Civil
+            ViewBag.Estado_Civil = new SelectList(new[] {
+                new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
+                new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
+                new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
+                new SelectListItem { Value = "Agutados", Text = "Aguntados" }
                                                }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
@@ -172,6 +213,13 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+            //Validando Estado Civil
+            ViewBag.Estado_Civil = new SelectList(new[] {
+                new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
+                new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
+                new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
+                new SelectListItem { Value = "Agutados", Text = "Aguntados" }
                                                }, "Value", "Text");
             if (id == null)
             {

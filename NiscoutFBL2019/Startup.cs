@@ -119,6 +119,30 @@ namespace NiscoutFBL2019
                         ManejadorUsuario.AddToRole(user.Id, "Consultor");
                     }
                 }
+            //Verificamos la excistencia de los roles por defecto
+            if (!ManejadorRol.RoleExists("Tutores"))
+            {
+                //sino existe, se crea el rol y se asigna un nuevo usuario con ese rol
+
+                var rol = new IdentityRole();
+                rol.Name = "Tutores";
+                ManejadorRol.Create(rol);
+
+                //creamos un primer usuario para ese rol
+                var user = new ApplicationUser();
+                user.Nombre = "Adan";
+                user.Apellido = "Sandoval";
+                user.UserName = "adansan6@gmail.com";
+                user.Email = "adansan6@gmail.com";
+                string PWD = "1234567890";
+
+                var chkUser = ManejadorUsuario.Create(user, PWD);
+                //si se creo con exito
+                if (chkUser.Succeeded)
+                {
+                    ManejadorUsuario.AddToRole(user.Id, "Tutores");
+                }
             }
+        }
         }
     }
