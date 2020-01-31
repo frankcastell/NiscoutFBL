@@ -49,6 +49,14 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
+       
+            //Validando Estado Civil
+            ViewBag.Estado_Civil = new SelectList(new[] {
+                new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
+                new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
+                new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
+                new SelectListItem { Value = "Agutados", Text = "Aguntados" }
+                                               }, "Value", "Text");
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
@@ -84,6 +92,13 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+            //Validando Estado Civil
+            ViewBag.Estado_Civil = new SelectList(new[] {
+                new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
+                new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
+                new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
+                new SelectListItem { Value = "Agutados", Text = "Aguntados" }
                                                }, "Value", "Text");
 
             if (id == null)

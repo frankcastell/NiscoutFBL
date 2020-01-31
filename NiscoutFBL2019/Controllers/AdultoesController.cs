@@ -51,13 +51,20 @@ namespace NiscoutFBL2019.Controllers
         // GET: Adultoes/Create
         public ActionResult Create()
         {
+            // Validando Sexo
             ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
+            //Validando Estado Civil
+            ViewBag.Estado_Civil = new SelectList(new[] {
+                new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
+                new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
+                new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
+                new SelectListItem { Value = "Agutados", Text = "Aguntados" }
+                                               }, "Value", "Text");
 
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
-            ViewBag.Contador = db.Adultos.Count();
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");           
             return View();
         }
 
@@ -75,7 +82,10 @@ namespace NiscoutFBL2019.Controllers
             public string Column9 { get; set; }
             public string Column10 { get; set; }
             public string Column11 { get; set; }
-            //agregar otra columan x los campos nuevos
+            public string Column12 { get; set; }
+            public string Column13 { get; set; }
+            public string Column14 { get; set; }
+            
 
         }
 
@@ -96,7 +106,10 @@ namespace NiscoutFBL2019.Controllers
                         Column8 = item.Direccion,
                         Column9 = item.Departamento.Nombre_Departamento.ToString(),
                         Column10 = item.Num_Pasaporte,
-                        Column11 = item.Estado_Civil
+                        Column11 = item.Estado_Civil,
+                        Column12= item.Centro_Laboral,
+                        Column13= item.Profesion,
+                        Column14= item.Tipo_Sangre
 
 
                     }).ToList();
@@ -164,6 +177,13 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
+            //Validando Estado Civil
+            ViewBag.Estado_Civil = new SelectList(new[] {
+                new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
+                new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
+                new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
+                new SelectListItem { Value = "Agutados", Text = "Aguntados" }
+                                               }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
         }
@@ -193,6 +213,13 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+            //Validando Estado Civil
+            ViewBag.Estado_Civil = new SelectList(new[] {
+                new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
+                new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
+                new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
+                new SelectListItem { Value = "Agutados", Text = "Aguntados" }
                                                }, "Value", "Text");
             if (id == null)
             {
