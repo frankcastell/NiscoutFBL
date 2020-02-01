@@ -7,6 +7,10 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NiscoutFBL2019.Models;
+using Microsoft.Reporting.WebForms;
+using Microsoft.AspNet.Identity;
+using NiscoutFBL2019.Models.ReporteScouts;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace NiscoutFBL2019.Controllers
 {
@@ -62,19 +66,39 @@ namespace NiscoutFBL2019.Controllers
             return View();
         }
 
+       
+
+       
         // POST: Personas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Persona persona)
+        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Persona persona, string txtpass)
         {
           
              if (ModelState.IsValid)
             {
                 db.Personas.Add(persona);
                 db.SaveChanges();
+                //accedemos al modelo de la seguridad integrada
+                ApplicationDbContext context = new ApplicationDbContext();
+                //definimos las variables manejadoras de roles y usuarios
+                var ManejadorRol = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                var ManejadorUsuario = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
+                var user = new ApplicationUser();
+                user.Nombre = persona.Nombres;
+                user.Apellido = persona.Apellidos;
+                user.UserName = persona.E_Mail;
+                user.Email = persona.E_Mail;
+                string PWD = txtpass;
+                var chkUser = ManejadorUsuario.Create(user, PWD);
+                //si se creo con exito
+                if (chkUser.Succeeded)
+                {
+                    ManejadorUsuario.AddToRole(user.Id, "Usuario");
+                }
                 //generar el carnet
                 //persona.Cod_Persona = "NS-" + System.DateTime.Today.Year.ToString() + persona.Id.ToString();
                 //db.SaveChanges();
@@ -86,6 +110,61 @@ namespace NiscoutFBL2019.Controllers
             return View(persona);
         }
 
+        [AllowAnonymous]
+        public ActionResult solicitudtutor()
+        {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+            //Validando Estado Civil
+            ViewBag.Estado_Civil = new SelectList(new[] {
+                new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
+                new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
+                new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
+                new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
+                                               }, "Value", "Text");
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
+            return View();
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult solicitudtututor([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Persona persona, string txtpass)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.Personas.Add(persona);
+                db.SaveChanges();
+                //accedemos al modelo de la seguridad integrada
+                ApplicationDbContext context = new ApplicationDbContext();
+                //definimos las variables manejadoras de roles y usuarios
+                var ManejadorRol = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                var ManejadorUsuario = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+                var user = new ApplicationUser();
+                user.Nombre = persona.Nombres;
+                user.Apellido = persona.Apellidos;
+                user.UserName = persona.E_Mail;
+                user.Email = persona.E_Mail;
+                string PWD = txtpass;
+                var chkUser = ManejadorUsuario.Create(user, PWD);
+                //si se creo con exito
+                if (chkUser.Succeeded)
+                {
+                    ManejadorUsuario.AddToRole(user.Id, "Usuario");
+                }
+                //generar el carnet
+                //persona.Cod_Persona = "NS-" + System.DateTime.Today.Year.ToString() + persona.Id.ToString();
+                //db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", persona.DepartamentoId);
+            return View(persona);
+        }
         // GET: Personas/Edit/5
         public ActionResult Edit(int? id)
         {
