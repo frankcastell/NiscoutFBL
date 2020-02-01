@@ -68,72 +68,6 @@ namespace NiscoutFBL2019.Controllers
             return View();
         }
 
-        // clases similar al dataset
-        public class adultosR
-        {
-            public string Column1 { get; set; }
-            public string Column2 { get; set; }
-            public string Column3 { get; set; }
-            public string Column4 { get; set; }
-            public string Column5 { get; set; }
-            public string Column6 { get; set; }
-            public string Column7 { get; set; }
-            public string Column8 { get; set; }
-            public string Column9 { get; set; }
-            public string Column10 { get; set; }
-            public string Column11 { get; set; }
-            public string Column12 { get; set; }
-            public string Column13 { get; set; }
-            public string Column14 { get; set; }
-            
-
-        }
-
-        // Listando 
-        public List<adultosR> GetAdulto()
-        {
-            return (from item in db.Adultos.ToList()
-
-                    select new adultosR
-                    {
-                        Column1 = item.Nombres,
-                        Column2 = item.Apellidos,
-                        Column3 = item.Cedula,
-                        Column4 = item.E_Mail,
-                        Column5 = item.Fecha_Nac.ToString("yyyy-MM-dd"),
-                        Column6 = item.Sexo,
-                        Column7 = item.Telefono.ToString(),
-                        Column8 = item.Direccion,
-                        Column9 = item.Departamento.Nombre_Departamento.ToString(),
-                        Column10 = item.Num_Pasaporte,
-                        Column11 = item.Estado_Civil,
-                        Column12= item.Centro_Laboral,
-                        Column13= item.Profesion,
-                        Column14= item.Tipo_Sangre
-
-
-                    }).ToList();
-        }
-
-        // Listando ala vista
-        public ActionResult RepAdulto()
-        {
-            //var fecha = DateTime;
-            DataSetScout.DataTable1DataTable p = new DataSetScout.DataTable1DataTable();
-            ReportViewer rpt = new ReportViewer();
-            rpt.ProcessingMode = ProcessingMode.Local;
-            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepAdultos.rdlc");
-            rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", GetAdulto()));
-            rpt.LocalReport.Refresh();
-
-            rpt.AsyncRendering = false;
-            rpt.SizeToReportContent = true;
-            rpt.ShowPrintButton = true;
-            rpt.ShowZoomControl = true;
-            ViewBag.rpt = rpt;
-            return View();
-        }
-
         // POST: Adultoes/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -164,11 +98,12 @@ namespace NiscoutFBL2019.Controllers
                 {
                     ManejadorUsuario.AddToRole(user.Id, "Usuario");
                 }
-                return RedirectToAction("Index");
+                ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);
+                return RedirectToAction("Create", "Membresia_Adulto", new { idAdulto = adulto.Id });
+               
             }
+            return RedirectToAction("Index");
 
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);
-            return View(adulto);
         }
         [AllowAnonymous]
         public ActionResult Solicitud()
@@ -303,6 +238,72 @@ namespace NiscoutFBL2019.Controllers
             db.Personas.Remove(adulto);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // clases similar al dataset
+        public class adultosR
+        {
+            public string Column1 { get; set; }
+            public string Column2 { get; set; }
+            public string Column3 { get; set; }
+            public string Column4 { get; set; }
+            public string Column5 { get; set; }
+            public string Column6 { get; set; }
+            public string Column7 { get; set; }
+            public string Column8 { get; set; }
+            public string Column9 { get; set; }
+            public string Column10 { get; set; }
+            public string Column11 { get; set; }
+            public string Column12 { get; set; }
+            public string Column13 { get; set; }
+            public string Column14 { get; set; }
+
+
+        }
+
+        // Listando 
+        public List<adultosR> GetAdulto()
+        {
+            return (from item in db.Adultos.ToList()
+
+                    select new adultosR
+                    {
+                        Column1 = item.Nombres,
+                        Column2 = item.Apellidos,
+                        Column3 = item.Cedula,
+                        Column4 = item.E_Mail,
+                        Column5 = item.Fecha_Nac.ToString("yyyy-MM-dd"),
+                        Column6 = item.Sexo,
+                        Column7 = item.Telefono.ToString(),
+                        Column8 = item.Direccion,
+                        Column9 = item.Departamento.Nombre_Departamento.ToString(),
+                        Column10 = item.Num_Pasaporte,
+                        Column11 = item.Estado_Civil,
+                        Column12 = item.Centro_Laboral,
+                        Column13 = item.Profesion,
+                        Column14 = item.Tipo_Sangre
+
+
+                    }).ToList();
+        }
+
+        // Listando ala vista
+        public ActionResult RepAdulto()
+        {
+            //var fecha = DateTime;
+            DataSetScout.DataTable1DataTable p = new DataSetScout.DataTable1DataTable();
+            ReportViewer rpt = new ReportViewer();
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepAdultos.rdlc");
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", GetAdulto()));
+            rpt.LocalReport.Refresh();
+
+            rpt.AsyncRendering = false;
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
+            return View();
         }
 
         protected override void Dispose(bool disposing)
