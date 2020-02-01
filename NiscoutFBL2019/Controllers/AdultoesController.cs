@@ -194,18 +194,36 @@ namespace NiscoutFBL2019.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Solicitud([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto)
+        public ActionResult Solicitud([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto, string txtpass)
         {
 
             if (ModelState.IsValid)
             {
                 db.Personas.Add(adulto);
                 db.SaveChanges();
+                //accedemos al modelo de la seguridad integrada
+                ApplicationDbContext context = new ApplicationDbContext();
+                //definimos las variables manejadoras de roles y usuarios
+                var ManejadorRol = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                var ManejadorUsuario = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+                var user = new ApplicationUser();
+                user.Nombre = adulto.Nombres;
+                user.Apellido = adulto.Apellidos;
+                user.UserName = adulto.E_Mail;
+                user.Email = adulto.E_Mail;
+                string PWD = txtpass;
+                var chkUser = ManejadorUsuario.Create(user, PWD);
+                //si se creo con exito
+                if (chkUser.Succeeded)
+                {
+                    ManejadorUsuario.AddToRole(user.Id, "Usuario");
+                }
+                ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);            
                 return RedirectToAction("MembreAdulto", "Membresia_Adulto", new { idAdulto = adulto.Id });
             }
-
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);
-            return View(adulto);
+            
+            return RedirectToAction("Index");
         }
         // GET: Adultoes/Edit/5
         public ActionResult Edit(int? id)
