@@ -45,10 +45,10 @@ namespace NiscoutFBL2019.Controllers
         }
 
         // GET: Membresia_Adulto/Create
-        public ActionResult Create()
+        public ActionResult Create(int idAdulto)
         {
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
-            ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres");
+            ViewBag.Adulto = db.Adultos.Where(x => x.Id == idAdulto).FirstOrDefault();
             ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo");
             return View();
         }
@@ -66,6 +66,7 @@ namespace NiscoutFBL2019.Controllers
                         HttpPostedFileBase image4,
                         HttpPostedFileBase image5)
         {
+            membresia_Adulto.Etapa_AprobacionId = 2;
             if (ModelState.IsValid)
             {
                 membresia_Adulto.Carta_Compromiso = tobyte(image1);
