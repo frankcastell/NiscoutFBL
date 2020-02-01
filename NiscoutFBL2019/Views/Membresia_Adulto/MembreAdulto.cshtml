@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "MembreAdulto";
     NiscoutFBL2019.Models.Adulto Adulto = ViewBag.Adulto;
-
+    NiscoutFBL2019.Models.Etapa_Aprobacion et = ViewBag.et;
 }
 <h4 style="text-align:center" class="form-control"><strong>Paso #2 Registro de Membremsia...</strong> </h4>
 
@@ -19,6 +19,14 @@
         <div class="form-horizontal">
             <br />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.AdultoId, "Adulto", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="hidden" id="AdultoId" name="AdultoId" value="@Adulto.Id" />
+                    <label>@Adulto.Nombres @Adulto.Apellidos </label>
+                </div>
+            </div>
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Carta_Compromiso, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -65,19 +73,10 @@
             <div class="form-group">
                     @Html.LabelFor(model => model.Etapa_AprobacionId, "Etapa_Aprobacion", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        <input type="hidden" id="Etapa_AprobacionId" name="Etapa_AprobacionId" value="2" />
+                        <input type="hidden" id="Etapa_AprobacionId" name="Etapa_AprobacionId" value="2" />  
+                        @*@Html.ValidationMessageFor(model => model.Etapa_Aprobacion, "", new { @class = "text-danger" })*@                     
                     </div>
-                </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.AdultoId, "Adulto", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <input type="hidden" id="AdultoId" name="AdultoId" value="@Adulto.Id" />
-                    <label>@Adulto.Nombres @Adulto.Apellidos </label>
-                </div>
-            </div>
-           
-           
-          
+                </div>   
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Cargo, htmlAttributes: new { @class = "control-label col-md-2" })
