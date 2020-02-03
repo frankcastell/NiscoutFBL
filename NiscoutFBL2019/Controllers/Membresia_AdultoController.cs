@@ -47,6 +47,16 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Adulto/Create
         public ActionResult Create(int idAdulto)
         {
+            // Validando Cargo
+            ViewBag.Cargo = new SelectList(new[] {
+                new SelectListItem { Value = "Responsable", Text = "Responsable" },
+                new SelectListItem { Value = "Asistente", Text = "Asistente" },
+                new SelectListItem { Value = "Tutor", Text = "Tutor" },
+                new SelectListItem { Value = "Miembro", Text = "Miembro" },
+                new SelectListItem { Value = "otros", Text = "Otros" }                
+                                                               }, "Value", "Text");
+           //---------------------------------------------------------------------------------------
+
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
             ViewBag.Adulto = db.Adultos.Where(x => x.Id == idAdulto).FirstOrDefault();
             ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo");
@@ -122,6 +132,15 @@ namespace NiscoutFBL2019.Controllers
         [AllowAnonymous]
         public ActionResult MembreAdulto(int idAdulto)
         {
+            // Validando Cargo
+            ViewBag.Cargo = new SelectList(new[] {
+                new SelectListItem { Value = "Responsable", Text = "Responsable" },
+                new SelectListItem { Value = "Asistente", Text = "Asistente" },
+                new SelectListItem { Value = "Tutor", Text = "Tutor" },
+                new SelectListItem { Value = "Miembro", Text = "Miembro" },
+                new SelectListItem { Value = "otros", Text = "Otros" }
+                                                               }, "Value", "Text");
+            //---------------------------------------------------------------------------------------
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
             // ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres");
             ViewBag.Adulto = db.Adultos.Where(x => x.Id == idAdulto).FirstOrDefault();

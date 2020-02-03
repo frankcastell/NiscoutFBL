@@ -3,9 +3,8 @@
 @{
     ViewBag.Title = "Create";
 }
-<h4 style="text-align:center" class="form-control"><strong>Paso #1 Registro de Datos Personales...</strong> </h4>
-<br /><br />
-<h2>Nueva Solicitud</h2>
+
+<h2>Resgistrando Nuevo Adulto...</h2>
 
 @using (Html.BeginForm())
 {
@@ -74,8 +73,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Sexo,"Sexo", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("sexo", null, "--- Seleccione Sexo ---", htmlAttributes: new { @class = "form-control" })
-                    @*@Html.EditorFor(model => model.Sexo, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.DropDownList("sexo", null, "--- Seleccione Sexo ---", htmlAttributes: new { @class = "form-control" })                    
                     @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -87,6 +85,8 @@
                     @Html.ValidationMessageFor(model => model.Estado_Civil, "", new { @class = "text-danger" })
                 </div>
             </div>
+           
+            
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Num_Pasaporte, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -147,13 +147,13 @@
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn waves-effect waves-purple btn-danger hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>
+                    <input type="submit" value="Agregar" class="btn btn-outline-success" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Siguiente..." class="btn btn-outline-success" />
+                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn-success hidden-md-down">Regresar a la lista</a>
                 </div>
             </div>
         </div>
