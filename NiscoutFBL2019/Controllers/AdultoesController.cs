@@ -61,76 +61,10 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
                 new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
                 new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
-                new SelectListItem { Value = "Agutados", Text = "Aguntados" }
+                new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
                                                }, "Value", "Text");
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");           
-            return View();
-        }
-
-        // clases similar al dataset
-        public class adultosR
-        {
-            public string Column1 { get; set; }
-            public string Column2 { get; set; }
-            public string Column3 { get; set; }
-            public string Column4 { get; set; }
-            public string Column5 { get; set; }
-            public string Column6 { get; set; }
-            public string Column7 { get; set; }
-            public string Column8 { get; set; }
-            public string Column9 { get; set; }
-            public string Column10 { get; set; }
-            public string Column11 { get; set; }
-            public string Column12 { get; set; }
-            public string Column13 { get; set; }
-            public string Column14 { get; set; }
-            
-
-        }
-
-        // Listando 
-        public List<adultosR> GetAdulto()
-        {
-            return (from item in db.Adultos.ToList()
-
-                    select new adultosR
-                    {
-                        Column1 = item.Nombres,
-                        Column2 = item.Apellidos,
-                        Column3 = item.Cedula,
-                        Column4 = item.E_Mail,
-                        Column5 = item.Fecha_Nac.ToString("yyyy-MM-dd"),
-                        Column6 = item.Sexo,
-                        Column7 = item.Telefono.ToString(),
-                        Column8 = item.Direccion,
-                        Column9 = item.Departamento.Nombre_Departamento.ToString(),
-                        Column10 = item.Num_Pasaporte,
-                        Column11 = item.Estado_Civil,
-                        Column12= item.Centro_Laboral,
-                        Column13= item.Profesion,
-                        Column14= item.Tipo_Sangre
-
-
-                    }).ToList();
-        }
-
-        // Listando ala vista
-        public ActionResult RepAdulto()
-        {
-            //var fecha = DateTime;
-            DataSetScout.DataTable1DataTable p = new DataSetScout.DataTable1DataTable();
-            ReportViewer rpt = new ReportViewer();
-            rpt.ProcessingMode = ProcessingMode.Local;
-            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepAdultos.rdlc");
-            rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", GetAdulto()));
-            rpt.LocalReport.Refresh();
-
-            rpt.AsyncRendering = false;
-            rpt.SizeToReportContent = true;
-            rpt.ShowPrintButton = true;
-            rpt.ShowZoomControl = true;
-            ViewBag.rpt = rpt;
             return View();
         }
 
@@ -164,11 +98,12 @@ namespace NiscoutFBL2019.Controllers
                 {
                     ManejadorUsuario.AddToRole(user.Id, "Usuario");
                 }
-                return RedirectToAction("Index");
+                ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);
+                return RedirectToAction("Create", "Membresia_Adulto", new { idAdulto = adulto.Id });
+               
             }
+            return RedirectToAction("Index");
 
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);
-            return View(adulto);
         }
         [AllowAnonymous]
         public ActionResult Solicitud()
@@ -182,7 +117,7 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
                 new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
                 new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
-                new SelectListItem { Value = "Agutados", Text = "Aguntados" }
+                new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
                                                }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
@@ -194,18 +129,36 @@ namespace NiscoutFBL2019.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Solicitud([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto)
+        public ActionResult Solicitud([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto, string txtpass)
         {
 
             if (ModelState.IsValid)
             {
                 db.Personas.Add(adulto);
                 db.SaveChanges();
+                //accedemos al modelo de la seguridad integrada
+                ApplicationDbContext context = new ApplicationDbContext();
+                //definimos las variables manejadoras de roles y usuarios
+                var ManejadorRol = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                var ManejadorUsuario = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+                var user = new ApplicationUser();
+                user.Nombre = adulto.Nombres;
+                user.Apellido = adulto.Apellidos;
+                user.UserName = adulto.E_Mail;
+                user.Email = adulto.E_Mail;
+                string PWD = txtpass;
+                var chkUser = ManejadorUsuario.Create(user, PWD);
+                //si se creo con exito
+                if (chkUser.Succeeded)
+                {
+                    ManejadorUsuario.AddToRole(user.Id, "Usuario");
+                }
+                ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);            
                 return RedirectToAction("MembreAdulto", "Membresia_Adulto", new { idAdulto = adulto.Id });
             }
-
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", adulto.DepartamentoId);
-            return View(adulto);
+            
+            return RedirectToAction("Index");
         }
         // GET: Adultoes/Edit/5
         public ActionResult Edit(int? id)
@@ -285,6 +238,72 @@ namespace NiscoutFBL2019.Controllers
             db.Personas.Remove(adulto);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // clases similar al dataset
+        public class adultosR
+        {
+            public string Column1 { get; set; }
+            public string Column2 { get; set; }
+            public string Column3 { get; set; }
+            public string Column4 { get; set; }
+            public string Column5 { get; set; }
+            public string Column6 { get; set; }
+            public string Column7 { get; set; }
+            public string Column8 { get; set; }
+            public string Column9 { get; set; }
+            public string Column10 { get; set; }
+            public string Column11 { get; set; }
+            public string Column12 { get; set; }
+            public string Column13 { get; set; }
+            public string Column14 { get; set; }
+
+
+        }
+
+        // Listando 
+        public List<adultosR> GetAdulto()
+        {
+            return (from item in db.Adultos.ToList()
+
+                    select new adultosR
+                    {
+                        Column1 = item.Nombres,
+                        Column2 = item.Apellidos,
+                        Column3 = item.Cedula,
+                        Column4 = item.E_Mail,
+                        Column5 = item.Fecha_Nac.ToString("yyyy-MM-dd"),
+                        Column6 = item.Sexo,
+                        Column7 = item.Telefono.ToString(),
+                        Column8 = item.Direccion,
+                        Column9 = item.Departamento.Nombre_Departamento.ToString(),
+                        Column10 = item.Num_Pasaporte,
+                        Column11 = item.Estado_Civil,
+                        Column12 = item.Centro_Laboral,
+                        Column13 = item.Profesion,
+                        Column14 = item.Tipo_Sangre
+
+
+                    }).ToList();
+        }
+
+        // Listando ala vista
+        public ActionResult RepAdulto()
+        {
+            //var fecha = DateTime;
+            DataSetScout.DataTable1DataTable p = new DataSetScout.DataTable1DataTable();
+            ReportViewer rpt = new ReportViewer();
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepAdultos.rdlc");
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", GetAdulto()));
+            rpt.LocalReport.Refresh();
+
+            rpt.AsyncRendering = false;
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
+            return View();
         }
 
         protected override void Dispose(bool disposing)

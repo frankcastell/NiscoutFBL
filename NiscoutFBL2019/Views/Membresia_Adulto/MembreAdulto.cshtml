@@ -3,9 +3,8 @@
 @{
     ViewBag.Title = "MembreAdulto";
     NiscoutFBL2019.Models.Adulto Adulto = ViewBag.Adulto;
-
 }
-<h4 style="text-align:center" class="form-control"><strong>Paso #2 Registro de Membremsia...</strong> </h4>
+<h4 style="text-align:center" class="form-control"><strong>Paso #2 Registro de Membresía...</strong> </h4>
 
 <br /><br />
 
@@ -19,6 +18,14 @@
         <div class="form-horizontal">
             <br />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.AdultoId, "Adulto", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="hidden" id="AdultoId" name="AdultoId" value="@Adulto.Id" />
+                    <label><strong> @Adulto.Nombres @Adulto.Apellidos</strong></label>
+                </div>
+            </div>
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Carta_Compromiso, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -65,19 +72,10 @@
             <div class="form-group">
                     @Html.LabelFor(model => model.Etapa_AprobacionId, "Etapa_Aprobacion", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        <input type="hidden" id="Etapa_AprobacionId" name="Etapa_AprobacionId" value="2" />
+                        <input type="hidden" id="Etapa_AprobacionId" name="Etapa_AprobacionId" value="2" />  
+                        @*@Html.ValidationMessageFor(model => model.Etapa_Aprobacion, "", new { @class = "text-danger" })*@                     
                     </div>
-                </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.AdultoId, "Adulto", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <input type="hidden" id="AdultoId" name="AdultoId" value="@Adulto.Id" />
-                    <label>@Adulto.Nombres @Adulto.Apellidos </label>
-                </div>
-            </div>
-           
-           
-          
+                </div>   
 
              @* CARGO*@
             <div class="form-group">
@@ -92,7 +90,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.SubGrupoId, "SubGrupo", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("SubGrupoId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("SubGrupoId", null, "--- Seleccione---", htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.SubGrupoId, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -101,7 +99,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input onclick="submit()" src="@Url.Content("~/Content/Ico/guardar.png")" type="image" value="Guardar" width="25" class="btn waves-effect waves-light btn-outline-info" title="Guardar Registro de Membresía" /> &nbsp;
-                        
+                        @*<input type="submit" value="Guardar" class="btn btn-success" />*@ 
                         <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Cancelar Registro">
                             <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
                         </a>
