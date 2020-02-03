@@ -86,7 +86,10 @@ namespace NiscoutFBL2019.Controllers
             return View(membresia_Adulto);
         }
 
-        // PENDIENTE LA CORRECIÓN CON EL MÁSTER RECIBIR PARÁMETRO
+        // conversion de imágenes........
+        //METODO DE PRUEBA PARA EL METODO DE EDITAR REGISTRO
+        // eRROR EN using (Stream stream = image1.InputStream) / no guard cambios de edicion
+
         public Byte[] tobyte(HttpPostedFileBase image1)
         {
             byte[] buffer;
@@ -94,13 +97,26 @@ namespace NiscoutFBL2019.Controllers
             {
                 buffer = new byte[stream.Length - 1];
                 stream.Read(buffer, 0, buffer.Length);
-            }
-            //    {
-            //        imagenData1 = img1.ReadBytes(image1.ContentLength);
-            //    }
-            //}
+            }           
             return buffer;
         }
+        //METODO DE PRUEBA PARA EL METODO DE EDITAR REGISTRO
+        // eRROR EN EL SAVESHANGES().               /// no guarda cambios de edicion
+
+        //public Byte[] load(HttpPostedFileBase image1)
+        //{
+        //    byte[] imagenData = null;
+        //    if (image1 != null && image1.ContentLength > 0)
+        //    {               
+        //        using (var imagen = new BinaryReader(image1.InputStream))
+        //        {
+        //            imagenData = imagen.ReadBytes(image1.ContentLength);
+        //        }
+        //        //membresia_Adulto.Carta_Compromiso = imagenData;                
+
+        //    }
+        //    return imagenData;
+        //}
 
         // Nueva vista ....................................Inicio
         [AllowAnonymous]
@@ -168,14 +184,14 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId,Cargo,SubGrupoId")] Membresia_Adulto membresia_Adulto, 
+        public ActionResult Edit([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId,Cargo,SubGrupoId")] Membresia_Adulto membresia_Adulto,
                         HttpPostedFileBase image1,
                         HttpPostedFileBase image2,
                         HttpPostedFileBase image3,
                         HttpPostedFileBase image4,
-                        HttpPostedFileBase image5)
-        {
-            membresia_Adulto.Etapa_AprobacionId = 2;
+                        HttpPostedFileBase image5
+                        )
+        {           
             if (ModelState.IsValid)
             {
                 membresia_Adulto.Carta_Compromiso = tobyte(image1);
