@@ -1104,6 +1104,9 @@
     <Content Include="Views\SubGrupoes\Edit.cshtml" />
     <Content Include="Views\SubGrupoes\Index.cshtml" />
     <Content Include="Views\Personas\solicitudtutor.cshtml" />
+    <Content Include="Views\Reportes\ReporGrupos.cshtml" />
+    <Content Include="Views\Reportes\ReporUnidades.cshtml" />
+    <Content Include="Views\Reportes\ReporPersonas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -1115,9 +1118,12 @@
     <EmbeddedResource Include="Reportes\RepCentro.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepGrupos.rdlc" />
     <EmbeddedResource Include="Reportes\RepJovenes.rdlc" />
     <EmbeddedResource Include="Reportes\RepPatro.rdlc" />
+    <EmbeddedResource Include="Reportes\RepPersonas.rdlc" />
     <EmbeddedResource Include="Reportes\RepUbicaciones.rdlc" />
+    <EmbeddedResource Include="Reportes\RepUnidades.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

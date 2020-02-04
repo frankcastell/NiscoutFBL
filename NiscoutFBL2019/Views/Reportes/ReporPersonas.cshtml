@@ -1,0 +1,23 @@
+﻿@using ReportViewerForMvc;
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Vista Previa</title>
+    <style>
+        iframe {
+            margin-left: 20%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div style="">
+        @Html.ReportViewer(ViewBag.rpt as Microsoft.Reporting.WebForms.ReportViewer, new { @Style = " height:500px; width: 80%;" })
+    </div>
+</body>
+</html>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>

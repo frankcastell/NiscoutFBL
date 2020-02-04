@@ -20,7 +20,7 @@ namespace NiscoutFBL2019.Controllers.ReportesNiscouts
         {
             return View();
         }
-        //Clases del centro de estudio
+        //Clases del Administradores
         public class AdminR
         {
             public string Column1 { get; set; }
@@ -113,6 +113,57 @@ namespace NiscoutFBL2019.Controllers.ReportesNiscouts
             ReportViewer rpt = new ReportViewer();
             rpt.ProcessingMode = ProcessingMode.Local;
             rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepUbicaciones.rdlc");
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", P.GetData().ToList()));
+            rpt.LocalReport.Refresh();
+
+            rpt.AsyncRendering = false;
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
+            return View();
+        }
+        public ActionResult ReporGrupos() // Inicio Reporte Grupos
+        {            
+
+            DataTable6TableAdapter P = new DataTable6TableAdapter();
+            ReportViewer rpt = new ReportViewer();
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepGrupos.rdlc");
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", P.GetData().ToList()));
+            rpt.LocalReport.Refresh();
+
+            rpt.AsyncRendering = false;
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
+            return View();
+        }
+        public ActionResult ReporUnidades() // Inicio Reporte Unidades
+        {
+
+            DataTable7TableAdapter P = new DataTable7TableAdapter();
+            ReportViewer rpt = new ReportViewer();
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepUnidades.rdlc");
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", P.GetUnidad().ToList()));
+            rpt.LocalReport.Refresh();
+
+            rpt.AsyncRendering = false;
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
+            return View();
+        }
+        public ActionResult ReporPersonas() // Inicio Reporte Personas
+        {
+            
+            DataTable8TableAdapter P = new DataTable8TableAdapter();
+            ReportViewer rpt = new ReportViewer();
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepPersonas.rdlc");
             rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", P.GetData().ToList()));
             rpt.LocalReport.Refresh();
 
