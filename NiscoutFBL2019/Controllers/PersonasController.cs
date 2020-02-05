@@ -59,7 +59,7 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
                 new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
                 new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
-                new SelectListItem { Value = "Agutados", Text = "Aguntados" }
+                new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
                                                }, "Value", "Text");
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
@@ -67,7 +67,12 @@ namespace NiscoutFBL2019.Controllers
         }
 
        
+        public ActionResult Listarnotificacion()
+        {
 
+            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
+            return View();
+        }
        
         // POST: Personas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 

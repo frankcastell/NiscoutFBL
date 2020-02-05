@@ -1,0 +1,46 @@
+﻿@model IEnumerable<NiscoutFBL2019.Models.Persona>
+
+@{
+    ViewBag.Title = "Listarnotificacion";
+    NiscoutFBL2019.Models.Etapa_Aprobacion ea = ViewBag.ea;
+}
+
+<h2>Notificacion</h2>
+
+<p>
+    @Html.ActionLink("Personas", "Listarnotificaciones")
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </th>
+       @*<th>
+           @Html.DisplayNameFor(model => model.Estado)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellidos)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

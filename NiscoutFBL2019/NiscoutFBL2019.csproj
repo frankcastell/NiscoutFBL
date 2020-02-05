@@ -1104,6 +1104,7 @@
     <Content Include="Views\SubGrupoes\Edit.cshtml" />
     <Content Include="Views\SubGrupoes\Index.cshtml" />
     <Content Include="Views\Personas\solicitudtutor.cshtml" />
+    <Content Include="Views\Personas\Listarnotificacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
