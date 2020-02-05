@@ -124,6 +124,79 @@ FROM            Departamentos INNER JOIN
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable6TableAdapter" GeneratorDataComponentClassName="DataTable6TableAdapter" Name="DataTable6" UserDataComponentName="DataTable6TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Grupos.Nombre_Grupo, Grupos.Num_Solicitud, Grupos.Estado_Grupo, Distritos.Nombre_Distrito, Personas.Nombres, Personas.Apellidos
+FROM            Grupos INNER JOIN
+                         Distritos ON Grupos.DistritoId = Distritos.Id INNER JOIN
+                         Personas ON Grupos.Id = Personas.Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nombre_Grupo" DataSetColumn="Nombre_Grupo" />
+              <Mapping SourceColumn="Num_Solicitud" DataSetColumn="Num_Solicitud" />
+              <Mapping SourceColumn="Estado_Grupo" DataSetColumn="Estado_Grupo" />
+              <Mapping SourceColumn="Nombre_Distrito" DataSetColumn="Nombre_Distrito" />
+              <Mapping SourceColumn="Nombres" DataSetColumn="Nombres" />
+              <Mapping SourceColumn="Apellidos" DataSetColumn="Apellidos" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable7TableAdapter" GeneratorDataComponentClassName="DataTable7TableAdapter" Name="DataTable7" UserDataComponentName="DataTable7TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetUnidad" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetUnidad" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetUnidad" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Tipo_Grupos.Nombre_Tipo_Grupo, SubGrupos.Descripcion, Grupos.Nombre_Grupo, Personas.Nombres, Personas.Apellidos
+FROM            Grupos INNER JOIN
+                         Personas_Asistente ON Grupos.Id = Personas_Asistente.Id INNER JOIN
+                         Personas ON Personas_Asistente.Id = Personas.Id INNER JOIN
+                         SubGrupos ON Grupos.Id = SubGrupos.GrupoId AND Personas_Asistente.Id = SubGrupos.AsistenteId INNER JOIN
+                         Tipo_Grupos ON SubGrupos.Tipo_GrupoId = Tipo_Grupos.Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nombre_Tipo_Grupo" DataSetColumn="Nombre_Tipo_Grupo" />
+              <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
+              <Mapping SourceColumn="Nombre_Grupo" DataSetColumn="Nombre_Grupo" />
+              <Mapping SourceColumn="Nombres" DataSetColumn="Nombres" />
+              <Mapping SourceColumn="Apellidos" DataSetColumn="Apellidos" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable8TableAdapter" GeneratorDataComponentClassName="DataTable8TableAdapter" Name="DataTable8" UserDataComponentName="DataTable8TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Personas.Nombres, Personas.Apellidos, Personas.Sexo, Personas.Cedula, Personas.Telefono, Personas.Direccion, Membresia_Adultos.Cargo
+FROM            Personas INNER JOIN
+                         Membresia_Adultos ON Personas.Id = Membresia_Adultos.Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nombres" DataSetColumn="Nombres" />
+              <Mapping SourceColumn="Apellidos" DataSetColumn="Apellidos" />
+              <Mapping SourceColumn="Sexo" DataSetColumn="Sexo" />
+              <Mapping SourceColumn="Cedula" DataSetColumn="Cedula" />
+              <Mapping SourceColumn="Telefono" DataSetColumn="Telefono" />
+              <Mapping SourceColumn="Direccion" DataSetColumn="Direccion" />
+              <Mapping SourceColumn="Cargo" DataSetColumn="Cargo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -367,6 +440,138 @@ FROM            Departamentos INNER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Nombre_Sector" msprop:Generator_ColumnVarNameInTable="columnNombre_Sector" msprop:Generator_ColumnPropNameInRow="Nombre_Sector" msprop:Generator_ColumnPropNameInTable="Nombre_SectorColumn" msprop:Generator_UserColumnName="Nombre_Sector">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable6" msprop:Generator_TableClassName="DataTable6DataTable" msprop:Generator_TableVarName="tableDataTable6" msprop:Generator_RowChangedName="DataTable6RowChanged" msprop:Generator_TablePropName="DataTable6" msprop:Generator_RowDeletingName="DataTable6RowDeleting" msprop:Generator_RowChangingName="DataTable6RowChanging" msprop:Generator_RowEvHandlerName="DataTable6RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable6RowDeleted" msprop:Generator_RowClassName="DataTable6Row" msprop:Generator_UserTableName="DataTable6" msprop:Generator_RowEvArgName="DataTable6RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nombre_Grupo" msprop:Generator_ColumnVarNameInTable="columnNombre_Grupo" msprop:Generator_ColumnPropNameInRow="Nombre_Grupo" msprop:Generator_ColumnPropNameInTable="Nombre_GrupoColumn" msprop:Generator_UserColumnName="Nombre_Grupo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Num_Solicitud" msprop:Generator_ColumnVarNameInTable="columnNum_Solicitud" msprop:Generator_ColumnPropNameInRow="Num_Solicitud" msprop:Generator_ColumnPropNameInTable="Num_SolicitudColumn" msprop:Generator_UserColumnName="Num_Solicitud" type="xs:int" />
+              <xs:element name="Estado_Grupo" msprop:Generator_ColumnVarNameInTable="columnEstado_Grupo" msprop:Generator_ColumnPropNameInRow="Estado_Grupo" msprop:Generator_ColumnPropNameInTable="Estado_GrupoColumn" msprop:Generator_UserColumnName="Estado_Grupo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nombre_Distrito" msprop:Generator_ColumnVarNameInTable="columnNombre_Distrito" msprop:Generator_ColumnPropNameInRow="Nombre_Distrito" msprop:Generator_ColumnPropNameInTable="Nombre_DistritoColumn" msprop:Generator_UserColumnName="Nombre_Distrito">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nombres" msprop:Generator_ColumnVarNameInTable="columnNombres" msprop:Generator_ColumnPropNameInRow="Nombres" msprop:Generator_ColumnPropNameInTable="NombresColumn" msprop:Generator_UserColumnName="Nombres">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Apellidos" msprop:Generator_ColumnVarNameInTable="columnApellidos" msprop:Generator_ColumnPropNameInRow="Apellidos" msprop:Generator_ColumnPropNameInTable="ApellidosColumn" msprop:Generator_UserColumnName="Apellidos">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable7" msprop:Generator_TableClassName="DataTable7DataTable" msprop:Generator_TableVarName="tableDataTable7" msprop:Generator_TablePropName="DataTable7" msprop:Generator_RowDeletingName="DataTable7RowDeleting" msprop:Generator_RowChangingName="DataTable7RowChanging" msprop:Generator_RowEvHandlerName="DataTable7RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable7RowDeleted" msprop:Generator_UserTableName="DataTable7" msprop:Generator_RowChangedName="DataTable7RowChanged" msprop:Generator_RowEvArgName="DataTable7RowChangeEvent" msprop:Generator_RowClassName="DataTable7Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nombre_Tipo_Grupo" msprop:Generator_ColumnVarNameInTable="columnNombre_Tipo_Grupo" msprop:Generator_ColumnPropNameInRow="Nombre_Tipo_Grupo" msprop:Generator_ColumnPropNameInTable="Nombre_Tipo_GrupoColumn" msprop:Generator_UserColumnName="Nombre_Tipo_Grupo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_UserColumnName="Descripcion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nombre_Grupo" msprop:Generator_ColumnVarNameInTable="columnNombre_Grupo" msprop:Generator_ColumnPropNameInRow="Nombre_Grupo" msprop:Generator_ColumnPropNameInTable="Nombre_GrupoColumn" msprop:Generator_UserColumnName="Nombre_Grupo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nombres" msprop:Generator_ColumnVarNameInTable="columnNombres" msprop:Generator_ColumnPropNameInRow="Nombres" msprop:Generator_ColumnPropNameInTable="NombresColumn" msprop:Generator_UserColumnName="Nombres">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Apellidos" msprop:Generator_ColumnVarNameInTable="columnApellidos" msprop:Generator_ColumnPropNameInRow="Apellidos" msprop:Generator_ColumnPropNameInTable="ApellidosColumn" msprop:Generator_UserColumnName="Apellidos">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable8" msprop:Generator_TableClassName="DataTable8DataTable" msprop:Generator_TableVarName="tableDataTable8" msprop:Generator_TablePropName="DataTable8" msprop:Generator_RowDeletingName="DataTable8RowDeleting" msprop:Generator_RowChangingName="DataTable8RowChanging" msprop:Generator_RowEvHandlerName="DataTable8RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable8RowDeleted" msprop:Generator_UserTableName="DataTable8" msprop:Generator_RowChangedName="DataTable8RowChanged" msprop:Generator_RowEvArgName="DataTable8RowChangeEvent" msprop:Generator_RowClassName="DataTable8Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nombres" msprop:Generator_ColumnVarNameInTable="columnNombres" msprop:Generator_ColumnPropNameInRow="Nombres" msprop:Generator_ColumnPropNameInTable="NombresColumn" msprop:Generator_UserColumnName="Nombres">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Apellidos" msprop:Generator_ColumnVarNameInTable="columnApellidos" msprop:Generator_ColumnPropNameInRow="Apellidos" msprop:Generator_ColumnPropNameInTable="ApellidosColumn" msprop:Generator_UserColumnName="Apellidos">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sexo" msprop:Generator_ColumnVarNameInTable="columnSexo" msprop:Generator_ColumnPropNameInRow="Sexo" msprop:Generator_ColumnPropNameInTable="SexoColumn" msprop:Generator_UserColumnName="Sexo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cedula" msprop:Generator_ColumnVarNameInTable="columnCedula" msprop:Generator_ColumnPropNameInRow="Cedula" msprop:Generator_ColumnPropNameInTable="CedulaColumn" msprop:Generator_UserColumnName="Cedula" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Telefono" msprop:Generator_ColumnVarNameInTable="columnTelefono" msprop:Generator_ColumnPropNameInRow="Telefono" msprop:Generator_ColumnPropNameInTable="TelefonoColumn" msprop:Generator_UserColumnName="Telefono" type="xs:int" />
+              <xs:element name="Direccion" msprop:Generator_ColumnVarNameInTable="columnDireccion" msprop:Generator_ColumnPropNameInRow="Direccion" msprop:Generator_ColumnPropNameInTable="DireccionColumn" msprop:Generator_UserColumnName="Direccion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cargo" msprop:Generator_ColumnVarNameInTable="columnCargo" msprop:Generator_ColumnPropNameInRow="Cargo" msprop:Generator_ColumnPropNameInTable="CargoColumn" msprop:Generator_UserColumnName="Cargo">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />

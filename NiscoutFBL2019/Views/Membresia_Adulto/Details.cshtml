@@ -1,4 +1,5 @@
 ﻿@model NiscoutFBL2019.Models.Membresia_Adulto
+@*@model IEnumerable<NiscoutFBL2019.Models.Membresia_Adulto>*@
 
 @{
     ViewBag.Title = "Details";
@@ -9,51 +10,9 @@
 <div class="datagrid">
     <table class="table vm no-th-brd no-wrap pro-of-month">
         <thead>
-          
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Carta_Compromiso)
-                </th>
-                <th>
-                    @Html.DisplayFor(model => model.Carta_Compromiso)
-                    @*<object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Compromiso)" width="200" height="75" type="application/pdf"> </object>*@
-                </th>
-            </tr>
             <tr>
                 <td>
-                    @Html.DisplayNameFor(model => model.Carta_Intencion)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Carta_Intencion)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Record_Policia)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Record_Policia)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Carta_Ref_Personal)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Certifi_Salvo_Peligro)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Annio)
+                    Año de inscripción
                 </td>
                 <td>
                     @Html.DisplayFor(model => model.Annio)
@@ -80,7 +39,7 @@
                     @Html.DisplayNameFor(model => model.Adulto.Nombres)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.Adulto.Nombres)
+                    @Html.DisplayFor(model => model.Adulto.Nombres) @Html.DisplayFor(model => model.Adulto.Apellidos)
                 </td>
             </tr>
             <tr>
@@ -91,6 +50,55 @@
                     @Html.DisplayFor(model => model.SubGrupo.Nombre_Subgrupo)
                 </td>
             </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Carta_Compromiso)
+                </td>
+                <td>
+                  @*  @Html.DisplayFor(model => item.Carta_Compromiso)*@
+                   <object data="data:application/pdf;base64,@System.Convert.ToBase64String(Model.Carta_Compromiso)" width="800" height="500" type="application/pdf"> </object>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Carta_Intencion)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(model => model.Carta_Intencion)*@
+                    <object data="data:application/pdf;base64,@System.Convert.ToBase64String(Model.Carta_Intencion)" width="800" height="500" type="application/pdf"> </object>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Record_Policia)
+                </td>
+                <td>
+                  @*  @Html.DisplayFor(model => model.Record_Policia)*@
+                    <object data="data:application/pdf;base64,@System.Convert.ToBase64String(Model.Record_Policia)" width="800" height="500" type="application/pdf"> </object>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(model => model.Carta_Ref_Personal)*@
+                    <object data="data:application/pdf;base64,@System.Convert.ToBase64String(Model.Carta_Ref_Personal)" width="800" height="500" type="application/pdf"> </object>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
+                </td>
+                <td>
+                  @*  @Html.DisplayFor(model => model.Certifi_Salvo_Peligro)*@
+                    <object data="data:application/pdf;base64,@System.Convert.ToBase64String(Model.Certifi_Salvo_Peligro)" width="800" height="500" type="application/pdf"> </object>
+
+                </td>
+            </tr>
+           
             <tr>
                 <td></td>
                 <td></td>
@@ -110,4 +118,4 @@
 
     </p>
 </div>
-
+ 

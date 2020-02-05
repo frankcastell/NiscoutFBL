@@ -47,6 +47,16 @@ namespace NiscoutFBL2019.Controllers
         // GET: Membresia_Adulto/Create
         public ActionResult Create(int idAdulto)
         {
+            // Validando Cargo
+            ViewBag.Cargo = new SelectList(new[] {
+                new SelectListItem { Value = "Responsable", Text = "Responsable" },
+                new SelectListItem { Value = "Asistente", Text = "Asistente" },
+                new SelectListItem { Value = "Tutor", Text = "Tutor" },
+                new SelectListItem { Value = "Miembro", Text = "Miembro" },
+                new SelectListItem { Value = "otros", Text = "Otros" }                
+                                                               }, "Value", "Text");
+           //---------------------------------------------------------------------------------------
+
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
             ViewBag.Adulto = db.Adultos.Where(x => x.Id == idAdulto).FirstOrDefault();
             ViewBag.SubGrupoId = new SelectList(db.SubGrupos, "Id", "Nombre_Subgrupo");
@@ -86,7 +96,10 @@ namespace NiscoutFBL2019.Controllers
             return View(membresia_Adulto);
         }
 
-        // PENDIENTE LA CORRECIÓN CON EL MÁSTER RECIBIR PARÁMETRO
+        // conversion de imágenes........
+        //METODO DE PRUEBA PARA EL METODO DE EDITAR REGISTRO
+        // eRROR EN using (Stream stream = image1.InputStream) / no guard cambios de edicion
+
         public Byte[] tobyte(HttpPostedFileBase image1)
         {
             byte[] buffer;
@@ -94,18 +107,40 @@ namespace NiscoutFBL2019.Controllers
             {
                 buffer = new byte[stream.Length - 1];
                 stream.Read(buffer, 0, buffer.Length);
-            }
-            //    {
-            //        imagenData1 = img1.ReadBytes(image1.ContentLength);
-            //    }
-            //}
+            }           
             return buffer;
         }
+        //METODO DE PRUEBA PARA EL METODO DE EDITAR REGISTRO
+        // eRROR EN EL SAVESHANGES().               /// no guarda cambios de edicion
+
+        //public Byte[] load(HttpPostedFileBase image1)
+        //{
+        //    byte[] imagenData = null;
+        //    if (image1 != null && image1.ContentLength > 0)
+        //    {               
+        //        using (var imagen = new BinaryReader(image1.InputStream))
+        //        {
+        //            imagenData = imagen.ReadBytes(image1.ContentLength);
+        //        }
+        //        //membresia_Adulto.Carta_Compromiso = imagenData;                
+
+        //    }
+        //    return imagenData;
+        //}
 
         // Nueva vista ....................................Inicio
         [AllowAnonymous]
         public ActionResult MembreAdulto(int idAdulto)
         {
+            // Validando Cargo
+            ViewBag.Cargo = new SelectList(new[] {
+                new SelectListItem { Value = "Responsable", Text = "Responsable" },
+                new SelectListItem { Value = "Asistente", Text = "Asistente" },
+                new SelectListItem { Value = "Tutor", Text = "Tutor" },
+                new SelectListItem { Value = "Miembro", Text = "Miembro" },
+                new SelectListItem { Value = "otros", Text = "Otros" }
+                                                               }, "Value", "Text");
+            //---------------------------------------------------------------------------------------
             ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
             // ViewBag.AdultoId = new SelectList(db.Adultos, "Id", "Nombres");
             ViewBag.Adulto = db.Adultos.Where(x => x.Id == idAdulto).FirstOrDefault();
@@ -168,14 +203,14 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId,Cargo,SubGrupoId")] Membresia_Adulto membresia_Adulto, 
+        public ActionResult Edit([Bind(Include = "Id,Carta_Compromiso,Carta_Intencion,Record_Policia,Carta_Ref_Personal,Certifi_Salvo_Peligro,Annio,Etapa_AprobacionId,AdultoId,Cargo,SubGrupoId")] Membresia_Adulto membresia_Adulto,
                         HttpPostedFileBase image1,
                         HttpPostedFileBase image2,
                         HttpPostedFileBase image3,
                         HttpPostedFileBase image4,
-                        HttpPostedFileBase image5)
-        {
-            membresia_Adulto.Etapa_AprobacionId = 2;
+                        HttpPostedFileBase image5
+                        )
+        {           
             if (ModelState.IsValid)
             {
                 membresia_Adulto.Carta_Compromiso = tobyte(image1);

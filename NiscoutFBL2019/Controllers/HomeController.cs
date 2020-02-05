@@ -20,7 +20,7 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.Contador = db.Adultos.Count();
             ViewBag.ContadorJ = db.Juveniles.Count();
 
-            ViewBag.ContAJ = (ViewBag.Contador + ViewBag.ContadorJ);
+            ViewBag.ContAJ = db.Personas.Count();
             return View();
         }
 
