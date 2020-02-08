@@ -83,11 +83,13 @@ namespace NiscoutFBL2019.Controllers
             {
                 db.Tutorias.Add(tutoria);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
+                return RedirectToAction("SolicitudJuvenil", "Juvenils", new { idtutor  = tutoria.PersonaId });
+                //return View(tutoria);
             }
 
-            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
-            return View(tutoria);
+
+            return RedirectToAction("Index");
         }
 
         // GET: Tutorias/Edit/5

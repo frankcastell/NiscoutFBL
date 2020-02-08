@@ -100,7 +100,7 @@ namespace NiscoutFBL2019.Controllers
 
         // GET: Juvenils/Create  Nuevo
         [AllowAnonymous]
-        public ActionResult SolicitudJuvenil()
+        public ActionResult SolicitudJuvenil(int idtutor)
         {
             // Codigo para sexo
             ViewBag.sexo = new SelectList(new[] {

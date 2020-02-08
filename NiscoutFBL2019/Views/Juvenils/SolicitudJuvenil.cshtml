@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "SolicitudJuvenil";
+    NiscoutFBL2019.Models.Tutoria TutoriaId = ViewBag.TutoriaId;
 }
 
 <h2>Registro Juvenil </h2>
@@ -155,8 +156,10 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.TutoriaId, "Tutoria", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("TutoriaId", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.TutoriaId, "", new { @class = "text-danger" })
+                    <input type="hidden" id="TutoriaId" name="TutoriaId" value="@TutoriaId.Id" />
+                    <label><strong>@TutoriaId.Persona.Nombres => @TutoriaId.Parentezco </strong></label>
+                    @*@Html.DropDownList("TutoriaId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TutoriaId, "", new { @class = "text-danger" })*@
                 </div>
             </div>
 
