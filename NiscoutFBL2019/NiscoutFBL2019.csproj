@@ -1093,18 +1093,19 @@
     <Content Include="Views\Responsables\Details.cshtml" />
     <Content Include="Views\Responsables\Edit.cshtml" />
     <Content Include="Views\Responsables\Index.cshtml" />
-    <Content Include="Views\Tutorias\Create.cshtml" />
-    <Content Include="Views\Tutorias\Delete.cshtml" />
-    <Content Include="Views\Tutorias\Details.cshtml" />
-    <Content Include="Views\Tutorias\Edit.cshtml" />
-    <Content Include="Views\Tutorias\Index.cshtml" />
     <Content Include="Views\SubGrupoes\Create.cshtml" />
     <Content Include="Views\SubGrupoes\Delete.cshtml" />
     <Content Include="Views\SubGrupoes\Details.cshtml" />
     <Content Include="Views\SubGrupoes\Edit.cshtml" />
     <Content Include="Views\SubGrupoes\Index.cshtml" />
-    <Content Include="Views\Personas\solicitudtutor.cshtml" />
+    <Content Include="Views\Personas\SolicitudTutor.cshtml" />
     <Content Include="Views\Personas\Listarnotificacion.cshtml" />
+    <Content Include="Views\Tutorias\Create.cshtml" />
+    <Content Include="Views\Tutorias\Delete.cshtml" />
+    <Content Include="Views\Tutorias\Details.cshtml" />
+    <Content Include="Views\Tutorias\Edit.cshtml" />
+    <Content Include="Views\Tutorias\Index.cshtml" />
+    <Content Include="Views\Tutorias\TutorSolicitud.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

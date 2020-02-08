@@ -379,7 +379,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Parentezco" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PersonaId" Type="int" Nullable="false" />
   </EntityType>
@@ -1116,7 +1116,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Parentezco" Type="String" Nullable="false" />
           <NavigationProperty Name="Persona" Relationship="ModeloNiscoutFBL.PersonaTutoria" FromRole="Tutoria" ToRole="Persona" />
           <Property Name="PersonaId" Type="Int32" Nullable="false" />

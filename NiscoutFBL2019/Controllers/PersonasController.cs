@@ -108,7 +108,7 @@ namespace NiscoutFBL2019.Controllers
                 //persona.Cod_Persona = "NS-" + System.DateTime.Today.Year.ToString() + persona.Id.ToString();
                 //db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "Tutorias", new { idpersona = persona.Id });
             }
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", persona.DepartamentoId);
@@ -116,7 +116,7 @@ namespace NiscoutFBL2019.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult solicitudtutor()
+        public ActionResult SolicitudTutor( )
         {
             ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
@@ -130,17 +130,18 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
                                                }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
+          
             return View();
         }
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult solicitudtututor([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Persona persona, string txtpass)
+        public ActionResult SolicitudTutor([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Persona persona, string txtpass)
         {
 
             if (ModelState.IsValid)
             {
-                db.Personas.Add(persona);
+                db.Personas.Add(persona); 
                 db.SaveChanges();
                 //accedemos al modelo de la seguridad integrada
                 ApplicationDbContext context = new ApplicationDbContext();
@@ -158,17 +159,18 @@ namespace NiscoutFBL2019.Controllers
                 //si se creo con exito
                 if (chkUser.Succeeded)
                 {
-                    ManejadorUsuario.AddToRole(user.Id, "Usuario");
+                    ManejadorUsuario.AddToRole(user.Id, "Tutores");
                 }
                 //generar el carnet
                 //persona.Cod_Persona = "NS-" + System.DateTime.Today.Year.ToString() + persona.Id.ToString();
                 //db.SaveChanges();
 
-                return RedirectToAction("Index");
+                ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", persona.DepartamentoId);
+                return RedirectToAction("tutorsolicitud", "Tutorias", new { idpersona = persona.Id });
             }
 
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", persona.DepartamentoId);
-            return View(persona);
+           
+            return View("Index");
         }
         // GET: Personas/Edit/5
         public ActionResult Edit(int? id)

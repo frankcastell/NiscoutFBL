@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/27/2020 16:52:35
+-- Date Created: 02/07/2020 16:27:25
 -- Generated from EDMX file: C:\Users\brayan obando\Source\Repos\NiscoutFBL\NiscoutFBL2019\Models\ModeloNiscoutFBL.edmx
 -- --------------------------------------------------
 
@@ -417,7 +417,7 @@ GO
 
 -- Creating table 'Tutorias'
 CREATE TABLE [dbo].[Tutorias] (
-    [Id] int  NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Parentezco] nvarchar(max)  NOT NULL,
     [PersonaId] int  NOT NULL
 );

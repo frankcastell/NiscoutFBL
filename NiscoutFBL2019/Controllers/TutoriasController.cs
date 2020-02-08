@@ -38,9 +38,10 @@ namespace NiscoutFBL2019.Controllers
         }
 
         // GET: Tutorias/Create
-        public ActionResult Create()
+        public ActionResult Create(int idpersona)
         {
-            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres");
+            ViewBag.PersonaId = db.Personas.Where(x => x.Id == idpersona).FirstOrDefault();
+            //ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres");
             return View();
         }
 
@@ -50,6 +51,33 @@ namespace NiscoutFBL2019.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Parentezco,PersonaId")] Tutoria tutoria)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Tutorias.Add(tutoria);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
+            return View(tutoria);
+        }
+
+
+
+        ///vista tutor
+        ///
+        [AllowAnonymous]
+        public ActionResult TutorSolicitud(int idpersona)
+        {
+            ViewBag.Persona = db.Personas.Where(x => x.Id == idpersona).FirstOrDefault();
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult TutorSolicitud([Bind(Include = "Id,Parentezco,PersonaId")] Tutoria tutoria)
         {
             if (ModelState.IsValid)
             {
