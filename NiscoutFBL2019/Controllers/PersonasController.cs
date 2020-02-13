@@ -166,11 +166,11 @@ namespace NiscoutFBL2019.Controllers
                 //db.SaveChanges();
 
                 ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", persona.DepartamentoId);
-                return RedirectToAction("tutorsolicitud", "Tutorias", new { idpersona = persona.Id });
+                //return RedirectToAction("tutorsolicitud", "Tutorias", new { idpersona = persona.Id });
+                return RedirectToAction("Login", "Account");
             }
 
-           
-            return View("Index");
+            return RedirectToAction("Index");
         }
         // GET: Personas/Edit/5
         public ActionResult Edit(int? id)
