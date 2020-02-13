@@ -212,14 +212,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Nombre_Tipo_Grupo">
+                    <Textbox Name="Nombre_Subgrupo">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Nombre_Tipo_Grupo.Value</Value>
+                              <Value>=Fields!Nombre_Subgrupo.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <Color>#4d4d4d</Color>
@@ -229,7 +229,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Nombre_Tipo_Grupo</rd:DefaultName>
+                      <rd:DefaultName>Nombre_Subgrupo</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>#e5e5e5</Color>
@@ -401,8 +401,8 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>1.37583cm</Top>
         <Left>3.77162cm</Left>
-        <Height>1.41167cm</Height>
-        <Width>14.03458cm</Width>
+        <Height>1.41166cm</Height>
+        <Width>14.0346cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -608,10 +608,6 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Nombre_Tipo_Grupo">
-          <DataField>Nombre_Tipo_Grupo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="Descripcion">
           <DataField>Descripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -626,6 +622,10 @@
         </Field>
         <Field Name="Apellidos">
           <DataField>Apellidos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Nombre_Subgrupo">
+          <DataField>Nombre_Subgrupo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

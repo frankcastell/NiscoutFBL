@@ -11,13 +11,14 @@ using Microsoft.Reporting.WebForms;
 using Microsoft.AspNet.Identity;
 using NiscoutFBL2019.Models.ReporteScouts;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
 
 namespace NiscoutFBL2019.Controllers
 {
     public class JuvenilsController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
-
+       
         // GET: Juvenils
         public ActionResult Index(string buscar)
         {
@@ -48,7 +49,8 @@ namespace NiscoutFBL2019.Controllers
         // GET: Juvenils/Create
         public ActionResult Create()
         {
-            ViewBag.sexo = new SelectList(new[] {
+            
+        ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");

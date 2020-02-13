@@ -104,6 +104,27 @@ namespace NiscoutFBL2019.Controllers.ReportesNiscouts
             ViewBag.rpt = rpt;
             return View();
         }
+        public ActionResult ReporCarnet(int id) // Inicio Reporte Carnet
+        {
+            Genera_CarnetTableAdapter P = new Genera_CarnetTableAdapter();
+            ReportViewer rpt = new ReportViewer();
+            //rpt.LocalReport.SetParameters()
+
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepCarnet.rdlc");
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", P.GetData(id).ToList()));
+            //ReportParameter[] parameters = new ReportParameter[1];
+            //parameters[0] = new ReportParameter("Id", id.);
+            //rpt.LocalReport.SetParameters(parameters);
+            rpt.LocalReport.Refresh();
+
+            rpt.AsyncRendering = false;
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
+            return View();
+        }
         public ActionResult ReporUbicaciones() // Inicio Reporte Ubicaciones
         {
 
