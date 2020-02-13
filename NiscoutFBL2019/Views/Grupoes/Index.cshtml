@@ -35,6 +35,15 @@
         <thead>
             <tr>
                 <th>
+                    @Html.DisplayNameFor(model => model.Estado_Grupo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Responsable.Nombres)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Distrito.Nombre_Distrito)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Cod_Grupo)
                 </th>
                 <th>
@@ -55,15 +64,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Carta_Solicitud)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Estado_Grupo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Responsable.Nombres)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Distrito.Nombre_Distrito)
-                </th>
+                
                 <th></th>
         </thead>
         @if (Model.Count() == 0)
@@ -78,27 +79,6 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Cod_Grupo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombre_Grupo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Num_Solicitud)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Pañoleta)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Insignia)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Sello_Grupo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Carta_Solicitud)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.Estado_Grupo)
                     </td>
                     <td>
@@ -108,10 +88,36 @@
                         @Html.DisplayFor(modelItem => item.Distrito.Nombre_Distrito)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.Cod_Grupo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre_Grupo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Num_Solicitud)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Pañoleta)*@
+                        <object data="data:application/png;base64,@System.Convert.ToBase64String(item.Pañoleta)" width="200" height="75" type="application/png"> </object>
+                    </td>
+                    <td>
+                   @*     @Html.DisplayFor(modelItem => item.Insignia)*@
+                        <object data="data:application/png;base64,@System.Convert.ToBase64String(item.Insignia)" width="200" height="75" type="application/png"> </object>
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Sello_Grupo)*@
+                        <object data="data:application/png;base64,@System.Convert.ToBase64String(item.Sello_Grupo)" width="200" height="75" type="application/png"> </object>
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Carta_Solicitud)*@
+                        <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Solicitud)" width="200" height="75" type="application/pdf"> </object>
+                    </td>
+                    
+                    <td>
                         <a href="@Url.Action("Edit", "Grupoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
                             <img width="25" src="~/Content/Ico/Editar.png" />
                         </a>
-                        <a href="@Url.Action("Details", "Grupoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                        <a href="@Url.Action("Details", "Grupoes",new { id = item.Id })" target="_blank" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
                             <img width="25" src="~/Content/Ico/Ver_detalles.png" />
                         </a>
                         <a href="@Url.Action("Delete", "Grupoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
