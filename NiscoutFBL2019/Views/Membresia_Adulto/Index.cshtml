@@ -18,7 +18,7 @@
             <a href="@Url.Action("Create", "Adultoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar un Miembro">
                 Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
             </a>
-            <a href="@Url.Action("RepAdulto", "Membresia_Adulto")" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+            <a href="@Url.Action("RepAdulto", "Membresia_Adulto")"target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
                 <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
             </a>
             <hr />
@@ -116,7 +116,7 @@
                             <a href="@Url.Action("Delete", "Membresia_Adulto",new { id = item.Id })" target="_parent" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
                                 <img width="25" src="~/Content/Ico/eliminar.png" />
                             </a>
-                            <a href="@Url.Action("ReporCarnet", "Reportes", new { id = item.Id })" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+                            <a href="@Url.Action("ReporCarnet", "Reportes", new { id = item.Id })"target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
                                 <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
                             </a>
                         </td>
