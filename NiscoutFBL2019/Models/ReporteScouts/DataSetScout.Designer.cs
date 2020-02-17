@@ -36,6 +36,8 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
         
         private DataTable8DataTable tableDataTable8;
         
+        private Genera_CarnetDataTable tableGenera_Carnet;
+        
         private DataTable1DataTable tableDataTable1;
         
         private DataTable2DataTable tableDataTable2;
@@ -87,6 +89,9 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 }
                 if ((ds.Tables["DataTable8"] != null)) {
                     base.Tables.Add(new DataTable8DataTable(ds.Tables["DataTable8"]));
+                }
+                if ((ds.Tables["Genera_Carnet"] != null)) {
+                    base.Tables.Add(new Genera_CarnetDataTable(ds.Tables["Genera_Carnet"]));
                 }
                 if ((ds.Tables["DataTable1"] != null)) {
                     base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
@@ -172,6 +177,16 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
         public DataTable8DataTable DataTable8 {
             get {
                 return this.tableDataTable8;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Genera_CarnetDataTable Genera_Carnet {
+            get {
+                return this.tableGenera_Carnet;
             }
         }
         
@@ -290,6 +305,9 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 if ((ds.Tables["DataTable8"] != null)) {
                     base.Tables.Add(new DataTable8DataTable(ds.Tables["DataTable8"]));
                 }
+                if ((ds.Tables["Genera_Carnet"] != null)) {
+                    base.Tables.Add(new Genera_CarnetDataTable(ds.Tables["Genera_Carnet"]));
+                }
                 if ((ds.Tables["DataTable1"] != null)) {
                     base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
                 }
@@ -368,6 +386,12 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                     this.tableDataTable8.InitVars();
                 }
             }
+            this.tableGenera_Carnet = ((Genera_CarnetDataTable)(base.Tables["Genera_Carnet"]));
+            if ((initTable == true)) {
+                if ((this.tableGenera_Carnet != null)) {
+                    this.tableGenera_Carnet.InitVars();
+                }
+            }
             this.tableDataTable1 = ((DataTable1DataTable)(base.Tables["DataTable1"]));
             if ((initTable == true)) {
                 if ((this.tableDataTable1 != null)) {
@@ -408,6 +432,8 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             base.Tables.Add(this.tableDataTable7);
             this.tableDataTable8 = new DataTable8DataTable();
             base.Tables.Add(this.tableDataTable8);
+            this.tableGenera_Carnet = new Genera_CarnetDataTable();
+            base.Tables.Add(this.tableGenera_Carnet);
             this.tableDataTable1 = new DataTable1DataTable();
             base.Tables.Add(this.tableDataTable1);
             this.tableDataTable2 = new DataTable2DataTable();
@@ -449,6 +475,12 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeDataTable8() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeGenera_Carnet() {
             return false;
         }
         
@@ -542,6 +574,9 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void DataTable8RowChangeEventHandler(object sender, DataTable8RowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void Genera_CarnetRowChangeEventHandler(object sender, Genera_CarnetRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void DataTable1RowChangeEventHandler(object sender, DataTable1RowChangeEvent e);
@@ -2071,8 +2106,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DataTable7DataTable : global::System.Data.TypedTableBase<DataTable7Row> {
             
-            private global::System.Data.DataColumn columnNombre_Tipo_Grupo;
-            
             private global::System.Data.DataColumn columnDescripcion;
             
             private global::System.Data.DataColumn columnNombre_Grupo;
@@ -2080,6 +2113,8 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             private global::System.Data.DataColumn columnNombres;
             
             private global::System.Data.DataColumn columnApellidos;
+            
+            private global::System.Data.DataColumn columnNombre_Subgrupo;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2116,14 +2151,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Nombre_Tipo_GrupoColumn {
-                get {
-                    return this.columnNombre_Tipo_Grupo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn DescripcionColumn {
                 get {
                     return this.columnDescripcion;
@@ -2151,6 +2178,14 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             public global::System.Data.DataColumn ApellidosColumn {
                 get {
                     return this.columnApellidos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Nombre_SubgrupoColumn {
+                get {
+                    return this.columnNombre_Subgrupo;
                 }
             }
             
@@ -2191,14 +2226,14 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable7Row AddDataTable7Row(string Nombre_Tipo_Grupo, string Descripcion, string Nombre_Grupo, string Nombres, string Apellidos) {
+            public DataTable7Row AddDataTable7Row(string Descripcion, string Nombre_Grupo, string Nombres, string Apellidos, string Nombre_Subgrupo) {
                 DataTable7Row rowDataTable7Row = ((DataTable7Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Nombre_Tipo_Grupo,
                         Descripcion,
                         Nombre_Grupo,
                         Nombres,
-                        Apellidos};
+                        Apellidos,
+                        Nombre_Subgrupo};
                 rowDataTable7Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable7Row);
                 return rowDataTable7Row;
@@ -2221,18 +2256,16 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnNombre_Tipo_Grupo = base.Columns["Nombre_Tipo_Grupo"];
                 this.columnDescripcion = base.Columns["Descripcion"];
                 this.columnNombre_Grupo = base.Columns["Nombre_Grupo"];
                 this.columnNombres = base.Columns["Nombres"];
                 this.columnApellidos = base.Columns["Apellidos"];
+                this.columnNombre_Subgrupo = base.Columns["Nombre_Subgrupo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnNombre_Tipo_Grupo = new global::System.Data.DataColumn("Nombre_Tipo_Grupo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre_Tipo_Grupo);
                 this.columnDescripcion = new global::System.Data.DataColumn("Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescripcion);
                 this.columnNombre_Grupo = new global::System.Data.DataColumn("Nombre_Grupo", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2241,8 +2274,8 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 base.Columns.Add(this.columnNombres);
                 this.columnApellidos = new global::System.Data.DataColumn("Apellidos", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnApellidos);
-                this.columnNombre_Tipo_Grupo.AllowDBNull = false;
-                this.columnNombre_Tipo_Grupo.MaxLength = 2147483647;
+                this.columnNombre_Subgrupo = new global::System.Data.DataColumn("Nombre_Subgrupo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre_Subgrupo);
                 this.columnDescripcion.AllowDBNull = false;
                 this.columnDescripcion.MaxLength = 2147483647;
                 this.columnNombre_Grupo.AllowDBNull = false;
@@ -2251,6 +2284,8 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 this.columnNombres.MaxLength = 2147483647;
                 this.columnApellidos.AllowDBNull = false;
                 this.columnApellidos.MaxLength = 2147483647;
+                this.columnNombre_Subgrupo.AllowDBNull = false;
+                this.columnNombre_Subgrupo.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2680,6 +2715,350 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "DataTable8DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Genera_CarnetDataTable : global::System.Data.TypedTableBase<Genera_CarnetRow> {
+            
+            private global::System.Data.DataColumn columnNombres;
+            
+            private global::System.Data.DataColumn columnApellidos;
+            
+            private global::System.Data.DataColumn columnNombre_Departamento;
+            
+            private global::System.Data.DataColumn columnNombre_Grupo;
+            
+            private global::System.Data.DataColumn columnNombre_Subgrupo;
+            
+            private global::System.Data.DataColumn columnCod_Persona;
+            
+            private global::System.Data.DataColumn columnFecha_Nac;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Genera_CarnetDataTable() {
+                this.TableName = "Genera_Carnet";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Genera_CarnetDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected Genera_CarnetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NombresColumn {
+                get {
+                    return this.columnNombres;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ApellidosColumn {
+                get {
+                    return this.columnApellidos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Nombre_DepartamentoColumn {
+                get {
+                    return this.columnNombre_Departamento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Nombre_GrupoColumn {
+                get {
+                    return this.columnNombre_Grupo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Nombre_SubgrupoColumn {
+                get {
+                    return this.columnNombre_Subgrupo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cod_PersonaColumn {
+                get {
+                    return this.columnCod_Persona;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fecha_NacColumn {
+                get {
+                    return this.columnFecha_Nac;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Genera_CarnetRow this[int index] {
+                get {
+                    return ((Genera_CarnetRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Genera_CarnetRowChangeEventHandler Genera_CarnetRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Genera_CarnetRowChangeEventHandler Genera_CarnetRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Genera_CarnetRowChangeEventHandler Genera_CarnetRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Genera_CarnetRowChangeEventHandler Genera_CarnetRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddGenera_CarnetRow(Genera_CarnetRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Genera_CarnetRow AddGenera_CarnetRow(string Nombres, string Apellidos, string Nombre_Departamento, string Nombre_Grupo, string Nombre_Subgrupo, string Cod_Persona, System.DateTime Fecha_Nac) {
+                Genera_CarnetRow rowGenera_CarnetRow = ((Genera_CarnetRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Nombres,
+                        Apellidos,
+                        Nombre_Departamento,
+                        Nombre_Grupo,
+                        Nombre_Subgrupo,
+                        Cod_Persona,
+                        Fecha_Nac};
+                rowGenera_CarnetRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGenera_CarnetRow);
+                return rowGenera_CarnetRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Genera_CarnetDataTable cln = ((Genera_CarnetDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Genera_CarnetDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnNombres = base.Columns["Nombres"];
+                this.columnApellidos = base.Columns["Apellidos"];
+                this.columnNombre_Departamento = base.Columns["Nombre_Departamento"];
+                this.columnNombre_Grupo = base.Columns["Nombre_Grupo"];
+                this.columnNombre_Subgrupo = base.Columns["Nombre_Subgrupo"];
+                this.columnCod_Persona = base.Columns["Cod_Persona"];
+                this.columnFecha_Nac = base.Columns["Fecha_Nac"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnNombres = new global::System.Data.DataColumn("Nombres", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombres);
+                this.columnApellidos = new global::System.Data.DataColumn("Apellidos", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApellidos);
+                this.columnNombre_Departamento = new global::System.Data.DataColumn("Nombre_Departamento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre_Departamento);
+                this.columnNombre_Grupo = new global::System.Data.DataColumn("Nombre_Grupo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre_Grupo);
+                this.columnNombre_Subgrupo = new global::System.Data.DataColumn("Nombre_Subgrupo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre_Subgrupo);
+                this.columnCod_Persona = new global::System.Data.DataColumn("Cod_Persona", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCod_Persona);
+                this.columnFecha_Nac = new global::System.Data.DataColumn("Fecha_Nac", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Nac);
+                this.columnNombres.AllowDBNull = false;
+                this.columnNombres.MaxLength = 2147483647;
+                this.columnApellidos.AllowDBNull = false;
+                this.columnApellidos.MaxLength = 2147483647;
+                this.columnNombre_Departamento.AllowDBNull = false;
+                this.columnNombre_Departamento.MaxLength = 2147483647;
+                this.columnNombre_Grupo.AllowDBNull = false;
+                this.columnNombre_Grupo.MaxLength = 2147483647;
+                this.columnNombre_Subgrupo.AllowDBNull = false;
+                this.columnNombre_Subgrupo.MaxLength = 2147483647;
+                this.columnCod_Persona.AllowDBNull = false;
+                this.columnCod_Persona.MaxLength = 2147483647;
+                this.columnFecha_Nac.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Genera_CarnetRow NewGenera_CarnetRow() {
+                return ((Genera_CarnetRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Genera_CarnetRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Genera_CarnetRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Genera_CarnetRowChanged != null)) {
+                    this.Genera_CarnetRowChanged(this, new Genera_CarnetRowChangeEvent(((Genera_CarnetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Genera_CarnetRowChanging != null)) {
+                    this.Genera_CarnetRowChanging(this, new Genera_CarnetRowChangeEvent(((Genera_CarnetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Genera_CarnetRowDeleted != null)) {
+                    this.Genera_CarnetRowDeleted(this, new Genera_CarnetRowChangeEvent(((Genera_CarnetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Genera_CarnetRowDeleting != null)) {
+                    this.Genera_CarnetRowDeleting(this, new Genera_CarnetRowChangeEvent(((Genera_CarnetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveGenera_CarnetRow(Genera_CarnetRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSetScout ds = new DataSetScout();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Genera_CarnetDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4471,17 +4850,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nombre_Tipo_Grupo {
-                get {
-                    return ((string)(this[this.tableDataTable7.Nombre_Tipo_GrupoColumn]));
-                }
-                set {
-                    this[this.tableDataTable7.Nombre_Tipo_GrupoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Descripcion {
                 get {
                     return ((string)(this[this.tableDataTable7.DescripcionColumn]));
@@ -4521,6 +4889,17 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 }
                 set {
                     this[this.tableDataTable7.ApellidosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Nombre_Subgrupo {
+                get {
+                    return ((string)(this[this.tableDataTable7.Nombre_SubgrupoColumn]));
+                }
+                set {
+                    this[this.tableDataTable7.Nombre_SubgrupoColumn] = value;
                 }
             }
         }
@@ -4631,6 +5010,98 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCedulaNull() {
                 this[this.tableDataTable8.CedulaColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Genera_CarnetRow : global::System.Data.DataRow {
+            
+            private Genera_CarnetDataTable tableGenera_Carnet;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Genera_CarnetRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGenera_Carnet = ((Genera_CarnetDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Nombres {
+                get {
+                    return ((string)(this[this.tableGenera_Carnet.NombresColumn]));
+                }
+                set {
+                    this[this.tableGenera_Carnet.NombresColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Apellidos {
+                get {
+                    return ((string)(this[this.tableGenera_Carnet.ApellidosColumn]));
+                }
+                set {
+                    this[this.tableGenera_Carnet.ApellidosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Nombre_Departamento {
+                get {
+                    return ((string)(this[this.tableGenera_Carnet.Nombre_DepartamentoColumn]));
+                }
+                set {
+                    this[this.tableGenera_Carnet.Nombre_DepartamentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Nombre_Grupo {
+                get {
+                    return ((string)(this[this.tableGenera_Carnet.Nombre_GrupoColumn]));
+                }
+                set {
+                    this[this.tableGenera_Carnet.Nombre_GrupoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Nombre_Subgrupo {
+                get {
+                    return ((string)(this[this.tableGenera_Carnet.Nombre_SubgrupoColumn]));
+                }
+                set {
+                    this[this.tableGenera_Carnet.Nombre_SubgrupoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cod_Persona {
+                get {
+                    return ((string)(this[this.tableGenera_Carnet.Cod_PersonaColumn]));
+                }
+                set {
+                    this[this.tableGenera_Carnet.Cod_PersonaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Fecha_Nac {
+                get {
+                    return ((global::System.DateTime)(this[this.tableGenera_Carnet.Fecha_NacColumn]));
+                }
+                set {
+                    this[this.tableGenera_Carnet.Fecha_NacColumn] = value;
+                }
             }
         }
         
@@ -5867,6 +6338,40 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class Genera_CarnetRowChangeEvent : global::System.EventArgs {
+            
+            private Genera_CarnetRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Genera_CarnetRowChangeEvent(Genera_CarnetRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Genera_CarnetRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public class DataTable1RowChangeEvent : global::System.EventArgs {
             
             private DataTable1Row eventRow;
@@ -6974,11 +7479,11 @@ FROM            Grupos INNER JOIN
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "DataTable7";
-            tableMapping.ColumnMappings.Add("Nombre_Tipo_Grupo", "Nombre_Tipo_Grupo");
             tableMapping.ColumnMappings.Add("Descripcion", "Descripcion");
             tableMapping.ColumnMappings.Add("Nombre_Grupo", "Nombre_Grupo");
             tableMapping.ColumnMappings.Add("Nombres", "Nombres");
             tableMapping.ColumnMappings.Add("Apellidos", "Apellidos");
+            tableMapping.ColumnMappings.Add("Nombre_Subgrupo", "Nombre_Subgrupo");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -6995,12 +7500,12 @@ FROM            Grupos INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Tipo_Grupos.Nombre_Tipo_Grupo, SubGrupos.Descripcion, Grupos.Nombre_Grupo, Personas.Nombres, Personas.Apellidos
-FROM            Grupos INNER JOIN
-                         Personas_Asistente ON Grupos.Id = Personas_Asistente.Id INNER JOIN
+            this._commandCollection[0].CommandText = @"SELECT        SubGrupos.Nombre_Subgrupo, SubGrupos.Descripcion, Grupos.Nombre_Grupo, Personas.Nombres, Personas.Apellidos
+FROM            Tipo_Grupos INNER JOIN
+                         SubGrupos ON Tipo_Grupos.Id = SubGrupos.Tipo_GrupoId INNER JOIN
+                         Personas_Asistente ON SubGrupos.AsistenteId = Personas_Asistente.Id INNER JOIN
                          Personas ON Personas_Asistente.Id = Personas.Id INNER JOIN
-                         SubGrupos ON Grupos.Id = SubGrupos.GrupoId AND Personas_Asistente.Id = SubGrupos.AsistenteId INNER JOIN
-                         Tipo_Grupos ON SubGrupos.Tipo_GrupoId = Tipo_Grupos.Id";
+                         Grupos ON SubGrupos.GrupoId = Grupos.Id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7199,6 +7704,193 @@ FROM            Personas INNER JOIN
         public virtual DataSetScout.DataTable8DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             DataSetScout.DataTable8DataTable dataTable = new DataSetScout.DataTable8DataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Genera_CarnetTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public Genera_CarnetTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Genera_Carnet";
+            tableMapping.ColumnMappings.Add("Nombres", "Nombres");
+            tableMapping.ColumnMappings.Add("Apellidos", "Apellidos");
+            tableMapping.ColumnMappings.Add("Nombre_Departamento", "Nombre_Departamento");
+            tableMapping.ColumnMappings.Add("Nombre_Grupo", "Nombre_Grupo");
+            tableMapping.ColumnMappings.Add("Nombre_Subgrupo", "Nombre_Subgrupo");
+            tableMapping.ColumnMappings.Add("Cod_Persona", "Cod_Persona");
+            tableMapping.ColumnMappings.Add("Fecha_Nac", "Fecha_Nac");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.Genera_Carnet";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_Miembro", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DataSetScout.Genera_CarnetDataTable dataTable, global::System.Nullable<int> Id_Miembro) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Id_Miembro.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Miembro.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DataSetScout.Genera_CarnetDataTable GetData(global::System.Nullable<int> Id_Miembro) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Id_Miembro.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Miembro.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            DataSetScout.Genera_CarnetDataTable dataTable = new DataSetScout.Genera_CarnetDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

@@ -18,7 +18,7 @@
                 <a href="@Url.Action("SolicitudTutor", "Personas")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Nuevo Tutor">
                     Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
                 </a>
-                <a href="@Url.Action("RepAdulto", "Tutorias")" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+                <a href="@Url.Action("RepAdulto", "Tutorias")" target="_blank"class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
                     <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
                 </a>
 
@@ -35,7 +35,7 @@
                     @Html.DisplayNameFor(model => model.Parentezco)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Persona.Nombres)
+                    @Html.DisplayNameFor(model => model.Persona.Nombres ) 
                 </th>
                 <th></th>
             </tr>
@@ -47,7 +47,7 @@
                         @Html.DisplayFor(modelItem => item.Parentezco)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Persona.Nombres)
+                        @item.Persona.Nombres @item.Persona.Apellidos
                     </td>
                     <td>
 

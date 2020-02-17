@@ -240,6 +240,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BDNiscoutDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDNiscoutDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdultoesController.cs" />
     <Compile Include="Controllers\AsistentesController.cs" />
@@ -1006,6 +1011,17 @@
       <DependentUpon>DataSetScout.xsd</DependentUpon>
     </Content>
     <Content Include="Content\scss\widgets\_backgrounds.scss" />
+    <Content Include="BDNiscoutDataSet.xsc">
+      <DependentUpon>BDNiscoutDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="BDNiscoutDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDNiscoutDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="BDNiscoutDataSet.xss">
+      <DependentUpon>BDNiscoutDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Models\ReporteScouts\DataSetScout.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -1106,6 +1122,10 @@
     <Content Include="Views\Tutorias\Edit.cshtml" />
     <Content Include="Views\Tutorias\Index.cshtml" />
     <Content Include="Views\Tutorias\TutorSolicitud.cshtml" />
+    <Content Include="Views\Reportes\ReporCarnet.cshtml" />
+    <Content Include="Views\Reportes\ReporPersonas.cshtml" />
+    <Content Include="Views\Reportes\ReporUnidades.cshtml" />
+    <Content Include="Views\Reportes\ReporGrupos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -1114,12 +1134,16 @@
   <ItemGroup>
     <EmbeddedResource Include="Reportes\RepAdmin.rdlc" />
     <EmbeddedResource Include="Reportes\RepAdultos.rdlc" />
+    <EmbeddedResource Include="Reportes\RepCarnet.rdlc" />
     <EmbeddedResource Include="Reportes\RepCentro.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepGrupos.rdlc" />
     <EmbeddedResource Include="Reportes\RepJovenes.rdlc" />
     <EmbeddedResource Include="Reportes\RepPatro.rdlc" />
+    <EmbeddedResource Include="Reportes\RepPersonas.rdlc" />
     <EmbeddedResource Include="Reportes\RepUbicaciones.rdlc" />
+    <EmbeddedResource Include="Reportes\RepUnidades.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
