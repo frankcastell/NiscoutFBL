@@ -62,19 +62,16 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
             return View(tutoria);
         }
-
-
-
+        
         ///vista tutor
         ///
-        [AllowAnonymous]
+      
         public ActionResult TutorSolicitud(int idpersona)
         {
             ViewBag.Persona = db.Personas.Where(x => x.Id == idpersona).FirstOrDefault();
             return View();
         }
-
-        [AllowAnonymous]
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult TutorSolicitud([Bind(Include = "Id,Parentezco,PersonaId")] Tutoria tutoria)

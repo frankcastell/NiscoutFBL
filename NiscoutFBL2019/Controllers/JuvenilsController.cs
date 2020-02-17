@@ -116,7 +116,7 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro");
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
 
-            ViewBag.Persona = db.Personas.Where(x => x.Id == idtutor).FirstOrDefault();
+            ViewBag.Tutoria = db.Tutorias.Where(x => x.Id == idtutor).FirstOrDefault();
             return View();
         }
         //Nuevo ...
