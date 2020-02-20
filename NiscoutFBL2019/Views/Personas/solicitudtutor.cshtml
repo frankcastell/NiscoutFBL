@@ -4,9 +4,9 @@
     ViewBag.Title = "solicitudtutor";
 }
 
-<h4 style="text-align:center" class="form-control"><strong>Paso #1 Registro de Datos Personales del Tutor...</strong> </h4>
+<h4 style="text-align:center" class="form-control"><strong> Registro de Datos Personales del Tutor...</strong> </h4>
 <br /><br />
-<h2>Nueva Solicitud</h2>
+
 
 @using (Html.BeginForm())
 {
@@ -146,14 +146,11 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn waves-effect waves-purple btn-danger hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Siguiente..." class="btn btn-outline-success" />
+                    <input src="@Url.Content("~/Content/Ico/guardar.png")" type="image" value="Guardar" width="25" class="btn waves-effect waves-light btn-outline-info" title="Guardar Registro de Tutor" /> &nbsp;
+
+                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Cancelar Registro">
+                        <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
+                    </a>
                 </div>
             </div>
         </div>

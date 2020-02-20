@@ -164,13 +164,12 @@ namespace NiscoutFBL2019.Controllers
                 //generar el carnet
                 //persona.Cod_Persona = "NS-" + System.DateTime.Today.Year.ToString() + persona.Id.ToString();
                 //db.SaveChanges();
-
-                ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", persona.DepartamentoId);
+                //return RedirectToAction("tutorsolicitud", "Tutorias", new { idpersona = persona.Id });
                 return RedirectToAction("tutorsolicitud", "Tutorias", new { idpersona = persona.Id });
             }
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", persona.DepartamentoId);
 
-           
-            return View("Index");
+            return RedirectToAction("Index");
         }
         // GET: Personas/Edit/5
         public ActionResult Edit(int? id)
