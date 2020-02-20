@@ -73,10 +73,10 @@
                     @Html.DisplayNameFor(model => model.Tipo_Sangre)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
+                    @Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Cargo.Cod_Cargo)
+                    @Html.DisplayNameFor(model => model.Cargo.Nombre_Cargo)
                 </th>
                 <th></th>
             </tr>
@@ -127,10 +127,10 @@
                         @Html.DisplayFor(modelItem => item.Tipo_Sangre)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Departamento.Cod_Departamento)
+                        @Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Cargo.Cod_Cargo)
+                        @Html.DisplayFor(modelItem => item.Cargo.Nombre_Cargo )
                     </td>
                     <td>
                         <a href="@Url.Action("Edit", "Personal_Admon",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
@@ -141,6 +141,9 @@
                         </a>
                         <a href="@Url.Action("Delete", "Personal_Admon",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
                             <img width="25" src="~/Content/Ico/eliminar.png" />
+                        </a>
+                        <a href="@Url.Action("ReporCarnetAdmin2", "Reportes", new { id = item.Id })" target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Carnet">
+                            <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
                         </a>
                     </td>
                 </tr>

@@ -125,6 +125,41 @@ namespace NiscoutFBL2019.Controllers.ReportesNiscouts
             ViewBag.rpt = rpt;
             return View();
         }
+        public ActionResult ReporCarnetAdmin(int id) // Inicio Reporte Carnetadmin
+        {
+            Generar_CarneADMINTableAdapter P = new Generar_CarneADMINTableAdapter();
+            ReportViewer rpt = new ReportViewer();
+            //rpt.LocalReport.SetParameters()
+
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepCarnetADMIN.rdlc");
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", P.GetData(id).ToList()));
+            rpt.LocalReport.Refresh();
+
+            rpt.AsyncRendering = false;
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
+            return View();
+        }
+
+        public ActionResult ReporCarnetAdmin2(int id) // Inicio Reporte Carnetadmin Personal Admin
+        {
+            Generar_CarneADMIN2TableAdapter P = new Generar_CarneADMIN2TableAdapter();
+            ReportViewer rpt = new ReportViewer();
+            //rpt.LocalReport.SetParameters()
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath + @"Reportes/RepCarnetAdmin2.rdlc");
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", P.GetData(id).ToList()));
+            rpt.LocalReport.Refresh();
+            rpt.AsyncRendering = false;
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
+            return View();
+        }
         public ActionResult ReporUbicaciones() // Inicio Reporte Ubicaciones
         {
 
@@ -216,6 +251,7 @@ namespace NiscoutFBL2019.Controllers.ReportesNiscouts
             ViewBag.rpt = rpt;
             return View();
         }
+
         
     }
 }
