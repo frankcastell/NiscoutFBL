@@ -1,4 +1,4 @@
-﻿@model IEnumerable < NiscoutFBL2019.Models.UserRoles >
+﻿
     @{
     ViewBag.Title = "Index";
 }
@@ -7,63 +7,83 @@
 <p>
     <button onclick="location.href='@Url.Action("Register")'" type="button" class="btn btn-success">Nuevo Usuario</button>
 </p>
-<div class="stylepagination">
-    <table id="usersadm" class="table nowrap table-bordered table-hover display">
-        <thead>
-            <tr>
-                <th>
-                    Nombre
-                </th>
-                <th>
-                    Apellido
-                </th>
-                <th>
-                    Correo
-                </th>
-                <th>
-                   Rol
-                </th>
-                <th><span class="glyphicon glyphicon-cog"></span> Administrar</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Apellido)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserName )
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Role )
-                    </td>
-                    <td style="text-align: center;">
-                        <div class="btn-group btn-group-sm">
-                            @using (Html.BeginForm("Delete", "Account", new { id = item.Id }))
-                            {
-                                <button class="btn btn-danger btn-xs" type="submit">Dar de BAJA</button>
-                            }
-                            @using (Html.BeginForm("Edit", "Account", new { id = item.Id }))
-                            {
-                                <button class="btn btn-danger btn-xs" type="submit">Editar</button>
-                            }
-                            @*<button onclick="location.href='@Url.Action("Delete", "Account", new { id = item.Id })'" type="button" class="btn btn-default">Eliminar</button>*@
-                            @*<button onclick="location.href='@Url.Action("Edit", "Account", new { id = item.Id })'" type="button" class="btn btn-default">editar</button>*@
-                        </div>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table id="tableUsuarios" class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Apellido
+                        </th>
+                        <th>
+                            Correo
+                        </th>
+                        <th>
+                            Rol
+                        </th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        var dataTable;
+        $(function () {
+            dataTable = $("#tableUsuarios").DataTable({
+                "ajax": {
+                "url": "@Url.Action("Listar", "Account")",
+                "type": "GET",
+                "dataType": "JSON"
+            }, "columns": [
+                { "data": "Nombre" },
+                { "data": "Apellido" },
+                { "data": "Email" },
+                
+                {
+                "data": "Id", "render": function (data) {
+                    var buttons = '<a href="@Url.Action("Roles", "Account")/' + data + '" class="btn  btn-success" <span><i class="fa fa-edit"></i> </span> Rol </a> |';
+                    buttons += '<a href="@Url.Action("Edit", "Account")/' + data + '" class="btn  btn-warning" ><span><i class="fa fa-edit"></i> </span> Editar </a> |';
+                    buttons += ' <a href="@Url.Action("Delete", "Account")/' + data + '" class="btn  btn-danger"  <span> <i class="fa fa-trash"></i> </span> Eliminar </a>';
+                    return buttons;
+                }, "orderable": false, "searchable": false
+        },
 
+    ], "pageLength": 5, "language": {
+                "emptyTable": "Sin Procedimientos",
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json",
+            }
 
+        });
+        });
+    </script>
+}
 
-
+<div class="modal fade" id="modal-default" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Roles del Usuario</h4>
+            </div>
+            <div class="modal-body" id="parcialCreateUpdate">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info pull-right" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
