@@ -1150,8 +1150,7 @@
     <Content Include="Views\Reportes\ReporPersonas.cshtml" />
     <Content Include="Views\Reportes\ReporUnidades.cshtml" />
     <Content Include="Views\Reportes\ReporGrupos.cshtml" />
-    <Content Include="Views\Reportes\ReporCarnetAdmin.cshtml" />
-    <Content Include="Views\Reportes\ReporCarnetAdmin2.cshtml" />
+    <Content Include="Views\Personas\VistaTutores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -1161,8 +1160,6 @@
     <EmbeddedResource Include="Reportes\RepAdmin.rdlc" />
     <EmbeddedResource Include="Reportes\RepAdultos.rdlc" />
     <EmbeddedResource Include="Reportes\RepCarnet.rdlc" />
-    <EmbeddedResource Include="Reportes\RepCarnetADMIN.rdlc" />
-    <EmbeddedResource Include="Reportes\RepCarnetAdmin2.rdlc" />
     <EmbeddedResource Include="Reportes\RepCentro.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>

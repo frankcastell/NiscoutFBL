@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Index";
+    NiscoutFBL2019.Models.Persona persona = ViewBag.persona;
+    NiscoutFBL2019.Models.Tutoria tutor = ViewBag.tutor;
 }
 
 <h2>Registros de Juveniles</h2>
@@ -17,7 +19,7 @@
                 @Html.TextBox("buscar")
                 <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
 
-                <a href="@Url.Action("Create", "Juvenils")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar un Adulto">
+                <a href="@Url.Action("TutorSolicitud", "Tutorias")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar un Juvenil">
                     Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
                 </a>
                 <a href="@Url.Action("ReporJovenes", "Reportes")"target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
@@ -37,7 +39,7 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Cod_Persona)
+                    Código
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Nombres)
@@ -88,7 +90,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Tutoria.Parentezco)
                 </th>
-                <th></th>
+                <th> Accion</th>
             </tr>
         </thead>
         @if (Model.Count() == 0)
@@ -155,15 +157,15 @@
                             @Html.DisplayFor(modelItem => item.Tutoria.Parentezco)
                         </td>
                         <td>
-                            <a href="@Url.Action("Edit", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                            <a href="@Url.Action("Edit", "Juvenils",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
                                 <img width="25" src="~/Content/Ico/Editar.png" />
                             </a>
-                            <a href="@Url.Action("Details", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                            <a href="@Url.Action("Details", "Juvenils",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
                                 <img width="25" src="~/Content/Ico/Ver_detalles.png" />
                             </a>
-                            <a href="@Url.Action("Delete", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                            @*<a href="@Url.Action("Delete", "Juvenils",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
                                 <img width="25" src="~/Content/Ico/eliminar.png" />
-                            </a>
+                            </a>*@
 
                          </td>
                     </tr>

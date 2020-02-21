@@ -31,7 +31,7 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Cod_Persona)
+                    Código
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Nombres)
@@ -73,8 +73,7 @@
                     @Html.DisplayNameFor(model => model.Tipo_Sangre)
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)*@
-                    Departamento
+                     Departamento
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Nombre_Insti)
@@ -85,7 +84,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Trabajo)
                 </th>
-                <th></th>
+                <th> Accion</th>
             </tr>
         </thead>
 
@@ -161,9 +160,9 @@
                         <a href="@Url.Action("Details", "Patrocinadors",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
                             <img width="25" src="~/Content/Ico/Ver_detalles.png" />
                         </a>
-                        <a href="@Url.Action("Delete", "Patrocinadors",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                        @*<a href="@Url.Action("Delete", "Patrocinadors",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
                             <img width="25" src="~/Content/Ico/eliminar.png" />
-                        </a>
+                        </a>*@
                     </td>
                 </tr>
             }
