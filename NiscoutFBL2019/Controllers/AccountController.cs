@@ -332,7 +332,11 @@ namespace NiscoutFBL2019.Controllers
             EditViewModel model = new EditViewModel { Nombre = user.Nombre,Apellido=user.Apellido, Email = user.Email, Roles = rol };
             return View(model);
         }
-        // Metodo Eliminar Usuario
+
+
+
+
+        //Metodo Eliminar Usuario
         public ActionResult Delete(string Id)
         {
             if (Id == null)
@@ -349,7 +353,7 @@ namespace NiscoutFBL2019.Controllers
                        join u in user.Roles
                        on item.Id equals u.RoleId
                        select item.Name).ToArray<string>();
-            EditViewModel model = new EditViewModel { Nombre = user.Nombre, Apellido = user.Apellido, Email = user.Email,  Roles = rol };
+            EditViewModel model = new EditViewModel { Nombre = user.Nombre, Apellido = user.Apellido, Email = user.Email, Roles = rol };
             return View(model);
         }
         [Authorize]
@@ -361,7 +365,7 @@ namespace NiscoutFBL2019.Controllers
             int final = db.SaveChanges();
             return RedirectToAction("Index");
         }
-       
+
         // GET: /Account/Register
         [Authorize]        
         public ActionResult Register()
