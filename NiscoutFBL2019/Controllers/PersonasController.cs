@@ -66,7 +66,14 @@ namespace NiscoutFBL2019.Controllers
             return View();
         }
 
-       
+       public ActionResult VistaTutores()
+        {
+            var personas = db.Personas.Include(p => p.Departamento);
+
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
+
+            return View(personas.ToList());
+        }
         public ActionResult Listarnotificacion()
         {
 
@@ -102,18 +109,21 @@ namespace NiscoutFBL2019.Controllers
                 //si se creo con exito
                 if (chkUser.Succeeded)
                 {
-                    ManejadorUsuario.AddToRole(user.Id, "Usuario");
+                    ManejadorUsuario.AddToRole(user.Id, "Tutores");
                 }
                 //generar el carnet
                 //persona.Cod_Persona = "NS-" + System.DateTime.Today.Year.ToString() + persona.Id.ToString();
                 //db.SaveChanges();
 
                 return RedirectToAction("Create", "Tutorias", new { idpersona = persona.Id });
+                //return View("Index");
             }
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", persona.DepartamentoId);
             return View(persona);
         }
+
+       
 
         [AllowAnonymous]
         public ActionResult SolicitudTutor( )
@@ -167,9 +177,10 @@ namespace NiscoutFBL2019.Controllers
 
                 ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", persona.DepartamentoId);
                 //return RedirectToAction("tutorsolicitud", "Tutorias", new { idpersona = persona.Id });
-                return RedirectToAction("Login", "Account");
+                //var idpersona = new { idpersona = persona.Id };
+                return RedirectToAction("Login", "Account",new { idpersona = persona.Id });
             }
-
+            
             return RedirectToAction("Index");
         }
         // GET: Personas/Edit/5

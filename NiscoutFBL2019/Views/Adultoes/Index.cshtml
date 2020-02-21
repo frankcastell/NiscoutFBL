@@ -75,9 +75,10 @@
                     @Html.DisplayNameFor(model => model.Tipo_Sangre)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)
+                    @*@Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)*@
+                    Departamento
                 </th>
-                <th></th>
+                <th>Accion</th>
         </thead>
         @if (Model.Count() == 0)
         {
@@ -144,9 +145,9 @@
                             <a href="@Url.Action("Details", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
                                 <img width="25" src="~/Content/Ico/Ver_detalles.png" />
                             </a>
-                            <a href="@Url.Action("Delete", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                            @*<a href="@Url.Action("Delete", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
                                 <img width="25" src="~/Content/Ico/eliminar.png" />
-                            </a>
+                            </a>*@
                         </td>
                     </tr>
                 </tbody>

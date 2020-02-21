@@ -31,7 +31,7 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Cod_Persona)
+                    Código
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Nombres)
@@ -73,9 +73,9 @@
                     @Html.DisplayNameFor(model => model.Tipo_Sangre)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)
+                   Departamento
                 </th>
-                <th></th>
+                <th> Accion</th>
             </tr>
             </thead>
             @foreach (var item in Model)
@@ -124,7 +124,8 @@
                         @Html.DisplayFor(modelItem => item.Tipo_Sangre)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)
+                        @*@Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)*@
+                        Departamento
                     </td>
                     <td>
                         <a href="@Url.Action("Edit", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
@@ -133,9 +134,9 @@
                         <a href="@Url.Action("Details", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
                             <img width="25" src="~/Content/Ico/Ver_detalles.png" />
                         </a>
-                        <a href="@Url.Action("Delete", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                        @*<a href="@Url.Action("Delete", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
                             <img width="25" src="~/Content/Ico/eliminar.png" />
-                        </a>
+                        </a>*@
                     </td>
                 </tr>
             }

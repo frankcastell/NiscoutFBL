@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "TutorSolicitud";
-    NiscoutFBL2019.Models.Persona persona = ViewBag.persona;
+    NiscoutFBL2019.Models.Persona PersonaId = ViewBag.PersonaId;
 }
 
 <h2>TutorSolicitud</h2>
@@ -18,8 +18,8 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.PersonaId, "Persona", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <input type="hidden" id="PersonaId" name="PersonaId" value="@persona.Id" />
-                    <label><strong> @persona.Nombres @persona.Apellidos</strong></label>
+                    <input type="hidden" id="PersonaId" name="PersonaId" value="@PersonaId.Id" />
+                    <label><strong> @PersonaId.Nombres @PersonaId.Apellidos</strong></label>
                 </div>
             </div>
 

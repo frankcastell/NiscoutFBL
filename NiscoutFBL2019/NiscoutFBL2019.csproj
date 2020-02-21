@@ -1126,6 +1126,7 @@
     <Content Include="Views\Reportes\ReporPersonas.cshtml" />
     <Content Include="Views\Reportes\ReporUnidades.cshtml" />
     <Content Include="Views\Reportes\ReporGrupos.cshtml" />
+    <Content Include="Views\Personas\VistaTutores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

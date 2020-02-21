@@ -15,6 +15,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace NiscoutFBL2019.Controllers
 {
+    [Authorize]
     public class JuvenilsController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
@@ -47,7 +48,7 @@ namespace NiscoutFBL2019.Controllers
         }
 
         // GET: Juvenils/Create
-        public ActionResult Create()
+        public ActionResult Create( int idtutor)
         {
             
         ViewBag.sexo = new SelectList(new[] {
@@ -59,7 +60,7 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro");
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
 
-            //ViewBag.Persona = db.Personas.Where(x => x.Id == idtutor).FirstOrDefault();
+            ViewBag.Persona = db.Personas.Where(x => x.Id == idtutor).FirstOrDefault();
             return View();
         }
 
@@ -116,7 +117,7 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro");
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
 
-            ViewBag.Persona = db.Personas.Where(x => x.Id == idtutor).FirstOrDefault();
+            ViewBag.TutoriaId = db.Tutorias.Where(x => x.Id == idtutor).FirstOrDefault();
             return View();
         }
         //Nuevo ...
