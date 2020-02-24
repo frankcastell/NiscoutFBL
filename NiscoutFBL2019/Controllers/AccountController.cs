@@ -23,8 +23,11 @@ namespace NiscoutFBL2019.Controllers
         private ApplicationUserManager _userManager;
         private List<string> asignacionesLista;
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        [Authorize]
         public JsonResult Listar()
         {
+
 
             var list = db.Users.ToList();
             return Json(new { data = list }, JsonRequestBehavior.AllowGet);
@@ -62,7 +65,7 @@ namespace NiscoutFBL2019.Controllers
                 _userManager = value;
             }
         }
-
+        [Authorize]
         public ActionResult Roles(string id)
         {
             if (id == null)
@@ -312,14 +315,18 @@ namespace NiscoutFBL2019.Controllers
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             return View(model);
         }
-        [Authorize]
-        public ActionResult Details(string Id)
+       
+
+
+
+        //Metodo Eliminar Usuario
+        public ActionResult Delete(string id)
         {
-            if (Id == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var user = db.Users.Find(Id);
+            var user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -329,27 +336,7 @@ namespace NiscoutFBL2019.Controllers
                        join u in user.Roles
                        on item.Id equals u.RoleId
                        select item.Name).ToArray<string>();
-            EditViewModel model = new EditViewModel { Nombre = user.Nombre,Apellido=user.Apellido, Email = user.Email, Roles = rol };
-            return View(model);
-        }
-        // Metodo Eliminar Usuario
-        public ActionResult Delete(string Id)
-        {
-            if (Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var user = db.Users.Find(Id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            var roles = db.Roles.ToList();
-            var rol = (from item in roles
-                       join u in user.Roles
-                       on item.Id equals u.RoleId
-                       select item.Name).ToArray<string>();
-            EditViewModel model = new EditViewModel { Nombre = user.Nombre, Apellido = user.Apellido, Email = user.Email,  Roles = rol };
+            EditViewModel model = new EditViewModel { Id=user.Id, Nombre = user.Nombre, Apellido = user.Apellido, Email = user.Email, Roles = rol };
             return View(model);
         }
         [Authorize]
@@ -361,7 +348,7 @@ namespace NiscoutFBL2019.Controllers
             int final = db.SaveChanges();
             return RedirectToAction("Index");
         }
-       
+
         // GET: /Account/Register
         [Authorize]        
         public ActionResult Register()

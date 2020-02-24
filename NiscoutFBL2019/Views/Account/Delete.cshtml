@@ -9,15 +9,21 @@
 <div>
     <dl class="dl-horizontal">
         <dt>
-            Usuario
+            Nombre
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Nombre)
         </dd>
-
         <dt>
             Apellido
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+        <dt>
+            Email
         </dt>
 
         <dd>
@@ -43,8 +49,8 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" />
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn betn-default" />
         </div>
     }
 </div>

@@ -15,8 +15,9 @@ namespace NiscoutFBL2019.Controllers
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
-        // GET: Tutorias
-        public ActionResult Index()
+       
+    // GET: Tutorias
+    public ActionResult Index()
         {
             var tutorias = db.Tutorias.Include(t => t.Persona);
             return View(tutorias.ToList());
@@ -38,7 +39,7 @@ namespace NiscoutFBL2019.Controllers
         }
 
         // GET: Tutorias/Create
-        public ActionResult Create(int idpersona)
+        public ActionResult Create(int idpersona )
         {
             ViewBag.PersonaId = db.Personas.Where(x => x.Id == idpersona).FirstOrDefault();
             //ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres");
@@ -62,16 +63,20 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
             return View(tutoria);
         }
-        
+
+
+
         ///vista tutor
         ///
-      
+        [AllowAnonymous]
         public ActionResult TutorSolicitud(int idpersona)
         {
             ViewBag.Persona = db.Personas.Where(x => x.Id == idpersona).FirstOrDefault();
             return View();
         }
-        
+
+
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult TutorSolicitud([Bind(Include = "Id,Parentezco,PersonaId")] Tutoria tutoria)

@@ -399,6 +399,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AdminLTE.min.css" />
     <Content Include="Content\assets\images\big\img1.jpg" />
     <Content Include="Content\assets\images\custom-select.png" />
     <Content Include="Content\assets\images\favicon.png" />
@@ -505,6 +506,19 @@
     <Content Include="Content\css\pages\table-pages.css" />
     <Content Include="Content\css\spinners.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTables\css\dataTables.foundation.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTables\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.semanticui.css" />
+    <Content Include="Content\DataTables\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.min.css" />
     <Content Include="Content\Ico\cancelar.png" />
     <Content Include="Content\Ico\Editar.png" />
     <Content Include="Content\Ico\eliminar.png" />
@@ -566,6 +580,14 @@
     </Content>
     <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Repor\Datos.aspx" />
+    <Content Include="Scripts\adminlte.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.min.js" />
     <Content Include="Scripts\js\swiper.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -638,6 +660,8 @@
     <Content Include="Scripts\js\perfect-scrollbar.jquery.min.js" />
     <Content Include="Scripts\js\sidebarmenu.js" />
     <Content Include="Scripts\js\waves.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1126,6 +1150,7 @@
     <Content Include="Views\Reportes\ReporPersonas.cshtml" />
     <Content Include="Views\Reportes\ReporUnidades.cshtml" />
     <Content Include="Views\Reportes\ReporGrupos.cshtml" />
+    <Content Include="Views\Personas\VistaTutores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

@@ -15,7 +15,7 @@
             <div>
                 <hr />
 
-                <a href="@Url.Action("SolicitudTutor", "Personas")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Nuevo Tutor">
+                <a href="@Url.Action("Create", "Personas")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Nuevo Tutor">
                     Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
                 </a>
                 <a href="@Url.Action("RepAdulto", "Tutorias")" target="_blank"class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
@@ -31,11 +31,12 @@
     <table>
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Parentezco)
-                </th>
+               
                 <th>
                     @Html.DisplayNameFor(model => model.Persona.Nombres ) 
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Parentezco)
                 </th>
                 <th></th>
             </tr>
@@ -43,11 +44,12 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Parentezco)
-                    </td>
+                   
                     <td>
                         @item.Persona.Nombres @item.Persona.Apellidos
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parentezco)
                     </td>
                     <td>
 
