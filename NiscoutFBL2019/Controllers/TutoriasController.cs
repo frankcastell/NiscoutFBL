@@ -57,7 +57,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 db.Tutorias.Add(tutoria);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("SolicitudJuvenil","Juvenils", new { idtutor  = tutoria.Id});
             }
 
             ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
@@ -68,7 +68,7 @@ namespace NiscoutFBL2019.Controllers
 
         ///vista tutor
         ///
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public ActionResult TutorSolicitud(int idpersona)
         {
             ViewBag.Persona = db.Personas.Where(x => x.Id == idpersona).FirstOrDefault();
@@ -76,7 +76,7 @@ namespace NiscoutFBL2019.Controllers
         }
 
 
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult TutorSolicitud([Bind(Include = "Id,Parentezco,PersonaId")] Tutoria tutoria)
@@ -86,7 +86,7 @@ namespace NiscoutFBL2019.Controllers
                 db.Tutorias.Add(tutoria);
                 db.SaveChanges();
                 ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
-                return RedirectToAction("SolicitudJuvenil", "Juvenils", new { idtutor  = tutoria.PersonaId });
+                return RedirectToAction("SolicitudJuvenil", "Juvenils", new { idtutor  = tutoria.Id });
                 //return View(tutoria);
             }
 

@@ -80,9 +80,9 @@
                             <a href="@Url.Action("Details", "Membresia_Juvenil",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
                                 <img width="25" src="~/Content/Ico/Ver_detalles.png" />
                             </a>
-                            <a href="@Url.Action("Delete", "Membresia_Juvenil",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                            @*<a href="@Url.Action("Delete", "Membresia_Juvenil",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
                                 <img width="25" src="~/Content/Ico/eliminar.png" />
-                            </a>
+                            </a>*@
                             
                             <a href="@Url.Action("ReporCarnet", "Reportes", new { id = item.Id })" target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Carnet">
                                 <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />

@@ -58,9 +58,9 @@ namespace NiscoutFBL2019.Controllers
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro");
-            ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
+            //ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
 
-            ViewBag.Persona = db.Personas.Where(x => x.Id == idtutor).FirstOrDefault();
+            ViewBag.TutoriaId = db.Tutorias.Find(idtutor);
             return View();
         }
 
@@ -115,9 +115,9 @@ namespace NiscoutFBL2019.Controllers
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro");
-            ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
+            //ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
 
-            ViewBag.TutoriaId = db.Tutorias.Where(x => x.Id == idtutor).FirstOrDefault();
+            ViewBag.TutoriaId = db.Tutorias.Find(idtutor);
             return View();
         }
         //Nuevo ...

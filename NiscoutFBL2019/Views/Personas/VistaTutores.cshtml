@@ -16,7 +16,7 @@
             @Html.TextBox("buscar")
             <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
 
-            <a href="@Url.Action("SolicitudTutor", "Personas")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Nuevo Personas">
+            <a href="@Url.Action("Create", "Personas")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Nuevo Personas">
                 Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
             </a>
             <a href="@Url.Action("ReporPersonas", "Reportes")" target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
@@ -36,8 +36,7 @@
             <thead>
                 <tr>
                     <th>
-                        @*@Html.DisplayNameFor(model => model.Cod_Persona)*@
-                        Cod.
+                        Codigo
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Nombres)
@@ -79,7 +78,7 @@
                         @Html.DisplayNameFor(model => model.Tipo_Sangre)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
+                       Departamento
                     </th>
                     <th> Accion</th>
                 </tr>
