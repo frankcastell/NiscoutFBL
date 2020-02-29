@@ -18,6 +18,9 @@ namespace NiscoutFBL2019
             // preparado para la producción y podrá utilizar la herramienta de compilación disponible en http://modernizr.com para seleccionar solo las pruebas que necesite.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                               "~/Content/assets/plugins/jquery/jquery.min.js",
@@ -25,6 +28,9 @@ namespace NiscoutFBL2019
                               "~/Content/assets/plugins/bootstrap/js/bootstrap.min.js",
                               "~/Scripts/js/perfect-scrollbar.jquery.min.js",
                               "~/Scripts/js/waves.js",
+                              "~/Scripts/adminlte.min.js",
+                              "~/Scripts/DataTables/jquery.dataTables.min.js",
+                              "~/Scripts/DataTables/dataTables.bootstrap.min.js",
                               "~/Scripts/js/sidebarmenu.js",
                               "~/Scripts/js/custom.min.js",
                               "~/Content/assets/plugins/chartist-js/dist/chartist.min.js",
@@ -39,6 +45,8 @@ namespace NiscoutFBL2019
                              "~/Content/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css",
                              "~/Content/assets/plugins/c3-master/c3.min.css",
                              "~/Content/css/style.css",
+                             "~/Content/AdminLTE.min.css",
+                             "~/Content/dataTables.bootstrap.min.css",
                              "~/Content/css/ButtonStyles.css",
                              "~/Content/css/pages/dashboard.css",
                              "~/Content/css/colors/default-dark.css"
