@@ -186,6 +186,7 @@ namespace NiscoutFBL2019.Controllers
         // GET: Personas/Edit/5
         public ActionResult Edit(int? id)
         {
+           
             ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }

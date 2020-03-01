@@ -271,6 +271,7 @@
     <Compile Include="Controllers\Personal_AdmonController.cs" />
     <Compile Include="Controllers\PersonasController.cs" />
     <Compile Include="Controllers\Progresion_JuvenilController.cs" />
+    <Compile Include="Controllers\ReportesNiscouts\ReporteParametrosController.cs" />
     <Compile Include="Controllers\ReportesNiscouts\ReportesController.cs" />
     <Compile Include="Controllers\ResponsablesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -567,6 +568,8 @@
     <Content Include="Content\scss\icons\themify-icons\ie7\ie7.css" />
     <Content Include="Content\scss\icons\themify-icons\ie7\ie7.js" />
     <Content Include="Content\scss\icons\themify-icons\themify-icons.css" />
+    <Content Include="Content\select2\select2.css" />
+    <Content Include="Content\select2\select2.min.css" />
     <Content Include="Models\ModeloNiscoutFBL.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModeloNiscoutFBL.Context.cs</LastGenOutput>
@@ -583,11 +586,15 @@
     <Content Include="Scripts\adminlte.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CRUD.js" />
+    <Content Include="Scripts\CRUDTesteo.js" />
     <Content Include="Scripts\DataTables\dataTables.bootstrap.js" />
     <Content Include="Scripts\DataTables\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\dataTables.jqueryui.min.js" />
     <Content Include="Scripts\DataTables\jquery.dataTables.js" />
     <Content Include="Scripts\DataTables\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\js\swiper.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -662,6 +669,10 @@
     <Content Include="Scripts\js\waves.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\select2\select2.full.js" />
+    <Content Include="Scripts\select2\select2.full.min.js" />
+    <Content Include="Scripts\select2\select2.js" />
+    <Content Include="Scripts\select2\select2.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1151,6 +1162,13 @@
     <Content Include="Views\Reportes\ReporUnidades.cshtml" />
     <Content Include="Views\Reportes\ReporGrupos.cshtml" />
     <Content Include="Views\Personas\VistaTutores.cshtml" />
+    <Content Include="Views\Reportes\ReporCarnetAdmin2.cshtml" />
+    <Content Include="Views\Reportes\ReporCarnetAdmin.cshtml" />
+    <Content Include="Views\Shared\_Modal.cshtml" />
+    <Content Include="Views\ReporteParametros\VistaPrevia.cshtml" />
+    <Content Include="Views\ReporteParametros\Informe.cshtml" />
+    <Content Include="Views\ReporteParametros\OficialReportes.cshtml" />
+    <Content Include="Views\ReporteParametros\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -1160,6 +1178,8 @@
     <EmbeddedResource Include="Reportes\RepAdmin.rdlc" />
     <EmbeddedResource Include="Reportes\RepAdultos.rdlc" />
     <EmbeddedResource Include="Reportes\RepCarnet.rdlc" />
+    <EmbeddedResource Include="Reportes\RepCarnetADMIN.rdlc" />
+    <EmbeddedResource Include="Reportes\RepCarnetAdmin2.rdlc" />
     <EmbeddedResource Include="Reportes\RepCentro.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -1167,6 +1187,7 @@
     <EmbeddedResource Include="Reportes\RepJovenes.rdlc" />
     <EmbeddedResource Include="Reportes\RepPatro.rdlc" />
     <EmbeddedResource Include="Reportes\RepPersonas.rdlc" />
+    <EmbeddedResource Include="Reportes\RepSexoParametro.rdlc" />
     <EmbeddedResource Include="Reportes\RepUbicaciones.rdlc" />
     <EmbeddedResource Include="Reportes\RepUnidades.rdlc" />
   </ItemGroup>

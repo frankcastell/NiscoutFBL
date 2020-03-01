@@ -28,6 +28,7 @@ namespace NiscoutFBL2019
                               "~/Content/assets/plugins/bootstrap/js/bootstrap.min.js",
                               "~/Scripts/js/perfect-scrollbar.jquery.min.js",
                               "~/Scripts/js/waves.js",
+                              "~/Scripts/CRUDTesteo.js",
                               "~/Scripts/adminlte.min.js",
                               "~/Scripts/DataTables/jquery.dataTables.min.js",
                               "~/Scripts/DataTables/dataTables.bootstrap.min.js",

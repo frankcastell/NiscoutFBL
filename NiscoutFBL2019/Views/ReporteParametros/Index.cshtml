@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Reportes Por parametros";
+}
+
+<h2>Index</h2>
+<!--Genera el Reporte pOr sexo -->
+<link href="~/Content/select2/select2.min.css" rel="stylesheet" />
+<script src="~/Scripts/select2/select2.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<div class="modal fade" id="modal-default" role="dialog">
+    <div class="modal-dialog" style="width: 25em;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Reporte</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row setup-content" id="step-1">
+                    <div class="col-lg">
+                        <div class="col-md-auto">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h5 class="text-center">Agregar Sexo generar Reporte</h5>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="card-body bg-light py-3">
+                                                <div class="form-row mb-1">
+                                                    <form action="~/ReporteParametros/Informe" method="get" id="frmReporte">
+                                                        <input type="hidden" value="Sexo" />
+
+                                                        <p>
+                                                            <div class="col-md-8">
+                                                                <input type="text" name="Sexo" id="sexo" class="form-control" />
+                                                            </div>
+                                                            <div class="col-md-8">                                                                
+                                                                <button class="btn btn-primary" type="submit" id="btnReport">Generar Reporte<i class="glyphicon glyphicon-save-file"></i> </button>
+                                                            </div>
+                                                        </p>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info pull-right" data-dismiss="modal">Cerrar</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/jquery.blockUI.js")
+    <script>
+    $("#frmReporte").submit(function (event) {
+        event.preventDefault();
+        var frm = $(this);
+        var url = frm.attr("action");
+        var parametro = frm.serialize();
+        url += "?" + parametro;
+        //console.log(url);
+        console.log(parametro);
+        window.open(url, "_blank")
+    });
+    </script>
+}
+
+<div class="row">
+
+    <div class="col-md-4 col-sm-6 col-xs-12 animated tada ">
+        <div class="info-box">
+
+            <span class="info-box-icon bg-aqua"><i class="fa fa-edit"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-text">Reportes Por sexo </span>
+                <span data-number="0" id="enproceso" class="info-box-number"><small></small></span>
+               
+                    <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-default" type="button">Vista previa <i class="fa fa-print"></i></button>
+
+            </div>
+            <!-- /.info-box-content -->
+            <!-- /.info-box -->
+
+        </div>
+
+
+    </div>
+
+</div>

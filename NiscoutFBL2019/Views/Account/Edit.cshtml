@@ -10,49 +10,7 @@
 
 <h2>@ViewBag.Title</h2>
 <div class="row">
-    @*<div class="col-md-12">
-        <div class="box box-widget widget-user">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-black" style="background: url('/Content/dist/img/photo1.png') center center;">
-                <h5 class="widget-user-desc"></h5>
-            </div>
-            <div class="widget-user-image">
-                <img class="img-circle" id="imgPrev" src="@Url.Action("Image", "Account", new {id = Model.Id } )" alt="User Avatar" style="width: 90px; height:90px">
-            </div>
-            <div class="box-footer">
-                <div class="row">
-                    <div class="col-sm-4 border-right">
-                        <div class="description-block">
-                            <h5 class="description-header"></h5>
-                            <span class="description-text"></span>
-                        </div>
-                        <!-- /.description-block -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-sm-4 border-right">
-                        <div class="description-block">
-                            <h5 class="description-header">Imagen de perfil</h5>
-                            <span class="description-text"><a href="#" onclick="showDialog()">Buscar <i class="fa fa-upload"></i></a></span>
-                        </div>
-                        <!-- /.description-block -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-sm-4">
-                        <div class="description-block">
-                            <h5 class="description-header"></h5>
-                            <span class="description-text"></span>
-                        </div>
-                        <!-- /.description-block -->
-                    </div>
-                    <!-- /.col -->
-                </div>
-                <!-- /.row -->
-                <div class="row">
-                    <div class="col-md-2 border-right"></div>
-                    <div class="col-md-8 border-right">*@
-
-
-
+  
     @using (Html.BeginForm("Edit", "Account", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data", role = "form" }))
     {
         @Html.AntiForgeryToken()
