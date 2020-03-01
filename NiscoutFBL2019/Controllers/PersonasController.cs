@@ -62,6 +62,17 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
                                                }, "Value", "Text");
 
+            ViewBag.Tipo_Sangre = new SelectList(new[] {
+                new SelectListItem { Value = "O+", Text = "O+" },
+                new SelectListItem { Value = "O-", Text = "O-" },
+                new SelectListItem { Value = "A+", Text = "A+" }, 
+                new SelectListItem { Value = "A-", Text = "A-" },
+                new SelectListItem { Value = "B+", Text = "B+" },
+                new SelectListItem { Value = "B-", Text = "B-" },
+                new SelectListItem { Value = "AB+", Text = "AB+" },
+                new SelectListItem { Value = "AB-", Text = "AB-" }
+                                               }, "Value", "Text");
+
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
         }
@@ -72,7 +83,27 @@ namespace NiscoutFBL2019.Controllers
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
 
+          
             return View(personas.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult VistaTutorespos(int idpersona, int idtutor)
+        {
+            var personas = db.Personas.Include(p => p.Departamento);
+
+            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
+
+
+          
+            
+            if (idpersona == idtutor )
+                {
+                    return View(personas.ToList());
+                }
+            
+            return View();
+            
         }
         public ActionResult Listarnotificacion()
         {
@@ -93,6 +124,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 db.Personas.Add(persona);
                 db.SaveChanges();
+
                 //accedemos al modelo de la seguridad integrada
                 ApplicationDbContext context = new ApplicationDbContext();
                 //definimos las variables manejadoras de roles y usuarios
@@ -139,6 +171,18 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
                 new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
                                                }, "Value", "Text");
+
+            ViewBag.Tipo_Sangre = new SelectList(new[] {
+                new SelectListItem { Value = "O+", Text = "O+" },
+                new SelectListItem { Value = "O-", Text = "O-" },
+                new SelectListItem { Value = "A+", Text = "A+" },
+                new SelectListItem { Value = "A-", Text = "A-" },
+                new SelectListItem { Value = "B+", Text = "B+" },
+                new SelectListItem { Value = "B-", Text = "B-" },
+                new SelectListItem { Value = "AB+", Text = "AB+" },
+                new SelectListItem { Value = "AB-", Text = "AB-" }
+                                               }, "Value", "Text");
+
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
           
             return View();
@@ -176,12 +220,13 @@ namespace NiscoutFBL2019.Controllers
                 //db.SaveChanges();
 
                 ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", persona.DepartamentoId);
-                //return RedirectToAction("tutorsolicitud", "Tutorias", new { idpersona = persona.Id });
-                //var idpersona = new { idpersona = persona.Id };
-                return RedirectToAction("Login", "Account",new { idpersona = persona.Id });
+
+                return RedirectToAction("Login", "Account", new { idpersona = persona.Id });
+             
             }
-            
-            return RedirectToAction("Index");
+
+            return RedirectToAction("TutorSolicitud", "Tutorias");
+
         }
         // GET: Personas/Edit/5
         public ActionResult Edit(int? id)
@@ -196,9 +241,20 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
                 new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
                 new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
-                new SelectListItem { Value = "Agutados", Text = "Aguntados" }
+                new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
                                                }, "Value", "Text");
 
+
+            ViewBag.Tipo_Sangre = new SelectList(new[] {
+                new SelectListItem { Value = "O+", Text = "O+" },
+                new SelectListItem { Value = "O-", Text = "O-" },
+                new SelectListItem { Value = "A+", Text = "A+" },
+                new SelectListItem { Value = "A-", Text = "A-" },
+                new SelectListItem { Value = "B+", Text = "B+" },
+                new SelectListItem { Value = "B-", Text = "B-" },
+                new SelectListItem { Value = "AB+", Text = "AB+" },
+                new SelectListItem { Value = "AB-", Text = "AB-" }
+                                               }, "Value", "Text");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

@@ -64,6 +64,17 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
                                                }, "Value", "Text");
 
+            ViewBag.Tipo_Sangre = new SelectList(new[] {
+                new SelectListItem { Value = "O+", Text = "O+" },
+                new SelectListItem { Value = "O-", Text = "O-" },
+                new SelectListItem { Value = "A+", Text = "A+" },
+                new SelectListItem { Value = "A-", Text = "A-" },
+                new SelectListItem { Value = "B+", Text = "B+" },
+                new SelectListItem { Value = "B-", Text = "B-" },
+                new SelectListItem { Value = "AB+", Text = "AB+" },
+                new SelectListItem { Value = "AB-", Text = "AB-" }
+                                               }, "Value", "Text");
+
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");           
             return View();
         }
@@ -119,6 +130,16 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
                 new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
                                                }, "Value", "Text");
+            ViewBag.Tipo_Sangre = new SelectList(new[] {
+                new SelectListItem { Value = "O+", Text = "O+" },
+                new SelectListItem { Value = "O-", Text = "O-" },
+                new SelectListItem { Value = "A+", Text = "A+" },
+                new SelectListItem { Value = "A-", Text = "A-" },
+                new SelectListItem { Value = "B+", Text = "B+" },
+                new SelectListItem { Value = "B-", Text = "B-" },
+                new SelectListItem { Value = "AB+", Text = "AB+" },
+                new SelectListItem { Value = "AB-", Text = "AB-" }
+                                               }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             return View();
         }
@@ -173,6 +194,16 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
                 new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
                 new SelectListItem { Value = "Agutados", Text = "Aguntados" }
+                                               }, "Value", "Text");
+            ViewBag.Tipo_Sangre = new SelectList(new[] {
+                new SelectListItem { Value = "O+", Text = "O+" },
+                new SelectListItem { Value = "O-", Text = "O-" },
+                new SelectListItem { Value = "A+", Text = "A+" },
+                new SelectListItem { Value = "A-", Text = "A-" },
+                new SelectListItem { Value = "B+", Text = "B+" },
+                new SelectListItem { Value = "B-", Text = "B-" },
+                new SelectListItem { Value = "AB+", Text = "AB+" },
+                new SelectListItem { Value = "AB-", Text = "AB-" }
                                                }, "Value", "Text");
             if (id == null)
             {
