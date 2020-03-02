@@ -46,7 +46,7 @@ namespace NiscoutFBL2019
                              "~/Content/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css",
                              "~/Content/assets/plugins/c3-master/c3.min.css",
                              "~/Content/css/style.css",
-                             "~/Content/AdminLTE.min.css",
+                             //"~/Content/AdminLTE.min.css",
                              "~/Content/dataTables.bootstrap.min.css",
                              "~/Content/css/ButtonStyles.css",
                              "~/Content/css/pages/dashboard.css",

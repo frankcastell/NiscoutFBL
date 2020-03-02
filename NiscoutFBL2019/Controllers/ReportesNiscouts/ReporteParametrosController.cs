@@ -14,6 +14,7 @@ namespace NiscoutFBL2019.Controllers.ReportesNiscouts
         // GET: ReporteParametros
         public ActionResult Index()
         {
+           
             return View();
         }
         //public ActionResult VistaPrevia(int? id)
