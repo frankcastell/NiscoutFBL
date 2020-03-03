@@ -14,8 +14,7 @@
     @using (Html.BeginForm("Index", "Personas", FormMethod.Get))
     {
         <div align="right">
-            <hr />
-            <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-default" type="button">Vista previa <i class="fa fa-print"></i></button>
+            <hr />            
 
             @Html.TextBox("buscar")
             <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
