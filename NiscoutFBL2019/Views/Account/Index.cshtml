@@ -2,6 +2,7 @@
     @{
     ViewBag.Title = "Index";
 }
+<link href="~/Content/AdminLTE.min.css" rel="stylesheet" />
 <h2>Usuarios del sistema</h2>
 
 <p>
@@ -9,7 +10,7 @@
 </p>
 <div class="row">
     <div class="col-md-12">
-        <div class="table-responsive">
+        <div  class="table-responsive">
             <table id="tableUsuarios" class="table">
                 <thead>
                     <tr>
@@ -48,12 +49,12 @@
                 { "data": "Nombre" },
                 { "data": "Apellido" },
                 { "data": "Email" },
-                
+
                 {
                 "data": "Id", "render": function (data) {
-                    var buttons = '<a href="@Url.Action("Roles", "Account")/' + data + '" class="btn  btn-success" <span><i class="fa fa-edit"></i> </span> Rol </a> |';
+                    var buttons = '<a href="#" onclick=getHtmlData("@Url.Action("Roles", "Account")/' + data + '") class="btn  btn-success" data-toggle="modal" data-target="#modal-default"> <i class="fa fa-edit"></i> </span> Rol </a> ';
                     buttons += '<a href="@Url.Action("Edit", "Account")/' + data + '" class="btn  btn-warning" ><span><i class="fa fa-edit"></i> </span> Editar </a> |';
-                    buttons += ' <a href="@Url.Action("Delete", "Account")/' + data + '" class="btn  btn-danger"  <span> <i class="fa fa-trash"></i> </span> Eliminar </a>';
+                    buttons += ' <a href="#" onclick=getHtmlData("@Url.Action("Delete", "Account")/' + data + '") class="btn  btn-danger" data-toggle="modal" data-target="#modal-default"> <i class="fa fa-trash"></i> </span> Eliminar </a>';
                     return buttons;
                 }, "orderable": false, "searchable": false
         },

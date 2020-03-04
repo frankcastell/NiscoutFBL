@@ -61,7 +61,7 @@
             {
                         @Html.AntiForgeryToken()
                         <span class="login100-form-title">
-                            Iniciar Seción
+                            Iniciar Sesión
                         </span>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
@@ -99,12 +99,12 @@
                         </div>
                         
 
-                        <div class="container-fluid" style="margin-top:15px;">        
+                        <div class="container-fluid" style="margin-top:15px;margin-left:10px;">        
                             <p class="text-center p-t-12">
                                 Crear Cuenta!!
                             </p>                            
-                            <a href="@Url.Action("Solicitud","Adultoes")" class="btn waves-effect waves-light btn-outline-success hidden-md-down"> Miembro Adulto</a>
-                            <a href="@Url.Action("solicitudtutor", "Personas")" class="btn waves-effect waves-light btn-outline-success hidden-md-down"> Registro de  Tutor</a>
+                            <a href="@Url.Action("Solicitud","Adultoes")"style="padding: .30rem .5rem;font-size: .920rem;margin-right:15px;" class="btn btn-success btn-sm"title="Registrar"> Miembro Adulto</a>
+                            <a href="@Url.Action("solicitudtutor", "Personas")"style="padding: .30rem .6rem;font-size: .920rem;margin-right:8px;" class="btn btn btn-success btn-sm"title="Registar"> Registro de  Tutor</a>
                                 </div>
                        
                     }

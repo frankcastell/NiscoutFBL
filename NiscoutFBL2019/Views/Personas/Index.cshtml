@@ -3,6 +3,9 @@
 @{
     ViewBag.Title = "Index";
 }
+
+
+<!-- /Segunda parte -->
 <h2>Registros de Personas</h2>
 
 <link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
@@ -11,7 +14,7 @@
     @using (Html.BeginForm("Index", "Personas", FormMethod.Get))
     {
         <div align="right">
-            <hr />
+            <hr />            
 
             @Html.TextBox("buscar")
             <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">

@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    
+        <div class="row">
+
+            <div class="col-md-4 col-sm-6 col-xs-12 animated tada ">
+                <div class="info-box">
+
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-edit"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-text">Registro Diario<br> Acceso Visitante LDE </br></span>
+                        <span data-number="0" id="enproceso" class="info-box-number"><small></small></span>
+
+                        <form action="~/VR_LDE_FT_01/Informe" method="get" id="frmReporte">
+                            <input type="hidden" value="fecha" />
+                            <button class=" btn btn-primary" type="submit" id="btnReport">Generar Reporte<i class="glyphicon glyphicon-save-file"></i> </button>
+
+                            <input style="visibility:hidden" type="text" class="form-control" name="fecha" id="fecha" value="@ViewBag.Fecha" readonly />
+                        </form>
+
+                    </div>
+                    <!-- /.info-box-content -->
+                    <!-- /.info-box -->
+
+                </div>
+
+
+            </div>
+
+        </div>
+</body>
+</html>

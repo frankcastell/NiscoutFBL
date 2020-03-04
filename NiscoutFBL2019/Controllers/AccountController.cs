@@ -204,8 +204,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
-
-
+            
             EditViewModel model = new EditViewModel {  Email = user.Email, Nombre = user.Nombre, Apellido = user.Apellido, Id = id };
             var roles = db.Roles.ToList();
             var rol = (from item in roles
@@ -215,7 +214,6 @@ namespace NiscoutFBL2019.Controllers
             asignacionesLista = rol;
             ViewBag.Roles = roles;
             ViewBag.Asignaciones = JsonConvert.SerializeObject(new { rol });
-
             return View(model);
         }
 

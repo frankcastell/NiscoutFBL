@@ -252,6 +252,13 @@ namespace NiscoutFBL2019.Controllers.ReportesNiscouts
             return View();
         }
 
+        //Reporte con parametro
+        //public ActionResult ReporSexo()
+        //{
+
+        //}
+
+
         
     }
 }
