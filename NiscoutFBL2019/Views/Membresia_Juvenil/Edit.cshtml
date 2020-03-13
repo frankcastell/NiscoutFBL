@@ -14,8 +14,17 @@
 
             <br />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
             <div class="form-group">
-                @Html.LabelFor(model => model.SubGrupoId, "SubGrupo", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.JuvenilId, "JuvenilId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("JuvenilId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.JuvenilId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SubGrupoId, "SubGrupoId", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("SubGrupoId", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.SubGrupoId, "", new { @class = "text-danger" })
@@ -23,7 +32,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Etapa_AprobacionId, "Etapa_Aprobacion", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Etapa_AprobacionId, "Etapa_AprobacionId", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("Etapa_AprobacionId", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.Etapa_AprobacionId, "", new { @class = "text-danger" })
@@ -31,10 +40,10 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.JuvenilId, "Juvenil", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Centro_EstudioId, "Centro_Estudio", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("JuvenilId", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.JuvenilId, "", new { @class = "text-danger" })
+                    @Html.DropDownList("Centro_EstudioId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Centro_EstudioId, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -49,15 +58,39 @@
             @Html.HiddenFor(model => model.Id)
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Actualizar Registro" class="btn btn-outline-success" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn waves-effect waves-purple btn-danger hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>
+                @Html.LabelFor(model => model.Turno, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Turno, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Turno, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Grado, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Grado, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Grado, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nivel_Academico, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nivel_Academico, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nivel_Academico, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+          
+            <div align="right">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input src="@Url.Content("~/Content/Ico/guardar.png")" type="image" value="Guardar" width="25" class="btn waves-effect waves-light btn-outline-info" title="Guardar Registro " /> &nbsp;
+
+                        <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Cancelar Registro">
+                            <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

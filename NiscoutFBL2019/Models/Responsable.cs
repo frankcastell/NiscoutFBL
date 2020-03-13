@@ -18,12 +18,13 @@ namespace NiscoutFBL2019.Models
         public Responsable()
         {
             this.Grupos = new HashSet<Grupo>();
+            this.Periodos = new HashSet<Periodo>();
         }
     
-        public int PeriodoId { get; set; }
     
-        public virtual Periodo Periodo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Grupo> Grupos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Periodo> Periodos { get; set; }
     }
 }

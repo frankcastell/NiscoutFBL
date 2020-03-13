@@ -17,18 +17,15 @@ namespace NiscoutFBL2019.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Centro_Estudio()
         {
-            this.Juveniles = new HashSet<Juvenil>();
+            this.Membresia_Juveniles = new HashSet<Membresia_Juvenil>();
         }
     
         public int Id { get; set; }
-        public string Cod_Centro { get; set; }
         public string Nombre_Centro { get; set; }
-        public string Turno { get; set; }
         public int Telefono { get; set; }
         public string E_Mail { get; set; }
-        public string Grado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Juvenil> Juveniles { get; set; }
+        public virtual ICollection<Membresia_Juvenil> Membresia_Juveniles { get; set; }
     }
 }

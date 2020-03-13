@@ -20,12 +20,10 @@ namespace NiscoutFBL2019.Models
             this.Membresia_Juveniles = new HashSet<Membresia_Juvenil>();
         }
     
-        public int Centro_EstudioId { get; set; }
         public int TutoriaId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Membresia_Juvenil> Membresia_Juveniles { get; set; }
-        public virtual Centro_Estudio Centro_Estudio { get; set; }
         public virtual Tutoria Tutoria { get; set; }
     }
 }

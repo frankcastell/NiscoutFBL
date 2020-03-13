@@ -13,12 +13,19 @@
         <thead>
             <tr>
                 <td>
+                    @Html.DisplayNameFor(model => model.Responsable.Nombres)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Responsable.Nombres)
+                </td>
+            <tr>
+                <td>
                     @Html.DisplayNameFor(model => model.Desde)
                 </td>
                 <td>
                     @Html.DisplayFor(model => model.Desde)
                 </td>
-            </tr> 
+            </tr>
             <tr>
                 <td>
                     @Html.DisplayNameFor(model => model.Hasta)
@@ -26,28 +33,29 @@
                 <td>
                     @Html.DisplayFor(model => model.Hasta)
                 </td>
-            </tr>               
+            </tr>
+            <tr></tr>
             <tr>
                 <td></td>
                 <td></td>
-            </tr> 
-            </thead>
-        </table>
-            @using (Html.BeginForm())
+            </tr>
+        </thead>
+    </table>
+    @using (Html.BeginForm())
             {
-                @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="form-group">
-                            <input title="Una vez eliminado, no se podrá recuperar" type="submit" value="Eliminar Registro" class="btn btn-outline-danger" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn-success hidden-md-down">Cancelar</a>
-                        </div>
-                    </div>
+                    <input title="Una vez eliminado, no se podrá recuperar" type="submit" value="Eliminar Registro" class="btn btn-outline-danger" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn-success hidden-md-down">Cancelar</a>
                 </div>
-            }
+            </div>
+        </div>
+    }
 </div>
 @section Scripts {
 

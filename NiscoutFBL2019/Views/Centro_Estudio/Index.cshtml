@@ -32,22 +32,13 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Cod_Centro)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.Nombre_Centro)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Turno)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Telefono)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.E_Mail)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Grado)
                 </th>
                 <th></th>
             </tr>
@@ -62,40 +53,30 @@
         {
             foreach (var item in Model)
             {
-                <tbody>
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Cod_Centro)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Nombre_Centro)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Turno)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Telefono)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.E_Mail)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Grado)
-                        </td>
-                        <td>
-                            <a href="@Url.Action("Edit", "Centro_Estudio",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
-                                <img width="25" src="~/Content/Ico/Editar.png" />
-                            </a>
-                            <a href="@Url.Action("Details", "Centro_Estudio",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
-                                <img width="25" src="~/Content/Ico/Ver_detalles.png" />
-                            </a>
-                            <a href="@Url.Action("Delete", "Centro_Estudio",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
-                                <img width="25" src="~/Content/Ico/eliminar.png" />
-                            </a>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre_Centro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.E_Mail)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Centro_Estudio",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                            <img width="25" src="~/Content/Ico/Editar.png" />
+                        </a>
+                        <a href="@Url.Action("Details", "Centro_Estudio",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                            <img width="25" src="~/Content/Ico/Ver_detalles.png" />
+                        </a>
+                        <a href="@Url.Action("Delete", "Centro_Estudio",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                            <img width="25" src="~/Content/Ico/eliminar.png" />
+                        </a>
 
-                        </td>
-                    </tr>
-                </tbody>
+                    </td>
+                </tr>
+               
             }
         }
 

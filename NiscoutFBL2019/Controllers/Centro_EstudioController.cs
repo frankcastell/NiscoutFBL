@@ -20,13 +20,11 @@ namespace NiscoutFBL2019.Controllers
         {
             var centro = from ce in db.Centro_Estudios
                          select ce;
-
             if (!string.IsNullOrEmpty(buscar))
             {
                 centro = centro.Where(ce => ce.Nombre_Centro.Contains(buscar));
             }
             return View(centro.ToList());
-
         }
 
         // GET: Centro_Estudio/Details/5
@@ -55,7 +53,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Centro,Nombre_Centro,Turno,Telefono,E_Mail,Grado")] Centro_Estudio centro_Estudio)
+        public ActionResult Create([Bind(Include = "Id,Nombre_Centro,Telefono,E_Mail")] Centro_Estudio centro_Estudio)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +85,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cod_Centro,Nombre_Centro,Turno,Telefono,E_Mail,Grado")] Centro_Estudio centro_Estudio)
+        public ActionResult Edit([Bind(Include = "Id,Nombre_Centro,Telefono,E_Mail")] Centro_Estudio centro_Estudio)
         {
             if (ModelState.IsValid)
             {

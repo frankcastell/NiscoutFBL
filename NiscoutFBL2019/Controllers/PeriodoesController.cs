@@ -16,9 +16,17 @@ namespace NiscoutFBL2019.Controllers
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
         // GET: Periodoes
-        public ActionResult Index()
+        public ActionResult Index( string buscar)
         {
-            return View(db.Periodos.ToList());
+            var periodos = db.Periodos.Include(p => p.Responsable);
+
+            var responsables = db.Responsables.Include(r => r.Departamento);
+
+            if (!string.IsNullOrEmpty(buscar))
+            {
+                responsables = responsables.Where(s => s.Nombres.Contains(buscar));
+            }
+            return View(periodos.ToList());
         }
 
         // GET: Periodoes/Details/5
@@ -39,6 +47,7 @@ namespace NiscoutFBL2019.Controllers
         // GET: Periodoes/Create
         public ActionResult Create()
         {
+            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Nombres");
             return View();
         }
 
@@ -47,7 +56,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Desde,Hasta")] Periodo periodo)
+        public ActionResult Create([Bind(Include = "Id,Desde,Hasta,ResponsableId")] Periodo periodo)
         {
             if (ModelState.IsValid)
             {
@@ -55,11 +64,8 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("Index");
-            }
+
+            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Nombres", periodo.ResponsableId);
             return View(periodo);
         }
 
@@ -75,6 +81,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Nombres", periodo.ResponsableId);
             return View(periodo);
         }
 
@@ -83,7 +90,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Desde,Hasta")] Periodo periodo)
+        public ActionResult Edit([Bind(Include = "Id,Desde,Hasta,ResponsableId")] Periodo periodo)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +98,7 @@ namespace NiscoutFBL2019.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ResponsableId = new SelectList(db.Personas, "Id", "Nombres", periodo.ResponsableId);
             return View(periodo);
         }
 

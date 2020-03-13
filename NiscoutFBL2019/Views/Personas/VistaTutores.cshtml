@@ -35,9 +35,9 @@
         <table class="table vm no-th-brd no-wrap pro-of-month">
             <thead>
                 <tr>
-                    <th>
+                    @*<th>
                         Codigo
-                    </th>
+                    </th>*@
                     <th>
                         @Html.DisplayNameFor(model => model.Nombres)
                     </th>
@@ -87,9 +87,9 @@
             @foreach (var item in Model)
                 {
                 <tr>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.Cod_Persona)
-                    </td>
+                    </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.Nombres)
                     </td>

@@ -7,6 +7,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Desde" ColumnName="Desde" />
           <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="ResponsableId" ColumnName="ResponsableId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -104,7 +105,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Responsable)">
         <MappingFragment StoreEntitySet="Personas_Responsable">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Personal_Admon)">
@@ -129,7 +129,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Juvenil)">
         <MappingFragment StoreEntitySet="Personas_Juvenil">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Centro_EstudioId" ColumnName="Centro_EstudioId" />
           <ScalarProperty Name="TutoriaId" ColumnName="TutoriaId" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -191,12 +190,9 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModeloNiscoutFBL.Centro_Estudio)">
         <MappingFragment StoreEntitySet="Centro_Estudios">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Cod_Centro" ColumnName="Cod_Centro" />
           <ScalarProperty Name="Nombre_Centro" ColumnName="Nombre_Centro" />
-          <ScalarProperty Name="Turno" ColumnName="Turno" />
           <ScalarProperty Name="Telefono" ColumnName="Telefono" />
           <ScalarProperty Name="E_Mail" ColumnName="E_Mail" />
-          <ScalarProperty Name="Grado" ColumnName="Grado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -279,6 +275,10 @@
           <ScalarProperty Name="Etapa_AprobacionId" ColumnName="Etapa_AprobacionId" />
           <ScalarProperty Name="JuvenilId" ColumnName="JuvenilId" />
           <ScalarProperty Name="Annio" ColumnName="Annio" />
+          <ScalarProperty Name="Turno" ColumnName="Turno" />
+          <ScalarProperty Name="Grado" ColumnName="Grado" />
+          <ScalarProperty Name="Nivel_Academico" ColumnName="Nivel_Academico" />
+          <ScalarProperty Name="Centro_EstudioId" ColumnName="Centro_EstudioId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

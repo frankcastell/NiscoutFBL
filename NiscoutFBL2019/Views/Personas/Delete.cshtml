@@ -8,14 +8,14 @@
 
 <table class="table vm no-th-brd no-wrap pro-of-month">
     <thead>
-        <tr>
+        @*<tr>
             <td>
                 @Html.DisplayNameFor(model => model.Cod_Persona)
             </td>
             <td>
                 @Html.DisplayFor(model => model.Cod_Persona)
             </td>
-        </tr>
+        </tr>*@
         <tr>
             <td>
                 @Html.DisplayNameFor(model => model.Nombres)
@@ -34,20 +34,21 @@
         </tr>
         <tr>
             <td>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Sexo)
+            </td>
+        </tr>
+        <tr>
+            <td>
                 @Html.DisplayNameFor(model => model.Fecha_Nac)
             </td>
             <td>
                 @Html.DisplayFor(model => model.Fecha_Nac)
             </td>
         </tr>
-        <tr>
-            <td>
-                @Html.DisplayNameFor(model => model.E_Mail)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.E_Mail)
-            </td>
-        </tr>
+       
         <tr>
             <td>
                 @Html.DisplayNameFor(model => model.Cedula)
@@ -56,14 +57,7 @@
                 @Html.DisplayFor(model => model.Cedula)
             </td>
         </tr>
-        <tr>
-            <td>
-                @Html.DisplayNameFor(model => model.Sexo)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Sexo)
-            </td>
-        </tr>
+       
         <tr>
             <td>
                 @Html.DisplayNameFor(model => model.Estado_Civil)
@@ -118,6 +112,14 @@
             </td>
             <td>
                 @Html.DisplayFor(model => model.Tipo_Sangre)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.E_Mail)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.E_Mail)
             </td>
         </tr>
         <tr>

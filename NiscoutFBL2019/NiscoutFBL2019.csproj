@@ -709,11 +709,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Periodoes\Create.cshtml" />
-    <Content Include="Views\Periodoes\Delete.cshtml" />
-    <Content Include="Views\Periodoes\Details.cshtml" />
-    <Content Include="Views\Periodoes\Edit.cshtml" />
-    <Content Include="Views\Periodoes\Index.cshtml" />
     <Content Include="Views\Departamentoes\Create.cshtml" />
     <Content Include="Views\Departamentoes\Delete.cshtml" />
     <Content Include="Views\Departamentoes\Details.cshtml" />
@@ -1068,12 +1063,6 @@
     </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Views\Home\Catalogos.cshtml" />
-    <Content Include="Views\Membresia_Juvenil\Create.cshtml" />
-    <Content Include="Views\Membresia_Juvenil\Delete.cshtml" />
-    <Content Include="Views\Membresia_Juvenil\Details.cshtml" />
-    <Content Include="Views\Membresia_Juvenil\Edit.cshtml" />
-    <Content Include="Views\Membresia_Juvenil\Index.cshtml" />
-    <Content Include="Views\Membresia_Juvenil\MembreJuvenil.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Roles\Index2.cshtml" />
     <Content Include="Views\Account\Roles.cshtml" />
@@ -1096,11 +1085,6 @@
     <Content Include="Views\Asistentes\Index.cshtml" />
     <Content Include="Views\Adultoes\Solicitud.cshtml" />
     <Content Include="Views\Adultoes\RepAdulto.cshtml" />
-    <Content Include="Views\Centro_Estudio\Create.cshtml" />
-    <Content Include="Views\Centro_Estudio\Delete.cshtml" />
-    <Content Include="Views\Centro_Estudio\Details.cshtml" />
-    <Content Include="Views\Centro_Estudio\Edit.cshtml" />
-    <Content Include="Views\Centro_Estudio\Index.cshtml" />
     <Content Include="Views\Detalle_Grupo_Patro\Create.cshtml" />
     <Content Include="Views\Detalle_Grupo_Patro\Delete.cshtml" />
     <Content Include="Views\Detalle_Grupo_Patro\Details.cshtml" />
@@ -1111,12 +1095,6 @@
     <Content Include="Views\Grupoes\Details.cshtml" />
     <Content Include="Views\Grupoes\Edit.cshtml" />
     <Content Include="Views\Grupoes\Index.cshtml" />
-    <Content Include="Views\Juvenils\Create.cshtml" />
-    <Content Include="Views\Juvenils\Delete.cshtml" />
-    <Content Include="Views\Juvenils\Details.cshtml" />
-    <Content Include="Views\Juvenils\Edit.cshtml" />
-    <Content Include="Views\Juvenils\Index.cshtml" />
-    <Content Include="Views\Juvenils\SolicitudJuvenil.cshtml" />
     <Content Include="Views\Membresia_Adulto\Create.cshtml" />
     <Content Include="Views\Membresia_Adulto\Delete.cshtml" />
     <Content Include="Views\Membresia_Adulto\Details.cshtml" />
@@ -1139,11 +1117,6 @@
     <Content Include="Views\Personas\Details.cshtml" />
     <Content Include="Views\Personas\Edit.cshtml" />
     <Content Include="Views\Personas\Index.cshtml" />
-    <Content Include="Views\Responsables\Create.cshtml" />
-    <Content Include="Views\Responsables\Delete.cshtml" />
-    <Content Include="Views\Responsables\Details.cshtml" />
-    <Content Include="Views\Responsables\Edit.cshtml" />
-    <Content Include="Views\Responsables\Index.cshtml" />
     <Content Include="Views\SubGrupoes\Create.cshtml" />
     <Content Include="Views\SubGrupoes\Delete.cshtml" />
     <Content Include="Views\SubGrupoes\Details.cshtml" />
@@ -1169,6 +1142,33 @@
     <Content Include="Views\ReporteParametros\Informe.cshtml" />
     <Content Include="Views\ReporteParametros\OficialReportes.cshtml" />
     <Content Include="Views\ReporteParametros\Index.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\Create.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\Delete.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\Details.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\Edit.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\Index.cshtml" />
+    <Content Include="Views\Periodoes\Create.cshtml" />
+    <Content Include="Views\Periodoes\Delete.cshtml" />
+    <Content Include="Views\Periodoes\Details.cshtml" />
+    <Content Include="Views\Periodoes\Edit.cshtml" />
+    <Content Include="Views\Periodoes\Index.cshtml" />
+    <Content Include="Views\Centro_Estudio\Create.cshtml" />
+    <Content Include="Views\Centro_Estudio\Delete.cshtml" />
+    <Content Include="Views\Centro_Estudio\Details.cshtml" />
+    <Content Include="Views\Centro_Estudio\Edit.cshtml" />
+    <Content Include="Views\Centro_Estudio\Index.cshtml" />
+    <Content Include="Views\Responsables\Create.cshtml" />
+    <Content Include="Views\Responsables\Delete.cshtml" />
+    <Content Include="Views\Responsables\Details.cshtml" />
+    <Content Include="Views\Responsables\Edit.cshtml" />
+    <Content Include="Views\Responsables\Index.cshtml" />
+    <Content Include="Views\Juvenils\Create.cshtml" />
+    <Content Include="Views\Juvenils\Delete.cshtml" />
+    <Content Include="Views\Juvenils\Details.cshtml" />
+    <Content Include="Views\Juvenils\Edit.cshtml" />
+    <Content Include="Views\Juvenils\Index.cshtml" />
+    <Content Include="Views\Juvenils\SolicitudJuvenil.cshtml" />
+    <Content Include="Views\Membresia_Juvenil\MembreJuvenil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

@@ -12,26 +12,10 @@
         <thead>
             <tr>
                 <td>
-                    @Html.DisplayNameFor(model => model.Cod_Centro)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Cod_Centro)
-                </td>
-            </tr>
-            <tr>
-                <td>
                     @Html.DisplayNameFor(model => model.Nombre_Centro)
                 </td>
                 <td>
                     @Html.DisplayFor(model => model.Nombre_Centro)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Turno)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Turno)
                 </td>
             </tr>
             <tr>
@@ -51,14 +35,6 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Grado)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Grado)
-                </td>
-            </tr>
-            <tr>
                 <td></td>
                 <td></td>
             </tr>
@@ -66,14 +42,16 @@
     </table>
 
     <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })" value="Editar" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Editar Registro">
+                    &nbsp;
+                </a>
 
+                <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Cancelar Registro">
+                    <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
+                </a>
+            </div>
+        </div>
     </p>
 </div>

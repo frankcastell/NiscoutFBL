@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Details";
 }
-<h2>Detalle de la Información...</h2>
+
+<h2>Detalle de la Informacion...</h2>
 
 <div class="datagrid">
     <table class="table vm no-th-brd no-wrap pro-of-month">
@@ -122,20 +123,11 @@
             </tr>
             <tr>
                 <td>
-                    @Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)
+                    @Html.DisplayNameFor(model => model.Departamento.Cod_Departamento)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.Departamento.Nombre_Departamento)
+                    @Html.DisplayFor(model => model.Departamento.Cod_Departamento)
                 </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Periodo.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Periodo.Id)
-                </td>
-
             </tr>
             <tr>
                 <td></td>
@@ -143,15 +135,15 @@
             </tr>
         </thead>
     </table>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
-       
-    </p>
+    </div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <a href="@Url.Action("Editar Registro","Edit", new { id = Model.Id })" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Editar Registro" >
+           </a>
+
+        <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Cancelar Registro">
+            <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
+        </a>
+    </div>
 </div>
+   

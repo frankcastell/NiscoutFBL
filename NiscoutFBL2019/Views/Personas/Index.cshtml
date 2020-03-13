@@ -14,7 +14,7 @@
     @using (Html.BeginForm("Index", "Personas", FormMethod.Get))
     {
         <div align="right">
-            <hr />            
+            <hr />
 
             @Html.TextBox("buscar")
             <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
@@ -22,7 +22,7 @@
             <a href="@Url.Action("Create", "Personas")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Nuevo Personas">
                 Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
             </a>
-            <a href="@Url.Action("ReporPersonas", "Reportes")"target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+            <a href="@Url.Action("ReporPersonas", "Reportes")" target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
                 <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
             </a>
             <hr />
@@ -33,9 +33,9 @@
     <table class="table vm no-th-brd no-wrap pro-of-month">
         <thead>
             <tr>
-                <th>
-                    Código
-                </th>
+                @*<th>
+                        Código
+                    </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.Nombres)
                 </th>
@@ -76,73 +76,82 @@
                     @Html.DisplayNameFor(model => model.Tipo_Sangre)
                 </th>
                 <th>
-                   Departamento
+                    Departamento
                 </th>
-                <th> Accion</th>
+                <th>Accion</th>
+        </thead>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="4"> No se ha encontrado ningún dato relacionado</td>
             </tr>
-            </thead>
-            @foreach (var item in Model)
+        }
+        else
+        {
+            foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cod_Persona)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombres)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Apellidos)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Fecha_Nac)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.E_Mail)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cedula)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Sexo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Estado_Civil)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Num_Pasaporte)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Telefono)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Direccion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Profesion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Centro_Laboral)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tipo_Sangre)
-                    </td>
-                    <td>
-                        @*@Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)*@
-                        Departamento
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Edit", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
-                            <img width="25" src="~/Content/Ico/Editar.png" />
-                        </a>
-                        <a href="@Url.Action("Details", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
-                            <img width="25" src="~/Content/Ico/Ver_detalles.png" />
-                        </a>
-                        @*<a href="@Url.Action("Delete", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
-                            <img width="25" src="~/Content/Ico/eliminar.png" />
-                        </a>*@
-                    </td>
-                </tr>
+                <tbody>
+                    <tr>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.Cod_Persona)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombres)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Apellidos)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha_Nac)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.E_Mail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cedula)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sexo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estado_Civil)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Num_Pasaporte)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefono)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Direccion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Profesion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Centro_Laboral)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tipo_Sangre)
+                        </td>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)*@
+                            Departamento
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Personas", new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                                <img width="25" src="~/Content/Ico/Editar.png" />
+                            </a>
+                            <a href="@Url.Action("Details", "Personas", new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                                <img width="25" src="~/Content/Ico/Ver_detalles.png" />
+                            </a>
+                            @*<a href="@Url.Action("Delete", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                                    <img width="25" src="~/Content/Ico/eliminar.png" />
+                                </a>*@
+                        </td>
+                    </tr>
+                </tbody>
             }
-
+        }
     </table>
- </div>
+</div>

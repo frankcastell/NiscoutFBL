@@ -22,13 +22,14 @@ namespace NiscoutFBL2019.Controllers
         // GET: Responsables
         public ActionResult Index(string buscar)
         {
-            var responsables = db.Responsables.Include(r => r.Departamento).Include(r => r.Periodo);
+            var responsables = db.Responsables.Include(r => r.Departamento);
 
             if (!string.IsNullOrEmpty(buscar))
             {
                 responsables = responsables.Where(s => s.Nombres.Contains(buscar));
             }
             return View(responsables.ToList());
+           
         }
 
         // GET: Responsables/Details/5
@@ -61,8 +62,17 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
                                                }, "Value", "Text");
 
+            ViewBag.Tipo_Sangre = new SelectList(new[] {
+                new SelectListItem { Value = "O+", Text = "O+" },
+                new SelectListItem { Value = "O-", Text = "O-" },
+                new SelectListItem { Value = "A+", Text = "A+" },
+                new SelectListItem { Value = "A-", Text = "A-" },
+                new SelectListItem { Value = "B+", Text = "B+" },
+                new SelectListItem { Value = "B-", Text = "B-" },
+                new SelectListItem { Value = "AB+", Text = "AB+" },
+                new SelectListItem { Value = "AB-", Text = "AB-" }
+                                               }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
-            ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Desde");
             return View();
         }
 
@@ -71,7 +81,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,PeriodoId")] Responsable responsable, string txtpass)
+        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Responsable responsable, string txtpass)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +111,6 @@ namespace NiscoutFBL2019.Controllers
             }
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", responsable.DepartamentoId);
-            ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Desde", responsable.PeriodoId);
             return View(responsable);
         }
 
@@ -119,6 +128,17 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
                 new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
                                                }, "Value", "Text");
+
+            ViewBag.Tipo_Sangre = new SelectList(new[] {
+                new SelectListItem { Value = "O+", Text = "O+" },
+                new SelectListItem { Value = "O-", Text = "O-" },
+                new SelectListItem { Value = "A+", Text = "A+" },
+                new SelectListItem { Value = "A-", Text = "A-" },
+                new SelectListItem { Value = "B+", Text = "B+" },
+                new SelectListItem { Value = "B-", Text = "B-" },
+                new SelectListItem { Value = "AB+", Text = "AB+" },
+                new SelectListItem { Value = "AB-", Text = "AB-" }
+                                               }, "Value", "Text");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -129,7 +149,6 @@ namespace NiscoutFBL2019.Controllers
                 return HttpNotFound();
             }
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", responsable.DepartamentoId);
-            ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Desde", responsable.PeriodoId);
             return View(responsable);
         }
 
@@ -138,7 +157,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,PeriodoId")] Responsable responsable)
+        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Responsable responsable)
         {
             if (ModelState.IsValid)
             {
@@ -147,7 +166,6 @@ namespace NiscoutFBL2019.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", responsable.DepartamentoId);
-            ViewBag.PeriodoId = new SelectList(db.Periodos, "Id", "Desde", responsable.PeriodoId);
             return View(responsable);
         }
 

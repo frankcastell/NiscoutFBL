@@ -13,17 +13,18 @@ using NiscoutFBL2019.Models.ReporteScouts;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace NiscoutFBL2019.Controllers
 {
     [Authorize]
     public class JuvenilsController : Controller
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
-       
+
         // GET: Juvenils
         public ActionResult Index(string buscar)
         {
-            var juvenil = db.Juveniles.Include(j => j.Departamento).Include(j => j.Centro_Estudio).Include(j => j.Tutoria);
+            var juvenil = db.Juveniles.Include(j => j.Departamento).Include(j => j.Tutoria);
 
             if (!string.IsNullOrEmpty(buscar))
             {
@@ -48,18 +49,32 @@ namespace NiscoutFBL2019.Controllers
         }
 
         // GET: Juvenils/Create
-        public ActionResult Create( int idtutor)
+        public ActionResult Create(int idtutor)
         {
-            
-        ViewBag.sexo = new SelectList(new[] {
+            ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
+            //Validando Estado Civil
+            ViewBag.Estado_Civil = new SelectList(new[] {
+                new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
+                new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
+                new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
+                new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
+                                               }, "Value", "Text");
 
+            ViewBag.Tipo_Sangre = new SelectList(new[] {
+                new SelectListItem { Value = "O+", Text = "O+" },
+                new SelectListItem { Value = "O-", Text = "O-" },
+                new SelectListItem { Value = "A+", Text = "A+" },
+                new SelectListItem { Value = "A-", Text = "A-" },
+                new SelectListItem { Value = "B+", Text = "B+" },
+                new SelectListItem { Value = "B-", Text = "B-" },
+                new SelectListItem { Value = "AB+", Text = "AB+" },
+                new SelectListItem { Value = "AB-", Text = "AB-" }
+                                               }, "Value", "Text");
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
-            ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro");
             //ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
-
             ViewBag.TutoriaId = db.Tutorias.Find(idtutor);
             return View();
         }
@@ -69,7 +84,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,Centro_EstudioId,TutoriaId")] Juvenil juvenil, string txtpass)
+        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,TutoriaId")] Juvenil juvenil, string txtpass)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +113,6 @@ namespace NiscoutFBL2019.Controllers
             }
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", juvenil.DepartamentoId);
-            ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro", juvenil.Centro_EstudioId);
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
             return View(juvenil);
         }
@@ -114,7 +128,6 @@ namespace NiscoutFBL2019.Controllers
                                                }, "Value", "Text");
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
-            ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro");
             //ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
 
             ViewBag.TutoriaId = db.Tutorias.Find(idtutor);
@@ -124,23 +137,64 @@ namespace NiscoutFBL2019.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SolicitudJuvenil([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,Centro_EstudioId,TutoriaId")] Juvenil juvenil)
+        public ActionResult SolicitudJuvenil([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,Centro_EstudioId,TutoriaId")] Juvenil juvenil, string txtpass)
         {
             if (ModelState.IsValid)
             {
                 db.Personas.Add(juvenil);
                 db.SaveChanges();
+
+                //accedemos al modelo de la seguridad integrada
+                ApplicationDbContext context = new ApplicationDbContext();
+                //definimos las variables manejadoras de roles y usuarios
+                var ManejadorRol = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                var ManejadorUsuario = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+                var user = new ApplicationUser();
+                user.Nombre = juvenil.Nombres;
+                user.Apellido = juvenil.Apellidos;
+                user.UserName = juvenil.E_Mail;
+                user.Email = juvenil.E_Mail;
+                string PWD = txtpass;
+                var chkUser = ManejadorUsuario.Create(user, PWD);
+                //si se creo con exito
+                if (chkUser.Succeeded)
+                {
+                    ManejadorUsuario.AddToRole(user.Id, "Usuario");
+                }
                 return RedirectToAction("MembreJuvenil", "Membresia_Juvenil", new { idjuvenil = juvenil.Id });
             }
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", juvenil.DepartamentoId);
-            ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro", juvenil.Centro_EstudioId);
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
             return View(juvenil);
         }
+
         // GET: Juvenils/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.sexo = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+            //Validando Estado Civil
+            ViewBag.Estado_Civil = new SelectList(new[] {
+                new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
+                new SelectListItem { Value = "Casado(a)", Text = "Casado(a)" },
+                new SelectListItem { Value = "Divorciado(a)", Text = "Divorciado(a)" },
+                new SelectListItem { Value = "Ajuntados", Text = "Ajuntados" }
+                                               }, "Value", "Text");
+
+            ViewBag.Tipo_Sangre = new SelectList(new[] {
+                new SelectListItem { Value = "O+", Text = "O+" },
+                new SelectListItem { Value = "O-", Text = "O-" },
+                new SelectListItem { Value = "A+", Text = "A+" },
+                new SelectListItem { Value = "A-", Text = "A-" },
+                new SelectListItem { Value = "B+", Text = "B+" },
+                new SelectListItem { Value = "B-", Text = "B-" },
+                new SelectListItem { Value = "AB+", Text = "AB+" },
+                new SelectListItem { Value = "AB-", Text = "AB-" }
+                                               }, "Value", "Text");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -151,7 +205,6 @@ namespace NiscoutFBL2019.Controllers
                 return HttpNotFound();
             }
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", juvenil.DepartamentoId);
-            ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro", juvenil.Centro_EstudioId);
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
             return View(juvenil);
         }
@@ -161,7 +214,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,Centro_EstudioId,TutoriaId")] Juvenil juvenil)
+        public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,TutoriaId")] Juvenil juvenil)
         {
             if (ModelState.IsValid)
             {
@@ -170,7 +223,6 @@ namespace NiscoutFBL2019.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", juvenil.DepartamentoId);
-            ViewBag.Centro_EstudioId = new SelectList(db.Centro_Estudios, "Id", "Nombre_Centro", juvenil.Centro_EstudioId);
             ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
             return View(juvenil);
         }

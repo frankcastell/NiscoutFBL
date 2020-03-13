@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/07/2020 16:27:25
+-- Date Created: 03/05/2020 11:42:39
 -- Generated from EDMX file: C:\Users\brayan obando\Source\Repos\NiscoutFBL\NiscoutFBL2019\Models\ModeloNiscoutFBL.edmx
 -- --------------------------------------------------
 
@@ -214,7 +214,8 @@ GO
 CREATE TABLE [dbo].[Periodos] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Desde] datetime  NOT NULL,
-    [Hasta] datetime  NOT NULL
+    [Hasta] datetime  NOT NULL,
+    [ResponsableId] int  NOT NULL
 );
 GO
 
@@ -285,7 +286,7 @@ GO
 -- Creating table 'Personas'
 CREATE TABLE [dbo].[Personas] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Cod_Persona] nvarchar(max)  NOT NULL,
+    [Cod_Persona] nvarchar(max)  NULL,
     [Nombres] nvarchar(max)  NOT NULL,
     [Apellidos] nvarchar(max)  NOT NULL,
     [Fecha_Nac] datetime  NOT NULL,
@@ -350,12 +351,9 @@ GO
 -- Creating table 'Centro_Estudios'
 CREATE TABLE [dbo].[Centro_Estudios] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Cod_Centro] nvarchar(max)  NOT NULL,
     [Nombre_Centro] nvarchar(max)  NOT NULL,
-    [Turno] nvarchar(max)  NOT NULL,
     [Telefono] int  NOT NULL,
-    [E_Mail] nvarchar(max)  NOT NULL,
-    [Grado] nvarchar(max)  NOT NULL
+    [E_Mail] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -429,13 +427,16 @@ CREATE TABLE [dbo].[Membresia_Juveniles] (
     [Etapa_AprobacionId] int  NOT NULL,
     [JuvenilId] int  NOT NULL,
     [Annio] nvarchar(max)  NOT NULL,
-    [Id] int IDENTITY(1,1) NOT NULL
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Turno] nvarchar(max)  NOT NULL,
+    [Grado] nvarchar(max)  NOT NULL,
+    [Nivel_Academico] nvarchar(max)  NOT NULL,
+    [Centro_EstudioId] int  NOT NULL
 );
 GO
 
 -- Creating table 'Personas_Responsable'
 CREATE TABLE [dbo].[Personas_Responsable] (
-    [PeriodoId] int  NOT NULL,
     [Id] int  NOT NULL
 );
 GO
@@ -464,7 +465,6 @@ GO
 
 -- Creating table 'Personas_Juvenil'
 CREATE TABLE [dbo].[Personas_Juvenil] (
-    [Centro_EstudioId] int  NOT NULL,
     [TutoriaId] int  NOT NULL,
     [Id] int  NOT NULL
 );
@@ -645,21 +645,6 @@ GO
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
-
--- Creating foreign key on [PeriodoId] in table 'Personas_Responsable'
-ALTER TABLE [dbo].[Personas_Responsable]
-ADD CONSTRAINT [FK_PeriodoResponsable]
-    FOREIGN KEY ([PeriodoId])
-    REFERENCES [dbo].[Periodos]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PeriodoResponsable'
-CREATE INDEX [IX_FK_PeriodoResponsable]
-ON [dbo].[Personas_Responsable]
-    ([PeriodoId]);
-GO
 
 -- Creating foreign key on [ResponsableId] in table 'Grupos'
 ALTER TABLE [dbo].[Grupos]
@@ -976,21 +961,6 @@ ON [dbo].[Progresion_Juveniles]
     ([Membresia_JuvenilId]);
 GO
 
--- Creating foreign key on [Centro_EstudioId] in table 'Personas_Juvenil'
-ALTER TABLE [dbo].[Personas_Juvenil]
-ADD CONSTRAINT [FK_Centro_EstudioJuvenil]
-    FOREIGN KEY ([Centro_EstudioId])
-    REFERENCES [dbo].[Centro_Estudios]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Centro_EstudioJuvenil'
-CREATE INDEX [IX_FK_Centro_EstudioJuvenil]
-ON [dbo].[Personas_Juvenil]
-    ([Centro_EstudioId]);
-GO
-
 -- Creating foreign key on [PersonaId] in table 'Tutorias'
 ALTER TABLE [dbo].[Tutorias]
 ADD CONSTRAINT [FK_PersonaTutoria]
@@ -1064,6 +1034,36 @@ GO
 CREATE INDEX [IX_FK_GrupoSubGrupo]
 ON [dbo].[SubGrupos]
     ([GrupoId]);
+GO
+
+-- Creating foreign key on [ResponsableId] in table 'Periodos'
+ALTER TABLE [dbo].[Periodos]
+ADD CONSTRAINT [FK_ResponsablePeriodo]
+    FOREIGN KEY ([ResponsableId])
+    REFERENCES [dbo].[Personas_Responsable]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ResponsablePeriodo'
+CREATE INDEX [IX_FK_ResponsablePeriodo]
+ON [dbo].[Periodos]
+    ([ResponsableId]);
+GO
+
+-- Creating foreign key on [Centro_EstudioId] in table 'Membresia_Juveniles'
+ALTER TABLE [dbo].[Membresia_Juveniles]
+ADD CONSTRAINT [FK_Centro_EstudioMembresia_Juvenil]
+    FOREIGN KEY ([Centro_EstudioId])
+    REFERENCES [dbo].[Centro_Estudios]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Centro_EstudioMembresia_Juvenil'
+CREATE INDEX [IX_FK_Centro_EstudioMembresia_Juvenil]
+ON [dbo].[Membresia_Juveniles]
+    ([Centro_EstudioId]);
 GO
 
 -- Creating foreign key on [Id] in table 'Personas_Responsable'

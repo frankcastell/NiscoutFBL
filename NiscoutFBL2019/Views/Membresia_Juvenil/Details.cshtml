@@ -10,7 +10,14 @@
 <div class="datagrid">
     <table class="table vm no-th-brd no-wrap pro-of-month">
         <thead>
-           
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Juvenil.Nombres)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Juvenil.Nombres)
+                </td>
+            </tr>
             <tr>
                 <td>
                     @Html.DisplayNameFor(model => model.SubGrupo.Nombre_Subgrupo)
@@ -21,20 +28,11 @@
             </tr>
             <tr>
                 <td>
-                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Estado)
+                    @Html.DisplayNameFor(model => model.Centro_Estudio.Nombre_Centro)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.Etapa_Aprobacion.Estado)
+                    @Html.DisplayFor(model => model.Centro_Estudio.Nombre_Centro)
                 </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Juvenil.Nombres)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Juvenil.Nombres)
-                </td>
-
             </tr>
             <tr>
                 <td>
@@ -43,7 +41,41 @@
                 <td>
                     @Html.DisplayFor(model => model.Annio)
                 </td>
+             </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Turno)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Turno)
+                </td>
             </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Grado)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Grado)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Nivel_Academico)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Nivel_Academico)
+                </td>
+            </tr>
+           
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Etapa_Aprobacion.Estado)
+                </td>
+            </tr>
+           
             <tr>
                 <td></td>
                 <td></td>
@@ -51,14 +83,16 @@
         </thead>
     </table>
     <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })" value="Editar" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Editar Registro"> </a> &nbsp;
+
+                <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Cancelar Registro">
+                    <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
+                </a>
+            </div>
+        </div>
 
     </p>
+
 </div>

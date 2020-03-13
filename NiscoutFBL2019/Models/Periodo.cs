@@ -14,17 +14,11 @@ namespace NiscoutFBL2019.Models
     
     public partial class Periodo
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Periodo()
-        {
-            this.Responsables = new HashSet<Responsable>();
-        }
-    
         public int Id { get; set; }
         public System.DateTime Desde { get; set; }
         public System.DateTime Hasta { get; set; }
+        public int ResponsableId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Responsable> Responsables { get; set; }
+        public virtual Responsable Responsable { get; set; }
     }
 }

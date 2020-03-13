@@ -32,9 +32,9 @@
     <table class="table vm no-th-brd no-wrap pro-of-month">
         <thead>
             <tr>
-                <th>
+                @*<th>
                     Código
-                </th>
+                </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.Nombres)
                 </th>
@@ -42,17 +42,16 @@
                     @Html.DisplayNameFor(model => model.Apellidos)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Fecha_Nac)
+                    @Html.DisplayNameFor(model => model.Sexo)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.E_Mail)
+                    @Html.DisplayNameFor(model => model.Fecha_Nac)
                 </th>
+               
                 <th>
                     @Html.DisplayNameFor(model => model.Cedula)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Sexo)
-                </th>
+               
                 <th>
                     @Html.DisplayNameFor(model => model.Estado_Civil)
                 </th>
@@ -75,8 +74,10 @@
                     @Html.DisplayNameFor(model => model.Tipo_Sangre)
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)*@
-                    Departamento
+                    @Html.DisplayNameFor(model => model.E_Mail)
+                </th>
+                <th>
+                      Departamento
                 </th>
                 <th>Accion</th>
         </thead>
@@ -92,9 +93,9 @@
             {
                 <tbody>
                     <tr>
-                        <td>
+                        @*<td>
                             @Html.DisplayFor(modelItem => item.Cod_Persona)
-                        </td>
+                        </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.Nombres)
                         </td>

@@ -3,32 +3,62 @@
 @{
     ViewBag.Title = "Index";
 }
+
 <h2>Registros de Periodos</h2>
-<link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
-<hr />
-<p>
-    <a href="@Url.Action("Create", "Periodoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar Nuevo Periodo">
-        Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
-    </a>
-</p>
-<hr />
-<div class="datagr">   
-        <table>
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Desde)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Hasta)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            @foreach (var item in Model)
+
+
+
+<div align="left">
+    @using (Html.BeginForm("Index", "Peridoes", FormMethod.Get))
+    {
+        <div align="right">
+            <div>
+                <hr />
+
+                @Html.TextBox("buscar")
+                <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
+
+                <a href="@Url.Action("Create", "Periodoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar Nuevo Periodo">
+                    Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
+                </a>
+                <a href="@Url.Action("RepAdulto", "Peridoes")" target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+                    <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
+                </a>
+
+                <hr />
+            </div>
+        </div>
+    }
+</div>
+
+<div class="datagrid">
+    <table class="table vm no-th-brd no-wrap pro-of-month">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Desde)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hasta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Responsable.Cod_Persona)
+                <th>Accion</th>
+        </thead>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="4"> No se ha encontrado ningún dato relacionado</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
             {
                 <tbody>
-                    <tr >
+                    <tr>
+
                         <td>
                             @Html.DisplayFor(modelItem => item.Desde)
                         </td>
@@ -36,23 +66,25 @@
                             @Html.DisplayFor(modelItem => item.Hasta)
                         </td>
                         <td>
-
+                            @Html.DisplayFor(modelItem => item.Responsable.Cod_Persona)
+                        </td>
+                        <td>
                             <a href="@Url.Action("Edit", "Periodoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
                                 <img width="25" src="~/Content/Ico/Editar.png" />
                             </a>
                             <a href="@Url.Action("Details", "Periodoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
                                 <img width="25" src="~/Content/Ico/Ver_detalles.png" />
                             </a>
-                            <a href="@Url.Action("Delete", "Periodoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
-                                <img width="25" src="~/Content/Ico/eliminar.png" />
-                            </a>
+                            @*<a href="@Url.Action("Delete", "Periodoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                                    <img width="25" src="~/Content/Ico/eliminar.png" />
+                                </a>*@
                         </td>
                     </tr>
                 </tbody>
             }
+        }
+    </table>
+</div>
 
-        </table>
-
-    </div>
 
 

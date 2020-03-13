@@ -15,10 +15,6 @@
     <EntitySet Name="Cargos" EntityType="ModeloNiscoutFBL.Cargo" />
     <EntitySet Name="Centro_Estudios" EntityType="ModeloNiscoutFBL.Centro_Estudio" />
     <EntitySet Name="Tipo_Grupos" EntityType="ModeloNiscoutFBL.Tipo_Grupo" />
-    <AssociationSet Name="PeriodoResponsable" Association="ModeloNiscoutFBL.PeriodoResponsable">
-      <End Role="Periodo" EntitySet="Periodos" />
-      <End Role="Responsable" EntitySet="Personas" />
-    </AssociationSet>
     <AssociationSet Name="ResponsableGrupo" Association="ModeloNiscoutFBL.ResponsableGrupo">
       <End Role="Responsable" EntitySet="Personas" />
       <End Role="Grupo" EntitySet="Grupos" />
@@ -110,10 +106,6 @@
       <End Role="Membresia_Juvenil" EntitySet="Membresia_Juveniles" />
       <End Role="Progresion_Juvenil" EntitySet="Progresion_Juveniles" />
     </AssociationSet>
-    <AssociationSet Name="Centro_EstudioJuvenil" Association="ModeloNiscoutFBL.Centro_EstudioJuvenil">
-      <End Role="Centro_Estudio" EntitySet="Centro_Estudios" />
-      <End Role="Juvenil" EntitySet="Personas" />
-    </AssociationSet>
     <AssociationSet Name="PersonaTutoria" Association="ModeloNiscoutFBL.PersonaTutoria">
       <End Role="Persona" EntitySet="Personas" />
       <End Role="Tutoria" EntitySet="Tutorias" />
@@ -134,6 +126,14 @@
       <End Role="Grupo" EntitySet="Grupos" />
       <End Role="SubGrupo" EntitySet="SubGrupos" />
     </AssociationSet>
+    <AssociationSet Name="ResponsablePeriodo" Association="ModeloNiscoutFBL.ResponsablePeriodo">
+      <End Role="Responsable" EntitySet="Personas" />
+      <End Role="Periodo" EntitySet="Periodos" />
+    </AssociationSet>
+    <AssociationSet Name="Centro_EstudioMembresia_Juvenil" Association="ModeloNiscoutFBL.Centro_EstudioMembresia_Juvenil">
+      <End Role="Centro_Estudio" EntitySet="Centro_Estudios" />
+      <End Role="Membresia_Juvenil" EntitySet="Membresia_Juveniles" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Periodo">
     <Key>
@@ -142,12 +142,12 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Desde" Type="DateTime" Nullable="false" />
     <Property Name="Hasta" Type="DateTime" Nullable="false" />
-    <NavigationProperty Name="Responsables" Relationship="ModeloNiscoutFBL.PeriodoResponsable" FromRole="Periodo" ToRole="Responsable" />
+    <NavigationProperty Name="Responsable" Relationship="ModeloNiscoutFBL.ResponsablePeriodo" FromRole="Periodo" ToRole="Responsable" />
+    <Property Name="ResponsableId" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Responsable" BaseType="ModeloNiscoutFBL.Persona">
-    <NavigationProperty Name="Periodo" Relationship="ModeloNiscoutFBL.PeriodoResponsable" FromRole="Responsable" ToRole="Periodo" />
-    <Property Name="PeriodoId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Grupos" Relationship="ModeloNiscoutFBL.ResponsableGrupo" FromRole="Responsable" ToRole="Grupo" />
+    <NavigationProperty Name="Periodos" Relationship="ModeloNiscoutFBL.ResponsablePeriodo" FromRole="Responsable" ToRole="Periodo" />
   </EntityType>
   <EntityType Name="Departamento">
     <Key>
@@ -234,7 +234,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Cod_Persona" Type="String" Nullable="false" />
+    <Property Name="Cod_Persona" Type="String" Nullable="true" />
     <Property Name="Nombres" Type="String" Nullable="false" />
     <Property Name="Apellidos" Type="String" Nullable="false" />
     <Property Name="Fecha_Nac" Type="DateTime" Nullable="false" />
@@ -282,6 +282,11 @@
     <Property Name="Annio" Type="String" Nullable="false" />
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="Progresion_Juveniles" Relationship="ModeloNiscoutFBL.Membresia_JuvenilProgresion_Juvenil" FromRole="Membresia_Juvenil" ToRole="Progresion_Juvenil" />
+    <Property Name="Turno" Type="String" Nullable="false" />
+    <Property Name="Grado" Type="String" Nullable="false" />
+    <Property Name="Nivel_Academico" Type="String" Nullable="false" />
+    <NavigationProperty Name="Centro_Estudio" Relationship="ModeloNiscoutFBL.Centro_EstudioMembresia_Juvenil" FromRole="Membresia_Juvenil" ToRole="Centro_Estudio" />
+    <Property Name="Centro_EstudioId" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="SubGrupo">
     <Key>
@@ -346,8 +351,6 @@
   </EntityType>
   <EntityType Name="Juvenil" BaseType="ModeloNiscoutFBL.Persona">
     <NavigationProperty Name="Membresia_Juveniles" Relationship="ModeloNiscoutFBL.JuvenilMembresia_Juvenil" FromRole="Juvenil" ToRole="Membresia_Juvenil" />
-    <NavigationProperty Name="Centro_Estudio" Relationship="ModeloNiscoutFBL.Centro_EstudioJuvenil" FromRole="Juvenil" ToRole="Centro_Estudio" />
-    <Property Name="Centro_EstudioId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Tutoria" Relationship="ModeloNiscoutFBL.TutoriaJuvenil" FromRole="Juvenil" ToRole="Tutoria" />
     <Property Name="TutoriaId" Type="Int32" Nullable="false" />
   </EntityType>
@@ -356,13 +359,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Cod_Centro" Type="String" Nullable="false" />
     <Property Name="Nombre_Centro" Type="String" Nullable="false" />
-    <Property Name="Turno" Type="String" Nullable="false" />
     <Property Name="Telefono" Type="Int32" Nullable="false" />
     <Property Name="E_Mail" Type="String" Nullable="false" />
-    <Property Name="Grado" Type="String" Nullable="false" />
-    <NavigationProperty Name="Juveniles" Relationship="ModeloNiscoutFBL.Centro_EstudioJuvenil" FromRole="Centro_Estudio" ToRole="Juvenil" />
+    <NavigationProperty Name="Membresia_Juveniles" Relationship="ModeloNiscoutFBL.Centro_EstudioMembresia_Juvenil" FromRole="Centro_Estudio" ToRole="Membresia_Juvenil" />
   </EntityType>
   <EntityType Name="Tipo_Grupo">
     <Key>
@@ -376,18 +376,6 @@
   <EntityType Name="Asistente" BaseType="ModeloNiscoutFBL.Persona">
     <NavigationProperty Name="SubGrupos" Relationship="ModeloNiscoutFBL.AsistenteSubGrupo" FromRole="Asistente" ToRole="SubGrupo" />
   </EntityType>
-  <Association Name="PeriodoResponsable">
-    <End Type="ModeloNiscoutFBL.Periodo" Role="Periodo" Multiplicity="1" />
-    <End Type="ModeloNiscoutFBL.Responsable" Role="Responsable" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Periodo">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Responsable">
-        <PropertyRef Name="PeriodoId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="ResponsableGrupo">
     <End Type="ModeloNiscoutFBL.Responsable" Role="Responsable" Multiplicity="1" />
     <End Type="ModeloNiscoutFBL.Grupo" Role="Grupo" Multiplicity="*" />
@@ -697,18 +685,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="Centro_EstudioJuvenil">
-    <End Type="ModeloNiscoutFBL.Centro_Estudio" Role="Centro_Estudio" Multiplicity="1" />
-    <End Type="ModeloNiscoutFBL.Juvenil" Role="Juvenil" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Centro_Estudio">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Juvenil">
-        <PropertyRef Name="Centro_EstudioId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="PersonaTutoria">
     <End Type="ModeloNiscoutFBL.Persona" Role="Persona" Multiplicity="1" />
     <End Type="ModeloNiscoutFBL.Tutoria" Role="Tutoria" Multiplicity="*" />
@@ -766,6 +742,30 @@
       </Principal>
       <Dependent Role="SubGrupo">
         <PropertyRef Name="GrupoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ResponsablePeriodo">
+    <End Type="ModeloNiscoutFBL.Responsable" Role="Responsable" Multiplicity="1" />
+    <End Type="ModeloNiscoutFBL.Periodo" Role="Periodo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Responsable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Periodo">
+        <PropertyRef Name="ResponsableId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Centro_EstudioMembresia_Juvenil">
+    <End Type="ModeloNiscoutFBL.Centro_Estudio" Role="Centro_Estudio" Multiplicity="1" />
+    <End Type="ModeloNiscoutFBL.Membresia_Juvenil" Role="Membresia_Juvenil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Centro_Estudio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Membresia_Juvenil">
+        <PropertyRef Name="Centro_EstudioId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
