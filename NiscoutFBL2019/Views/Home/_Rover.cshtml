@@ -1,0 +1,74 @@
+﻿   <!--Genera la informacion de los grupos -->
+<link href="~/Content/AdminLTE.min.css" rel="stylesheet" />
+<link href="~/Content/select2/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/Content/Grupos.css">
+
+
+<div class="modal fade" id="modal-default3" role="dialog">
+    <div class="modal-dialog align-content-center align-center align-items-center">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Rovers</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="loading">
+                    <img src="~/Content/assets/images/rover.jpg" class="center" />
+                </div>
+                <div id="parcialCreateUpdate">
+                    <p>
+                        La rama del Movimiento Scout que comprende jóvenes de ambos sexos entre las edades de 18 a 21 años. Esta es una de las ramas más emocionantes del Movimiento, pues en ella se viven aventuras y experiencias únicas y propias del escultismo. Se realizan actividades que van desde deportes extremos hasta proyectos de servicio que contemplan obras como la ayuda a comunidades hasta campañas en pro del medio ambiente y demás.
+
+                        El Clan es coordinado por un Piloto Rover que tiene como labor moderar y animar al resto de jóvenes que integren el Clan. El dirigente adulto que coordina al Clan y el Piloto Rover tienen veto en las decisiones, el cual deberán utilizar en casos excepcionales a manera de enmarcar las actividades dentro de los principios del Movimiento Scout. En el Consejo de Clan, participan todos los integrantes del Clan, con voz. El lema Rover “Servir” fue adoptado por Baden Powell en base al escudo de armas del Príncipe de Gales, título que hasta hoy es utilizado por el futuro heredero de la Corona Británica.
+                    </p>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info pull-right" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<style>
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+</style>
+
+
+
+   
+
+    <div class="col-md-4 col-sm-6 col-xs-12 animated tada ">
+        <div class="info-box">
+
+            <span class="info-box-icon bg-aqua"><i class="fa fa-edit"></i></span>
+
+            <div class="info-box-content" style="padding: 8px 11px;
+    margin-left: 93px;">
+                <span class="info-text">Rover </span>
+                <span data-number="0" id="enproceso" class="info-box-number"><small></small></span>
+
+                <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-default3" type="button" style="margin:9px;">Información <i class="fa fa-print"></i></button>
+
+            </div>
+            <!-- /.info-box-content -->
+            <!-- /.info-box -->
+
+        </div>
+
+
+    </div>
+
+
+

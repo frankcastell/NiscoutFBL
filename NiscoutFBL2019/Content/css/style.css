@@ -1060,10 +1060,11 @@ File: scss
           line-height: 70px;
           display: inline-block; }
     .topbar .top-navbar .navbar-nav > .nav-item > .nav-link {
+        top:-4px;
       padding-left: 15px;
       padding-right: 15px;
       font-size: 17px;
-      line-height: 54px; }
+      line-height: 18px; }
     .topbar .top-navbar .navbar-nav > .nav-item > span {
       line-height: 65px;
       font-size: 24px;

@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="~/Login_v1/images/icons/favicon.ico" />
+    <link rel="icon" type="image/png" href="~/Content/assets/images/Logov2.png" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="~/Login_v1/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
@@ -46,17 +46,18 @@
                 </div>
                 <div class="login100-pic js-tilt" data-tilt>
 
-                    <img src="~/Login_v1/images/1.png" alt="IMG" style="width: 70%; height: 70%;">                  
+                    <img src="~/Login_v1/images/1.png" alt="IMG" style="width: 80%; height: 80%;margin-top:30px;">                  
                 </div>                
-                <section id="loginForm"style="margin-right:-20px;
-                                               margin-top:-20px;
+                <section id="loginForm"style="margin-right:-8px;
+                                               margin-top:-1px;
+                                               margin-left:-5px;
                                               border-color: #be51c1;
                                               border-width: 1px;
                                               padding-left:10px;
-                                              padding-right:10px;
+                                             
                                               padding-bottom: 10px;
                                               border-style: solid;
-                                              -webkit-border-radius: 10px">
+                                              -webkit-border-radius: 7px">
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                         @Html.AntiForgeryToken()

@@ -17,7 +17,19 @@ namespace NiscoutFBL2019.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Contador = db.Adultos.Count();
+            // FUNCION PARA TEXTO ALEATORIOS
+            List<string> quotes = new List<string>();
+            quotes.Add("La religión es una cosa bien sencilla, primero: amar y servir a Dios, segundo: amar y servir al prójimo.");
+            quotes.Add("Si buscas resultados distintos, no hagas siempre lo mismo.");
+            quotes.Add("Una sonrisa es la llave secreta que abre muchos corazones.");
+            quotes.Add("Un scout debe hacer una buena acción a los demás por cortesía y buena voluntad sin aceptar recompensa.");
+            quotes.Add("En los momentos de crisis, sólo la imaginación es más importante que el conocimiento.");
+
+            Random rnd = new Random();
+            ViewBag.rando = quotes[rnd.Next(quotes.Count)];
+
+            //FIN             
+             ViewBag.Contador = db.Adultos.Count();
             ViewBag.ContadorJ = db.Juveniles.Count();
 
             ViewBag.ContAJ = db.Personas.Count();

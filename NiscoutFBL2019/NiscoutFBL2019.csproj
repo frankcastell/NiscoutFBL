@@ -402,12 +402,16 @@
   <ItemGroup>
     <Content Include="Content\AdminLTE.min.css" />
     <Content Include="Content\assets\images\big\img1.jpg" />
+    <Content Include="Content\assets\images\caminantesweb.jpg" />
     <Content Include="Content\assets\images\custom-select.png" />
     <Content Include="Content\assets\images\favicon.png" />
     <Content Include="Content\assets\images\logo-icon.png" />
     <Content Include="Content\assets\images\logo-text.png" />
     <Content Include="Content\assets\images\Logov2.png" />
     <Content Include="Content\assets\images\Logov3.png" />
+    <Content Include="Content\assets\images\manada.jpg" />
+    <Content Include="Content\assets\images\rover.jpg" />
+    <Content Include="Content\assets\images\scoutweb.jpg" />
     <Content Include="Content\assets\images\users\1.jpg" />
     <Content Include="Content\assets\images\users\2.jpg" />
     <Content Include="Content\assets\images\users\3.jpg" />
@@ -520,6 +524,7 @@
     <Content Include="Content\DataTables\css\dataTables.semanticui.min.css" />
     <Content Include="Content\DataTables\css\jquery.dataTables.css" />
     <Content Include="Content\DataTables\css\jquery.dataTables.min.css" />
+    <Content Include="Content\Grupos.css" />
     <Content Include="Content\Ico\cancelar.png" />
     <Content Include="Content\Ico\Editar.png" />
     <Content Include="Content\Ico\eliminar.png" />
@@ -1169,6 +1174,10 @@
     <Content Include="Views\Juvenils\Index.cshtml" />
     <Content Include="Views\Juvenils\SolicitudJuvenil.cshtml" />
     <Content Include="Views\Membresia_Juvenil\MembreJuvenil.cshtml" />
+    <Content Include="Views\Home\_Caminantes.cshtml" />
+    <Content Include="Views\Home\_Rover.cshtml" />
+    <Content Include="Views\Home\_Scout.cshtml" />
+    <Content Include="Views\Home\_Manada.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

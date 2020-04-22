@@ -1,0 +1,77 @@
+﻿   <!--Genera la informacion de los grupos -->
+<link href="~/Content/AdminLTE.min.css" rel="stylesheet" />
+<link href="~/Content/select2/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/Content/Grupos.css">
+
+<div class="modal fade" id="modal-default4" role="dialog">
+    <div class="modal-dialog align-content-center align-center align-items-center">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Scout</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="loading">
+                    <img src="~/Content/assets/images/scoutweb.jpg" class="center" />
+                </div>
+                <div id="parcialCreateUpdate">
+                    <p>
+                        La Unidad Scout es la rama del Movimiento Scout a la que pertenecen los jóvenes de 11 a 15 años de edad, hombres y mujeres. El marco simbólico en esta rama del Movimiento Scout, es la aventura, el gusto por explorar y descubrir, aquí aprenderás un sin fin de cosas, la vida al aire libre, primeros auxilios, a formarte como una persona competente en la sociedad y con ello construir un mundo mejor. Todo esto lo aprenderás bajo una Ley y una promesa, que cada scout en el mundo, ha realizado y de la cual vive cumpliéndola cada día de su vida.
+
+                        En la Unidad Scout aprenderás a convivir y a trabajar en equipo, aquí integrarás una patrulla, grupo de 6 a 8 jóvenes, quienes llevarán por tótem un animal, del cual toman sus cualidades particulares y positivas, y se identifican con él dentro del Movimiento Scout. Quien dirige a este pequeño grupo recibe el nombre de “Guía de Patrulla” quien es ayudado por un Sub-guía, 4 patrullas integran la unidad, en la cual vivirás experiencias sin comparación y que recordarás por toda tu vida.
+                    </p>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info pull-right" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<style>
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+</style>
+
+
+
+
+
+    <div class="col-md-4 col-sm-6 col-xs-12 animated tada ">
+        <div class="info-box">
+
+            <span class="info-box-icon bg-aqua"><i class="fa fa-edit"></i></span>
+
+            <div class="info-box-content" style="padding: 8px 11px;
+    margin-left: 93px;">
+                <span class="info-text">Scouts </span>
+                <span data-number="0" id="enproceso" class="info-box-number"><small></small></span>
+
+                <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-default4" type="button" style="margin:9px;">Información <i class="fa fa-print"></i></button>
+
+            </div>
+            <!-- /.info-box-content -->
+            <!-- /.info-box -->
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
