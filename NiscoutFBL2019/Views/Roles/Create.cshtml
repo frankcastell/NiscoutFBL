@@ -1,6 +1,7 @@
 ﻿
 @{
-    ViewBag.Title = "Create";
+    Layout = null;
+    //ViewBag.Title = "Create";
 }
 
 <h2>Crear Un Nuevo Rol</h2>
@@ -8,6 +9,11 @@
 @using (Html.BeginForm("Create", "Roles", FormMethod.Post))
 {
     @Html.ValidationSummary("", new { @class = "text-danger" })
-    <input name="roleDescripcion" id="roleDescripcion" type="text" class="form-control" />
-    <input type="submit" name="SubmitButton" value="Guardar" />
-}
+    <div class="form-group">
+        <div class="col-md-4">
+            <input name="roleDescripcion" id="roleDescripcion" type="text" class="form-control" />
+            <br />
+            <input class="alert-primary" type="submit" name="SubmitButton" value="Guardar" />
+            </div>
+        </div>
+            }

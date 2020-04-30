@@ -2010,3 +2010,4 @@ C:\Users\Jorge\Source\Repos\NiscoutFBL\NiscoutFBL2019\obj\Debug\RdlCompile.cache
 C:\Users\Jorge\Source\Repos\NiscoutFBL\NiscoutFBL2019\obj\Debug\RdlCompile.compiled
 C:\Users\Jorge\Source\Repos\NiscoutFBL\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.dll
 C:\Users\Jorge\Source\Repos\NiscoutFBL\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.pdb
+C:\Users\Jorge\Source\Repos\NiscoutFBL\NiscoutFBL2019\obj\Debug\NiscoutFBL2019.csprojResolveAssemblyReference.cache
