@@ -3,10 +3,49 @@
 @{
     ViewBag.Title = "Create";
 }
+<style>
+    .login100-form-title {
+        font-weight: bold;
+        font-family: Poppins-Bold;
+        font-size: 30px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
 
-<h2>Registrar Nuevo Sector...</h2>
+    .input100 {
+        border: none;
+        font-family: Poppins-Medium;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333333;
+        display: block;
+        width: 100%;
+        background: #e6e6e6;
+        height: 45px;
+        border-radius: 15px;
+        padding: 0 20px 0 53px;
+    }
 
 
+    .form-group {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
+
+    .control-label {
+        font-weight: bold;
+        color: #333333;
+        font-size: 18px;
+    }
+</style>
+<span class="login100-form-title">
+    Registrar Nuevo Sector...
+</span>
+<hr />
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -17,7 +56,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Cod_Sector, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Cod_Sector, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Cod_Sector, new { htmlAttributes = new { @class = "input100" } })
                     @Html.ValidationMessageFor(model => model.Cod_Sector, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -25,7 +64,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Nombre_Sector, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Nombre_Sector, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Nombre_Sector, new { htmlAttributes = new { @class = "input100" } })
                     @Html.ValidationMessageFor(model => model.Nombre_Sector, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -33,7 +72,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.MunicipioId, "MunicipioId", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("MunicipioId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("MunicipioId", null, htmlAttributes: new { @class = "input100" })
                     @Html.ValidationMessageFor(model => model.MunicipioId, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -41,7 +80,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.DistritoId, "DistritoId", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("DistritoId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("DistritoId", null, htmlAttributes: new { @class = "input100" })
                     @Html.ValidationMessageFor(model => model.DistritoId, "", new { @class = "text-danger" })
                 </div>
             </div>

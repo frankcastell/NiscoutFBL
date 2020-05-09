@@ -3,10 +3,48 @@
 @{
     ViewBag.Title = "Edit";
 }
+<style>
+    .login100-form-title {
+        font-weight: bold;
+        font-family: Poppins-Bold;
+        font-size: 30px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
 
-<h2>Editando Registro...</h2>
+    .input100 {
+        border: none;
+        font-family: Poppins-Medium;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333333;
+        display: block;
+        width: 100%;
+        background: #e6e6e6;
+        height: 45px;
+        border-radius: 15px;
+        padding: 0 20px 0 53px;
+    }
 
+    .form-group {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
 
+    .control-label {
+        font-weight: bold;
+        color: #333333;
+        font-size: 18px;
+    }
+</style>
+<span class="login100-form-title">
+    Editando Registro..
+</span>
+<hr />
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -19,7 +57,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Cod_Tipo_Grupo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cod_Tipo_Grupo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Cod_Tipo_Grupo, new { htmlAttributes = new { @class = "input100" } })
                 @Html.ValidationMessageFor(model => model.Cod_Tipo_Grupo, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -27,7 +65,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Nombre_Tipo_Grupo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Nombre_Tipo_Grupo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Nombre_Tipo_Grupo, new { htmlAttributes = new { @class = "input100" } })
                 @Html.ValidationMessageFor(model => model.Nombre_Tipo_Grupo, "", new { @class = "text-danger" })
             </div>
         </div>

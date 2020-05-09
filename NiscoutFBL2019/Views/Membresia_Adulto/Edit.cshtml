@@ -3,9 +3,45 @@
 @{
     ViewBag.Title = "Edit";
 }
-
-<h2>Edit</h2>
-
+<style>
+    .login100-form-title {
+        font-weight: bold;
+        font-family: Poppins-Bold;
+        font-size: 30px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
+    .input100 {
+        border: none;
+        font-family: Poppins-Medium;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333333;
+        display: block;
+        width: 100%;
+        background: #e6e6e6;
+        height: 45px;
+        border-radius: 15px;
+        padding: 0 20px 0 53px;
+    }
+    .form-group {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
+    .control-label {
+        font-weight: bold;
+        color: #333333;
+        font-size: 18px;
+    }
+</style>
+<span class="login100-form-title">
+    Editando Registros...
+</span>
+<hr />
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -19,7 +55,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Carta_Compromiso, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" accept=".pdf" name="image1" width="25" class="btn waves-effect waves-light btn-outline-info" />
+                <input  type="file" accept=".pdf" name="image1" width="25" class="btn waves-effect waves-light btn-outline-info" />
             </div>
         </div>
 
@@ -54,7 +90,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Annio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Annio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Annio, new { htmlAttributes = new { @class = "input100" } })
                 @Html.ValidationMessageFor(model => model.Annio, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -62,7 +98,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Etapa_AprobacionId, "Etapa_Aprobacion", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Etapa_AprobacionId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Etapa_AprobacionId", null, htmlAttributes: new { @class = "input100" })
                 @Html.ValidationMessageFor(model => model.Etapa_AprobacionId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -70,7 +106,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AdultoId, "Adulto", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("AdultoId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("AdultoId", null, htmlAttributes: new { @class = "input100" })
                 @Html.ValidationMessageFor(model => model.AdultoId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -80,7 +116,7 @@
             @Html.LabelFor(model => model.Cargo, "Cargo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
               
-                <input  type="text" id="Cargo" name="Cargo" value="@Model.Cargo" class="form-control"/>
+                <input  type="text" id="Cargo" name="Cargo" value="@Model.Cargo" class="input100"/>
 
                 @Html.ValidationMessageFor(model => model.Cargo, "", new { @class = "text-danger" })
             </div>
@@ -90,19 +126,22 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SubGrupoId, "SubGrupo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("SubGrupoId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("SubGrupoId", null, htmlAttributes: new { @class = "input100" })
                 @Html.ValidationMessageFor(model => model.SubGrupoId, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+        <div align="right">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-8">
+                    <input src="@Url.Content("~/Content/Ico/guardar.png")" type="image" value="Guardar" width="25" class="btn waves-effect waves-light btn-outline-info" title="Guardar Registro " /> &nbsp;
+
+                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-red" title="Cancelar Registro">
+                        <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

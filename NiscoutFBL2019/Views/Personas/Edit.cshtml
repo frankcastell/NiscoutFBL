@@ -3,8 +3,50 @@
 @{
     ViewBag.Title = "Edit";
 }
+<style>
+    .login100-form-title {
+        font-weight: bold;
+        font-family: Poppins-Bold;
+        font-size: 30px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
 
-<h2>Editando Registro...</h2>
+    .form-control {
+        border: none;
+        font-family: Poppins-Medium;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333333;
+        display: block;
+        width: 100%;
+        background: #e6e6e6;
+        height: 45px;
+        border-radius: 15px;
+        padding: 0 20px 0 53px;
+    }
+
+
+    .form-group {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
+   
+    .control-label{
+        font-weight: bold;
+        color: #333333;
+        font-size: 18px;
+    }
+</style>
+<span class="login100-form-title">
+    Editando Registro...
+</span>
+<hr />
+
 
 @using (Html.BeginForm())
 {
@@ -144,9 +186,10 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn waves-effect waves-purple btn-danger hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>
+                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Cancelar Registro">
+                        <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
+                    </a>
+                    @*<button class="btn waves-effect waves-purple btn-outline-red">@Html.ActionLink("Cancelar", "Index")</button>*@
                 </div>
             </div>
         </div>

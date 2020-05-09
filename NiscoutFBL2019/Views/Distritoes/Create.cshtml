@@ -3,10 +3,45 @@
 @{
     ViewBag.Title = "Create";
 }
-
-<h2>Registrando Nuevo Distrito</h2>
-
-
+<style>
+    .login100-form-title {
+        font-weight: bold;
+        font-family: Poppins-Bold;
+        font-size: 30px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
+    .input100 {
+        border: none;
+        font-family: Poppins-Medium;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333333;
+        display: block;
+        width: 100%;
+        background: #e6e6e6;
+        height: 45px;
+        border-radius: 15px;
+        padding: 0 20px 0 53px;
+    }
+    .form-group {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
+    .control-label {
+        font-weight: bold;
+        color: #333333;
+        font-size: 18px;
+    }
+</style>
+<span class="login100-form-title">
+    Registrando Nuevo Distrito...
+</span>
+<hr />
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -17,7 +52,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Cod_Distrito, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Cod_Distrito, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Cod_Distrito, new { htmlAttributes = new { @class = "input100" } })
                     @Html.ValidationMessageFor(model => model.Cod_Distrito, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -25,7 +60,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Nombre_Distrito, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Nombre_Distrito, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Nombre_Distrito, new { htmlAttributes = new { @class = "input100" } })
                     @Html.ValidationMessageFor(model => model.Nombre_Distrito, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -33,7 +68,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "input100" } })
                     @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -47,7 +82,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn-success hidden-md-down">Regresar a la lista</a>
+                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn-success">Regresar a la lista</a>
                 </div>
             </div>
         </div>

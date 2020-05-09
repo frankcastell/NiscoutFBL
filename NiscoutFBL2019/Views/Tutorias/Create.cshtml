@@ -4,9 +4,49 @@
     ViewBag.Title = "Create";
     NiscoutFBL2019.Models.Persona PersonaId = ViewBag.PersonaId;
 }
+<style>
+    .login100-form-title {
+        font-weight: bold;
+        font-family: Poppins-Bold;
+        font-size: 30px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
 
-<h2>Registro del parentezco del Tutor</h2>
+    .input100 {
+        border: none;
+        font-family: Poppins-Medium;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333333;
+        display: block;
+        width: 100%;
+        background: #e6e6e6;
+        height: 45px;
+        border-radius: 15px;
+        padding: 0 20px 0 53px;
+    }
 
+
+    .form-group {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
+
+    .control-label {
+        font-weight: bold;
+        color: #333333;
+        font-size: 18px;
+    }
+</style>
+<span class="login100-form-title">
+    Registro del parentezco del Tutor
+</span>
+<hr />
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -20,7 +60,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Parentezco, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Parentezco, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Parentezco, new { htmlAttributes = new { @class = "input100" } })
                     @Html.ValidationMessageFor(model => model.Parentezco, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -28,7 +68,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.PersonaId, "Persona", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <input type="hidden" id="PersonaId" name="PersonaId" value="@PersonaId.Id" />
+                    <input class="input100" type="hidden" id="PersonaId" name="PersonaId" value="@PersonaId.Id" />
                     <label><strong> @PersonaId.Nombres @PersonaId.Apellidos</strong></label>
                 </div>
             </div>
@@ -38,7 +78,7 @@
                     <div class="col-md-offset-2 col-md-10">
                         <input src="@Url.Content("~/Content/Ico/guardar.png")" type="image" value="Guardar" width="25" class="btn waves-effect waves-light btn-outline-info" title="Guardar Registro" /> &nbsp;
 
-                        <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Cancelar Registro">
+                        <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-red" title="Cancelar Registro">
                             <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
                         </a>
                     </div>
