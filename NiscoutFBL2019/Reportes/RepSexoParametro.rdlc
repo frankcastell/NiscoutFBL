@@ -48,6 +48,7 @@
                             <TextRun>
                               <Value>Miembro</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -55,7 +56,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
@@ -84,6 +87,7 @@
                             <TextRun>
                               <Value>Apellidos</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -91,7 +95,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox3</rd:DefaultName>
@@ -120,6 +126,7 @@
                             <TextRun>
                               <Value>Sexo</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -127,7 +134,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox5</rd:DefaultName>
@@ -156,6 +165,7 @@
                             <TextRun>
                               <Value>Grupo</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -163,7 +173,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox7</rd:DefaultName>
@@ -192,6 +204,7 @@
                             <TextRun>
                               <Value>Edad</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -199,7 +212,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox9</rd:DefaultName>
@@ -228,6 +243,7 @@
                             <TextRun>
                               <Value>Departamento</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -235,7 +251,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox11</rd:DefaultName>
@@ -264,6 +282,7 @@
                             <TextRun>
                               <Value>Centro Estudio</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -271,7 +290,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox13</rd:DefaultName>
@@ -300,6 +321,7 @@
                             <TextRun>
                               <Value>Tutor</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -307,7 +329,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -336,6 +360,7 @@
                             <TextRun>
                               <Value>Apellidos</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -343,7 +368,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox17</rd:DefaultName>
@@ -378,6 +405,7 @@
                               <Value>=Fields!Miembro.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
@@ -410,6 +438,7 @@
                               <Value>=Fields!Apellidos.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
@@ -442,6 +471,7 @@
                               <Value>=Fields!Sexo.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
@@ -474,6 +504,7 @@
                               <Value>=Fields!Grupo.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
@@ -506,6 +537,7 @@
                               <Value>=Sum(Fields!Edad.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
@@ -538,6 +570,7 @@
                               <Value>=Fields!Departamento.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
@@ -570,6 +603,7 @@
                               <Value>=Fields!Centro_Estudio.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
@@ -602,6 +636,7 @@
                               <Value>=Fields!Tutor.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
@@ -634,6 +669,7 @@
                               <Value>=Fields!Apellidos1.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
@@ -851,6 +887,7 @@
                   <Value>Este reporte no puede ser duplicado sin la autorización de la administración de Scout de Nicaragua</Value>
                   <Style>
                     <FontSize>6pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -863,7 +900,7 @@
           <Top>0.42478cm</Top>
           <Left>6.51632cm</Left>
           <Height>0.6cm</Height>
-          <Width>9.46736cm</Width>
+          <Width>10.92257cm</Width>
           <Style>
             <Border>
               <Style>None</Style>

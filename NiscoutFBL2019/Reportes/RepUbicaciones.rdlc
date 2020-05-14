@@ -6,27 +6,27 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5172cm</Width>
+              <Width>2.67154cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.15219cm</Width>
+              <Width>3.30653cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.8347cm</Width>
+              <Width>2.98904cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.8347cm</Width>
+              <Width>2.98904cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.8347cm</Width>
+              <Width>2.98904cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.8347cm</Width>
+              <Width>2.98904cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.65292cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -39,14 +39,17 @@
                             <TextRun>
                               <Value>Cod Departamento</Value>
                               <Style>
-                                <FontFamily>Tahoma</FontFamily>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
@@ -74,14 +77,17 @@
                             <TextRun>
                               <Value>Nombre Departamento</Value>
                               <Style>
-                                <FontFamily>Tahoma</FontFamily>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox3</rd:DefaultName>
@@ -109,14 +115,17 @@
                             <TextRun>
                               <Value>Nombre Distrito</Value>
                               <Style>
-                                <FontFamily>Tahoma</FontFamily>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox5</rd:DefaultName>
@@ -144,14 +153,17 @@
                             <TextRun>
                               <Value>Descripcion</Value>
                               <Style>
-                                <FontFamily>Tahoma</FontFamily>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox7</rd:DefaultName>
@@ -179,14 +191,17 @@
                             <TextRun>
                               <Value>Nombre Municipio</Value>
                               <Style>
-                                <FontFamily>Tahoma</FontFamily>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox9</rd:DefaultName>
@@ -214,14 +229,17 @@
                             <TextRun>
                               <Value>Nombre Sector</Value>
                               <Style>
-                                <FontFamily>Tahoma</FontFamily>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox11</rd:DefaultName>
@@ -241,7 +259,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.65292cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -255,6 +273,7 @@
                               <Value>=Fields!Cod_Departamento.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -286,6 +305,7 @@
                               <Value>=Fields!Nombre_Departamento.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -317,6 +337,7 @@
                               <Value>=Fields!Nombre_Distrito.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -348,6 +369,7 @@
                               <Value>=Fields!Descripcion.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -379,6 +401,7 @@
                               <Value>=Fields!Nombre_Municipio.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -410,6 +433,7 @@
                               <Value>=Fields!Nombre_Sector.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -455,8 +479,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>2.03729cm</Top>
-        <Height>1.2cm</Height>
-        <Width>17.00819cm</Width>
+        <Left>0.27492cm</Left>
+        <Height>1.30583cm</Height>
+        <Width>17.93423cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -609,6 +634,7 @@
                   <Value>Este reporte no puede ser duplicado sin la autorización de la administración de Scout de Nicaragua</Value>
                   <Style>
                     <FontSize>6pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -621,7 +647,7 @@
           <Top>0.42478cm</Top>
           <Left>3.77041cm</Left>
           <Height>0.6cm</Height>
-          <Width>9.46736cm</Width>
+          <Width>12.43069cm</Width>
           <Style>
             <Border>
               <Style>None</Style>

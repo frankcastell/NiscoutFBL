@@ -11,7 +11,7 @@
               <TextRun>
                 <Value>=First(Fields!Nombres.Value, "DataSet1")</Value>
                 <Style>
-                  <FontSize>8pt</FontSize>
+                  <FontSize>7pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -20,10 +20,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Nombres</rd:DefaultName>
-        <Top>7.14058cm</Top>
-        <Left>3.19828cm</Left>
+        <Top>7.1053cm</Top>
+        <Left>2.90724cm</Left>
         <Height>0.52062cm</Height>
-        <Width>1.60042cm</Width>
+        <Width>1.96202cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -43,7 +43,7 @@
               <TextRun>
                 <Value>=First(Fields!Apellidos.Value, "DataSet1")</Value>
                 <Style>
-                  <FontSize>8pt</FontSize>
+                  <FontSize>7pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -52,10 +52,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Apellidos</rd:DefaultName>
-        <Top>7.14058cm</Top>
+        <Top>7.1053cm</Top>
         <Left>4.97509cm</Left>
         <Height>0.52062cm</Height>
-        <Width>1.60042cm</Width>
+        <Width>1.70625cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -76,7 +76,7 @@
               <TextRun>
                 <Value>=First(Fields!Cedula.Value, "DataSet1")</Value>
                 <Style>
-                  <FontSize>8pt</FontSize>
+                  <FontSize>7pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -85,10 +85,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Cedula</rd:DefaultName>
-        <Top>8.57842cm</Top>
+        <Top>8.2612cm</Top>
         <Left>3.48933cm</Left>
         <Height>0.52062cm</Height>
-        <Width>2.1825cm</Width>
+        <Width>3.08618cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -109,19 +109,21 @@
               <TextRun>
                 <Value>=First(Fields!Nombre_Cargo.Value, "DataSet1")</Value>
                 <Style>
-                  <FontSize>8pt</FontSize>
+                  <FontSize>7pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Nombre_Cargo</rd:DefaultName>
-        <Top>7.83759cm</Top>
-        <Left>2.96016cm</Left>
+        <Top>7.62592cm</Top>
+        <Left>1.71661cm</Left>
         <Height>0.49417cm</Height>
-        <Width>2.71167cm</Width>
+        <Width>2.39417cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -148,8 +150,8 @@
   </Body>
   <Width>2.78125in</Width>
   <Page>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeight>27.94cm</PageHeight>
+    <PageWidth>21.59cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>

@@ -12,7 +12,7 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.79104cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -261,17 +261,19 @@
                               <Value>=Fields!Nombre_Grupo.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Nombre_Grupo</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -294,17 +296,19 @@
                               <Value>=Sum(Fields!Num_Solicitud.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Num_Solicitud</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -327,17 +331,19 @@
                               <Value>=Fields!Estado_Grupo.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Estado_Grupo</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -360,17 +366,19 @@
                               <Value>=Fields!Nombre_Distrito.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Nombre_Distrito</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -393,17 +401,19 @@
                               <Value>=Fields!Nombres.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Nombres</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -426,17 +436,19 @@
                               <Value>=Fields!Apellidos.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Apellidos</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -475,7 +487,7 @@
         <Top>1.50812cm</Top>
         <Left>3.6535cm</Left>
         <Height>1.2cm</Height>
-        <Width>16.17217cm</Width>
+        <Width>16.46321cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

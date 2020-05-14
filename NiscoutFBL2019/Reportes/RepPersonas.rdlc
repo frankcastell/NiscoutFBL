@@ -29,7 +29,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.73229cm</Height>
+              <Height>0.89104cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -42,6 +42,7 @@
                             <TextRun>
                               <Value>Nombres</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -78,6 +79,7 @@
                             <TextRun>
                               <Value>Apellidos</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -114,6 +116,7 @@
                             <TextRun>
                               <Value>Sexo</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -150,6 +153,7 @@
                             <TextRun>
                               <Value>Cedula</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -184,8 +188,9 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Telefono</Value>
+                              <Value>Teléfono</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -220,8 +225,9 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Direccion</Value>
+                              <Value>Dirección</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -258,6 +264,7 @@
                             <TextRun>
                               <Value>Cargo</Value>
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -300,17 +307,19 @@
                               <Value>=Fields!Nombres.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Nombres</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -333,17 +342,19 @@
                               <Value>=Fields!Apellidos.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Apellidos</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -366,17 +377,19 @@
                               <Value>=Fields!Sexo.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Sexo</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -399,17 +412,19 @@
                               <Value>=Fields!Cedula.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Cedula</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -432,17 +447,19 @@
                               <Value>=Sum(Fields!Telefono.Value)</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Telefono</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -465,17 +482,19 @@
                               <Value>=Fields!Direccion.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Direccion</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -498,17 +517,19 @@
                               <Value>=Fields!Cargo.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>#4d4d4d</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Cargo</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>#e5e5e5</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -547,8 +568,8 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>1.5875cm</Top>
         <Left>1.5436cm</Left>
-        <Height>1.46458cm</Height>
-        <Width>19.00813cm</Width>
+        <Height>1.62333cm</Height>
+        <Width>19.00815cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

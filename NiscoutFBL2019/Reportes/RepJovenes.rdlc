@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Listado de Jovenes y sustutores</Value>
+                <Value>Listado de Jovenes y sus tutores</Value>
                 <Style>
                   <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -103,13 +103,17 @@
                             <TextRun>
                               <Value>Cod Persona</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
@@ -137,13 +141,17 @@
                             <TextRun>
                               <Value>Nombres</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox3</rd:DefaultName>
@@ -171,13 +179,17 @@
                             <TextRun>
                               <Value>Apellidos</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox5</rd:DefaultName>
@@ -205,13 +217,17 @@
                             <TextRun>
                               <Value>Fecha Nac</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox7</rd:DefaultName>
@@ -239,13 +255,17 @@
                             <TextRun>
                               <Value>Correo</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox9</rd:DefaultName>
@@ -273,13 +293,17 @@
                             <TextRun>
                               <Value>Cedula</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox11</rd:DefaultName>
@@ -307,13 +331,17 @@
                             <TextRun>
                               <Value>Sexo</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox13</rd:DefaultName>
@@ -341,13 +369,17 @@
                             <TextRun>
                               <Value>Estado Civil</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -373,15 +405,19 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Telefono</Value>
+                              <Value>Teléfono</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox17</rd:DefaultName>
@@ -409,13 +445,17 @@
                             <TextRun>
                               <Value>Num Pasaporte</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox19</rd:DefaultName>
@@ -441,15 +481,19 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Direccion</Value>
+                              <Value>Dirección</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox21</rd:DefaultName>
@@ -477,13 +521,17 @@
                             <TextRun>
                               <Value>Departamento </Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox23</rd:DefaultName>
@@ -511,13 +559,17 @@
                             <TextRun>
                               <Value>Centro Estudio </Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox25</rd:DefaultName>
@@ -545,13 +597,17 @@
                             <TextRun>
                               <Value>Tutor</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox27</rd:DefaultName>
@@ -579,13 +635,17 @@
                             <TextRun>
                               <Value>Centro Laboral</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox1</rd:DefaultName>
@@ -613,13 +673,17 @@
                             <TextRun>
                               <Value>Tipo Sangre</Value>
                               <Style>
-                                <FontStyle>Normal</FontStyle>
-                                <FontSize>12pt</FontSize>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>13pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox12</rd:DefaultName>
@@ -653,6 +717,7 @@
                               <Value>=Fields!Cod_Persona.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -684,6 +749,7 @@
                               <Value>=Fields!Nombres.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -715,6 +781,7 @@
                               <Value>=Fields!Apellidos.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -746,6 +813,7 @@
                               <Value>=Fields!Fecha_Nac.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -777,6 +845,7 @@
                               <Value>=Fields!E_Mail.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -808,6 +877,7 @@
                               <Value>=Fields!Cedula.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -839,6 +909,7 @@
                               <Value>=Fields!Sexo.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -870,6 +941,7 @@
                               <Value>=Fields!Estado_Civil.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -901,6 +973,7 @@
                               <Value>=Fields!Telefono.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -932,6 +1005,7 @@
                               <Value>=Fields!Num_Pasaporte.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -963,6 +1037,7 @@
                               <Value>=Fields!Direccion.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -994,6 +1069,7 @@
                               <Value>=Fields!Nombre_Departamento.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1025,6 +1101,7 @@
                               <Value>=Fields!Nombre_Centro.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1056,6 +1133,7 @@
                               <Value>=Fields!PersonaId.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1087,6 +1165,7 @@
                               <Value>=Fields!Centro_Laboral.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1118,6 +1197,7 @@
                               <Value>=Fields!Tipo_Sangre.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1174,7 +1254,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>2.01938cm</Top>
         <Height>1.67625cm</Height>
-        <Width>31.95791cm</Width>
+        <Width>31.95789cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -1257,7 +1337,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>1.76361cm</Top>
+          <Top>1.47257cm</Top>
           <Left>27.73323cm</Left>
           <Height>0.6cm</Height>
           <Width>3.77cm</Width>
@@ -1293,7 +1373,7 @@
                 <TextRun>
                   <Value>Este reporte no puede ser duplicado sin la autorización de la administración de Scout de Nicaragua</Value>
                   <Style>
-                    <FontSize>6pt</FontSize>
+                    <FontSize>8pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1325,7 +1405,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Globals!PageNumber</Value>
-                  <Style />
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
