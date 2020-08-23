@@ -99,7 +99,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Annio, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Annio,"Año", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Annio, new { htmlAttributes = new { @class = "input100" } })
                     @Html.ValidationMessageFor(model => model.Annio, "", new { @class = "text-danger" })
