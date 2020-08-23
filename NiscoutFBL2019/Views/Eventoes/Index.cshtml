@@ -21,9 +21,9 @@
                 <a href="@Url.Action("Create", "Eventoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar un nuevo Evento">
                     Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
                 </a>
-                <a href="@Url.Action("RepAdulto", "Adultoes")" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+                @*<a href="@Url.Action("RepAdulto", "Adultoes")" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
                     <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
-                </a>
+                </a>*@
 
                 <hr />
             </div>
@@ -93,9 +93,9 @@
                     <a href="@Url.Action("Details", "Eventoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
                         <img width="25" src="~/Content/Ico/Ver_detalles.png" />
                     </a>
-                    <a href="@Url.Action("Delete", "Eventoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                    @*<a href="@Url.Action("Delete", "Eventoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
                         <img width="25" src="~/Content/Ico/eliminar.png" />
-                    </a>
+                    </a>*@
                 </td>
             </tr>
             }
