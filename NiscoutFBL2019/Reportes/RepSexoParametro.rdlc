@@ -534,7 +534,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Edad.Value)</Value>
+                              <Value>=Fields!Edad.Value</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -966,7 +966,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>d93b58bb-fc32-489c-aef5-6c3d0598f679</rd:DataSourceID>
+      <rd:DataSourceID>b419c185-7414-4e03-914d-5f7b7820e210</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1015,10 +1015,10 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>BDNiscoutDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Jorge\Source\Repos\Sistema\NiscoutFBL2019\BDNiscoutDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Jorge\Source\Repos\copia 2 NiscoutFBL\NiscoutFBL2019\BDNiscoutDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Total_Sexo</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetSexo</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>Total_SexoTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
