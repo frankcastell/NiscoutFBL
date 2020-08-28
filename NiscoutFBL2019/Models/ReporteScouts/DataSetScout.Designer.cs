@@ -973,8 +973,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DataTable4DataTable : global::System.Data.TypedTableBase<DataTable4Row> {
             
-            private global::System.Data.DataColumn columnCod_Persona;
-            
             private global::System.Data.DataColumn columnNombres;
             
             private global::System.Data.DataColumn columnApellidos;
@@ -1004,8 +1002,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             private global::System.Data.DataColumn columnTipo_Sangre;
             
             private global::System.Data.DataColumn columnNombre_Departamento;
-            
-            private global::System.Data.DataColumn columnNombre_Centro;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1038,14 +1034,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             protected DataTable4DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cod_PersonaColumn {
-                get {
-                    return this.columnCod_Persona;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1170,14 +1158,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Nombre_CentroColumn {
-                get {
-                    return this.columnNombre_Centro;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1213,27 +1193,9 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable4Row AddDataTable4Row(
-                        string Cod_Persona, 
-                        string Nombres, 
-                        string Apellidos, 
-                        System.DateTime Fecha_Nac, 
-                        string E_Mail, 
-                        string Cedula, 
-                        string Sexo, 
-                        string Estado_Civil, 
-                        int Telefono, 
-                        string Num_Pasaporte, 
-                        string Direccion, 
-                        string Parentezco, 
-                        int PersonaId, 
-                        string Centro_Laboral, 
-                        string Tipo_Sangre, 
-                        string Nombre_Departamento, 
-                        string Nombre_Centro) {
+            public DataTable4Row AddDataTable4Row(string Nombres, string Apellidos, System.DateTime Fecha_Nac, string E_Mail, string Cedula, string Sexo, string Estado_Civil, int Telefono, string Num_Pasaporte, string Direccion, string Parentezco, int PersonaId, string Centro_Laboral, string Tipo_Sangre, string Nombre_Departamento) {
                 DataTable4Row rowDataTable4Row = ((DataTable4Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Cod_Persona,
                         Nombres,
                         Apellidos,
                         Fecha_Nac,
@@ -1248,8 +1210,7 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                         PersonaId,
                         Centro_Laboral,
                         Tipo_Sangre,
-                        Nombre_Departamento,
-                        Nombre_Centro};
+                        Nombre_Departamento};
                 rowDataTable4Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable4Row);
                 return rowDataTable4Row;
@@ -1272,7 +1233,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnCod_Persona = base.Columns["Cod_Persona"];
                 this.columnNombres = base.Columns["Nombres"];
                 this.columnApellidos = base.Columns["Apellidos"];
                 this.columnFecha_Nac = base.Columns["Fecha_Nac"];
@@ -1288,14 +1248,11 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 this.columnCentro_Laboral = base.Columns["Centro_Laboral"];
                 this.columnTipo_Sangre = base.Columns["Tipo_Sangre"];
                 this.columnNombre_Departamento = base.Columns["Nombre_Departamento"];
-                this.columnNombre_Centro = base.Columns["Nombre_Centro"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnCod_Persona = new global::System.Data.DataColumn("Cod_Persona", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCod_Persona);
                 this.columnNombres = new global::System.Data.DataColumn("Nombres", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombres);
                 this.columnApellidos = new global::System.Data.DataColumn("Apellidos", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1326,10 +1283,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 base.Columns.Add(this.columnTipo_Sangre);
                 this.columnNombre_Departamento = new global::System.Data.DataColumn("Nombre_Departamento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre_Departamento);
-                this.columnNombre_Centro = new global::System.Data.DataColumn("Nombre_Centro", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre_Centro);
-                this.columnCod_Persona.AllowDBNull = false;
-                this.columnCod_Persona.MaxLength = 2147483647;
                 this.columnNombres.AllowDBNull = false;
                 this.columnNombres.MaxLength = 2147483647;
                 this.columnApellidos.AllowDBNull = false;
@@ -1352,8 +1305,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 this.columnTipo_Sangre.MaxLength = 2147483647;
                 this.columnNombre_Departamento.AllowDBNull = false;
                 this.columnNombre_Departamento.MaxLength = 2147483647;
-                this.columnNombre_Centro.AllowDBNull = false;
-                this.columnNombre_Centro.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5009,17 +4960,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Cod_Persona {
-                get {
-                    return ((string)(this[this.tableDataTable4.Cod_PersonaColumn]));
-                }
-                set {
-                    this[this.tableDataTable4.Cod_PersonaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Nombres {
                 get {
                     return ((string)(this[this.tableDataTable4.NombresColumn]));
@@ -5205,17 +5145,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 }
                 set {
                     this[this.tableDataTable4.Nombre_DepartamentoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nombre_Centro {
-                get {
-                    return ((string)(this[this.tableDataTable4.Nombre_CentroColumn]));
-                }
-                set {
-                    this[this.tableDataTable4.Nombre_CentroColumn] = value;
                 }
             }
             
@@ -7735,7 +7664,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts.DataSetScoutTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "DataTable4";
-            tableMapping.ColumnMappings.Add("Cod_Persona", "Cod_Persona");
             tableMapping.ColumnMappings.Add("Nombres", "Nombres");
             tableMapping.ColumnMappings.Add("Apellidos", "Apellidos");
             tableMapping.ColumnMappings.Add("Fecha_Nac", "Fecha_Nac");
@@ -7751,7 +7679,6 @@ namespace NiscoutFBL2019.Models.ReporteScouts.DataSetScoutTableAdapters {
             tableMapping.ColumnMappings.Add("Centro_Laboral", "Centro_Laboral");
             tableMapping.ColumnMappings.Add("Tipo_Sangre", "Tipo_Sangre");
             tableMapping.ColumnMappings.Add("Nombre_Departamento", "Nombre_Departamento");
-            tableMapping.ColumnMappings.Add("Nombre_Centro", "Nombre_Centro");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -7768,11 +7695,10 @@ namespace NiscoutFBL2019.Models.ReporteScouts.DataSetScoutTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Personas.Cod_Persona, Personas.Nombres, Personas.Apellidos, Personas.Fecha_Nac, Personas.E_Mail, Personas.Cedula, Personas.Sexo, Personas.Estado_Civil, Personas.Telefono, Personas.Num_Pasaporte, 
-                         Personas.Direccion, Tutorias.Parentezco, Tutorias.PersonaId, Personas.Centro_Laboral, Personas.Tipo_Sangre, Departamentos.Nombre_Departamento, Centro_Estudios.Nombre_Centro
+            this._commandCollection[0].CommandText = @"SELECT        Personas.Nombres, Personas.Apellidos, Personas.Fecha_Nac, Personas.E_Mail, Personas.Cedula, Personas.Sexo, Personas.Estado_Civil, Personas.Telefono, Personas.Num_Pasaporte, 
+                         Personas.Direccion, Tutorias.Parentezco, Tutorias.PersonaId, Personas.Centro_Laboral, Personas.Tipo_Sangre, Departamentos.Nombre_Departamento
 FROM            Personas_Juvenil INNER JOIN
                          Personas ON Personas_Juvenil.Id = Personas.Id INNER JOIN
-                         Centro_Estudios ON Personas_Juvenil.Centro_EstudioId = Centro_Estudios.Id INNER JOIN
                          Departamentos ON Personas.DepartamentoId = Departamentos.Id INNER JOIN
                          Tutorias ON Personas_Juvenil.TutoriaId = Tutorias.Id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;

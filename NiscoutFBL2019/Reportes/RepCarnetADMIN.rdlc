@@ -53,7 +53,7 @@
         </Paragraphs>
         <rd:DefaultName>Apellidos</rd:DefaultName>
         <Top>7.07856cm</Top>
-        <Left>4.75933cm</Left>
+        <Left>5.02391cm</Left>
         <Height>0.49417cm</Height>
         <Width>1.28292cm</Width>
         <ZIndex>1</ZIndex>
@@ -118,8 +118,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Cedula</rd:DefaultName>
-        <Top>8.3312cm</Top>
-        <Left>3.63044cm</Left>
+        <Top>8.44613cm</Top>
+        <Left>3.14537cm</Left>
         <Height>0.49417cm</Height>
         <Width>1.89146cm</Width>
         <ZIndex>3</ZIndex>
