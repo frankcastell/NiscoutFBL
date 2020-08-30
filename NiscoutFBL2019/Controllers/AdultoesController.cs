@@ -153,7 +153,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Solicitud([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto, string txtpass)
         {
-
+            adulto.Cod_Persona = "ASN" + adulto.Fecha_Nac.ToShortDateString() + DateTime.Now.Year.ToString();
             if (ModelState.IsValid)
             {
                 db.Personas.Add(adulto);
