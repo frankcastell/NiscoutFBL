@@ -15,7 +15,7 @@
     <meta name="author" content=""> 
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="~/Content/assets/images/Logov2.png">
-    <title>Niscout FBL</title>
+    <title>Sistema NISCOUT FBL</title>
     <!-- Bootstrap Core CSS -->
 
     @Styles.Render("~/Content/css")
@@ -119,7 +119,7 @@
                             @*<li><a href="@Url.Action("Index", "Personas")"><i class="fa fa-user"></i> Personas</a></li>*@
                             <li><a href="@Url.Action("Index", "Adultoes")"><i class="fa fa-user-secret"></i> Adultos</a></li>
                             <li><a href="@Url.Action("Index", "Patrocinadors")"><i class="fa fa-user-circle-o"></i> Patrocinadores</a></li>
-                            <li><a href="@Url.Action("VistaTutores", "Personas")"><i class="fa fa-user-o"></i> Tutores</a></li>
+                            <li><a href="@Url.Action("Index", "Tutorias")"><i class="fa fa-user-o"></i> Tutores</a></li>
                             <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-smile-o"></i> <span>Jovenes</span>
@@ -223,11 +223,7 @@
 
                             </ul>
                         </li>
-                        <li> <a class="waves-effect waves-light" href="@Url.Action("Catalogos", "Home")" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Catálogos</span></a></li>
-
-                        <li> <a class="waves-effect waves-green" href="@Url.Action("Index", "Detalle_Evento_Patro")" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Detalle E_Patro..</span></a></li>
-                        <li> <a class="waves-effect waves-green" href="@Url.Action("Index", "Detalle_Grupo_Patro")" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Detalle G_Patro..</span></a></li>
-
+                        
                         @*<li> <a class="waves-effect waves-dark" href="@Url.Action("NotFound", "Home")" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">Error 404</span></a></li>*@
                         
                         @*<div class="text-center m-t-30">
@@ -280,8 +276,8 @@
                             <ul class="treeview-menu">
                                 <li class="active"><a href="@Url.Action("Index","Membresia_Adulto")"><i class="fa  fa-address-card"></i> Membresia Adultos</a></li>
                                 <li><a href="@Url.Action("Index","Membresia_Juvenil")"><i class="fa fa-address-card"></i> Membresia Juvenil</a></li>
-                                <li><a href="@Url.Action("Index","Tutorias")"><i class="fa fa-address-card"></i> Tutor</a></li>
-                                <li><a href="@Url.Action("Index","Etapa_Aprobacion")"><i class="fa fa-address-card"></i> Etapas Aprobacion</a></li>
+                                <li><a href="@Url.Action("Index","Tutorias")"><i class="fa fa-address-card"></i> Ver Tutorías</a></li>
+                                <li><a href="@Url.Action("Index","Etapa_Aprobacion")"><i class="fa fa-address-card"></i> Etapas Aprobación</a></li>
                             </ul>
                         </li>
                        <!-- Grupos-->
@@ -329,12 +325,7 @@
 
                                 </ul>
                             </li>
-
-                            <li> <a class="waves-effect waves-light" href="@Url.Action("Catalogos", "Home")" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Catálogos</span></a></li>
-
-                            <li> <a class="waves-effect waves-green" href="@Url.Action("Index","Detalle_Evento_Patro")" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Detalle E_Patro..</span></a></li>
-                            <li> <a class="waves-effect waves-green" href="@Url.Action("Index","Detalle_Grupo_Patro")" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Detalle G_Patro..</span></a></li>
-
+                            
                                 @*<li> <a class="waves-effect waves-dark" href="@Url.Action("NotFound", "Home")" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">Error 404</span></a></li>*@
 
                                 @*<div class="text-center m-t-30">
@@ -351,20 +342,18 @@
                    {
 
                     <li> <a class="waves-effect waves-light" href="@Url.Action("Index", "Home")" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Inicio</span></a></li>
-                        <!-- Miembros-->
-                        <li class="treeview">
+                        <!-- Eventos-->
+                    <li class="treeview">
                             <a href="#">
-                                <i class="fa  fa-user-plus"></i> <span>Miembros</span>
+                                <i class="fa  fa-newspaper-o"></i> <span>Eventos</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-double-right pull-right"></i>
                                 </span>
                             </a>
-
                             <ul class="treeview-menu">
-                                <li><a href="@Url.Action("Index", "Juvenils")"><i class="fa fa-smile-o"></i> Registrarme</a></li>
-                                <li><a href="@Url.Action("Index", "Centro_Estudio")"><i class="fa fa-smile-o"></i> Centro de Estudio</a></li>
-                                <li><a href="@Url.Action("Index", "Progresion_Juvenil")"><i class="fa fa-smile-o"></i> Progreción Jovenil</a></li>
+                                <li><a href="@Url.Action("Index","Eventoes")"><i class="fa fa-check-square-o"></i> Eventos</a></li>                                                             
                             </ul>
+                    
                         </li>
 
                         @*<div class="text-center m-t-30">
@@ -382,7 +371,7 @@
                         <!-- Miembros-->
                             <li class="treeview">
                                 <a href="#">
-                                    <i class="fa  fa-user-plus"></i> <span>Miembros</span>
+                                    <i class="fa  fa-user-plus"></i> <span>Mis Tutorias</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-double-right pull-right"></i>
                                     </span>

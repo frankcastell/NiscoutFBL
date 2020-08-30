@@ -1139,7 +1139,6 @@
     <Content Include="Views\Reportes\ReporPersonas.cshtml" />
     <Content Include="Views\Reportes\ReporUnidades.cshtml" />
     <Content Include="Views\Reportes\ReporGrupos.cshtml" />
-    <Content Include="Views\Personas\VistaTutores.cshtml" />
     <Content Include="Views\Reportes\ReporCarnetAdmin2.cshtml" />
     <Content Include="Views\Reportes\ReporCarnetAdmin.cshtml" />
     <Content Include="Views\Shared\_Modal.cshtml" />
