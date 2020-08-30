@@ -235,6 +235,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Adulto adulto)
         {
+            adulto.Cod_Persona = " ";
             if (ModelState.IsValid)
             {
                 db.Entry(adulto).State = System.Data.Entity.EntityState.Modified;

@@ -45,7 +45,7 @@
     }
 </style>
 <span class="login100-form-title">
-    Registro Juvenil...
+    Registro Juvenil para @TutoriaId.Persona.Nombres como @TutoriaId.Parentezco
 </span>
 <hr />
 @using (Html.BeginForm())
@@ -163,8 +163,9 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.TutoriaId, "Tutor", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("TutoriaId", null, htmlAttributes: new { @class = "input100" })
-                    @Html.ValidationMessageFor(model => model.TutoriaId, "", new { @class = "text-danger" })
+                    <input type="hidden" id="TutoriaId" name="TutoriaId" value="@TutoriaId.Id"/>
+                    @*@Html.DropDownList("TutoriaId", null, htmlAttributes: new { @class = "input100" })
+                    @Html.ValidationMessageFor(model => model.TutoriaId, "", new { @class = "text-danger" })*@
                 </div>
             </div>
 

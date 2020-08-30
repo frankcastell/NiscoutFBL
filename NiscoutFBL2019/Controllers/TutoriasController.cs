@@ -57,7 +57,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 db.Tutorias.Add(tutoria);
                 db.SaveChanges();
-                return RedirectToAction("SolicitudJuvenil","Juvenils", new { idtutor  = tutoria.Id});
+                return RedirectToAction("SolicitudJuvenil","Juvenils", new { idtutoria  = tutoria.Id});
             }
 
             ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
