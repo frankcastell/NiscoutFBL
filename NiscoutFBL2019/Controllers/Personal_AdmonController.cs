@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -76,6 +77,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,CargoId")] Personal_Admon personal_Admon)
         {
+            personal_Admon.Cod_Persona = "ASN" + personal_Admon.Fecha_Nac.ToShortDateString() + DateTime.Now.Year.ToString();
             if (ModelState.IsValid)
             {
                 db.Personas.Add(personal_Admon);
