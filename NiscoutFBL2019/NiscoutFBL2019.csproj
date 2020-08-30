@@ -426,7 +426,6 @@
     <Content Include="Content\assets\images\users\d4.jpg" />
     <Content Include="Content\assets\images\users\d5.jpg" />
     <Content Include="Content\assets\images\users\profile.png" />
-    <Content Include="Content\assets\images\Usuario icon.png" />
     <Content Include="Content\assets\plugins\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\assets\plugins\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Content\assets\plugins\bootstrap\css\bootstrap-reboot.css" />
@@ -1178,7 +1177,9 @@
     <Content Include="Views\Home\_Rover.cshtml" />
     <Content Include="Views\Home\_Scout.cshtml" />
     <Content Include="Views\Home\_Manada.cshtml" />
-    <Content Include="Views\Juvenils\JuvenilTutorias.cshtml" />
+    <Content Include="Views\ReporteParametros\_Departamento.cshtml" />
+    <Content Include="Views\ReporteParametros\_Años.cshtml" />
+    <Content Include="Views\ReporteParametros\_MembresiaTotal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

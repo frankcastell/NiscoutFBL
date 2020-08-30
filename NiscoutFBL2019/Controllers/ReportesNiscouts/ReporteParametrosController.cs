@@ -69,15 +69,15 @@ namespace NiscoutFBL2019.Controllers.ReportesNiscouts
         //    ViewBag.Sex = report;
         //    return View();
         //}
-        public ActionResult Informe(string sexo= "")
+        public ActionResult Informe(string Sexo= "")
         {
-            var Sexo = db.Personas.Where(x => x.Sexo == sexo);
+            var sexo = db.Personas.Where(x => x.Sexo == Sexo);
             
             Total_SexoTableAdapter V = new Total_SexoTableAdapter();
             ReportViewer rpt = new ReportViewer();
             rpt.ProcessingMode = ProcessingMode.Local;
             rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reportes/RepSexoParametro.rdlc";
-            rpt.LocalReport.DataSources.Add(new ReportDataSource("BDNiscoutDataSet", V.GetData(sexo).ToList()));
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("BDNiscoutDataSet", V.GetData(Sexo).ToList()));
             ReportParameter[] parameters = new ReportParameter[1];
             parameters[0] = new ReportParameter("Sexo",sexo.ToString());
             rpt.LocalReport.SetParameters(parameters);
