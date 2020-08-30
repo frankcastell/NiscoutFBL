@@ -9,8 +9,8 @@ namespace NiscoutFBL2019.Models
     // Puede agregar datos del perfil del usuario agregando más propiedades a la clase ApplicationUser. Para más información, visite http://go.microsoft.com/fwlink/?LinkID=317594.
     public class ApplicationUser : IdentityUser
     {
-         public string Nombre { get;  set; }
-        public string Apellido { get;  set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

@@ -3,7 +3,10 @@
 @{
     ViewBag.Title = "Index";
 }
-<h2>Registros de Departamentos</h2>
+<h2>@Model.Count() de Departamentos</h2>
+
+
+
 <div align="left">
     @using (Html.BeginForm("Index", "Departamentoes", FormMethod.Get))
     {        
@@ -32,10 +35,14 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Cod_Departamento)
+                  Código
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Nombre_Departamento)
+                   Departamento
+                    
+                </th>
+                <th>
+                    Miembros
                 </th>
                 <th></th>
             </tr>
@@ -49,7 +56,7 @@
         else
         {
 
-            foreach (var item in Model)
+            foreach (var item in Model.OrderByDescending(x=>x.Personas.Count))
             {
                 <tr>
                     <td>
@@ -58,7 +65,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Nombre_Departamento)
                     </td>
-                    
+                    <td>
+                        @item.Personas.Count()
+                    </td>
                     <td>
 
                         <a href="@Url.Action("Edit", "Departamentoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">

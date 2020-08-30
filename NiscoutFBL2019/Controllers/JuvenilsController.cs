@@ -32,6 +32,20 @@ namespace NiscoutFBL2019.Controllers
             }
             return View(juvenil.ToList());
         }
+        // GET: Juvenil tutorias
+        public ActionResult JuvenilTutorias(string buscar)
+        {
+           
+            int IdTutor = db.Personas.Where(x => x.E_Mail == User.Identity.Name).FirstOrDefault().Id; 
+            var juvenil = db.Juveniles.Where(x=>x.Tutoria.PersonaId==IdTutor) .Include(j => j.Departamento).Include(j => j.Tutoria);
+
+            if (!string.IsNullOrEmpty(buscar))
+            {
+                juvenil = juvenil.Where(j => j.Nombres.Contains(buscar));
+            }
+            ViewBag.IdTutor = IdTutor;
+            return View(juvenil.ToList());
+        }
 
         // GET: Juvenils/Details/5
         public ActionResult Details(int? id)
@@ -86,6 +100,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,TutoriaId")] Juvenil juvenil, string txtpass)
         {
+            juvenil.Cod_Persona = "ASN" + juvenil.Fecha_Nac.ToShortDateString() + DateTime.Now.Year.ToString();
             if (ModelState.IsValid)
             {
                 db.Personas.Add(juvenil);
@@ -119,8 +134,9 @@ namespace NiscoutFBL2019.Controllers
 
         // GET: Juvenils/Create  Nuevo
         [AllowAnonymous]
-        public ActionResult SolicitudJuvenil(int idtutor)
+        public ActionResult SolicitudJuvenil(int idtutoria)
         {
+            ViewBag.IdTutoria = idtutoria;
             // Codigo para sexo
             ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
@@ -148,15 +164,16 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
             //ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco");
 
-            ViewBag.TutoriaId = db.Tutorias.Find(idtutor);
+            ViewBag.TutoriaId = db.Tutorias.Find(idtutoria);
             return View();
         }
         //Nuevo ...
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SolicitudJuvenil([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,Centro_EstudioId,TutoriaId")] Juvenil juvenil, string txtpass)
+        public ActionResult SolicitudJuvenil([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,TutoriaId")] Juvenil juvenil, string txtpass)
         {
+            juvenil.Cod_Persona = "ASN" + juvenil.Fecha_Nac.ToShortDateString() + DateTime.Now.Year.ToString();
             if (ModelState.IsValid)
             {
                 db.Personas.Add(juvenil);

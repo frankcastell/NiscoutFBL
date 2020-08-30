@@ -93,10 +93,7 @@ namespace NiscoutFBL2019.Controllers
             var personas = db.Personas.Include(p => p.Departamento);
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
-
-
-          
-            
+                                   
             if (idpersona == idtutor )
                 {
                     return View(personas.ToList());
@@ -119,6 +116,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Persona persona, string txtpass)
         {
+            persona.Cod_Persona = "ASN" + persona.Fecha_Nac.ToShortDateString() + DateTime.Now.Year.ToString();
           
              if (ModelState.IsValid)
             {
@@ -192,7 +190,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SolicitudTutor([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Persona persona, string txtpass)
         {
-
+            persona.Cod_Persona = "ASN" + persona.Fecha_Nac.ToShortDateString() + DateTime.Now.Year.ToString();
             if (ModelState.IsValid)
             {
                 db.Personas.Add(persona); 
@@ -204,16 +202,20 @@ namespace NiscoutFBL2019.Controllers
                 var ManejadorUsuario = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
                 var user = new ApplicationUser();
-                user.Nombre = persona.Nombres;
-                user.Apellido = persona.Apellidos;
+                //user.Nombre = persona.Nombres;
+                //user.Apellido = persona.Apellidos;
                 user.UserName = persona.E_Mail;
                 user.Email = persona.E_Mail;
-                string PWD = txtpass;
+                string PWD = "1234567";
                 var chkUser = ManejadorUsuario.Create(user, PWD);
                 //si se creo con exito
                 if (chkUser.Succeeded)
                 {
                     ManejadorUsuario.AddToRole(user.Id, "Tutores");
+                }
+                else
+                {
+                   ViewBag.falla=chkUser.Errors.ToString();
                 }
                 //generar el carnet
                 //persona.Cod_Persona = "NS-" + System.DateTime.Today.Year.ToString() + persona.Id.ToString();
