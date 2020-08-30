@@ -426,6 +426,7 @@
     <Content Include="Content\assets\images\users\d4.jpg" />
     <Content Include="Content\assets\images\users\d5.jpg" />
     <Content Include="Content\assets\images\users\profile.png" />
+    <Content Include="Content\assets\images\Usuario icon.png" />
     <Content Include="Content\assets\plugins\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\assets\plugins\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Content\assets\plugins\bootstrap\css\bootstrap-reboot.css" />
