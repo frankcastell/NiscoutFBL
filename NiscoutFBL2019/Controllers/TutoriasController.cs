@@ -23,6 +23,21 @@ namespace NiscoutFBL2019.Controllers
             return View(tutorias.ToList());
         }
 
+        //public ActionResult VistaTutorespos(int idpersona, int idtutor)
+        //{
+          
+        //    var tutorias = db.Tutorias.Include(t => t.Persona);
+
+        //    ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
+
+        //    if (idpersona == idtutor)
+        //    {
+        //        return View(tutorias.ToList());
+        //    }
+
+        //    return View();
+
+        
         // GET: Tutorias/Details/5
         public ActionResult Details(int? id)
         {

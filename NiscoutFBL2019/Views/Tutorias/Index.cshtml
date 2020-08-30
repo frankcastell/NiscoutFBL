@@ -35,6 +35,19 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Persona.Nombres ) 
                 </th>
+               
+                <th>
+                    @Html.DisplayNameFor(model => model.Persona.Fecha_Nac)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Persona.E_Mail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Persona.Cedula)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Persona.Sexo)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Parentezco)
                 </th>
@@ -47,6 +60,19 @@
                    
                     <td>
                         @item.Persona.Nombres @item.Persona.Apellidos
+                    </td>
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Persona.Fecha_Nac)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Persona.E_Mail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Persona.Cedula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Persona.Sexo)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Parentezco)

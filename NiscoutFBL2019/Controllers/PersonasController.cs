@@ -77,38 +77,7 @@ namespace NiscoutFBL2019.Controllers
             return View();
         }
 
-       public ActionResult VistaTutores()
-        {
-            var personas = db.Personas.Include(p => p.Departamento);
-
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
-
-          
-            return View(personas.ToList());
-        }
-
-        [HttpPost]
-        public ActionResult VistaTutorespos(int idpersona, int idtutor)
-        {
-            var personas = db.Personas.Include(p => p.Departamento);
-
-            ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
-                                   
-            if (idpersona == idtutor )
-                {
-                    return View(personas.ToList());
-                }
-            
-            return View();
-            
-        }
-        public ActionResult Listarnotificacion()
-        {
-
-            ViewBag.Etapa_AprobacionId = new SelectList(db.Etapa_Aprobaciones, "Id", "Estado");
-            return View();
-        }
-       
+         
         // POST: Personas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
