@@ -3,7 +3,7 @@
 <!-- ============================================================== -->
 <div class="row page-titles">
     <div class="col-md-15 ">
-        <h1 class="text-themecolor" style="color:#dd8ee6;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bienvenidos a la Asociación de Scouts de Nicaragua.</h1>
+        <h1 style="color:#dd8ee6; text-align:center" class="text-themecolor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bienvenidos a la Asociación de Scouts de Nicaragua</h1>
     </div>
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -17,18 +17,60 @@
 <!-- ============================================================== -->
 <!-- Sales overview chart -->
 <!-- ============================================================== -->
-<div class="row">
-    <div class="col-lg-3 col-6">
-        <!-- small box 1-->
-        <div class="small-box bg-info" style="border-radius: .25rem;
+        @if (User.IsInRole("Usuario"))
+        {
+            <div class="row">
+                <div class="col-md-10 ">
+                    <h1  class="text-themecolor" style="text-align:center ; margin-top:40px; color:#dd8ee6">&nbsp;&nbsp;&nbsp;Grupos Scouts</h1>
+                </div>
+                @Html.Partial("_Manada")
+                @Html.Partial("_Caminantes")
+                @Html.Partial("_Rover")
+                @Html.Partial("_Scout")
+
+                    <div class="col-md-8">
+                        <!-- START: Modules Anywhere --><div style="border-top: 8px solid orange; border-bottom: 2px solid orange; color:red;" align="center">
+
+                            <h2>@ViewBag.rando</h2><h3>- Baden Powell</h3>
+                        </div><!-- END: Modules Anywhere -->
+                    </div>
+                </div>
+        }
+        else
+            if (User.IsInRole("Tutores"))
+        {
+            <div class="row">
+                <div class="col-md-10 ">
+                    <h1 class="text-themecolor" style="text-align:center ; margin-top:40px; color:#dd8ee6">&nbsp;&nbsp;&nbsp;Grupos Scouts</h1>
+                </div>
+                @Html.Partial("_Manada")
+                @Html.Partial("_Caminantes")
+                @Html.Partial("_Rover")
+                @Html.Partial("_Scout")
+
+                <div class="col-md-8">
+                    <!-- START: Modules Anywhere --><div style="border-top: 8px solid orange; border-bottom: 2px solid orange; color:red;" align="center">
+
+                        <h2>@ViewBag.rando</h2><h3>- Baden Powell</h3>
+                    </div><!-- END: Modules Anywhere -->
+                </div>
+            </div>
+        }
+        else
+        {
+
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <!-- small box 1-->
+                <div class="small-box bg-info" style="border-radius: .25rem;
                                         box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
                                         display: block;
                                         margin-bottom: 20px;
                                         position: relative">
-            <div class="inner">
-                <h3>
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;font-weight: 700;
+                    <div class="inner">
+                        <h3>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;font-weight: 700;
                                 margin: 0 0 10px 10px;">@ViewBag.ContadorJ</font>
                             </font>
                         </h3>
@@ -178,32 +220,25 @@
 
 <br />
 <div class="row page-titles">
-   
+
 </div>
 <!------------------------------------MODAL INFORMATIVO ................... -->
 <div class="row">
     <div class="col-md-10 ">
         <h1 class="text-themecolor" style="margin-top:40px;margin-left:170px; color:#dd8ee6; align-content:center;">&nbsp;&nbsp;&nbsp;Grupos Scouts</h1>
     </div>
-        @Html.Partial("_Manada")
-        @Html.Partial("_Caminantes")
-        @Html.Partial("_Rover")
-        @Html.Partial("_Scout")
-  
+    @Html.Partial("_Manada")
+    @Html.Partial("_Caminantes")
+    @Html.Partial("_Rover")
+    @Html.Partial("_Scout")
+
     <div class="col-md-8">
         <!-- START: Modules Anywhere --><div style="border-top: 8px solid orange; border-bottom: 2px solid orange; color:red;" align="center">
 
             <h2>@ViewBag.rando</h2><h3>- Baden Powell</h3>
         </div><!-- END: Modules Anywhere -->
     </div>
-    
+
 </div>
-
-
-
-
-
-
-
-
-
+}
+        
