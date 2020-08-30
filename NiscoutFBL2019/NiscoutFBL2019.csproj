@@ -1178,6 +1178,9 @@
     <Content Include="Views\Home\_Rover.cshtml" />
     <Content Include="Views\Home\_Scout.cshtml" />
     <Content Include="Views\Home\_Manada.cshtml" />
+    <Content Include="Views\ReporteParametros\_Departamento.cshtml" />
+    <Content Include="Views\ReporteParametros\_Años.cshtml" />
+    <Content Include="Views\ReporteParametros\_MembresiaTotal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
