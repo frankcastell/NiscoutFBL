@@ -224,43 +224,6 @@
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox21">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>ASN-</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Arial Black</FontFamily>
-                  <FontSize>6pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox21</rd:DefaultName>
-        <Top>3.88817cm</Top>
-        <Left>1.84351cm</Left>
-        <Height>0.39715cm</Height>
-        <Width>0.7273cm</Width>
-        <ZIndex>6</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>1pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Cod_Persona">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -283,85 +246,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Cod_Persona</rd:DefaultName>
-        <Top>3.88817cm</Top>
-        <Left>2.57081cm</Left>
+        <Top>3.8529cm</Top>
+        <Left>2.31976cm</Left>
         <Height>0.43243cm</Height>
-        <Width>0.43757cm</Width>
-        <ZIndex>7</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>1pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Fecha_Nac1">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!Fecha_Nac.Value, "DataSet1")</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Arial Black</FontFamily>
-                  <FontSize>6pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Fecha_Nac1</rd:DefaultName>
-        <Top>3.92344cm</Top>
-        <Left>3.00838cm</Left>
-        <Height>0.39715cm</Height>
-        <Width>2.50882cm</Width>
-        <ZIndex>8</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>1pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox24">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>-2020</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Arial Black</FontFamily>
-                  <FontSize>6pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox24</rd:DefaultName>
-        <Top>3.88817cm</Top>
-        <Left>5.55248cm</Left>
-        <Height>0.43243cm</Height>
-        <Width>1.27cm</Width>
-        <ZIndex>9</ZIndex>
+        <Width>2.69945cm</Width>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -398,7 +287,7 @@
         <Left>1.80823cm</Left>
         <Height>0.43243cm</Height>
         <Width>1.20015cm</Width>
-        <ZIndex>10</ZIndex>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
