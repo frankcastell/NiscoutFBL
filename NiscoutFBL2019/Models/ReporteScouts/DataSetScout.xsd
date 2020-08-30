@@ -210,6 +210,7 @@ FROM            Personas INNER JOIN
               <Mapping SourceColumn="Nombre_Subgrupo" DataSetColumn="Nombre_Subgrupo" />
               <Mapping SourceColumn="Cod_Persona" DataSetColumn="Cod_Persona" />
               <Mapping SourceColumn="Fecha_Nac" DataSetColumn="Fecha_Nac" />
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -232,6 +233,8 @@ FROM            Personas INNER JOIN
               <Mapping SourceColumn="Apellidos" DataSetColumn="Apellidos" />
               <Mapping SourceColumn="Cedula" DataSetColumn="Cedula" />
               <Mapping SourceColumn="Cargo" DataSetColumn="Cargo" />
+              <Mapping SourceColumn="Cod_Persona" DataSetColumn="Cod_Persona" />
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -254,6 +257,8 @@ FROM            Personas INNER JOIN
               <Mapping SourceColumn="Apellidos" DataSetColumn="Apellidos" />
               <Mapping SourceColumn="Cedula" DataSetColumn="Cedula" />
               <Mapping SourceColumn="Nombre_Cargo" DataSetColumn="Nombre_Cargo" />
+              <Mapping SourceColumn="Cod_Persona" DataSetColumn="Cod_Persona" />
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -265,7 +270,7 @@ FROM            Personas INNER JOIN
   <xs:element name="DataSetScout" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetScout" msprop:Generator_UserDSName="DataSetScout">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Column1" msprop:Generator_ColumnVarNameInTable="columnColumn1" msprop:Generator_ColumnPropNameInRow="Column1" msprop:Generator_ColumnPropNameInTable="Column1Column" msprop:Generator_UserColumnName="Column1" type="xs:string" minOccurs="0" />
@@ -285,7 +290,7 @@ FROM            Personas INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent">
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowClassName="DataTable2Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Column1" msprop:Generator_ColumnVarNameInTable="columnColumn1" msprop:Generator_ColumnPropNameInRow="Column1" msprop:Generator_ColumnPropNameInTable="Column1Column" msprop:Generator_UserColumnName="Column1" type="xs:string" minOccurs="0" />
@@ -296,7 +301,7 @@ FROM            Personas INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable3" msprop:Generator_TableClassName="DataTable3DataTable" msprop:Generator_TableVarName="tableDataTable3" msprop:Generator_TablePropName="DataTable3" msprop:Generator_RowDeletingName="DataTable3RowDeleting" msprop:Generator_RowChangingName="DataTable3RowChanging" msprop:Generator_RowEvHandlerName="DataTable3RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable3RowDeleted" msprop:Generator_UserTableName="DataTable3" msprop:Generator_RowChangedName="DataTable3RowChanged" msprop:Generator_RowEvArgName="DataTable3RowChangeEvent" msprop:Generator_RowClassName="DataTable3Row">
+        <xs:element name="DataTable3" msprop:Generator_TableClassName="DataTable3DataTable" msprop:Generator_TableVarName="tableDataTable3" msprop:Generator_RowChangedName="DataTable3RowChanged" msprop:Generator_TablePropName="DataTable3" msprop:Generator_RowDeletingName="DataTable3RowDeleting" msprop:Generator_RowChangingName="DataTable3RowChanging" msprop:Generator_RowEvHandlerName="DataTable3RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable3RowDeleted" msprop:Generator_RowClassName="DataTable3Row" msprop:Generator_UserTableName="DataTable3" msprop:Generator_RowEvArgName="DataTable3RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Column1" msprop:Generator_ColumnVarNameInTable="columnColumn1" msprop:Generator_ColumnPropNameInRow="Column1" msprop:Generator_ColumnPropNameInTable="Column1Column" msprop:Generator_UserColumnName="Column1" type="xs:string" minOccurs="0" />
@@ -318,7 +323,7 @@ FROM            Personas INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Centro_Estudios" msprop:Generator_TableClassName="Centro_EstudiosDataTable" msprop:Generator_TableVarName="tableCentro_Estudios" msprop:Generator_TablePropName="Centro_Estudios" msprop:Generator_RowDeletingName="Centro_EstudiosRowDeleting" msprop:Generator_RowChangingName="Centro_EstudiosRowChanging" msprop:Generator_RowEvHandlerName="Centro_EstudiosRowChangeEventHandler" msprop:Generator_RowDeletedName="Centro_EstudiosRowDeleted" msprop:Generator_UserTableName="Centro_Estudios" msprop:Generator_RowChangedName="Centro_EstudiosRowChanged" msprop:Generator_RowEvArgName="Centro_EstudiosRowChangeEvent" msprop:Generator_RowClassName="Centro_EstudiosRow">
+        <xs:element name="Centro_Estudios" msprop:Generator_TableClassName="Centro_EstudiosDataTable" msprop:Generator_TableVarName="tableCentro_Estudios" msprop:Generator_RowChangedName="Centro_EstudiosRowChanged" msprop:Generator_TablePropName="Centro_Estudios" msprop:Generator_RowDeletingName="Centro_EstudiosRowDeleting" msprop:Generator_RowChangingName="Centro_EstudiosRowChanging" msprop:Generator_RowEvHandlerName="Centro_EstudiosRowChangeEventHandler" msprop:Generator_RowDeletedName="Centro_EstudiosRowDeleted" msprop:Generator_RowClassName="Centro_EstudiosRow" msprop:Generator_UserTableName="Centro_Estudios" msprop:Generator_RowEvArgName="Centro_EstudiosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_Centro" msprop:Generator_ColumnVarNameInTable="columnNombre_Centro" msprop:Generator_ColumnPropNameInRow="Nombre_Centro" msprop:Generator_ColumnPropNameInTable="Nombre_CentroColumn" msprop:Generator_UserColumnName="Nombre_Centro">
@@ -340,7 +345,7 @@ FROM            Personas INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable4" msprop:Generator_TableClassName="DataTable4DataTable" msprop:Generator_TableVarName="tableDataTable4" msprop:Generator_RowChangedName="DataTable4RowChanged" msprop:Generator_TablePropName="DataTable4" msprop:Generator_RowDeletingName="DataTable4RowDeleting" msprop:Generator_RowChangingName="DataTable4RowChanging" msprop:Generator_RowEvHandlerName="DataTable4RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable4RowDeleted" msprop:Generator_RowClassName="DataTable4Row" msprop:Generator_UserTableName="DataTable4" msprop:Generator_RowEvArgName="DataTable4RowChangeEvent">
+        <xs:element name="DataTable4" msprop:Generator_TableClassName="DataTable4DataTable" msprop:Generator_TableVarName="tableDataTable4" msprop:Generator_TablePropName="DataTable4" msprop:Generator_RowDeletingName="DataTable4RowDeleting" msprop:Generator_RowChangingName="DataTable4RowChanging" msprop:Generator_RowEvHandlerName="DataTable4RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable4RowDeleted" msprop:Generator_UserTableName="DataTable4" msprop:Generator_RowChangedName="DataTable4RowChanged" msprop:Generator_RowEvArgName="DataTable4RowChangeEvent" msprop:Generator_RowClassName="DataTable4Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombres" msprop:Generator_ColumnVarNameInTable="columnNombres" msprop:Generator_ColumnPropNameInRow="Nombres" msprop:Generator_ColumnPropNameInTable="NombresColumn" msprop:Generator_UserColumnName="Nombres">
@@ -433,7 +438,7 @@ FROM            Personas INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable5" msprop:Generator_TableClassName="DataTable5DataTable" msprop:Generator_TableVarName="tableDataTable5" msprop:Generator_TablePropName="DataTable5" msprop:Generator_RowDeletingName="DataTable5RowDeleting" msprop:Generator_RowChangingName="DataTable5RowChanging" msprop:Generator_RowEvHandlerName="DataTable5RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable5RowDeleted" msprop:Generator_UserTableName="DataTable5" msprop:Generator_RowChangedName="DataTable5RowChanged" msprop:Generator_RowEvArgName="DataTable5RowChangeEvent" msprop:Generator_RowClassName="DataTable5Row">
+        <xs:element name="DataTable5" msprop:Generator_TableClassName="DataTable5DataTable" msprop:Generator_TableVarName="tableDataTable5" msprop:Generator_RowChangedName="DataTable5RowChanged" msprop:Generator_TablePropName="DataTable5" msprop:Generator_RowDeletingName="DataTable5RowDeleting" msprop:Generator_RowChangingName="DataTable5RowChanging" msprop:Generator_RowEvHandlerName="DataTable5RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable5RowDeleted" msprop:Generator_RowClassName="DataTable5Row" msprop:Generator_UserTableName="DataTable5" msprop:Generator_RowEvArgName="DataTable5RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cod_Departamento" msprop:Generator_ColumnVarNameInTable="columnCod_Departamento" msprop:Generator_ColumnPropNameInRow="Cod_Departamento" msprop:Generator_ColumnPropNameInTable="Cod_DepartamentoColumn" msprop:Generator_UserColumnName="Cod_Departamento">
@@ -481,7 +486,7 @@ FROM            Personas INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable6" msprop:Generator_TableClassName="DataTable6DataTable" msprop:Generator_TableVarName="tableDataTable6" msprop:Generator_TablePropName="DataTable6" msprop:Generator_RowDeletingName="DataTable6RowDeleting" msprop:Generator_RowChangingName="DataTable6RowChanging" msprop:Generator_RowEvHandlerName="DataTable6RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable6RowDeleted" msprop:Generator_UserTableName="DataTable6" msprop:Generator_RowChangedName="DataTable6RowChanged" msprop:Generator_RowEvArgName="DataTable6RowChangeEvent" msprop:Generator_RowClassName="DataTable6Row">
+        <xs:element name="DataTable6" msprop:Generator_TableClassName="DataTable6DataTable" msprop:Generator_TableVarName="tableDataTable6" msprop:Generator_RowChangedName="DataTable6RowChanged" msprop:Generator_TablePropName="DataTable6" msprop:Generator_RowDeletingName="DataTable6RowDeleting" msprop:Generator_RowChangingName="DataTable6RowChanging" msprop:Generator_RowEvHandlerName="DataTable6RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable6RowDeleted" msprop:Generator_RowClassName="DataTable6Row" msprop:Generator_UserTableName="DataTable6" msprop:Generator_RowEvArgName="DataTable6RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_Grupo" msprop:Generator_ColumnVarNameInTable="columnNombre_Grupo" msprop:Generator_ColumnPropNameInRow="Nombre_Grupo" msprop:Generator_ColumnPropNameInTable="Nombre_GrupoColumn" msprop:Generator_UserColumnName="Nombre_Grupo">
@@ -523,7 +528,7 @@ FROM            Personas INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable7" msprop:Generator_TableClassName="DataTable7DataTable" msprop:Generator_TableVarName="tableDataTable7" msprop:Generator_RowChangedName="DataTable7RowChanged" msprop:Generator_TablePropName="DataTable7" msprop:Generator_RowDeletingName="DataTable7RowDeleting" msprop:Generator_RowChangingName="DataTable7RowChanging" msprop:Generator_RowEvHandlerName="DataTable7RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable7RowDeleted" msprop:Generator_RowClassName="DataTable7Row" msprop:Generator_UserTableName="DataTable7" msprop:Generator_RowEvArgName="DataTable7RowChangeEvent">
+        <xs:element name="DataTable7" msprop:Generator_TableClassName="DataTable7DataTable" msprop:Generator_TableVarName="tableDataTable7" msprop:Generator_TablePropName="DataTable7" msprop:Generator_RowDeletingName="DataTable7RowDeleting" msprop:Generator_RowChangingName="DataTable7RowChanging" msprop:Generator_RowEvHandlerName="DataTable7RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable7RowDeleted" msprop:Generator_UserTableName="DataTable7" msprop:Generator_RowChangedName="DataTable7RowChanged" msprop:Generator_RowEvArgName="DataTable7RowChangeEvent" msprop:Generator_RowClassName="DataTable7Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_UserColumnName="Descripcion">
@@ -564,7 +569,7 @@ FROM            Personas INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable8" msprop:Generator_TableClassName="DataTable8DataTable" msprop:Generator_TableVarName="tableDataTable8" msprop:Generator_RowChangedName="DataTable8RowChanged" msprop:Generator_TablePropName="DataTable8" msprop:Generator_RowDeletingName="DataTable8RowDeleting" msprop:Generator_RowChangingName="DataTable8RowChanging" msprop:Generator_RowEvHandlerName="DataTable8RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable8RowDeleted" msprop:Generator_RowClassName="DataTable8Row" msprop:Generator_UserTableName="DataTable8" msprop:Generator_RowEvArgName="DataTable8RowChangeEvent">
+        <xs:element name="DataTable8" msprop:Generator_TableClassName="DataTable8DataTable" msprop:Generator_TableVarName="tableDataTable8" msprop:Generator_TablePropName="DataTable8" msprop:Generator_RowDeletingName="DataTable8RowDeleting" msprop:Generator_RowChangingName="DataTable8RowChanging" msprop:Generator_RowEvHandlerName="DataTable8RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable8RowDeleted" msprop:Generator_UserTableName="DataTable8" msprop:Generator_RowChangedName="DataTable8RowChanged" msprop:Generator_RowEvArgName="DataTable8RowChangeEvent" msprop:Generator_RowClassName="DataTable8Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombres" msprop:Generator_ColumnVarNameInTable="columnNombres" msprop:Generator_ColumnPropNameInRow="Nombres" msprop:Generator_ColumnPropNameInTable="NombresColumn" msprop:Generator_UserColumnName="Nombres">
@@ -613,7 +618,7 @@ FROM            Personas INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Genera_Carnet" msprop:Generator_TableClassName="Genera_CarnetDataTable" msprop:Generator_TableVarName="tableGenera_Carnet" msprop:Generator_TablePropName="Genera_Carnet" msprop:Generator_RowDeletingName="Genera_CarnetRowDeleting" msprop:Generator_RowChangingName="Genera_CarnetRowChanging" msprop:Generator_RowEvHandlerName="Genera_CarnetRowChangeEventHandler" msprop:Generator_RowDeletedName="Genera_CarnetRowDeleted" msprop:Generator_UserTableName="Genera_Carnet" msprop:Generator_RowChangedName="Genera_CarnetRowChanged" msprop:Generator_RowEvArgName="Genera_CarnetRowChangeEvent" msprop:Generator_RowClassName="Genera_CarnetRow">
+        <xs:element name="Genera_Carnet" msprop:Generator_TableClassName="Genera_CarnetDataTable" msprop:Generator_TableVarName="tableGenera_Carnet" msprop:Generator_RowChangedName="Genera_CarnetRowChanged" msprop:Generator_TablePropName="Genera_Carnet" msprop:Generator_RowDeletingName="Genera_CarnetRowDeleting" msprop:Generator_RowChangingName="Genera_CarnetRowChanging" msprop:Generator_RowEvHandlerName="Genera_CarnetRowChangeEventHandler" msprop:Generator_RowDeletedName="Genera_CarnetRowDeleted" msprop:Generator_RowClassName="Genera_CarnetRow" msprop:Generator_UserTableName="Genera_Carnet" msprop:Generator_RowEvArgName="Genera_CarnetRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombres" msprop:Generator_ColumnVarNameInTable="columnNombres" msprop:Generator_ColumnPropNameInRow="Nombres" msprop:Generator_ColumnPropNameInTable="NombresColumn" msprop:Generator_UserColumnName="Nombres">
@@ -651,7 +656,7 @@ FROM            Personas INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Cod_Persona" msprop:Generator_ColumnVarNameInTable="columnCod_Persona" msprop:Generator_ColumnPropNameInRow="Cod_Persona" msprop:Generator_ColumnPropNameInTable="Cod_PersonaColumn" msprop:Generator_UserColumnName="Cod_Persona">
+              <xs:element name="Cod_Persona" msprop:Generator_ColumnVarNameInTable="columnCod_Persona" msprop:Generator_ColumnPropNameInRow="Cod_Persona" msprop:Generator_ColumnPropNameInTable="Cod_PersonaColumn" msprop:Generator_UserColumnName="Cod_Persona" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -659,10 +664,11 @@ FROM            Personas INNER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Fecha_Nac" msprop:Generator_ColumnVarNameInTable="columnFecha_Nac" msprop:Generator_ColumnPropNameInRow="Fecha_Nac" msprop:Generator_ColumnPropNameInTable="Fecha_NacColumn" msprop:Generator_UserColumnName="Fecha_Nac" type="xs:dateTime" />
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Generar_CarneADMIN" msprop:Generator_TableClassName="Generar_CarneADMINDataTable" msprop:Generator_TableVarName="tableGenerar_CarneADMIN" msprop:Generator_RowChangedName="Generar_CarneADMINRowChanged" msprop:Generator_TablePropName="Generar_CarneADMIN" msprop:Generator_RowDeletingName="Generar_CarneADMINRowDeleting" msprop:Generator_RowChangingName="Generar_CarneADMINRowChanging" msprop:Generator_RowEvHandlerName="Generar_CarneADMINRowChangeEventHandler" msprop:Generator_RowDeletedName="Generar_CarneADMINRowDeleted" msprop:Generator_RowClassName="Generar_CarneADMINRow" msprop:Generator_UserTableName="Generar_CarneADMIN" msprop:Generator_RowEvArgName="Generar_CarneADMINRowChangeEvent">
+        <xs:element name="Generar_CarneADMIN" msprop:Generator_TableClassName="Generar_CarneADMINDataTable" msprop:Generator_TableVarName="tableGenerar_CarneADMIN" msprop:Generator_TablePropName="Generar_CarneADMIN" msprop:Generator_RowDeletingName="Generar_CarneADMINRowDeleting" msprop:Generator_RowChangingName="Generar_CarneADMINRowChanging" msprop:Generator_RowEvHandlerName="Generar_CarneADMINRowChangeEventHandler" msprop:Generator_RowDeletedName="Generar_CarneADMINRowDeleted" msprop:Generator_UserTableName="Generar_CarneADMIN" msprop:Generator_RowChangedName="Generar_CarneADMINRowChanged" msprop:Generator_RowEvArgName="Generar_CarneADMINRowChangeEvent" msprop:Generator_RowClassName="Generar_CarneADMINRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombres" msprop:Generator_ColumnVarNameInTable="columnNombres" msprop:Generator_ColumnPropNameInRow="Nombres" msprop:Generator_ColumnPropNameInTable="NombresColumn" msprop:Generator_UserColumnName="Nombres">
@@ -693,10 +699,18 @@ FROM            Personas INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Cod_Persona" msprop:Generator_ColumnVarNameInTable="columnCod_Persona" msprop:Generator_ColumnPropNameInRow="Cod_Persona" msprop:Generator_ColumnPropNameInTable="Cod_PersonaColumn" msprop:Generator_UserColumnName="Cod_Persona" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Generar_CarneADMIN2" msprop:Generator_TableClassName="Generar_CarneADMIN2DataTable" msprop:Generator_TableVarName="tableGenerar_CarneADMIN2" msprop:Generator_RowChangedName="Generar_CarneADMIN2RowChanged" msprop:Generator_TablePropName="Generar_CarneADMIN2" msprop:Generator_RowDeletingName="Generar_CarneADMIN2RowDeleting" msprop:Generator_RowChangingName="Generar_CarneADMIN2RowChanging" msprop:Generator_RowEvHandlerName="Generar_CarneADMIN2RowChangeEventHandler" msprop:Generator_RowDeletedName="Generar_CarneADMIN2RowDeleted" msprop:Generator_RowClassName="Generar_CarneADMIN2Row" msprop:Generator_UserTableName="Generar_CarneADMIN2" msprop:Generator_RowEvArgName="Generar_CarneADMIN2RowChangeEvent">
+        <xs:element name="Generar_CarneADMIN2" msprop:Generator_TableClassName="Generar_CarneADMIN2DataTable" msprop:Generator_TableVarName="tableGenerar_CarneADMIN2" msprop:Generator_TablePropName="Generar_CarneADMIN2" msprop:Generator_RowDeletingName="Generar_CarneADMIN2RowDeleting" msprop:Generator_RowChangingName="Generar_CarneADMIN2RowChanging" msprop:Generator_RowEvHandlerName="Generar_CarneADMIN2RowChangeEventHandler" msprop:Generator_RowDeletedName="Generar_CarneADMIN2RowDeleted" msprop:Generator_UserTableName="Generar_CarneADMIN2" msprop:Generator_RowChangedName="Generar_CarneADMIN2RowChanged" msprop:Generator_RowEvArgName="Generar_CarneADMIN2RowChangeEvent" msprop:Generator_RowClassName="Generar_CarneADMIN2Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombres" msprop:Generator_ColumnVarNameInTable="columnNombres" msprop:Generator_ColumnPropNameInRow="Nombres" msprop:Generator_ColumnPropNameInTable="NombresColumn" msprop:Generator_UserColumnName="Nombres">
@@ -727,6 +741,14 @@ FROM            Personas INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Cod_Persona" msprop:Generator_ColumnVarNameInTable="columnCod_Persona" msprop:Generator_ColumnPropNameInRow="Cod_Persona" msprop:Generator_ColumnPropNameInTable="Cod_PersonaColumn" msprop:Generator_UserColumnName="Cod_Persona" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -734,6 +756,18 @@ FROM            Personas INNER JOIN
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Centro_Estudios" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Genera_Carnet_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Genera_Carnet" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Generar_CarneADMIN_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Generar_CarneADMIN" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Generar_CarneADMIN2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Generar_CarneADMIN2" />
       <xs:field xpath="mstns:Id" />
     </xs:unique>
   </xs:element>

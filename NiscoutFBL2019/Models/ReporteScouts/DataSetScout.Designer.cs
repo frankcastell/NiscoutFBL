@@ -2765,6 +2765,8 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             private global::System.Data.DataColumn columnFecha_Nac;
             
+            private global::System.Data.DataColumn columnId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Genera_CarnetDataTable() {
@@ -2856,6 +2858,14 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2900,10 +2910,18 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                         Nombre_Grupo,
                         Nombre_Subgrupo,
                         Cod_Persona,
-                        Fecha_Nac};
+                        Fecha_Nac,
+                        null};
                 rowGenera_CarnetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGenera_CarnetRow);
                 return rowGenera_CarnetRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Genera_CarnetRow FindById(int Id) {
+                return ((Genera_CarnetRow)(this.Rows.Find(new object[] {
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2930,6 +2948,7 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 this.columnNombre_Subgrupo = base.Columns["Nombre_Subgrupo"];
                 this.columnCod_Persona = base.Columns["Cod_Persona"];
                 this.columnFecha_Nac = base.Columns["Fecha_Nac"];
+                this.columnId = base.Columns["Id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2949,6 +2968,10 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 base.Columns.Add(this.columnCod_Persona);
                 this.columnFecha_Nac = new global::System.Data.DataColumn("Fecha_Nac", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFecha_Nac);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
                 this.columnNombres.AllowDBNull = false;
                 this.columnNombres.MaxLength = 2147483647;
                 this.columnApellidos.AllowDBNull = false;
@@ -2959,9 +2982,14 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 this.columnNombre_Grupo.MaxLength = 2147483647;
                 this.columnNombre_Subgrupo.AllowDBNull = false;
                 this.columnNombre_Subgrupo.MaxLength = 2147483647;
-                this.columnCod_Persona.AllowDBNull = false;
                 this.columnCod_Persona.MaxLength = 2147483647;
                 this.columnFecha_Nac.AllowDBNull = false;
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3103,6 +3131,10 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             private global::System.Data.DataColumn columnCargo;
             
+            private global::System.Data.DataColumn columnCod_Persona;
+            
+            private global::System.Data.DataColumn columnId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Generar_CarneADMINDataTable() {
@@ -3170,6 +3202,22 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cod_PersonaColumn {
+                get {
+                    return this.columnCod_Persona;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3205,16 +3253,25 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Generar_CarneADMINRow AddGenerar_CarneADMINRow(string Nombres, string Apellidos, string Cedula, string Cargo) {
+            public Generar_CarneADMINRow AddGenerar_CarneADMINRow(string Nombres, string Apellidos, string Cedula, string Cargo, string Cod_Persona) {
                 Generar_CarneADMINRow rowGenerar_CarneADMINRow = ((Generar_CarneADMINRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nombres,
                         Apellidos,
                         Cedula,
-                        Cargo};
+                        Cargo,
+                        Cod_Persona,
+                        null};
                 rowGenerar_CarneADMINRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGenerar_CarneADMINRow);
                 return rowGenerar_CarneADMINRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Generar_CarneADMINRow FindById(int Id) {
+                return ((Generar_CarneADMINRow)(this.Rows.Find(new object[] {
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3238,6 +3295,8 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 this.columnApellidos = base.Columns["Apellidos"];
                 this.columnCedula = base.Columns["Cedula"];
                 this.columnCargo = base.Columns["Cargo"];
+                this.columnCod_Persona = base.Columns["Cod_Persona"];
+                this.columnId = base.Columns["Id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3251,6 +3310,12 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 base.Columns.Add(this.columnCedula);
                 this.columnCargo = new global::System.Data.DataColumn("Cargo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCargo);
+                this.columnCod_Persona = new global::System.Data.DataColumn("Cod_Persona", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCod_Persona);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
                 this.columnNombres.AllowDBNull = false;
                 this.columnNombres.MaxLength = 2147483647;
                 this.columnApellidos.AllowDBNull = false;
@@ -3258,6 +3323,13 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 this.columnCedula.MaxLength = 2147483647;
                 this.columnCargo.AllowDBNull = false;
                 this.columnCargo.MaxLength = 2147483647;
+                this.columnCod_Persona.MaxLength = 2147483647;
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3399,6 +3471,10 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             private global::System.Data.DataColumn columnNombre_Cargo;
             
+            private global::System.Data.DataColumn columnCod_Persona;
+            
+            private global::System.Data.DataColumn columnId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Generar_CarneADMIN2DataTable() {
@@ -3466,6 +3542,22 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cod_PersonaColumn {
+                get {
+                    return this.columnCod_Persona;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3501,16 +3593,25 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Generar_CarneADMIN2Row AddGenerar_CarneADMIN2Row(string Nombres, string Apellidos, string Cedula, string Nombre_Cargo) {
+            public Generar_CarneADMIN2Row AddGenerar_CarneADMIN2Row(string Nombres, string Apellidos, string Cedula, string Nombre_Cargo, string Cod_Persona) {
                 Generar_CarneADMIN2Row rowGenerar_CarneADMIN2Row = ((Generar_CarneADMIN2Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nombres,
                         Apellidos,
                         Cedula,
-                        Nombre_Cargo};
+                        Nombre_Cargo,
+                        Cod_Persona,
+                        null};
                 rowGenerar_CarneADMIN2Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGenerar_CarneADMIN2Row);
                 return rowGenerar_CarneADMIN2Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Generar_CarneADMIN2Row FindById(int Id) {
+                return ((Generar_CarneADMIN2Row)(this.Rows.Find(new object[] {
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3534,6 +3635,8 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 this.columnApellidos = base.Columns["Apellidos"];
                 this.columnCedula = base.Columns["Cedula"];
                 this.columnNombre_Cargo = base.Columns["Nombre_Cargo"];
+                this.columnCod_Persona = base.Columns["Cod_Persona"];
+                this.columnId = base.Columns["Id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3547,6 +3650,12 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 base.Columns.Add(this.columnCedula);
                 this.columnNombre_Cargo = new global::System.Data.DataColumn("Nombre_Cargo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre_Cargo);
+                this.columnCod_Persona = new global::System.Data.DataColumn("Cod_Persona", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCod_Persona);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
                 this.columnNombres.AllowDBNull = false;
                 this.columnNombres.MaxLength = 2147483647;
                 this.columnApellidos.AllowDBNull = false;
@@ -3554,6 +3663,13 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 this.columnCedula.MaxLength = 2147483647;
                 this.columnNombre_Cargo.AllowDBNull = false;
                 this.columnNombre_Cargo.MaxLength = 2147483647;
+                this.columnCod_Persona.MaxLength = 2147483647;
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5623,7 +5739,12 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cod_Persona {
                 get {
-                    return ((string)(this[this.tableGenera_Carnet.Cod_PersonaColumn]));
+                    try {
+                        return ((string)(this[this.tableGenera_Carnet.Cod_PersonaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cod_Persona\' de la tabla \'Genera_Carnet\' es DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableGenera_Carnet.Cod_PersonaColumn] = value;
@@ -5639,6 +5760,29 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
                 set {
                     this[this.tableGenera_Carnet.Fecha_NacColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tableGenera_Carnet.IdColumn]));
+                }
+                set {
+                    this[this.tableGenera_Carnet.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCod_PersonaNull() {
+                return this.IsNull(this.tableGenera_Carnet.Cod_PersonaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCod_PersonaNull() {
+                this[this.tableGenera_Carnet.Cod_PersonaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5707,6 +5851,33 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cod_Persona {
+                get {
+                    try {
+                        return ((string)(this[this.tableGenerar_CarneADMIN.Cod_PersonaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cod_Persona\' de la tabla \'Generar_CarneADMIN\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGenerar_CarneADMIN.Cod_PersonaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tableGenerar_CarneADMIN.IdColumn]));
+                }
+                set {
+                    this[this.tableGenerar_CarneADMIN.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCedulaNull() {
                 return this.IsNull(this.tableGenerar_CarneADMIN.CedulaColumn);
             }
@@ -5715,6 +5886,18 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCedulaNull() {
                 this[this.tableGenerar_CarneADMIN.CedulaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCod_PersonaNull() {
+                return this.IsNull(this.tableGenerar_CarneADMIN.Cod_PersonaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCod_PersonaNull() {
+                this[this.tableGenerar_CarneADMIN.Cod_PersonaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5783,6 +5966,34 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cod_Persona {
+                get {
+                    try {
+                        return ((string)(this[this.tableGenerar_CarneADMIN2.Cod_PersonaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cod_Persona\' de la tabla \'Generar_CarneADMIN2\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableGenerar_CarneADMIN2.Cod_PersonaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tableGenerar_CarneADMIN2.IdColumn]));
+                }
+                set {
+                    this[this.tableGenerar_CarneADMIN2.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCedulaNull() {
                 return this.IsNull(this.tableGenerar_CarneADMIN2.CedulaColumn);
             }
@@ -5791,6 +6002,18 @@ namespace NiscoutFBL2019.Models.ReporteScouts {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCedulaNull() {
                 this[this.tableGenerar_CarneADMIN2.CedulaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCod_PersonaNull() {
+                return this.IsNull(this.tableGenerar_CarneADMIN2.Cod_PersonaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCod_PersonaNull() {
+                this[this.tableGenerar_CarneADMIN2.Cod_PersonaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8559,6 +8782,7 @@ FROM            Personas INNER JOIN
             tableMapping.ColumnMappings.Add("Nombre_Subgrupo", "Nombre_Subgrupo");
             tableMapping.ColumnMappings.Add("Cod_Persona", "Cod_Persona");
             tableMapping.ColumnMappings.Add("Fecha_Nac", "Fecha_Nac");
+            tableMapping.ColumnMappings.Add("Id", "Id");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8743,6 +8967,8 @@ FROM            Personas INNER JOIN
             tableMapping.ColumnMappings.Add("Apellidos", "Apellidos");
             tableMapping.ColumnMappings.Add("Cedula", "Cedula");
             tableMapping.ColumnMappings.Add("Cargo", "Cargo");
+            tableMapping.ColumnMappings.Add("Cod_Persona", "Cod_Persona");
+            tableMapping.ColumnMappings.Add("Id", "Id");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8927,6 +9153,8 @@ FROM            Personas INNER JOIN
             tableMapping.ColumnMappings.Add("Apellidos", "Apellidos");
             tableMapping.ColumnMappings.Add("Cedula", "Cedula");
             tableMapping.ColumnMappings.Add("Nombre_Cargo", "Nombre_Cargo");
+            tableMapping.ColumnMappings.Add("Cod_Persona", "Cod_Persona");
+            tableMapping.ColumnMappings.Add("Id", "Id");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
