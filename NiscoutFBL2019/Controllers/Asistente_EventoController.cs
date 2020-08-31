@@ -56,6 +56,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Hora_Llegada")] Asistente_Evento asistente_Evento)
         {
+
             if (ModelState.IsValid)
             {
                 db.Asistente_Eventos.Add(asistente_Evento);

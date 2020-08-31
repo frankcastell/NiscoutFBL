@@ -90,7 +90,11 @@
 
                                 <div class="col-4"><a href="@Url.Action("Edit", "Personal_Admon",new { id = item.Id })" class="link"><i class="icon-pencil"></i> <font class="font-medium">Editar</font></a></div>
                                 <div class="col-4"><a href="@Url.Action("Details", "Personal_Admon",new { id = item.Id })" class="link"><i class="icon-eye"></i> <font class="font-medium">Ver</font></a></div>
-
+                                <div class="col-4">
+                                    <a href="@Url.Action("ReporCarnetAdmin2", "Reportes", new { id = item.Id })" target="_blank" title="Imprimir Carnet">
+                                        <img width="25" src="@Url.Content("~/Content/assets/images/carnet.png")" />
+                                    </a>
+                                </div>
                             </div>
                         </center>
                     </div>
