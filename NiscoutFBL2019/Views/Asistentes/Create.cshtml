@@ -162,19 +162,21 @@
                 </div>
             </div>
 
-            <div class="form-group" style="display:inline-block;  padding:4px 8px;">
-                @Html.LabelFor(model => model.E_Mail, "Correo:", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10" style="float: right;">
-                    @Html.EditorFor(model => model.E_Mail, new { htmlAttributes = new { @class = "input100", @Placeholder = "Ejemplo: alguien@gmail" } })
-                    @Html.ValidationMessageFor(model => model.E_Mail, "", new { @class = "text-danger" })
-                </div>
-            </div>
+          
 
             <div class="form-group" style="display:inline-block;  padding:4px 8px;">
                 @Html.LabelFor(model => model.DepartamentoId, "Departamento:", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10" style="float: right;">
                     @Html.DropDownList("DepartamentoId", null, "--- Seleccione departamento---", htmlAttributes: new { @class = "input100" })
                     @Html.ValidationMessageFor(model => model.DepartamentoId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                @Html.LabelFor(model => model.E_Mail, "Correo:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10" style="float: right;">
+                    @Html.EditorFor(model => model.E_Mail, new { htmlAttributes = new { @class = "input100", @Placeholder = "Ejemplo: alguien@gmail" } })
+                    @Html.ValidationMessageFor(model => model.E_Mail, "", new { @class = "text-danger" })
                 </div>
             </div>
 
