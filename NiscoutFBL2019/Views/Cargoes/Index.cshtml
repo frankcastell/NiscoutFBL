@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Index";
 }
-
 <style>
     .login100-form-title {
         font-weight: bold;
@@ -43,20 +42,19 @@
         font-size: 18px;
     }
 </style>
-<div class="card-header card-header-tabs" style="box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
-    <span align="center" class="login100-form-title">
-        Registros de Cargos
-    </span>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h3 style="font-family:'Times New Roman'"><strong> @Model.Count() Registros de Cargos  </strong>  </h3>
+   
 </div>
-<link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
+<br />
+
 <div align="left">
     @using (Html.BeginForm("Index", "Cargoes", FormMethod.Get))
     {
 
         <div align="right">
             <div>
-                <hr />
-
+               
                 @Html.TextBox("buscar")
                 <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info" title="Buscar Registro">
 
@@ -80,52 +78,64 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table vm no-th-brd no-wrap pro-of-month">
-                    <thead>
+                    <thead style="color: #000">
                         <tr>
                             <th>
-                               Codigo:
+                                Codigo:
                             </th>
                             <th>
-                               Nombre del Cargo
+                                Nombre del Cargo
                             </th>
                             <th></th>
                         </tr>
                     </thead>
                     @if (Model.Count() == 0)
                     {
+
                         <tr>
-                            <td colspan="4"> No se ha encontrado ningún dato relacionado</td>
+                            <td>
+                                <div colspan="4" style="font-family:'Times New Roman'; color:purple; font-size:18px">
+                                    <br /> No se ha encontrado ningún dato relacionado
+                                    <a href="@Url.Action("Index")" class="btn waves-effect " title="Volver">
+                                        <img width="30" src="@Url.Content("~/Content/Ico/Volver.png")" />
+                                    </a>
+
+                                </div>
+                            </td>
                         </tr>
+
                     }
                     else
                     {
                         foreach (var item in Model)
                         {
-                            <tbody>
-                                <tr class="alt">
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Cod_Cargo)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Nombre_Cargo)
-                                    </td>
-                                    <td>
-                                        <a href="@Url.Action("Edit", "Cargoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
-                                            <img width="25" src="~/Content/Ico/Editar.png" />
-                                        </a>
-                                        <a href="@Url.Action("Details", "Cargoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
-                                            <img width="25" src="~/Content/Ico/Ver_detalles.png" />
-                                        </a>
-                                        <a href="@Url.Action("Delete", "Cargoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
-                                            <img width="25" src="~/Content/Ico/eliminar.png" />
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cod_Cargo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre_Cargo)
+                                </td>
+
+                                <td>
+                                    <a href="@Url.Action("Edit", "Cargoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                                        <img width="25" src="~/Content/Ico/Editar.png" />
+                                    </a>
+                                    <a href="@Url.Action("Details", "Cargoes",new { id = item.Id })"target="_blank" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                                        <img width="25" src="~/Content/Ico/Ver_detalles.png" />
+                                    </a>
+                                    @*@*<a href="@Url.Action("Delete", "Cargoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                            <img width="25" src="~/Content/Ico/eliminar.png" />
+                                    </a>*@
+                                </td>
+                            </tr>
                         }
                     }
 
                 </table>
+
+
 
             </div>
         </div>
