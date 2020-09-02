@@ -60,7 +60,7 @@
                 <div class="form-group" style="display:inline-block;  padding:4px 8px;">
                     @Html.LabelFor(model => model.Cod_Persona, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
-                        @Html.EditorFor(model => model.Cod_Persona, new { htmlAttributes = new { @class = "input100" } })
+                        @Html.EditorFor(model => model.Cod_Persona, "Codigo:", new { htmlAttributes = new { @class = "input100" } })
                         @Html.ValidationMessageFor(model => model.Cod_Persona, "", new { @class = "text-danger" })
                     </div>
                 </div>

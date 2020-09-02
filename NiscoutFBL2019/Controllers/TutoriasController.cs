@@ -19,7 +19,8 @@ namespace NiscoutFBL2019.Controllers
     // GET: Tutorias
     public ActionResult Index()
         {
-            var tutorias = db.Tutorias.Include(t => t.Persona);
+            //var tutorias = db.Tutorias.Include(t => t.Persona);
+            var tutorias = db.Personas.Where(x => x.Tutorias.Count() > 0);
             return View(tutorias.ToList());
         }
 
@@ -45,7 +46,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tutoria tutoria = db.Tutorias.Find(id);
+            Persona tutoria = db.Personas.Find(id);
             if (tutoria == null)
             {
                 return HttpNotFound();
