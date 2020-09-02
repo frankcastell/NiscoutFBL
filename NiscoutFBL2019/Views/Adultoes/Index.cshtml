@@ -43,9 +43,9 @@
         font-size: 18px;
     }
 </style>
-<div class="card-header card-header-tabs" style="box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
-    <span align="center" class="login100-form-title"> @Model.Count() Registros de Adultos  /  </span>
-    <h4> @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h3 style="font-family:'Times New Roman'"><strong> @Model.Count() Registros de Adultos  </strong>  </h3>
+     <h4 style="font-family:'Times New Roman'"> @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
 </div>
     <div align="left">
         @using (Html.BeginForm("Index", "Adultoes", FormMethod.Get))
@@ -82,7 +82,7 @@
         {
             foreach (var item in Model.OrderBy(x => x.Apellidos))
             {
-                <div class="col-lg-4 col-xlg-3 col-md-5">
+                <div class="col-lg-4 col-xlg-3 col-md-5" >
                     <div class="card">
                         <div class="card-body" style="border-radius: 20px;box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
                             <center class="m-t-30">
@@ -93,7 +93,7 @@
 
                                     <div class="col-4"><a href="@Url.Action("Edit", "Adultoes",new { id = item.Id })" target="_blank" class="link"><i class="icon-pencil"></i> <font class="font-medium">Editar</font></a></div>
                                     <div class="col-4"><a href="@Url.Action("Details", "Adultoes",new { id = item.Id })" target="_blank" class="link"><i class="icon-eye"></i> <font class="font-medium">Ver</font></a></div>
-                                    <div class="col-4"><a href="@Url.Action("ReporCarnet", "Reportes", new { id = item.Id })" target="_blank" class="link" > <i><img width="20" src="@Url.Content("~/Content/assets/images/carnet.png")" /></i><font class="font-medium"> Carnet</font></a></div>
+                                    <div class="col-4"><a href="@Url.Action("ReporCarnet", "Reportes",new { id = item.Id })" class="link" title="Imprimir Carnet"><i class="fa  fa-address-card "></i> <font class="font-medium"></font></a></div>
 
                                 </div>
                             </center>
