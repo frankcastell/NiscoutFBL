@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Create";
 }
+
 <style>
 
     .login100-form-title {
@@ -43,13 +44,13 @@
         font-size: 18px;
     }
 </style>
-<div class="card-header card-header-tabs" style="box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
-    <span align="center" class="login100-form-title" >
-        Datos del Adulto...
-    </span>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    
+        <h2 style="font-family:'Times New Roman'" ><strong> Datos del Adulto... </strong></h2>
+   
 </div>
 
-<hr />
+<br />
 
 @using (Html.BeginForm())
 {
@@ -58,7 +59,7 @@
     <div class="col-lg-12 "style="box-shadow: 0 0 5px 0 ">
         <div class="card">
             <div class="card-body">
-                <br />
+                
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @*<div class="form-group">
                 @Html.LabelFor(model => model.Cod_Persona, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -69,7 +70,7 @@
             </div>*@
                
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block; ">
                     @Html.LabelFor(model => model.Nombres,"Nombres:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Nombres, new { htmlAttributes = new { @class = "input100" } })
@@ -77,7 +78,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block;  ">
                     @Html.LabelFor(model => model.Apellidos, "Apellidos:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Apellidos, new { htmlAttributes = new { @class = "input100" } })
@@ -85,14 +86,15 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block;  ">
                     @Html.LabelFor(model => model.Sexo, "Sexo:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.DropDownList("sexo", null, "--- Seleccione Sexo ---", htmlAttributes: new { @class = "input100" })
                         @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+
+                <div class="form-group" style="display:inline-block; ">
                     @Html.LabelFor(model => model.Fecha_Nac,"Nacimiento:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Fecha_Nac, new { htmlAttributes = new { @class = "input100", @Placeholder = "Ejemplo: 02-04-99" } })
@@ -100,7 +102,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block; ">
                     @Html.LabelFor(model => model.Cedula, "# Cédula:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "input100", @Placeholder = "Ejemplo: 401-020896-0003M" } })
@@ -108,9 +110,7 @@
                     </div>
                 </div>
 
-
-                @* Estado civil*@
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block; ">
                     @Html.LabelFor(model => model.Estado_Civil, "Estado Civil:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.DropDownList("Estado_Civil", null, "--- Seleccione Estado---", htmlAttributes: new { @class = "input100" })
@@ -118,9 +118,7 @@
                     </div>
                 </div>
 
-
-
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block; ">
                     @Html.LabelFor(model => model.Num_Pasaporte, "# Pasaporte", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Num_Pasaporte, new { htmlAttributes = new { @class = "input100" } })
@@ -128,7 +126,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block; ">
                     @Html.LabelFor(model => model.Telefono, "# Teléfono:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "input100", @Placeholder = "Ejemplo: 88052614" } })
@@ -136,7 +134,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block;  ">
                     @Html.LabelFor(model => model.Direccion, "Dirección:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "input100" } })
@@ -144,7 +142,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block; ">
                     @Html.LabelFor(model => model.Profesion, "Profesión:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Profesion, new { htmlAttributes = new { @class = "input100" } })
@@ -152,7 +150,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block;  ">
                     @Html.LabelFor(model => model.Centro_Laboral, "Centro Laboral:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Centro_Laboral, new { htmlAttributes = new { @class = "input100" } })
@@ -160,7 +158,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block;  ">
                     @Html.LabelFor(model => model.Tipo_Sangre, "Tipo de sangre:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.DropDownList("Tipo_Sangre", null, "--- Seleccione Tipo---", htmlAttributes: new { @class = "input100" })
@@ -168,8 +166,8 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
-                    @Html.LabelFor(model => model.DepartamentoId, "Departamento:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.DepartamentoId, "Nombre Depto:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.DropDownList("DepartamentoId", null, "--- Seleccione Departamento ---", htmlAttributes: new { @class = "input100" })
                         @Html.ValidationMessageFor(model => model.DepartamentoId, "", new { @class = "text-danger" })
@@ -177,7 +175,7 @@
                 </div>
 
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block; ">
                     @Html.LabelFor(model => model.E_Mail, "Correo:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.E_Mail, new { htmlAttributes = new { @class = "input100", @Placeholder = "Ejemplo: micorreo@gmail.com" } })
@@ -185,7 +183,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block;  ">
                     <label class = "control-label col-md-2">Contraseña: </label>
                     
                     <div class="col-md-10" style="float: right;">                       

@@ -42,9 +42,9 @@
         font-size: 18px;
     }
 </style>
-<div class="card-header card-header-tabs" style="box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
-    <span align="center" class="login100-form-title"> @Model.Count() Registros de Personal Asistentes  /  </span>
-    <h4> @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h3 style="font-family:'Times New Roman'"><strong> @Model.Count() Registros de Asistentes  </strong>  </h3>
+    <h4 style="font-family:'Times New Roman'">@Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
 </div>
 
 <div align="left">
@@ -72,9 +72,23 @@
     <!-- Column -->
     @if (Model.Count() == 0)
     {
+        <div class="col-lg-12 " style="box-shadow: 0px 1px 3px mediumpurple">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
 
-        <h2>  No se ha encontrado ningún dato relacionado</h2>
+                        <h2 colspan="4" style="font-family:'Times New Roman'; color:purple; font-size:18px">
+                            <br /> No se ha encontrado ningún dato relacionado
+                            <a href="@Url.Action("Index")" class="btn waves-effect " title="Volver">
+                                <img width="30" src="@Url.Content("~/Content/Ico/Volver.png")" />
+                            </a>
+                        </h2>
 
+
+                    </div>
+                </div>
+            </div>
+        </div>
     }
     else
     {
@@ -89,8 +103,9 @@
                             <h6 class="card-subtitle">@item.E_Mail</h6>
                             <div class="row text-center justify-content-md-center">
 
-                                <div class="col-4"><a href="@Url.Action("Edit", "Asistentes",new { id = item.Id })" class="link"><i class="icon-pencil"></i> <font class="font-medium">Editar</font></a></div>
-                                <div class="col-4"><a href="@Url.Action("Details", "Asistentes",new { id = item.Id })" class="link"><i class="icon-eye"></i> <font class="font-medium">Ver</font></a></div>
+                                <div class="col-4"><a href="@Url.Action("Edit", "Asistentes",new { id = item.Id })" style="font-size: 25px" class="link" title="Editar Registro"><i class="icon-pencil"></i> <font class="font-medium"></font></a></div>
+                                <div class="col-4"><a href="@Url.Action("Details", "Asistentes",new { id = item.Id })"target="_blank" style="font-size: 25px" class="link" title="Ver Registro"><i class="icon-eye"></i> <font class="font-medium"></font></a></div>
+                                <div class="col-4"><a href="@Url.Action("ReporCarnet", "Reportes",new { id = item.Id })" target="_blank" style="font-size: 25px" class="link" title="Imprimir Carnet"><i class="fa  fa-address-card "></i> <font class="font-medium"></font></a></div>
 
                                 @*<div class="col-4">
                                     <a href="@Url.Action("ReporCarnetAdmin2", "Reportes", new { id = item.Id })" target="_blank" class="link">
