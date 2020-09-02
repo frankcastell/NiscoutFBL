@@ -42,11 +42,10 @@
         font-size: 18px;
     }
 </style>
-<div class="card-header card-header-tabs" style="box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
-    <span align="center" class="login100-form-title">
-        @Model.Tutorias.Count() Tutorias para @Model.Nombres @Model.Apellidos
-    </span>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0; background-color: transparent">    
+   <h3 style="font-family:'Times New Roman'"><strong> @Model.Tutorias.Count() Tutorias para @Model.Nombres @Model.Apellidos</strong>  </h3>
 </div>
+
 <hr />
 
 <div class="row">
@@ -57,7 +56,7 @@
                     <img src="~/Content/assets/images/Usuario icon.png" class="img-circle" width="150" />
                     <h4 class="card-title m-t-10">@Model.Nombres @Model.Apellidos</h4>
                     <h5 class="card-subtitle">@Model.E_Mail</h5>
-                    <h5 class="card-subtitle">@Model.Telefono</h5>
+                    <h5 class="card-subtitle">@Model.Departamento.Nombre_Departamento</h5>
 
                 </center>
             </div>
@@ -67,7 +66,7 @@
         <div class="card">
             <div class="card-body">
 
-                <h4 class="card-title" style="text-align:center">Mis Tutoriados</h4>
+                <h4 class="card-title" style="text-align:center; background-color:lightcyan"><strong>Tutoriados</strong> </h4>
 
                 <div class="table-responsive">
                     <table class="table">

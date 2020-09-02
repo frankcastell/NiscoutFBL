@@ -42,11 +42,11 @@
         font-size: 18px;
     }
 </style>
-<div class="card-header card-header-tabs" style="box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
-    <span align="center" class="login100-form-title"> @Model.Count() Registros de Personal Administrativo  /  </span>
-    <h4> @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
-</div>
 
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h3 style="font-family:'Times New Roman'"><strong> @Model.Count() Registros de Personal Administrativo </strong>  </h3>
+    <h4 style="font-family:'Times New Roman'"> @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
+</div>
 <div align="left">
     @using (Html.BeginForm("Index", "Personal_Admon", FormMethod.Get))
     {
