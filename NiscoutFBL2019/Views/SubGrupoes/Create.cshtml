@@ -42,12 +42,12 @@
         font-size: 18px;
     }
 </style>
-<div class="card-header card-header-tabs" style="box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
-    <span align="center" class="login100-form-title">
-        Datos de Unidades...
-    </span>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h2 style="font-family:'Times New Roman'"><strong> Datos de Unidades... </strong>  </h2>
+
 </div>
-<hr />
+<br />
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -58,48 +58,49 @@
               
                 <br />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
-                    @Html.LabelFor(model => model.Cod_Subgrupo, "Código", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="form-group" style="display:inline-block;">
+                    @Html.LabelFor(model => model.Cod_Subgrupo, "Código:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Cod_Subgrupo, new { htmlAttributes = new { @class = "input100" } })
                         @Html.ValidationMessageFor(model => model.Cod_Subgrupo, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
-                    @Html.LabelFor(model => model.Nombre_Subgrupo, "Nombre Unidad", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group" style="display:inline-block;">
+                    @Html.LabelFor(model => model.Nombre_Subgrupo, "Nombre Unidad:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Nombre_Subgrupo, new { htmlAttributes = new { @class = "input100" } })
                         @Html.ValidationMessageFor(model => model.Nombre_Subgrupo, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
-                    @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group" style="display:inline-block">
+                    @Html.LabelFor(model => model.Descripcion,"Descripción:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "input100" } })
                         @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
-                    @Html.LabelFor(model => model.AsistenteId, "Asistente", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group" style="display:inline-block">
+                    @Html.LabelFor(model => model.AsistenteId, "Asistente:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.DropDownList("AsistenteId", null, htmlAttributes: new { @class = "input100" })
                         @Html.ValidationMessageFor(model => model.AsistenteId, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
-                    @Html.LabelFor(model => model.Tipo_GrupoId, "Tipo Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group" style="display:inline-block;">
+                    @Html.LabelFor(model => model.Tipo_GrupoId, "Tipo Grupo: ", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.DropDownList("Tipo_GrupoId", null, htmlAttributes: new { @class = "input100" })
                         @Html.ValidationMessageFor(model => model.Tipo_GrupoId, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
-                    @Html.LabelFor(model => model.GrupoId, "Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group" style="display:inline-block">
+                    @Html.LabelFor(model => model.GrupoId, "Grupo:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.DropDownList("GrupoId", null, htmlAttributes: new { @class = "input100" })
                         @Html.ValidationMessageFor(model => model.GrupoId, "", new { @class = "text-danger" })

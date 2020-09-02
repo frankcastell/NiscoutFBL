@@ -41,6 +41,7 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Create()
         {
             ViewBag.Membresia_JuvenilId = new SelectList(db.Membresia_Juveniles, "Id", "Id");
+            
             return View();
         }
 
