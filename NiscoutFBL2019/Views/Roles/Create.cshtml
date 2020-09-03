@@ -3,17 +3,59 @@
     Layout = null;
     //ViewBag.Title = "Create";
 }
+<style>
+    .login100-form-title {
+        font-weight: bold;
+        font-family: Poppins-Bold;
+        font-size: 30px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
 
-<h2>Crear Un Nuevo Rol</h2>
+    .input100 {
+        border: none;
+        font-family: Poppins-Medium;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333333;
+        display: block;
+        width: 100%;
+        background: #e6e6e6;
+        height: 45px;
+        border-radius: 15px;
+        padding: 0 20px 0 53px;
+    }
 
+
+    .form-group {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
+
+    .control-label {
+        font-weight: bold;
+        color: #333333;
+        font-size: 18px;
+    }
+</style>
+
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h2 style="font-family:'Times New Roman'"><strong> Datos de Nuevo Usuario... </strong>  </h2>
+
+</div>
+<br />
 @using (Html.BeginForm("Create", "Roles", FormMethod.Post))
 {
     @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        <div class="col-md-4">
+    <div class="form-group" style="display:inline-block;">
+        <div class="col-md-10" style="float: right;">
             <input name="roleDescripcion" id="roleDescripcion" type="text" class="form-control" />
             <br />
             <input class="alert-primary" type="submit" name="SubmitButton" value="Guardar" />
-            </div>
         </div>
-            }
+    </div>
+}

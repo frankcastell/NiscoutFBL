@@ -4,66 +4,128 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Registro de Progresion Juvenil</h2>
+<style>
+    .login100-form-title {
+        font-weight: bold;
+        font-family: Poppins-Bold;
+        font-size: 30px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
 
-<p>
+    .input100 {
+        border: none;
+        font-family: Poppins-Medium;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333333;
+        display: block;
+        width: 100%;
+        background: #e6e6e6;
+        height: 45px;
+        border-radius: 15px;
+        padding: 0 20px 0 53px;
+    }
 
-    <a href="@Url.Action("Create", "Progresion_Juvenil")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Progresion Juvenil">
-        Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
-    </a>
-</p>
 
-<div class="datagr">
-    <table>
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cod_Etapa_Prog)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Descripcion_Etapa)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Membresia_Juvenil.Id)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
+    .form-group {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
 
-        @if (Model.Count() == 0)
-        {
-            <tr>
-                <td colspan="4"> No se ha encontrado ningún dato relacionado</td>
-            </tr>
-        }
-        else
-        {
-            foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cod_Etapa_Prog)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Descripcion_Etapa)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Membresia_Juvenil.Id)
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Edit", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
-                            <img width="25" src="~/Content/Ico/Editar.png" />
-                        </a>
-                        <a href="@Url.Action("Details", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
-                            <img width="25" src="~/Content/Ico/Ver_detalles.png" />
-                        </a>
-                        <a href="@Url.Action("Delete", "Adultoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
-                            <img width="25" src="~/Content/Ico/eliminar.png" />
-                        </a>
+    .control-label {
+        font-weight: bold;
+        color: #333333;
+        font-size: 18px;
+    }
+</style>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h3 style="font-family:'Times New Roman'"><strong> Listado de Progresiones... </strong>  </h3>
 
-                    </td>
-                </tr>
-            }
-        }
-    </table>
 </div>
+<br />
+
+<div align="left">
+    @using (Html.BeginForm("Index", "SubGrupoes", FormMethod.Get))
+    {
+        <div align="right">          
+           
+                <a href="@Url.Action("Create", "Progresion_Juvenil")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Progresion Juvenil">
+                    Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
+                </a>
+            <hr />
+        </div>
+    }
+</div>
+        <div class="col-lg-12 " style="box-shadow: 0px 1px 3px mediumpurple">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table vm no-th-brd no-wrap pro-of-month">
+                            <thead style="color: #000">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Código
+                                    </th>
+                                    <th>
+                                        Descripción
+                                    </th>
+                                    <th>
+                                        Membresía:
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            @if (Model.Count() == 0)
+                            {
+                                <tr>
+                                    <td>
+                                        <div colspan="4" style="font-family:'Times New Roman'; color:purple; font-size:18px">
+                                            <br /> No se ha encontrado ningún dato relacionado
+                                            <a href="@Url.Action("Index")" class="btn waves-effect " title="Volver">
+                                                <img width="30" src="@Url.Content("~/Content/Ico/Volver.png")" />
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cod_Etapa_Prog)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Descripcion_Etapa)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Membresia_Juvenil.Id)
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("Edit", "Progresion_Juvenil",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                                                <img width="25" src="~/Content/Ico/Editar.png" />
+                                            </a>
+                                            <a href="@Url.Action("Details", "Progresion_Juvenil",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                                                <img width="25" src="~/Content/Ico/Ver_detalles.png" />
+                                            </a>
+                                            <a href="@Url.Action("Delete", "Progresion_Juvenil",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                                                <img width="25" src="~/Content/Ico/eliminar.png" />
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -3,14 +3,16 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Registros de Membresía Adulto</h2>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h3 style="font-family:'Times New Roman'"><strong> @Model.Count() Registros de Adultos  </strong>  </h3>
+    <h4 style="font-family:'Times New Roman'"> @Model.Count(x => x.Adulto.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Adulto.Sexo == "Masculino")  Hombres</h4>
+</div>
 
 <div align="left">
     @using (Html.BeginForm("Index", "Membresia_Adulto", FormMethod.Get))
             {
         <div align="right">
-            <hr />
+            <br />
 
             @Html.TextBox("buscar")
             <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
@@ -18,7 +20,7 @@
             <a href="@Url.Action("Create", "Adultoes")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Registrar un Miembro">
                 Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
             </a>
-            <a href="@Url.Action("RepAdulto", "Membresia_Adulto")"target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+            <a href="@Url.Action("RepAdulto", "Membresia_Adulto")" target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
                 <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
             </a>
             <hr />
@@ -26,103 +28,113 @@
     }
 </div>
 
-<div class="datagrid">
-    <table class="table vm no-th-brd no-wrap pro-of-month">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Carta_Compromiso)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Carta_Intencion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Record_Policia)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Carta_Ref_Personal)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Certifi_Salvo_Peligro)
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.Annio)*@Año
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cargo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Estado)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Adulto.Nombres)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SubGrupo.Nombre_Subgrupo)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        @if (Model.Count() == 0)
-        {
-            <tr>
-                <td colspan="4"> No se ha encontrado ningún dato relacionado</td>
-            </tr>
-        }
-        else
-        {
-            foreach (var item in Model)
-            {
-                <tbody>
-                    <tr>
-                        <td>
-                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Compromiso)" width="40" height="15" type="application/pdf"> </object>
-                        </td>
-                        <td>
-                            @*<img src="@String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.Carta_Intencion));" />*@
-                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Intencion)" width="40" height="15" type="application/pdf"> </object>
-                         </td> 
-                        <td>
-                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Record_Policia)" width="40" height="15" type="application/pdf"> </object>
-                        </td>
-                        <td>
-                           <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Ref_Personal)" width="40" height="15" type="application/pdf"> </object>
-                        </td>
-                        <td>
-                            <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Certifi_Salvo_Peligro)" width="40" height="15" type="application/pdf"> </object>
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Annio)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Cargo)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Etapa_Aprobacion.Estado)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Adulto.Nombres)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SubGrupo.Nombre_Subgrupo)
-                        </td>
-                        <td>
-                            <a href="@Url.Action("Edit", "Membresia_Adulto",new { id = item.Id })"  class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
-                                <img width="25" src="~/Content/Ico/Editar.png" />
-                            </a>
-                            <a href="@Url.Action("Details", "Membresia_Adulto",new { id = item.Id })" target="_blank" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
-                                <img width="25" src="~/Content/Ico/Ver_detalles.png" />
-                            </a>
-                            @*<a href="@Url.Action("Delete", "Membresia_Adulto",new { id = item.Id })" target="_parent" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
-                                <img width="25" src="~/Content/Ico/eliminar.png" />
-                            </a>*@
-                            <a href="@Url.Action("ReporCarnetAdmin", "Reportes", new { id = item.Id })"target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Carnet">
-                                <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            }
-        }
-    </table>
+<div class="col-lg-12 " style="box-shadow: 0px 1px 3px mediumpurple">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table vm no-th-brd no-wrap pro-of-month">
+                    <thead style="color: #000">
+                        <tr>
+                            <th>
+                                Carta Compromiso
+                            </th>
+                            <th>
+                                Carta Intención
+                            </th>
+                            <th>
+                                Récord Policía
+                            </th>
+                            <th>
+                                Referencia Personal
+                            </th>
+                            <th>
+                                Certi Salvo Peligro
+                            </th>
+                            <th>
+                               Año
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cargo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Estado)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Adulto.Nombres)
+                            </th>
+                            <th>
+                                SubGrupo
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @if (Model.Count() == 0)
+                    {
+                        <tr>
+                            <td>
+                                <div colspan="4" style="font-family:'Times New Roman'; color:purple; font-size:18px">
+                                    <br /> No se ha encontrado ningún dato relacionado
+                                    <a href="@Url.Action("Index")" class="btn waves-effect " title="Volver">
+                                        <img width="30" src="@Url.Content("~/Content/Ico/Volver.png")" />
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Compromiso)" width="40" height="15" type="application/pdf"> </object>
+                                    </td>
+                                    <td>
+                                        @*<img src="@String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.Carta_Intencion));" />*@
+                                        <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Intencion)" width="40" height="15" type="application/pdf"> </object>
+                                    </td>
+                                    <td>
+                                        <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Record_Policia)" width="40" height="15" type="application/pdf"> </object>
+                                    </td>
+                                    <td>
+                                        <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Carta_Ref_Personal)" width="40" height="15" type="application/pdf"> </object>
+                                    </td>
+                                    <td>
+                                        <object data="data:application/pdf;base64,@System.Convert.ToBase64String(item.Certifi_Salvo_Peligro)" width="40" height="15" type="application/pdf"> </object>
+                                    </td>
+                                    <td>
+                                        Año:
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cargo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Etapa_Aprobacion.Estado)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Adulto.Nombres)
+                                    </td>
+                                    <td>
+                                        Nombre Subgrupo
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Edit", "Membresia_Adulto",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                                            <img width="25" src="~/Content/Ico/Editar.png" />
+                                        </a>
+                                        <a href="@Url.Action("Details", "Membresia_Adulto",new { id = item.Id })" target="_blank" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                                            <img width="25" src="~/Content/Ico/Ver_detalles.png" />
+                                        </a>
+                                        <a href="@Url.Action("ReporCarnetAdmin", "Reportes", new { id = item.Id })" target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Carnet">
+                                            <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
