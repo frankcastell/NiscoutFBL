@@ -43,7 +43,7 @@
     }
 </style>
 <div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
-    <h2 style="font-family:'Times New Roman'"><strong> Información de Unidades... </strong>  </h2>
+    <h2 style="font-family:'Times New Roman'; "><strong> Información de Unidades... </strong>  </h2>
 
 </div>
 <br />
@@ -122,3 +122,80 @@
         </div>
     </div>
 </div>
+
+<br />
+<br />
+<div class="row">
+    <div class="col-lg-12 " style="box-shadow: 0px 1px 3px mediumpurple">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <h4 class="card-title" style="text-align:center; background-color:lightcyan"><strong>Lista de Adultos</strong> </h4>
+                    <table class="table vm no-th-brd no-wrap pro-of-month">
+                        <thead style="color: #000">
+
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre Completo</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model.Membresia_Adultos)
+                            {
+
+                                <tr>
+                                    <td> @item.Id  </td>
+                                    <td>
+                                        <a class="link" href="@Url.Action("Details","Adultoes", new { id=item.AdultoId })">
+                                            @item.Adulto.Nombres @item.Adulto.Apellidos
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<br />
+<br />
+
+     <div class="col-lg-12 " style="box-shadow: 0px 1px 3px mediumpurple;  float: right;">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <h4 class="card-title" style="text-align:center; background-color:lightcyan"><strong>Lista de Jóvenes</strong> </h4>
+                    <table class="table vm no-th-brd no-wrap pro-of-month">
+                        <thead style="color: #000">
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre Completo</th>
+
+                            </tr>
+                        </thead>
+                        @foreach (var item in Model.Membresia_Juveniles)
+                        {
+
+                            <tr>
+                                <td> @item.Id  </td>
+                                <td>
+                                    <a class="link" href="@Url.Action("Details","Juvenils", new { id=item.JuvenilId })">
+                                        @item.Juvenil.Nombres @item.Juvenil.Apellidos
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                  

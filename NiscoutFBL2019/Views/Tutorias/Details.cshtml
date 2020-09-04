@@ -85,7 +85,7 @@
 
                                 <tr>
                                     <td> @item.Id  </td>
-                                    <td>  @item.Juveniles.FirstOrDefault().Nombres </td>
+                                    <td> <a href="@Url.Action("Details","Juvenils", new { id = item.Juveniles.FirstOrDefault().Id})">@item.Juveniles.FirstOrDefault().Nombres </a> </td>
                                     <td>  @item.Juveniles.FirstOrDefault().Apellidos </td>
                                     <td>  @item.Parentezco </td>
                                     @*<td>    <button>  Ver mas</button>       </td>*@
