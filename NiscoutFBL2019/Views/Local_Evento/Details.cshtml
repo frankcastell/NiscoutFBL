@@ -4,59 +4,113 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Detalle de la Informacion</h2>
+<style>
+    .login100-form-title {
+        font-weight: bold;
+        font-family: Poppins-Bold;
+        font-size: 30px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
 
-<div class="datagrid">
-    <table class="table vm no-th-brd no-wrap pro-of-month">
-        <thead>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Nombre)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Direccion)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Direccion)
-                </td>
-            </tr>
+    .input100 {
+        border: none;
+        font-family: Poppins-Medium;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333333;
+        display: block;
+        width: 100%;
+        background: #e6e6e6;
+        height: 45px;
+        border-radius: 15px;
+        padding: 0 20px 0 53px;
+    }
 
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Telefono)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Telefono)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.E_Mail)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.E_Mail)
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            </thead>
-        </table>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
 
-    </p>    
+    .form-group {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
+
+    .control-label {
+        font-weight: bold;
+        color: #333333;
+        font-size: 18px;
+    }
+</style>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+
+    <h2 style="font-family:'Times New Roman'"><strong> Detalles del Local Evento... </strong></h2>
+</div>
+<br />
+
+<div class="col-lg-12 " style="box-shadow: 0px 1px 3px mediumpurple">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table vm no-th-brd no-wrap pro-of-month">
+                    <thead style="color: #000">
+                        <tr>
+                            <td>
+                               Nombre :
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Nombre)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Direccion :
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Direccion)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                              # Telefono :
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Telefono)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                              Correo :
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.E_Mail)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                </table>
+                <p>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
+
+                        </div>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
