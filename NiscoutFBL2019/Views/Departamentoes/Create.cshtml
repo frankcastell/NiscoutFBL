@@ -42,49 +42,55 @@
         font-size: 18px;
     }
 </style>
-<span class="login100-form-title">
-    Registrando Nuevo Departamento...
-</span>
-<hr />
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+
+    <h2 style="font-family:'Times New Roman'"><strong> Datos del Departamento... </strong></h2>
+
+</div>
+
+<br />
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="datagrid">
+    <div class="col-lg-12 " style="box-shadow: 0 0 5px 0 ">
+        <div class="card">
+            <div class="card-body">
 
-        <div class="form-horizontal">
-            <br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.Cod_Departamento,"Codigo:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" style="float: right;">
+                        @Html.EditorFor(model => model.Cod_Departamento, new { htmlAttributes = new { @class = "input100" } })
+                        @Html.ValidationMessageFor(model => model.Cod_Departamento, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Cod_Departamento, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Cod_Departamento, new { htmlAttributes = new { @class = "input100" } })
-                    @Html.ValidationMessageFor(model => model.Cod_Departamento, "", new { @class = "text-danger" })
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.Nombre_Departamento,"Nombre Depto:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" style="float: right;">
+                        @Html.EditorFor(model => model.Nombre_Departamento, new { htmlAttributes = new { @class = "input100" } })
+                        @Html.ValidationMessageFor(model => model.Nombre_Departamento, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div align="right">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input src="@Url.Content("~/Content/Ico/guardar.png")" type="image" value="Guardar" width="25" class="btn waves-effect waves-light btn-outline-info" title="Guardar Registro" /> &nbsp;
+
+                            <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-red" title="Cancelar Registro">
+                                <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Nombre_Departamento, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Nombre_Departamento, new { htmlAttributes = new { @class = "input100" } })
-                    @Html.ValidationMessageFor(model => model.Nombre_Departamento, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input src="@Url.Content("~/Content/Ico/guardar.png")" type="image" value="Guardar" width="25" class="btn waves-effect waves-light btn-outline-info" title="Guardar Registro de Membresía" /> &nbsp;
-
-                    <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-red" title="Cancelar Registro">
-                        <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
-                    </a>
-                </div>
-            </div>
-          </div>
         </div>
-        }
+    </div>
+}
 
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-        }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

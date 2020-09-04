@@ -1,44 +1,106 @@
-﻿@model NiscoutFBL2019.Models.Tutoria
+﻿@model NiscoutFBL2019.Models.Persona
 
 @{
     ViewBag.Title = "Details";
 }
+<style>
+    .login100-form-title {
+        font-weight: bold;
+        font-family: Poppins-Bold;
+        font-size: 30px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
 
-<h2>Detalle de la Información...</h2>
+    .input100 {
+        border: none;
+        font-family: Poppins-Medium;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333333;
+        display: block;
+        width: 100%;
+        background: #e6e6e6;
+        height: 45px;
+        border-radius: 15px;
+        padding: 0 20px 0 53px;
+    }
 
-<div class="datagrid">
-    <table class="table vm no-th-brd no-wrap pro-of-month">
-        <thead>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Parentezco)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Parentezco)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Persona.Nombres)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Persona.Nombres)
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-        </thead>
-    </table>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
-    </p>
+
+    .form-group {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
+
+    .control-label {
+        font-weight: bold;
+        color: #333333;
+        font-size: 18px;
+    }
+</style>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0; background-color: transparent">    
+   <h3 style="font-family:'Times New Roman'"><strong> @Model.Tutorias.Count() Tutorias para @Model.Nombres @Model.Apellidos</strong>  </h3>
 </div>
+
+<hr />
+
+<div class="row">
+    <div class="col-lg-4 col-xlg-3 col-md-5">
+        <div class="card">
+            <div class="card-body" style="border-radius: 20px;box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
+                <center class="m-t-30">
+                    <img src="~/Content/assets/images/Usuario icon.png" class="img-circle" width="150" />
+                    <h4 class="card-title m-t-10">@Model.Nombres @Model.Apellidos</h4>
+                    <h5 class="card-subtitle">@Model.E_Mail</h5>
+                    <h5 class="card-subtitle">@Model.Departamento.Nombre_Departamento</h5>
+
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-xlg-9 col-md-7" style="box-shadow: 0px 1px 3px mediumpurple">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="card-title" style="text-align:center; background-color:lightcyan"><strong>Tutoriados</strong> </h4>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombres</th>
+                                <th>Apellidos</th>
+                                <th>Parentezco</th>
+                                @*<th>         </th>*@
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Tutorias)
+                            {
+
+                                <tr>
+                                    <td> @item.Id  </td>
+                                    <td>  @item.Juveniles.FirstOrDefault().Nombres </td>
+                                    <td>  @item.Juveniles.FirstOrDefault().Apellidos </td>
+                                    <td>  @item.Parentezco </td>
+                                    @*<td>    <button>  Ver mas</button>       </td>*@
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Column -->
+  

@@ -42,10 +42,9 @@
         font-size: 18px;
     }
     </style>
-<div class="card-header card-header-tabs" style="box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
-    <span align="center" class="login100-form-title">
-        Listado de Unidades...
-    </span>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h3 style="font-family:'Times New Roman'"><strong> Listado de Unidades... </strong>  </h3>    
+   
 </div>
 
 <link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
@@ -53,7 +52,7 @@
     @using (Html.BeginForm("Index", "SubGrupoes", FormMethod.Get))
     {
         <div align="right">
-            <hr />
+            <br />
 
             @Html.TextBox("buscar")
             <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
@@ -74,7 +73,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table vm no-th-brd no-wrap pro-of-month">
-                    <thead>
+                    <thead style="color: #000">
                         <tr>
                             <th>
                                 Código
@@ -95,13 +94,20 @@
                             <th>
                                 Nombre Grupo
                             </th>
-                            <th></th>
+                            <th>Acción</th>
                         </tr>
                     </thead>
                     @if (Model.Count() == 0)
                     {
                         <tr>
-                            <td colspan="8"> No se ha encontrado ningún dato relacionado</td>
+                            <td>
+                                <div colspan="4" style="font-family:'Times New Roman'; color:purple; font-size:18px">
+                                    <br /> No se ha encontrado ningún dato relacionado
+                                    <a href="@Url.Action("Index")" class="btn waves-effect " title="Volver">
+                                        <img width="30" src="@Url.Content("~/Content/Ico/Volver.png")" />
+                                    </a>
+                                </div>
+                            </td>
                         </tr>
                     }
                     else

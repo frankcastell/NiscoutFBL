@@ -98,7 +98,7 @@ namespace NiscoutFBL2019.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,TutoriaId")] Juvenil juvenil, string txtpass)
+        public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,TutoriaId")] Juvenil juvenil)
         {
             juvenil.Cod_Persona = "ASN" + juvenil.Fecha_Nac.ToShortDateString() + DateTime.Now.Year.ToString();
             if (ModelState.IsValid)
@@ -106,24 +106,24 @@ namespace NiscoutFBL2019.Controllers
                 db.Personas.Add(juvenil);
                 db.SaveChanges();
 
-                //accedemos al modelo de la seguridad integrada
-                ApplicationDbContext context = new ApplicationDbContext();
-                //definimos las variables manejadoras de roles y usuarios
-                var ManejadorRol = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-                var ManejadorUsuario = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                ////accedemos al modelo de la seguridad integrada
+                //ApplicationDbContext context = new ApplicationDbContext();
+                ////definimos las variables manejadoras de roles y usuarios
+                //var ManejadorRol = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                //var ManejadorUsuario = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-                var user = new ApplicationUser();
-                user.Nombre = juvenil.Nombres;
-                user.Apellido = juvenil.Apellidos;
-                user.UserName = juvenil.E_Mail;
-                user.Email = juvenil.E_Mail;
-                string PWD = txtpass;
-                var chkUser = ManejadorUsuario.Create(user, PWD);
-                //si se creo con exito
-                if (chkUser.Succeeded)
-                {
-                    ManejadorUsuario.AddToRole(user.Id, "Usuario");
-                }
+                //var user = new ApplicationUser();
+                //user.Nombre = juvenil.Nombres;
+                //user.Apellido = juvenil.Apellidos;
+                //user.UserName = juvenil.E_Mail;
+                //user.Email = juvenil.E_Mail;
+                //string PWD = txtpass;
+                //var chkUser = ManejadorUsuario.Create(user, PWD);
+                ////si se creo con exito
+                //if (chkUser.Succeeded)
+                //{
+                //    ManejadorUsuario.AddToRole(user.Id, "Usuario");
+                //}
                 return RedirectToAction("Index");
             }
 
@@ -171,7 +171,7 @@ namespace NiscoutFBL2019.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SolicitudJuvenil([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,TutoriaId")] Juvenil juvenil, string txtpass)
+        public ActionResult SolicitudJuvenil([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre,TutoriaId")] Juvenil juvenil, int idtutoria)
         {
             juvenil.Cod_Persona = "ASN" + juvenil.Fecha_Nac.ToShortDateString() + DateTime.Now.Year.ToString();
             if (ModelState.IsValid)
@@ -179,29 +179,30 @@ namespace NiscoutFBL2019.Controllers
                 db.Personas.Add(juvenil);
                 db.SaveChanges();
 
-                //accedemos al modelo de la seguridad integrada
-                ApplicationDbContext context = new ApplicationDbContext();
-                //definimos las variables manejadoras de roles y usuarios
-                var ManejadorRol = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-                var ManejadorUsuario = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                ////accedemos al modelo de la seguridad integrada
+                //ApplicationDbContext context = new ApplicationDbContext();
+                ////definimos las variables manejadoras de roles y usuarios
+                //var ManejadorRol = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                //var ManejadorUsuario = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-                var user = new ApplicationUser();
-                user.Nombre = juvenil.Nombres;
-                user.Apellido = juvenil.Apellidos;
-                user.UserName = juvenil.E_Mail;
-                user.Email = juvenil.E_Mail;
-                string PWD = txtpass;
-                var chkUser = ManejadorUsuario.Create(user, PWD);
-                //si se creo con exito
-                if (chkUser.Succeeded)
-                {
-                    ManejadorUsuario.AddToRole(user.Id, "Usuario");
-                }
+                //var user = new ApplicationUser();
+                //user.Nombre = juvenil.Nombres;
+                //user.Apellido = juvenil.Apellidos;
+                //user.UserName = juvenil.E_Mail;
+                //user.Email = juvenil.E_Mail;
+                //string PWD = txtpass;
+                //var chkUser = ManejadorUsuario.Create(user, PWD);
+                ////si se creo con exito
+                //if (chkUser.Succeeded)
+                //{
+                //    ManejadorUsuario.AddToRole(user.Id, "Usuario");
+                //}
                 return RedirectToAction("MembreJuvenil", "Membresia_Juvenil", new { idjuvenil = juvenil.Id });
             }
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", juvenil.DepartamentoId);
-            ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
+            //////ViewBag.TutoriaId = new SelectList(db.Tutorias, "Id", "Parentezco", juvenil.TutoriaId);
+            ViewBag.TutoriaId = db.Tutorias.Find(idtutoria);
             return View(juvenil);
         }
 

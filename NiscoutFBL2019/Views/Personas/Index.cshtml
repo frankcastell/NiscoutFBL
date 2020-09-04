@@ -6,8 +6,14 @@
 
 
 <!-- /Segunda parte -->
-<h2>Registros de Personas</h2>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h3 style="font-family:'Times New Roman'"><strong> Listado de todos los miembros del sistema... </strong>  </h3>
+    <h3 style="font-family:'Times New Roman'"><strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registros de Personal ------> @Model.Count() </strong>  </h3>
+    <h4 style="font-family:'Times New Roman'">  Mujeres -----> @Model.Count(x => x.Sexo == "Femenino") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    |
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hombres ------> @Model.Count(x => x.Sexo == "Masculino")  </h4>
 
+</div>
 <link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
 
 <div align="left">
@@ -29,129 +35,50 @@
         </div>
     }
 </div>
-<div class="datagrid">
-    <table class="table vm no-th-brd no-wrap pro-of-month">
-        <thead>
-            <tr>
-                @*<th>
-                        Código
-                    </th>*@
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombres)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Apellidos)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Fecha_Nac)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.E_Mail)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cedula)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Sexo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Estado_Civil)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Num_Pasaporte)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Telefono)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Direccion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Profesion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Centro_Laboral)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Tipo_Sangre)
-                </th>
-                <th>
-                    Departamento
-                </th>
-                <th>Accion</th>
-        </thead>
-        @if (Model.Count() == 0)
-        {
-            <tr>
-                <td colspan="4"> No se ha encontrado ningún dato relacionado</td>
-            </tr>
-        }
-        else
-        {
-            foreach (var item in Model)
-            {
-                <tbody>
-                    <tr>
-                        @*<td>
-                                @Html.DisplayFor(modelItem => item.Cod_Persona)
-                            </td>*@
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Nombres)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Apellidos)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Fecha_Nac)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.E_Mail)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Cedula)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Sexo)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Estado_Civil)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Num_Pasaporte)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Telefono)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Direccion)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Profesion)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Centro_Laboral)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Tipo_Sangre)
-                        </td>
-                        <td>
-                            @*@Html.DisplayFor(modelItem => item.Departamento.Nombre_Departamento)*@
-                            Departamento
-                        </td>
-                        <td>
-                            <a href="@Url.Action("Edit", "Personas", new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
-                                <img width="25" src="~/Content/Ico/Editar.png" />
+
+<div class="row">
+    <!-- Column -->
+    @if (Model.Count() == 0)
+    {
+        <div class="col-lg-12 " style="box-shadow: 0px 1px 3px mediumpurple">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+
+                        <h2 colspan="4" style="font-family:'Times New Roman'; color:purple; font-size:18px">
+                            <br /> No se ha encontrado ningún dato relacionado
+                            <a href="@Url.Action("Index")" class="btn waves-effect " title="Volver">
+                                <img width="30" src="@Url.Content("~/Content/Ico/Volver.png")" />
                             </a>
-                            <a href="@Url.Action("Details", "Personas", new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
-                                <img width="25" src="~/Content/Ico/Ver_detalles.png" />
-                            </a>
-                            @*<a href="@Url.Action("Delete", "Personas",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
-                                    <img width="25" src="~/Content/Ico/eliminar.png" />
-                                </a>*@
-                        </td>
-                    </tr>
-                </tbody>
-            }
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        foreach (var item in Model.OrderBy(x => x.Apellidos))
+        {
+            <div class="col-lg-4 col-xlg-3 col-md-5">
+                <div class="card">
+                    <div class="card-body" style="border-radius: 20px;box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
+                        <center class="m-t-30">
+                            <img src="~/Content/assets/images/Usuario icon.png" class="img-circle" width="150" />
+                            <h4 class="card-title m-t-10">  @item.Apellidos, @item.Nombres </h4>
+                            <h6 class="card-subtitle">@item.E_Mail</h6>
+                            <div class="row text-center justify-content-md-center">
+
+                                <div class="col-4"><a href="@Url.Action("Edit", "Personas",new { id = item.Id })" style="font-size:25px" class="link"><i class="icon-pencil" title="Editar Registro"></i> <font class="font-medium"></font></a></div>
+                                <div class="col-4"><a href="@Url.Action("Details", "Personas",new { id = item.Id })" style="font-size:25px" class="link" target="_blank"><i class="icon-eye" title="Ver Registro"></i> <font class="font-medium"></font></a></div>
+                                <div class="col-4"><a href="@Url.Action("", "Reportes",new { id = item.Id })" style="font-size:25px" class="link" title="Imprimir Carnet" target="_blank"><i class="fa  fa-address-card "></i> <font class="font-medium"></font></a></div>
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
         }
-    </table>
+    }
 </div>

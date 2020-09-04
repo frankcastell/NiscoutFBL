@@ -83,6 +83,7 @@ namespace NiscoutFBL2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Responsable responsable, string txtpass)
         {
+            responsable.Cod_Persona = "ASN" + responsable.Fecha_Nac.ToShortDateString() + DateTime.Now.Year.ToString();
             if (ModelState.IsValid)
             {
                 db.Personas.Add(responsable);

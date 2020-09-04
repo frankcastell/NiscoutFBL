@@ -42,15 +42,17 @@
         font-size: 18px;
     }
 </style>
-<div class="card-header card-header-tabs" style="box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
-    <span align="center" class="login100-form-title"> @Model.Count() Registros de Patricinadores  /  </span>
-    <h4> @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
+
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h3 style="font-family:'Times New Roman'"><strong> @Model.Count() Registros de Patrocinadores  </strong>  </h3>
+    <h4 style="font-family:'Times New Roman'"> @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
 </div>
+
 <div align="left">
     @using (Html.BeginForm("Index", "Patrocinadors", FormMethod.Get))
             {
         <div align="right">
-            <hr />
+            <br />
             @Html.TextBox("buscar")
             <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
 
@@ -69,9 +71,22 @@
     <!-- Column -->
     @if (Model.Count() == 0)
     {
+        <div class="col-lg-12 " style="box-shadow: 0px 1px 3px mediumpurple">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
 
-        <h2>  No se ha encontrado ningún dato relacionado</h2>
-
+                        <h2 colspan="4" style="font-family:'Times New Roman'; color:purple; font-size:18px">
+                            <br /> No se ha encontrado ningún dato relacionado
+                            <a href="@Url.Action("Index")" class="btn waves-effect " title="Volver">
+                                <img width="30" src="@Url.Content("~/Content/Ico/Volver.png")" />
+                            </a>
+                        </h2>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
     }
     else
     {
@@ -85,8 +100,8 @@
                             <h4 class="card-title m-t-10">  @item.Apellidos, @item.Nombres </h4>                        
                             <div class="row text-center justify-content-md-center">
 
-                                <div class="col-4"><a href="@Url.Action("Edit", "Patrocinadors",new { id = item.Id })" class="link"><i class="icon-pencil"></i> <font class="font-medium">Editar</font></a></div>
-                                <div class="col-4"><a href="@Url.Action("Details", "Patrocinadors",new { id = item.Id })" class="link"><i class="icon-eye"></i> <font class="font-medium">Ver</font></a></div>
+                                <div class="col-4"><a href="@Url.Action("Edit", "Patrocinadors",new { id = item.Id })" class="link" style="font-size:25px" title="Editar Registro"><i class="icon-pencil"></i> <font class="font-medium"></font></a></div>
+                                <div class="col-4"><a href="@Url.Action("Details", "Patrocinadors",new { id = item.Id })" style="font-size:25px" class="link" title="Ver Registro" target="_blank"><i class="icon-eye"></i> <font class="font-medium"></font></a></div>
 
                             </div>
                         </center>

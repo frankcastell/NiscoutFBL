@@ -3,159 +3,203 @@
 @{
     ViewBag.Title = "Details";
 }
+<style>
+    .login100-form-title {
+        font-weight: bold;
+        font-family: Poppins-Bold;
+        font-size: 30px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
 
-<h2>Detalle de la Información...</h2>
+    .input100 {
+        border: none;
+        font-family: Poppins-Medium;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333333;
+        display: block;
+        width: 100%;
+        background: #e6e6e6;
+        height: 45px;
+        border-radius: 15px;
+        padding: 0 20px 0 53px;
+    }
 
 
+    .form-group {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
 
-<div class="datagrid">
+    .control-label {
+        font-weight: bold;
+        color: #333333;
+        font-size: 18px;
+    }
+</style>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
 
-    <table class="table vm no-th-brd no-wrap pro-of-month">
-        <thead>
-            @*<tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Cod_Persona)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Cod_Persona)
-                </td>
-            </tr>*@
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Nombres)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Nombres)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Apellidos)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Apellidos)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Fecha_Nac)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Fecha_Nac)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.E_Mail)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.E_Mail)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Cedula)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Cedula)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Sexo)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Sexo)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Estado_Civil)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Estado_Civil)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Num_Pasaporte)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Num_Pasaporte)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Telefono)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Telefono)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Direccion)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Direccion)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Profesion)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Profesion)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Centro_Laboral)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Centro_Laboral)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Tipo_Sangre)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Tipo_Sangre)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Departamento.Nombre_Departamento)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Departamento.Nombre_Departamento)
-                </td>
-            </tr>
-            
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-        </thead>
-    </table>
+    <h2 style="font-family:'Times New Roman'"><strong> Detalles del Asistente... </strong></h2>
+</div>
+<br />
 
-    <p>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Cancelar Registro">
-                    <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
-                </a>
+<div class="col-lg-12 " style="box-shadow: 0px 1px 3px mediumpurple">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table vm no-th-brd no-wrap pro-of-month">
+                    <thead style="color: #000">
+                        <tr>
+                            <td>
+                                Código:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Cod_Persona)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Nombres:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Nombres)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Apellidos:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Apellidos)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Nacimiento:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Fecha_Nac)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Correo:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.E_Mail)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                # Cédula:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Cedula)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Sexo:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Sexo)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Estado Civil:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Estado_Civil)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                # Pasaporte:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Num_Pasaporte)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                # Teléfono:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Telefono)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Dirección:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Direccion)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Profesión:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Profesion)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Centro Laboral:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Centro_Laboral)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Tipo Sangre:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Tipo_Sangre)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Departamento:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Departamento.Nombre_Departamento)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                </table>
+
+                <p>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
+                        </div>
+                    </div>
+
+                </p>
+
             </div>
         </div>
-    
-    </p>
-
+    </div>
 </div>

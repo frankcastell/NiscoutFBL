@@ -41,12 +41,12 @@
         font-size: 18px;
     }
 </style>
-<div class="card-header card-header-tabs" style="box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
-    <span align="center" class="login100-form-title">
-        Editando información...
-    </span>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h2 style="font-family:'Times New Roman'"><strong> Edición de la Unidad... </strong>  </h2>
+
 </div>
-<hr />
+
+<br />
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -58,7 +58,7 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.Id)
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block;">
                     @Html.LabelFor(model => model.Cod_Subgrupo,"Código:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Cod_Subgrupo, new { htmlAttributes = new { @class = "input100" } })
@@ -66,7 +66,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block; ">
                     @Html.LabelFor(model => model.Nombre_Subgrupo,"Unidad:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Nombre_Subgrupo, new { htmlAttributes = new { @class = "input100" } })
@@ -74,7 +74,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block; ">
                     @Html.LabelFor(model => model.Descripcion,"Descripción:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "input100" } })
@@ -82,7 +82,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block;">
                     @Html.LabelFor(model => model.AsistenteId, "Asistente:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.DropDownList("AsistenteId", null, htmlAttributes: new { @class = "input100" })
@@ -90,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block; ">
                     @Html.LabelFor(model => model.Tipo_GrupoId, "Tipo Grupo:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.DropDownList("Tipo_GrupoId", null, htmlAttributes: new { @class = "input100" })
@@ -99,7 +99,7 @@
                 </div>
 
 
-                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                <div class="form-group" style="display:inline-block; ">
                     @Html.LabelFor(model => model.GrupoId, "Grupo:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
                         @Html.DropDownList("GrupoId", null, htmlAttributes: new { @class = "input100" })
@@ -107,16 +107,15 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="submit" value="Actualizar Registro" class="btn btn-outline-success" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button class="btn waves-effect waves-purple btn-danger hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>
+                <div align="right">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input src="@Url.Content("~/Content/Ico/guardar.png")" type="image" value="Guardar" width="25" class="btn waves-effect waves-light btn-outline-info" title="Guardar Registro" /> &nbsp;
+
+                            <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-red" title="Cancelar Registro">
+                                <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

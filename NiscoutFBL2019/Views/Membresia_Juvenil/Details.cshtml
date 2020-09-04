@@ -4,100 +4,105 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Detalle de la Información...</h2>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h3 style="font-family:'Times New Roman'"><strong> Detalle de la Información... </strong>  </h3>
+</div>
+<br />
 
+<div class="col-lg-12 " style="box-shadow: 0px 1px 3px mediumpurple">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table vm no-th-brd no-wrap pro-of-month">
+                    <thead>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Juvenil.Nombres)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Juvenil.Nombres)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.SubGrupo.Nombre_Subgrupo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.SubGrupo.Nombre_Subgrupo)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Centro_Estudio.Nombre_Centro)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Centro_Estudio.Nombre_Centro)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Annio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Annio)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Turno)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Turno)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Grado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Grado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Nivel_Academico)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Nivel_Academico)
+                            </td>
+                        </tr>
 
-<div class="datagrid">
-    <table class="table vm no-th-brd no-wrap pro-of-month">
-        <thead>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Juvenil.Nombres)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Juvenil.Nombres)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.SubGrupo.Nombre_Subgrupo)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.SubGrupo.Nombre_Subgrupo)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Centro_Estudio.Nombre_Centro)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Centro_Estudio.Nombre_Centro)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Annio)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Annio)
-                </td>
-             </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Turno)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Turno)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Grado)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Grado)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Nivel_Academico)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Nivel_Academico)
-                </td>
-            </tr>
-           
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Estado)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Etapa_Aprobacion.Estado)
-                </td>
-            </tr>
-           
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-        </thead>
-    </table>
-    <p>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-danger hidden-md-down" title="Cancelar Registro">
-                    <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
-                </a>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Estado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Etapa_Aprobacion.Estado)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                </table>
+                <p>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn waves-effect waves-purple btn-success hidden-md-down">@Html.ActionLink("Editar Registro", "Edit", new { id = Model.Id })</button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn waves-effect waves-purple btn-info hidden-md-down">@Html.ActionLink("Volver a la lista", "Index")</button>
+                        </div>
+                    </div>
+                </p>
+
             </div>
         </div>
-
-    </p>
-
+    </div>
 </div>

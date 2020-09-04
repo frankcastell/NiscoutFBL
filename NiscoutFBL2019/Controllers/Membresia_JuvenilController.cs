@@ -91,7 +91,7 @@ namespace NiscoutFBL2019.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult MembreJuvenil([Bind(Include = "SubGrupoId,Etapa_AprobacionId,JuvenilId,Annio,Id")] Membresia_Juvenil membresia_Juvenil)
+        public ActionResult MembreJuvenil([Bind(Include = "SubGrupoId,Etapa_AprobacionId,Centro_EstudioId,Grado,Turno,Nivel_Academico,JuvenilId,Annio,Id")] Membresia_Juvenil membresia_Juvenil)
         {
             if (ModelState.IsValid)
             {

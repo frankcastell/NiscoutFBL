@@ -42,121 +42,125 @@
         font-size: 18px;
     }
 </style>
-<span class="login100-form-title">
-    Registrando Nuevo Grupo...
-</span>
-<hr />
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+
+    <h2 style="font-family:'Times New Roman'"><strong> Datos del Grupos... </strong></h2>
+
+</div>
+<br />
 
 @using (Html.BeginForm("Create", "Grupoes", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
-    <div class="datagrid">
-        <div class="form-horizontal">
-            <br />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Cod_Grupo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Cod_Grupo, new { htmlAttributes = new { @class = "input100" } })
-                    @Html.ValidationMessageFor(model => model.Cod_Grupo, "", new { @class = "text-danger" })
+    <div class="col-lg-12 " style="box-shadow: 0 0 5px 0 ">
+        <div class="card">
+            <div class="card-body">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.Cod_Grupo, "Codigo :", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" style="float: right;">
+                        @Html.EditorFor(model => model.Cod_Grupo, new { htmlAttributes = new { @class = "input100" } })
+                        @Html.ValidationMessageFor(model => model.Cod_Grupo, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Nombre_Grupo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Nombre_Grupo, new { htmlAttributes = new { @class = "input100" } })
-                    @Html.ValidationMessageFor(model => model.Nombre_Grupo, "", new { @class = "text-danger" })
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.Nombre_Grupo,"Nombre Grupo:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" style="float: right;">
+                        @Html.EditorFor(model => model.Nombre_Grupo, new { htmlAttributes = new { @class = "input100" } })
+                        @Html.ValidationMessageFor(model => model.Nombre_Grupo, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Num_Solicitud, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Num_Solicitud, new { htmlAttributes = new { @class = "input100" } })
-                    @Html.ValidationMessageFor(model => model.Num_Solicitud, "", new { @class = "text-danger" })
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.Num_Solicitud,"# Solicitud:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" style="float: right;">
+                        @Html.EditorFor(model => model.Num_Solicitud, new { htmlAttributes = new { @class = "input100" } })
+                        @Html.ValidationMessageFor(model => model.Num_Solicitud, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Pañoleta, htmlAttributes: new { @class = "control-label col-md-2" })
-                @*<div class="col-md-10">
-                    @Html.EditorFor(model => model.Pañoleta, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Pañoleta, "", new { @class = "text-danger" })
-                </div>*@
-                <div class="col-md-10">
-                    <input type="file" name="image1" width="25" class="btn waves-effect waves-light btn-outline-info" />
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.Pañoleta,"Pañoleta: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @*<div class="col-md-10">
+                            @Html.EditorFor(model => model.Pañoleta, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Pañoleta, "", new { @class = "text-danger" })
+                        </div>*@
+                    <div class="col-md-10" style="float: right;">
+                        <input type="file" name="image1" width="25" class="btn waves-effect waves-light btn-outline-info" />
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Insignia, htmlAttributes: new { @class = "control-label col-md-2" })
-                @*<div class="col-md-10">
-                    @Html.EditorFor(model => model.Insignia, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Insignia, "", new { @class = "text-danger" })
-                </div>*@
-                <div class="col-md-10">
-                    <input type="file" name="image2" width="25" class="btn waves-effect waves-light btn-outline-info" />
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.Insignia, "Insignia: ",htmlAttributes: new { @class = "control-label col-md-2" })
+                    @*<div class="col-md-10">
+                            @Html.EditorFor(model => model.Insignia, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Insignia, "", new { @class = "text-danger" })
+                        </div>*@
+                    <div class="col-md-10" style="float: right;">
+                        <input type="file" name="image2" width="25" class="btn waves-effect waves-light btn-outline-info" />
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Sello_Grupo, htmlAttributes: new { @class = "control-label col-md-2" })
-                @*<div class="col-md-10">
-                    @Html.EditorFor(model => model.Sello_Grupo, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Sello_Grupo, "", new { @class = "text-danger" })
-                </div>*@
-                <div class="col-md-10">
-                    <input type="file" name="image3" width="25" class="btn waves-effect waves-light btn-outline-info" />
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.Sello_Grupo, "Sello Grupo: ",htmlAttributes: new { @class = "control-label col-md-2" })
+                    @*<div class="col-md-10">
+                            @Html.EditorFor(model => model.Sello_Grupo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Sello_Grupo, "", new { @class = "text-danger" })
+                        </div>*@
+                    <div class="col-md-10" style="float: right;">
+                        <input type="file" name="image3" width="25" class="btn waves-effect waves-light btn-outline-info" />
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Carta_Solicitud, htmlAttributes: new { @class = "control-label col-md-2" })
-                @*<div class="col-md-10">
-                @Html.EditorFor(model => model.Carta_Solicitud, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Carta_Solicitud, "", new { @class = "text-danger" })
-            </div>*@
-                <div class="col-md-10">
-                    <input type="file" accept=".pdf" name="image4" width="25" class="btn waves-effect waves-light btn-outline-info" />
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.Carta_Solicitud,"Carta Solicitud: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @*<div class="col-md-10">
+                            @Html.EditorFor(model => model.Carta_Solicitud, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Carta_Solicitud, "", new { @class = "text-danger" })
+                        </div>*@
+                    <div class="col-md-10" style="float: right;">
+                        <input type="file" accept=".pdf" name="image4" width="25" class="btn waves-effect waves-light btn-outline-info" />
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.ResponsableId, "Responsable", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ResponsableId", null, htmlAttributes: new { @class = "input100" })
-                    @Html.ValidationMessageFor(model => model.ResponsableId, "", new { @class = "text-danger" })
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.ResponsableId, "Responsable: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" style="float: right;">
+                        @Html.DropDownList("ResponsableId", null, htmlAttributes: new { @class = "input100" })
+                        @Html.ValidationMessageFor(model => model.ResponsableId, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.DistritoId, "Distrito", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("DistritoId", null, htmlAttributes: new { @class = "input100" })
-                    @Html.ValidationMessageFor(model => model.DistritoId, "", new { @class = "text-danger" })
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.DistritoId, "Distrito: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" style="float: right;">
+                        @Html.DropDownList("DistritoId", null, htmlAttributes: new { @class = "input100" })
+                        @Html.ValidationMessageFor(model => model.DistritoId, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-           
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Estado_Grupo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Estado_Grupo, new { htmlAttributes = new { @class = "input100" } })
-                    @Html.ValidationMessageFor(model => model.Estado_Grupo, "", new { @class = "text-danger" })
+
+                <div class="form-group" style="display:inline-block; ">
+                    @Html.LabelFor(model => model.Estado_Grupo,"Estado Grupo: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" style="float: right;">
+                        @Html.EditorFor(model => model.Estado_Grupo, new { htmlAttributes = new { @class = "input100" } })
+                        @Html.ValidationMessageFor(model => model.Estado_Grupo, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
+                <div align="right">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input src="@Url.Content("~/Content/Ico/guardar.png")" type="image" value="Guardar" width="25" class="btn waves-effect waves-light btn-outline-info" title="Guardar Registro" /> &nbsp;
 
-            <div align="right">
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input src="@Url.Content("~/Content/Ico/guardar.png")" type="image" value="Guardar" width="25" class="btn waves-effect waves-light btn-outline-info" title="Guardar Registro" /> &nbsp;
-
-                        <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-red" title="Cancelar Registro">
-                            <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
-                        </a>
+                            <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-red" title="Cancelar Registro">
+                                <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
