@@ -25,7 +25,7 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Index(string buscar)
         {
             var adulto = db.Adultos.Include(a => a.Departamento);
-
+           
             if (!string.IsNullOrEmpty(buscar))
             {
                 adulto = adulto.Where(s => s.Nombres.Contains(buscar));

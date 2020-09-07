@@ -21,6 +21,8 @@ namespace NiscoutFBL2019.Controllers
         {
             //var tutorias = db.Tutorias.Include(t => t.Persona);
             var tutorias = db.Personas.Where(x => x.Tutorias.Count() > 0);
+           
+
             return View(tutorias.ToList());
         }
 
