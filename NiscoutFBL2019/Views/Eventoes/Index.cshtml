@@ -4,17 +4,18 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Registros de Evento</h2>
-<link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h3 style="font-family:'Times New Roman'"><strong> @Model.Count() Registros de Eventos  </strong>  </h3>
 
+</div>
+<br />
 <div align="left">
     @using (Html.BeginForm("Index", "Eventoes", FormMethod.Get))
     {
-       
+
         <div align="right">
             <div>
-                <hr />
-
+               
                 @Html.TextBox("buscar")
                 <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
 
@@ -22,8 +23,8 @@
                     Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
                 </a>
                 @*<a href="@Url.Action("RepAdulto", "Adultoes")" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
-                    <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
-                </a>*@
+                        <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
+                    </a>*@
 
                 <hr />
             </div>
@@ -32,73 +33,88 @@
 </div>
 
 
-<div class="datagrid">
-    <table class="table vm no-th-brd no-wrap pro-of-month">
-        <thead>
-            <tr>
-                <th>
-                    Codigo
-                </th>
-                <th>
-                   Evento
-                </th>
-                <th>
-                   Descripción
-                </th>
-                <th>
-                    Hora
-                </th>
-                <th>
-                    Fecha
-                </th>
-                <th>
-                    Unidades
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        @if (Model.Count() == 0)
-        {
-            <tr>
-                <td colspan="4"> No se ha encontrado ningún dato relacionado</td>
-            </tr>
-        }
-        else
-        {
-            foreach (var item in Model)
-            {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cod_Evento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre_Evento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Hora)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Fecha)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SubGrupo.Nombre_Subgrupo)
-                </td>
-                <td>
-                    <a href="@Url.Action("Edit", "Eventoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
-                        <img width="25" src="~/Content/Ico/Editar.png" />
-                    </a>
-                    <a href="@Url.Action("Details", "Eventoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
-                        <img width="25" src="~/Content/Ico/Ver_detalles.png" />
-                    </a>
-                    @*<a href="@Url.Action("Delete", "Eventoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
-                        <img width="25" src="~/Content/Ico/eliminar.png" />
-                    </a>*@
-                </td>
-            </tr>
-            }
-        }
-    </table>
+<div class="col-lg-12 " style="box-shadow: 0px 1px 3px mediumpurple">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table vm no-th-brd no-wrap pro-of-month">
+                    <thead style="color: #000">
+                        <tr>
+                            <th>
+                                Codigo
+                            </th>
+                            <th>
+                                Evento
+                            </th>
+                            <th>
+                                Descripción
+                            </th>
+                            <th>
+                                Hora
+                            </th>
+                            <th>
+                                Fecha
+                            </th>
+                            <th>
+                                Unidades
+                            </th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    @if (Model.Count() == 0)
+                    {
+                        <tr>
+                            <td>
+                                <div colspan="4" style="font-family:'Times New Roman'; color:purple; font-size:18px">
+                                    <br /> No se ha encontrado ningún dato relacionado
+                                    <a href="@Url.Action("Index")" class="btn waves-effect " title="Volver">
+                                        <img width="30" src="@Url.Content("~/Content/Ico/Volver.png")" />
+                                    </a>
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cod_Evento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre_Evento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Hora)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fecha)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubGrupo.Nombre_Subgrupo)
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "Eventoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
+                                        <img width="25" src="~/Content/Ico/Editar.png" />
+                                    </a>
+                                    <a href="@Url.Action("Details", "Eventoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
+                                        <img width="25" src="~/Content/Ico/Ver_detalles.png" />
+                                    </a>
+                                    @*<a href="@Url.Action("Delete", "Eventoes",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
+                                            <img width="25" src="~/Content/Ico/eliminar.png" />
+                                        </a>*@
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
