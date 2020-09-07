@@ -225,21 +225,29 @@
 
                             </ul>
                         </li>
-                        
+                          <!--Estadísticas-->
+
+                    <li class="treeview">
+                        <div class="text-center m-t-30">
+                            <a href="@Url.Action("Index","Personas")" class="btn waves-effect waves-purple btn-info hidden-md-down" target="_blank"> Estadísticas</a>
+                        </div>
+                    </li>
+
+
                         @*<li> <a class="waves-effect waves-dark" href="@Url.Action("NotFound", "Home")" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">Error 404</span></a></li>*@
-                        
+
                         @*<div class="text-center m-t-30">
-                            <a href="@Url.Action("Shared", "_Layout")" class="btn waves-effect waves-light btn-info hidden-md-down"> Navegar más</a>
-                        </div>*@
-                        
-                   }
-                        <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->                   
-        <!-- ============================================================== -->
-        <!-- Mostrar menú en caso que sea Manager -->
-        <!-- ============================================================== -->
-                   @if (User.IsInRole("Manager"))
-                   {
-                    <li> <a class="waves-effect waves-light" href="@Url.Action("Index", "Home")" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Inicio</span></a></li>
+                                <a href="@Url.Action("Shared", "_Layout")" class="btn waves-effect waves-light btn-info hidden-md-down"> Navegar más</a>
+                            </div>*@
+
+                        }
+                        <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                        <!-- ============================================================== -->
+                        <!-- Mostrar menú en caso que sea Manager -->
+                        <!-- ============================================================== -->
+                        @if (User.IsInRole("Manager"))
+                        {
+<li> <a class="waves-effect waves-light" href="@Url.Action("Index", "Home")" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Inicio</span></a></li>
              <!-- Personas-->
                     <li class="treeview">
                         <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
@@ -324,15 +332,20 @@
                                     <li><a href="@Url.Action("Index","Eventoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Eventos</a></li>
                                     <li><a href="@Url.Action("Index","Local_Evento")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Local Eventos</a></li>
                                     <li><a href="@Url.Action("Index","Asistente_Evento")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Asistentes Eventos</a></li>
+                                    <li><a href="@Url.Action("Index","Personas")" style="font-size: 20px; font-family:'Times New Roman'"><i class="fa fa-check-square-o"></i> Estadísticas</a></li>
 
                                 </ul>
                             </li>
-                            
+                             <!--Estadísticas-->
+
+                            <li class="treeview">
+                                <div class="text-center m-t-30">
+                                    <a href="@Url.Action("Index","Personas")" class="btn waves-effect waves-purple btn-info hidden-md-down" target="_blank"> Estadísticas</a>
+                                </div>
+                            </li>
                                 @*<li> <a class="waves-effect waves-dark" href="@Url.Action("NotFound", "Home")" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">Error 404</span></a></li>*@
 
-                                @*<div class="text-center m-t-30">
-                                    <a href="@Url.Action("Shared","_Layout")" class="btn waves-effect waves-light btn-info hidden-md-down"> Navegar más</a>
-                                </div>*@
+                            
 
                    }
                   

@@ -50,21 +50,21 @@
 <div align="left">
     @using (Html.BeginForm("Index", "Tutorias", FormMethod.Get))
     {
-        <div align="right">
+    <div align="right">
 
-            <div>
-                <hr />
+        <div>
+            <hr />
 
-                <a href="@Url.Action("Create", "Personas")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Nuevo Tutor">
-                    Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
-                </a>
-                <a href="@Url.Action("RepAdulto", "Tutorias")" target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
-                    <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
-                </a>
+            <a href="@Url.Action("Create", "Personas")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Nuevo Tutor">
+                Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
+            </a>
+            <a href="@Url.Action("RepAdulto", "Tutorias")" target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+                <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
+            </a>
 
-                <hr />
-            </div>
+            <hr />
         </div>
+    </div>
     }
 </div>
 
@@ -91,9 +91,9 @@
                             <h6 class="card-subtitle">@item.Departamento.Nombre_Departamento</h6>
                             <div class="row text-center justify-content-md-center">
 
-                                <div class="col-4"><a href="@Url.Action("Edit", "Tutorias",new { id = item.Id })" target="_blank" class="link"><i class="icon-pencil"></i> <font class="font-medium">Editar</font></a></div>
-                                <div class="col-4"><a href="@Url.Action("Details", "Tutorias",new { id = item.Id })" target="_blank" class="link"><i class="icon-eye"></i> <font class="font-medium">Ver</font></a></div>
-                                <div class="col-4"><a href="@Url.Action("ReportCarnet", "Reportes",new { id = item.Id })" class="link" title="Imprimir Carnet"><i class="fa  fa-address-card "></i> <font class="font-medium"></font></a></div>
+                                <div class="col-4"><a href="@Url.Action("Edit", "Personas",new { id = item.Id })" style="font-size:25px" class="link"><i class="icon-pencil" title="Editar Registro"></i> <font class="font-medium"></font></a></div>
+                                <div class="col-4"><a href="@Url.Action("Details", "Tutorias",new { id = item.Id })" style="font-size:25px" class="link" target="_blank"><i class="icon-eye" title="Ver Registro"></i> <font class="font-medium"></font></a></div>
+                                <div class="col-4"><a href="@Url.Action("Create", "Tutorias",new { idpersona = item.Id })" style="font-size:25px" class="link" title="Agregar Jóven" target="_blank"><i class="fa  fa-user-plus "></i> <font class="font-medium"></font></a></div>
 
                             </div>
                         </center>
@@ -104,74 +104,181 @@
     }
 </div>
 
+<!-- visit charts-->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-lg-4 col-xlg-3 col-md-5">
+        <div class="card">
+            <div class="card-body" style="border-radius: 20px;box-shadow: 0 0 5px 0; background-color: transparent">
+                <center class="m-t-30">
+                    <h4 class="card-title"><span class="lstick"></span>Estadística</h4>
+                    <div id="visitor" style="height:250px; width:100%;"></div>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-xlg-9 col-md-7" style="box-shadow: 0px 1px 3px">
+        <div class="card">
+            <div class="card-body">              
+                
+                    <div id="sales-overview2" class="p-relative" style="height:360px;"></div>
 
-@*<div class="datagr">
-    <table>
-        <thead>
-            <tr>
+                
+            </div>
+        </div>
+    </div>
+</div>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombres)
-                </th>
+                @section Scripts {
+                    <script type="text/javascript">
 
-                <th>
-                    @Html.DisplayNameFor(model => model.Fecha_Nac)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.E_Mail)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cedula)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Sexo)
-                </th>
-                <th>
-
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model.OrderBy(x => x.Apellidos))
+                        $(function () {
+                            "use strict";
+                            // ==============================================================
+                            // Sales overview
+                            // ==============================================================
+                            var meses = [];
+                            var valores = [];
+                            @foreach(var item in Model)
             {
-                <tr>
+                @:meses.push('@item.Nombres')
+                                            @:valores.push('@item.Tutorias.Count()')
+                                        }
+                            new Chartist.Line('#sales-overview2', {
+                                labels: meses
+                   , series: [
+                     { meta: "Tutorías", data: valores }
+                   ]
+                            }, {
+                                low: 0
+                   , high: 10
+                   , showArea: true
+                   , divisor: 1
+                   , lineSmooth: false
+                   , fullWidth: true
+                   , showLine: true
+                   , chartPadding: 30
+                   , axisX: {
+                       showLabel: true
+                       , showGrid: false
+                       , offset: 50
+                   }
+                   , plugins: [
+                       Chartist.plugins.tooltip()
+                   ],
+                                // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
+                                axisY: {
+                                    onlyInteger: true
+                                    , showLabel: true
+                                    , scaleMinSpace: 50
+                                    , showGrid: true
+                                    , offset: 10,
+                                    labelInterpolationFnc: function (value) {
+                                        return (value)
+                                    },
 
-                    <td>
-                        @item.Nombres @item.Apellidos @item.Tutorias.Count()
+                                }
 
-                    </td>
+                            });
+                            // ==============================================================
+                            // Visitor
+                            // ==============================================================
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Fecha_Nac)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.E_Mail)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cedula)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Sexo)
-                    </td>
-                    <td></td>
-                    <td>
+                            var chart = c3.generate({
+                                bindto: '#visitor',
+                                data: {
+                                    columns: [
 
-                        <a href="@Url.Action("Edit", "Tutorias",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
-                            <img width="25" src="~/Content/Ico/Editar.png" />
-                        </a>
-                        <a href="@Url.Action("Details", "Tutorias",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Información">
-                            <img width="25" src="~/Content/Ico/Ver_detalles.png" />
-                        </a>
+                                        @foreach(var item in Model)
+                        {
+                          @:['@item.Nombres', @item.Tutorias.Count()],
+                                        }
 
-                        <a href="@Url.Action("Create", "Tutorias",new { idpersona = item.Id })" class="btn waves-effect waves-light btn-outline-primary hidden-md-down" title="Editar Registro">
-                            <img width="25" src="~/Content/Ico/Editar.png" />
-                        </a>
-                        @*<a href="@Url.Action("Delete", "Tutorias",new { id = item.Id })" class="btn waves-effect waves-light btn-outline-danger  hidden-md-down" title="Eliminar Registro">
-                                <img width="25" src="~/Content/Ico/eliminar.png" />
-                            </a>
-                    </td>
-                </tr>
-            }
+                                        //['Other', 30],
+                                        //['Desktop', 10],
+                                        //['Tablet', 40],
+                                        //['Mobile', 50],
+                                    ],
 
-    </table>
-</div>*@
+                                    type: 'donut',
+                                    onclick: function (d, i) { console.log("onclick", d, i); },
+                                    onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+                                    onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+                                },
+                                donut: {
+                                    label: {
+                                        show: false
+                                    },
+                                    title: "Tutorías",
+                                    width: 30,
+
+                                },
+
+                                legend: {
+                                    hide: true
+                                    //or hide: 'data1'
+                                    //or hide: ['data1', 'data2']
+                                },
+                                color: {
+                                    pattern: ['#eceff1', '#745af2', '#26c6da', '#1e88e5']
+                                }
+                            });
+
+                            // ==============================================================
+                            // Website Visitor
+                            // ==============================================================
+
+                            var chart = new Chartist.Line('.website-visitor', {
+                                labels: [1, 2, 3, 4, 5, 6, 7, 8],
+                                series: [
+                                  [0, 5, 6, 8, 25, 9, 8, 24]
+                                  , [0, 3, 1, 2, 8, 1, 5, 1]
+                                ]
+                            }, {
+                                low: 0,
+                                high: 28,
+                                showArea: true,
+                                fullWidth: true,
+                                plugins: [
+                                  Chartist.plugins.tooltip()
+                                ],
+                                axisY: {
+                                    onlyInteger: true
+                                , scaleMinSpace: 40
+                                , offset: 20
+                                , labelInterpolationFnc: function (value) {
+                                    return (value / 1) + 'k';
+                                }
+                                },
+                            });
+                            // Offset x1 a tiny amount so that the straight stroke gets a bounding box
+                            // Straight lines don't get a bounding box
+                            // Last remark on -> http://www.w3.org/TR/SVG11/coords.html#ObjectBoundingBox
+                            chart.on('draw', function (ctx) {
+                                if (ctx.type === 'area') {
+                                    ctx.element.attr({
+                                        x1: ctx.x1 + 0.001
+                                    });
+                                }
+                            });
+
+                            // Create the gradient definition on created event (always after chart re-render)
+                            chart.on('created', function (ctx) {
+                                var defs = ctx.svg.elem('defs');
+                                defs.elem('linearGradient', {
+                                    id: 'gradient',
+                                    x1: 0,
+                                    y1: 1,
+                                    x2: 0,
+                                    y2: 0
+                                }).elem('stop', {
+                                    offset: 0,
+                                    'stop-color': 'rgba(255, 255, 255, 1)'
+                                }).parent().elem('stop', {
+                                    offset: 1,
+                                    'stop-color': 'rgba(38, 198, 218, 1)'
+                                });
+                            });
+                        });
+                    </script>
+                }
