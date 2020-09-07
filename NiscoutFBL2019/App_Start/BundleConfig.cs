@@ -37,8 +37,9 @@ namespace NiscoutFBL2019
                               "~/Content/assets/plugins/chartist-js/dist/chartist.min.js",
                               "~/Content/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js",
                               "~/Content/assets/plugins/d3/d3.min.js",
-                              "~/Content/assets/plugins/c3-master/c3.min.js",
-                              "~/Scripts/js/dashboard.js"));
+                              "~/Content/assets/plugins/c3-master/c3.min.js"
+                              //, "~/Scripts/js/dashboard.js"
+                             ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                              "~/Content/assets/plugins/bootstrap/css/bootstrap.min.css",

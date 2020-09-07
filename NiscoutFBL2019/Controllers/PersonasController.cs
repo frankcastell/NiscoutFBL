@@ -23,6 +23,11 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Index(string buscar)
         {
             var personas = db.Personas.Include(p => p.Departamento);
+            ViewBag.Departamentos = db.Departamentos.ToList();
+            ViewBag.Adultos = db.Adultos.ToList();
+            ViewBag.Juvenils = db.Juveniles.ToList();
+            ViewBag.MembresiasJu = db.Tutorias.ToList();           
+            ViewBag.MembreAdultos = db.Membresia_Adultos.ToList();
 
             if (!string.IsNullOrEmpty(buscar))
             {
