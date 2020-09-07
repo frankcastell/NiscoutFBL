@@ -1181,6 +1181,9 @@
     <Content Include="Views\ReporteParametros\_Departamento.cshtml" />
     <Content Include="Views\ReporteParametros\_Años.cshtml" />
     <Content Include="Views\ReporteParametros\_MembresiaTotal.cshtml" />
+    <Content Include="Views\ReporteParametros\ReptDepart.cshtml" />
+    <Content Include="Views\ReporteParametros\ReptAño.cshtml" />
+    <Content Include="Views\ReporteParametros\ReptMembresiaTotal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -1197,9 +1200,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepGrupos.rdlc" />
     <EmbeddedResource Include="Reportes\RepJovenes.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportTotalAño.rdlc" />
     <EmbeddedResource Include="Reportes\RepPatro.rdlc" />
     <EmbeddedResource Include="Reportes\RepPersonas.rdlc" />
     <EmbeddedResource Include="Reportes\RepSexoParametro.rdlc" />
+    <EmbeddedResource Include="Reportes\ReptMembresia_total.rdlc" />
+    <EmbeddedResource Include="Reportes\RepTotalDepart.rdlc" />
     <EmbeddedResource Include="Reportes\RepUbicaciones.rdlc" />
     <EmbeddedResource Include="Reportes\RepUnidades.rdlc" />
   </ItemGroup>
