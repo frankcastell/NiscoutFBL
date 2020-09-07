@@ -84,7 +84,7 @@
                 <div class="form-group" style="display:inline-block">
                     @Html.LabelFor(model => model.Sexo, "Sexo:", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" style="float: right;">
-                        @Html.DropDownList("sexo", null, "--- Seleccione Sexo ---", htmlAttributes: new { @class = "input100" })
+                        @Html.DropDownList("Sexo", null, "--- Seleccione Sexo ---", htmlAttributes: new { @class = "input100" })
                         @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -190,7 +190,7 @@
                         <div class="col-md-offset-2 col-md-10">
                             <input src="@Url.Content("~/Content/Ico/guardar.png")" type="image" value="Guardar" width="25" class="btn waves-effect waves-light btn-outline-info" title="Guardar Registro" /> &nbsp;
 
-                            <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-red" title="Cancelar Registro">
+                            <a href="@Url.Action("Index","Tutorias")" class="btn waves-effect waves-purple btn btn-outline-red" title="Cancelar Registro">
                                 <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
                             </a>
                         </div>

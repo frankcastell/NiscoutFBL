@@ -29,17 +29,36 @@
                                     <div class="row">
                                         <div class="card-body bg-light py-3">
                                             <div class="form-row mb-1">
-                                                <form action="~/ReporteParametros/Informe" method="get" id="frmReporte">
-                                                    <input type="hidden" value="Sexo" />
+                                                <form action="~/ReporteParametros/ReptDepart" method="get" id="frmReporte">                                                    
                                                     
-
-                                                        <input type="text" x-moz-errormessage="Por favor, especifique una dirección de correo válida.">
-                                                        &nbsp;
+                                                    <div class="col-md-12" style="margin-top:-6px;margin-bottom:-12px;margin-left:20px;">
+                                                        <select class="form-control" id="Departamento" name="Departamento">
+                                                            <option value="Puerto Cabezas">Puerto Cabezas</option>
+                                                            <option value="Masaya">Masaya</option>
+                                                            <option value="León">León</option>
+                                                            <option value="Nueva Segovia">Nueva Segovia</option>
+                                                            <option value="Chinandega">Chinandega</option>
+                                                            <option value="Estelí">Estelí</option>
+                                                            <option value="Managua">Managua</option>
+                                                            <option value="Río San Juan">Río San Juan</option>
+                                                            <option value="Rivas">Rivas</option>
+                                                            <option value="Boaco">Boaco</option>
+                                                            <option value="Madriz">Madriz</option>
+                                                            <option value="Carazo">Carazo</option>
+                                                            <option value="Matagalpa">Matagalpa</option>
+                                                            <option value="Jinotega">Jinotega</option>
+                                                            <option value="Atlántico Sur">Atlántico Sur</option>
+                                                            <option value="Chontales">Chontales</option>
+                                                            <option value="Granada">Granada</option>
+                                                        </select>
+                                                    </div>
                                                         <div class="col-md-9">
-                                                            <button class="btn btn-primary" type="submit" id="btnReport" style="margin-left:58px">Generar Reporte<i class="glyphicon glyphicon-save-file"></i> </button>
+                                                            <button target="_blank" class="btn btn-primary" type="submit" id="btnReport" style="margin-left:58px;margin-top:1.5em;">Generar Reporte<i class="glyphicon glyphicon-save-file"></i> </button>
                                                         </div>
                                                     
-
+                                                    
+                                                    
+                                                    
                                                 </form>
                                             </div>
                                         </div>
@@ -83,7 +102,7 @@
 
 <div class="row">
 
-    <div class="col-md-412 col-sm-6 col-xs-12 animated tada ">
+    <div class="col-md-12 col-sm-6 col-xs-12 animated tada ">
         <div class="info-box">
 
             <span class="info-box-icon bg-aqua"><i class="fa fa-edit"></i></span>

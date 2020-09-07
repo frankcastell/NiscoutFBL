@@ -40,11 +40,10 @@
                         <thead style="color: #000">
                             <tr>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Juvenil.Nombres)
+                                    Nombre Unidad
                                 </th>
-
                                 <th>
-                                    Nombre SubGrupo
+                                    @Html.DisplayNameFor(model => model.Juvenil.Nombres)
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.Etapa_Aprobacion.Estado)
@@ -89,12 +88,12 @@
                             <tbody>
                                 <tr>
                                     <td>
+                                        @Html.DisplayFor(modelItem => item.SubGrupo.Nombre_Subgrupo)
+                                    </td>
+                                    <td>
                                         @Html.DisplayFor(modelItem => item.Juvenil.Nombres)
                                     </td>
-
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.SubGrupo.Cod_Subgrupo)
-                                    </td>
+                                    
                                     <td>
                                         @Html.DisplayFor(modelItem => item.Etapa_Aprobacion.Estado)
                                     </td>

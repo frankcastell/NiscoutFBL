@@ -65,9 +65,7 @@
     <div class="col-lg-8 col-xlg-9 col-md-7" style="box-shadow: 0px 1px 3px mediumpurple">
         <div class="card">
             <div class="card-body">
-
                 <h4 class="card-title" style="text-align:center; background-color:lightcyan"><strong>Tutoriados</strong> </h4>
-
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -87,7 +85,8 @@
                                     <td> @item.Id  </td>
                                     <td> <a href="@Url.Action("Details","Juvenils", new { id = item.Juveniles.FirstOrDefault().Id})">@item.Juveniles.FirstOrDefault().Nombres </a> </td>
                                     <td>  @item.Juveniles.FirstOrDefault().Apellidos </td>
-                                    <td>  @item.Parentezco </td>
+                                    <td>  @item.Parentezco                                 <div class="col-4"><a href="@Url.Action("Edit", "Tutorias",new { id = item.Id })" style="font-size:15px" class="link"><i class="icon-pencil" title="Editar Registro"></i> <font class="font-medium"></font></a></div>
+</td>
                                     @*<td>    <button>  Ver mas</button>       </td>*@
                                 </tr>
                             }
