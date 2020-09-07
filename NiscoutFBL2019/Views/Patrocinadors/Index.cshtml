@@ -44,8 +44,8 @@
 </style>
 
 <div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
-    <h3 style="font-family:'Times New Roman'"><strong> @Model.Count() Registros de Patrocinadores  </strong>  </h3>
-    <h4 style="font-family:'Times New Roman'"> @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
+    <h3 style="font-family:'Montserrat'"><strong> @Model.Count() Registros de Patrocinadores  </strong>  </h3>
+    <h4 style="font-family:'Montserrat'"> @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
 </div>
 
 <div align="left">
@@ -101,7 +101,7 @@
                             <div class="row text-center justify-content-md-center">
 
                                 <div class="col-4"><a href="@Url.Action("Edit", "Patrocinadors",new { id = item.Id })" class="link" style="font-size:25px" title="Editar Registro"><i class="icon-pencil"></i> <font class="font-medium"></font></a></div>
-                                <div class="col-4"><a href="@Url.Action("Details", "Patrocinadors",new { id = item.Id })" style="font-size:25px" class="link" title="Ver Registro" target="_blank"><i class="icon-eye"></i> <font class="font-medium"></font></a></div>
+                                <div class="col-4"><a href="@Url.Action("Details", "Patrocinadors",new { id = item.Id })" target="_blank"  style="font-size:25px" class="link" title="Ver Registro" target="_blank"><i class="icon-eye"></i> <font class="font-medium"></font></a></div>
 
                             </div>
                         </center>

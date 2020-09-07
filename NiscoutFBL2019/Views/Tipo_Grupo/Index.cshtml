@@ -44,7 +44,7 @@
     }
 </style>
 <div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
-    <h3 style="font-family:'Times New Roman'"><strong> Listado de Tipos de Grupos... </strong>  </h3>
+    <h3 style="font-family:'Montserrat'"><strong> Listado de Tipos de Grupos... </strong>  </h3>
 
 </div>
 
@@ -54,7 +54,7 @@
     @using (Html.BeginForm("Index", "Tipo_Grupo", FormMethod.Get))
     {
         <div align="right">
-            <br />
+           
 
             @Html.TextBox("buscar")
             <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
@@ -65,7 +65,7 @@
             <a href="@Url.Action("RepAdulto", "Tipo_Grupo")" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
                 <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
             </a>
-            <hr />
+           
         </div>
     }
 </div>

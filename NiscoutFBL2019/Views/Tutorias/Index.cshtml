@@ -44,16 +44,17 @@
     </style>
 }
 <div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
-    <h3 style="font-family:'Times New Roman'"><strong> @Model.Count() Registros de Tutores </strong>  </h3>
-    <h4 style="font-family:'Times New Roman'"> @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
+    <h3 style="font-family:'Montserrat'"><strong> @Model.Count() Registros de Tutores </strong>  </h3>
+    <h4 style="font-family:'Montserrat'"> @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
 </div>
+<br />
 <div align="left">
     @using (Html.BeginForm("Index", "Tutorias", FormMethod.Get))
     {
         <div align="right">
 
             <div>
-                <hr />
+              
 
                 <a href="@Url.Action("Create", "Personas")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Nuevo Tutor">
                     Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
@@ -61,8 +62,8 @@
                 <a href="@Url.Action("RepAdulto", "Tutorias")" target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
                     <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
                 </a>
-
                 <hr />
+               
             </div>
         </div>
     }

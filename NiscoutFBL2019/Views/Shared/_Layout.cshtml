@@ -105,12 +105,12 @@
         <!-- ============================================================== -->
                    @if (User.IsInRole("Admin"))
                    {
-                    <li> <a class="waves-effect waves-light" href="@Url.Action("Index", "Home")" aria-expanded="false" style="font-size: 25px; font-family:'Times New Roman'">
+                    <li> <a class="waves-effect waves-light" href="@Url.Action("Index", "Home")" aria-expanded="false" style="font-size: 23px; font-family:'Montserrat'">
                     <i class="mdi mdi-gauge"></i><span class="hide-menu">Inicio</span></a></li>
                     <!-- Personas-->
 
                     <li class="treeview">
-                        <a href="#"style="font-size: 20px; font-family:'Times New Roman'">
+                        <a href="#"style="font-size: 18px; font-family:'Montserrat'">
                             <i class="fa  fa-user-plus"></i> <span>Miembros</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-double-right pull-right"></i>
@@ -118,33 +118,33 @@
                         </a>
                         <ul class="treeview-menu">
                             @*<li><a href="@Url.Action("Index", "Personas")"><i class="fa fa-user"></i> Personas</a></li>*@
-                            <li><a href="@Url.Action("Index", "Adultoes")" style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-user-secret"></i> Adultos</a></li>
-                            <li><a href="@Url.Action("Index", "Patrocinadors")" style="font-size: 20px; font-family:'Times New Roman'"><i class="fa fa-user-circle-o" ></i> Patrocinadores</a></li>
-                            <li><a href="@Url.Action("Index", "Tutorias")" style="font-size: 20px; font-family:'Times New Roman'"><i class="fa fa-user-o"></i> Tutores</a></li>
+                            <li><a href="@Url.Action("Index", "Adultoes")" style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-user-secret"></i> Adultos</a></li>
+                            <li><a href="@Url.Action("Index", "Patrocinadors")" style="font-size: 18px; font-family:'Montserrat'"><i class="fa fa-user-circle-o" ></i> Patrocinadores</a></li>
+                            <li><a href="@Url.Action("Index", "Tutorias")" style="font-size: 18px; font-family:'Montserrat'"><i class="fa fa-user-o"></i> Tutores</a></li>
                             <li class="treeview">
-                                <a href="#" style="font-size: 20px; font-family:'Times New Roman'">
+                                <a href="#" style="font-size: 18px; font-family:'Montserrat'">
                                     <i class="fa fa-smile-o"></i> <span>Jóvenes</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-double-right pull-right"></i>
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("Index", "Juvenils")" style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-tachometer"></i> Datos Personales</a></li>
-                                    <li><a href="@Url.Action("Index", "Centro_Estudio")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-tachometer"></i> Centros de Estudio</a></li>
-                                    <li><a href="@Url.Action("Index", "Progresion_Juvenil")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-tachometer"></i> Progreción Juvenil</a></li>
+                                    <li><a href="@Url.Action("Index", "Juvenils")" style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-tachometer"></i> Datos Personales</a></li>
+                                    <li><a href="@Url.Action("Index", "Centro_Estudio")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-tachometer"></i> Centros de Estudio</a></li>
+                                    <li><a href="@Url.Action("Index", "Progresion_Juvenil")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-tachometer"></i> Progreción Juvenil</a></li>
                                 </ul>
                             </li>
                             <li class="treeview">
-                                <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                                <a href="#"style="font-size: 17px; font-family:'Montserrat'" >
                                     <i class="fa fa-desktop"></i> <span>Administrador</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-double-right pull-right"></i>
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("Index", "Personal_Admon")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Administración</a></li>
-                                    <li><a href="@Url.Action("Index", "Cargoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Cargos</a></li>
-                                    <li><a href="@Url.Action("Index", "Periodoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Periodos</a></li>
+                                    <li><a href="@Url.Action("Index", "Personal_Admon")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-check-square-o"></i> Admon.</a></li>
+                                    <li><a href="@Url.Action("Index", "Cargoes")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-check-square-o"></i> Cargos</a></li>
+                                    <li><a href="@Url.Action("Index", "Periodoes")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-check-square-o"></i> Periodos</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -152,76 +152,76 @@
 
                         <!-- Miembro-->
                         <li class="treeview">
-                            <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                            <a href="#"style="font-size: 18px; font-family:'Montserrat'" >
                                 <i class="fa  fa-male"></i><spans>Inscripciones</spans>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-double-right pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="active"><a href="@Url.Action("Index", "Membresia_Adulto")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa  fa-address-card"></i> Membresia Adultos</a></li>
-                                <li><a href="@Url.Action("Index", "Membresia_Juvenil")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-address-card"></i> Membresia Juvenil</a></li>
+                                <li class="active"><a href="@Url.Action("Index", "Membresia_Adulto")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa  fa-address-card"></i> Membresia Adultos</a></li>
+                                <li><a href="@Url.Action("Index", "Membresia_Juvenil")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-address-card"></i> Membresia Juvenil</a></li>
                                 @*<li><a href="@Url.Action("Index", "Tutorias")"><i class="fa fa-address-card"></i> Tutor</a></li>*@
-                                <li><a href="@Url.Action("Index", "Etapa_Aprobacion")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-address-card"></i> Etapa Aprobación</a></li>
+                                <li><a href="@Url.Action("Index", "Etapa_Aprobacion")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-address-card"></i> Etapa Aprobación</a></li>
                             </ul>
                         </li>
                         <!-- Grupos-->
                         <li class="treeview">
-                            <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                            <a href="#"style="font-size: 18px; font-family:'Montserrat'" >
                                 <i class="fa  fa-group"></i> <span>Grupos</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-double-right pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="@Url.Action("Index", "Grupoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-globe"></i> Información Grupos</a></li>
-                                <li><a href="@Url.Action("Index", "Responsables")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-globe"></i> Responsables</a></li>
-                                <li><a href="@Url.Action("Index", "SubGrupoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-globe"></i> Unidades</a></li>
-                                <li><a href="@Url.Action("Index", "Asistentes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-globe"></i> Asistente</a></li>
-                                <li><a href="@Url.Action("Index", "Tipo_Grupo")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-globe"></i> Tipo Grupos</a></li>                               
+                                <li><a href="@Url.Action("Index", "Grupoes")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-globe"></i> Información Grupos</a></li>
+                                <li><a href="@Url.Action("Index", "Responsables")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-globe"></i> Responsables</a></li>
+                                <li><a href="@Url.Action("Index", "SubGrupoes")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-globe"></i> Unidades</a></li>
+                                <li><a href="@Url.Action("Index", "Asistentes")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-globe"></i> Asistente</a></li>
+                                <li><a href="@Url.Action("Index", "Tipo_Grupo")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-globe"></i> Tipo Grupos</a></li>                               
                             </ul>
                         </li>
                         <!-- Ubicación-->
                     <li class="treeview">
-                        <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                        <a href="#"style="font-size: 18px; font-family:'Montserrat'" >
                             <i class="fa fa-map"></i> <span>Ubicación</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-double-right pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index", "Distritoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-map-o"></i> Distritos</a></li>
-                            <li><a href="@Url.Action("Index", "Departamentoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-map-o"></i> Departamentos</a></li>
-                            <li><a href="@Url.Action("Index", "Municipios")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-map-o"></i> Municipios</a></li>
-                            <li><a href="@Url.Action("Index", "Sectors")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-map-o"></i> Sectores</a></li>
+                            <li><a href="@Url.Action("Index", "Distritoes")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-map-o"></i> Distritos</a></li>
+                            <li><a href="@Url.Action("Index", "Departamentoes")"style="font-size: 17px; font-family:'Montserrat'" ><i class="fa fa-map-o"></i> Departamentos</a></li>
+                            <li><a href="@Url.Action("Index", "Municipios")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-map-o"></i> Municipios</a></li>
+                            <li><a href="@Url.Action("Index", "Sectors")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-map-o"></i> Sectores</a></li>
                         </ul>
                     </li>
                         <!-- Eventos-->
                         <li class="treeview">
-                            <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                            <a href="#"style="font-size: 18px; font-family:'Montserrat'" >
                                 <i class="fa  fa-newspaper-o"></i> <span>Eventos</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-double-right pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="@Url.Action("Index", "Eventoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Eventos</a></li>
-                                <li><a href="@Url.Action("Index", "Local_Evento")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Local Eventos</a></li>
-                                <li><a href="@Url.Action("Index", "Asistente_Evento")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Asistentes Eventos</a></li>
+                                <li><a href="@Url.Action("Index", "Eventoes")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-check-square-o"></i> Eventos</a></li>
+                                <li><a href="@Url.Action("Index", "Local_Evento")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-check-square-o"></i> Local Eventos</a></li>
+                                <li><a href="@Url.Action("Index", "Asistente_Evento")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-check-square-o"></i> Asistentes Eventos</a></li>
 
                             </ul>
                         </li>
                         <!-- Usuario-->
                         <li class="treeview">
-                            <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                            <a href="#"style="font-size: 18px; font-family:'Montserrat'" >
                                 <i class="fa  fa-cogs"></i> <span>Usuarios</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-double-right pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="@Url.Action("Index","Account")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-cog"></i>Usuarios</a></li>                             
-                              <li><a href="@Url.Action("Index2","Roles")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-cog"></i>Lista de Roles</a></li>
+                                <li><a href="@Url.Action("Index","Account")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-cog"></i>Usuarios</a></li>                             
+                              <li><a href="@Url.Action("Index2","Roles")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-cog"></i>Lista de Roles</a></li>
 
                             </ul>
                         </li>
@@ -242,26 +242,26 @@
                     <li> <a class="waves-effect waves-light" href="@Url.Action("Index", "Home")" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Inicio</span></a></li>
              <!-- Personas-->
                     <li class="treeview">
-                        <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                        <a href="#"style="font-size: 18px; font-family:'Montserrat'" >
                             <i class="fa  fa-user-plus"></i> <span>Miembros</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-double-right pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index", "Adultoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-user-secret"></i> Adultos</a></li>
-                            <li><a href="@Url.Action("Index", "Patrocinadors")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-user-circle-o"></i> Patrocinadores</a></li>
+                            <li><a href="@Url.Action("Index", "Adultoes")"style="font-size: 20px; font-family:'Montserrat'" ><i class="fa fa-user-secret"></i> Adultos</a></li>
+                            <li><a href="@Url.Action("Index", "Patrocinadors")"style="font-size: 20px; font-family:'Montserrat'" ><i class="fa fa-user-circle-o"></i> Patrocinadores</a></li>
                             <li class="treeview">
-                                <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                                <a href="#"style="font-size: 18px; font-family:'Montserrat'" >
                                     <i class="fa fa-smile-o"></i> <span>Jóvenes</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-double-right pull-right"></i>
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("Index", "Juvenils")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-tachometer"></i> Datos Personales</a></li>
-                                    <li><a href="@Url.Action("Index", "Centro_Estudio")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-tachometer"></i> Centros de Estudio</a></li>
-                                    <li><a href="@Url.Action("Index", "Progresion_Juvenil")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-tachometer"></i> Progreción Juvenil</a></li>
+                                    <li><a href="@Url.Action("Index", "Juvenils")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-tachometer"></i> Datos Personales</a></li>
+                                    <li><a href="@Url.Action("Index", "Centro_Estudio")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-tachometer"></i> Centros de Estudio</a></li>
+                                    <li><a href="@Url.Action("Index", "Progresion_Juvenil")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-tachometer"></i> Progreción Juvenil</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -269,61 +269,61 @@
 
                         <!-- Miembro-->
                         <li class="treeview">
-                            <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                            <a href="#"style="font-size: 18px; font-family:'Montserrat'" >
                                 <i class="fa  fa-male"></i> <span>Inscripciones</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-double-right pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="active"><a href="@Url.Action("Index","Membresia_Adulto")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa  fa-address-card"></i> Membresia Adultos</a></li>
-                                <li><a href="@Url.Action("Index","Membresia_Juvenil")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-address-card"></i> Membresia Juvenil</a></li>
-                                <li><a href="@Url.Action("Index","Tutorias")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-address-card"></i> Ver Tutorías</a></li>
-                                <li><a href="@Url.Action("Index","Etapa_Aprobacion")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-address-card"></i> Etapas Aprobación</a></li>
+                                <li class="active"><a href="@Url.Action("Index","Membresia_Adulto")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa  fa-address-card"></i> Membresia Adultos</a></li>
+                                <li><a href="@Url.Action("Index","Membresia_Juvenil")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-address-card"></i> Membresia Juvenil</a></li>
+                                <li><a href="@Url.Action("Index","Tutorias")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-address-card"></i> Ver Tutorías</a></li>
+                                <li><a href="@Url.Action("Index","Etapa_Aprobacion")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-address-card"></i> Etapas Aprobación</a></li>
                             </ul>
                         </li>
                        <!-- Grupos-->
                         <li class="treeview">
-                            <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                            <a href="#"style="font-size: 18px; font-family:'Montserrat'" >
                                 <i class="fa  fa-group"></i> <span>Grupos</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-double-right pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="@Url.Action("Index", "Grupoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-globe"></i> Información Grupos</a></li>
-                                <li><a href="@Url.Action("Index", "Responsables")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-globe"></i> Responsables</a></li>
-                                <li><a href="@Url.Action("Index", "SubGrupoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-globe"></i> Unidades</a></li>
-                                <li><a href="@Url.Action("Index", "Asistentes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-globe"></i> Asistente</a></li>
-                                <li><a href="@Url.Action("Index", "Tipo_Grupo")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-globe"></i> Tipo Grupos</a></li>
+                                <li><a href="@Url.Action("Index", "Grupoes")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-globe"></i> Información Grupos</a></li>
+                                <li><a href="@Url.Action("Index", "Responsables")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-globe"></i> Responsables</a></li>
+                                <li><a href="@Url.Action("Index", "SubGrupoes")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-globe"></i> Unidades</a></li>
+                                <li><a href="@Url.Action("Index", "Asistentes")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-globe"></i> Asistente</a></li>
+                                <li><a href="@Url.Action("Index", "Tipo_Grupo")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-globe"></i> Tipo Grupos</a></li>
                                 <li class="treeview">
-                                    <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                                    <a href="#"style="font-size: 18px; font-family:'Montserrat'" >
                                         <i class="fa fa-map"></i> <span>Ubicación</span>
                                         <span class="pull-right-container">
                                             <i class="fa fa-angle-double-right pull-right"></i>
                                         </span>
                                     </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="@Url.Action("Index", "Distritoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-map-o"></i> Distritos</a></li>
-                                        <li><a href="@Url.Action("Index", "Departamentoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-map-o"></i> Departamentos</a></li>
-                                        <li><a href="@Url.Action("Index", "Municipios")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-map-o"></i> Municipios</a></li>
-                                        <li><a href="@Url.Action("Index", "Sectors")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-map-o"></i> Sectores</a></li>
+                                        <li><a href="@Url.Action("Index", "Distritoes")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-map-o"></i> Distritos</a></li>
+                                        <li><a href="@Url.Action("Index", "Departamentoes")"style="font-size: 18px; font-family:'Montserrat'"  ><i class="fa fa-map-o"></i> Departamentos</a></li>
+                                        <li><a href="@Url.Action("Index", "Municipios")"style="font-size: 18px; font-family:'Montserrat'"  ><i class="fa fa-map-o"></i> Municipios</a></li>
+                                        <li><a href="@Url.Action("Index", "Sectors")"style="font-size: 18px; font-family:'Montserrat'"  ><i class="fa fa-map-o"></i> Sectores</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                          <!-- Eventos-->
                             <li class="treeview">
-                                <a href="#" style="font-size: 20px; font-family:'Times New Roman'" >
+                                <a href="#" style="font-size: 18px; font-family:'Montserrat'" >
                                     <i class="fa  fa-newspaper-o"></i> <span>Eventos</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-double-right pull-right"></i>
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("Index","Eventoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Eventos</a></li>
-                                    <li><a href="@Url.Action("Index","Local_Evento")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Local Eventos</a></li>
-                                    <li><a href="@Url.Action("Index","Asistente_Evento")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Asistentes Eventos</a></li>
+                                    <li><a href="@Url.Action("Index","Eventoes")"style="font-size: 18px; font-family:'Montserrat'"  ><i class="fa fa-check-square-o"></i> Eventos</a></li>
+                                    <li><a href="@Url.Action("Index","Local_Evento")"style="font-size: 18px; font-family:'Montserrat'" ><i class="fa fa-check-square-o"></i> Local Eventos</a></li>
+                                    <li><a href="@Url.Action("Index","Asistente_Evento")"style="font-size: 18px; font-family:'Montserrat'"  ><i class="fa fa-check-square-o"></i> Asistentes Eventos</a></li>
 
                                 </ul>
                             </li>
@@ -346,14 +346,14 @@
                     <li> <a class="waves-effect waves-light" href="@Url.Action("Index", "Home")" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Inicio</span></a></li>
                         <!-- Eventos-->
                     <li class="treeview">
-                            <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                            <a href="#"style="font-size: 18px; font-family:'Montserrat'" >
                                 <i class="fa  fa-newspaper-o"></i> <span>Eventos</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-double-right pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="@Url.Action("Index","Eventoes")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-check-square-o"></i> Eventos</a></li>                                                             
+                                <li><a href="@Url.Action("Index","Eventoes")"style="font-size: 18px; font-family:'Montserrat'"  ><i class="fa fa-check-square-o"></i> Eventos</a></li>                                                             
                             </ul>
                     
                         </li>
@@ -372,7 +372,7 @@
                             <li> <a class="waves-effect waves-light" href="@Url.Action("Index", "Home")" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Inicio</span></a></li>
                         <!-- Miembros-->
                             <li class="treeview">
-                                <a href="#"style="font-size: 20px; font-family:'Times New Roman'" >
+                                <a href="#"style="font-size: 18px; font-family:'Montserrat'" >
                                     <i class="fa  fa-user-plus"></i> <span>Mis Tutorías</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-double-right pull-right"></i>
@@ -380,9 +380,9 @@
                                 </a>
 
                                 <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("JuvenilTutorias", "Juvenils")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-smile-o"></i> Tutoriados</a></li>
-                                    <li><a href="@Url.Action("Index", "Centro_Estudio")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-smile-o"></i> Centro de Estudio</a></li>
-                                    <li><a href="@Url.Action("Index", "Progresion_Juvenil")"style="font-size: 20px; font-family:'Times New Roman'" ><i class="fa fa-smile-o"></i> Progreción Jovenil</a></li>
+                                    <li><a href="@Url.Action("JuvenilTutorias", "Juvenils")"style="font-size: 18px; font-family:'Montserrat'"  ><i class="fa fa-smile-o"></i> Tutoriados</a></li>
+                                    <li><a href="@Url.Action("Index", "Centro_Estudio")"style="font-size: 18px; font-family:'Montserrat'"  ><i class="fa fa-smile-o"></i> Centro de Estudio</a></li>
+                                    <li><a href="@Url.Action("Index", "Progresion_Juvenil")"style="font-size: 18px; font-family:'Montserrat'"  ><i class="fa fa-smile-o"></i> Progreción Jovenil</a></li>
                                 </ul>
                             </li>
 

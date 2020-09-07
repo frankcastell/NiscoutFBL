@@ -43,8 +43,8 @@
     }
 </style>
 <div class="card-header card-header-tabs" style="box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
-    <span align="center" class="login100-form-title"> @Model.Count() Registros de Personal Administrativo  /  </span>
-    <h4> @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
+    <h3 style="font-family:'Montserrat'"><strong>@Model.Count() Registros de Personal Administrativo</strong></h3>
+    <h4 style="font-family:'Montserrat'">  @Model.Count(x => x.Sexo == "Femenino") Mujeres | @Model.Count(x => x.Sexo == "Masculino")  Hombres</h4>
 </div>
 
 <div align="left">
@@ -89,7 +89,7 @@
                             <div class="row text-center justify-content-md-center">
 
                                 <div class="col-4"><a href="@Url.Action("Edit", "Personal_Admon",new { id = item.Id })" class="link"><i class="icon-pencil"></i> <font class="font-medium">Editar</font></a></div>
-                                <div class="col-4"><a href="@Url.Action("Details", "Personal_Admon",new { id = item.Id })" class="link"><i class="icon-eye"></i> <font class="font-medium">Ver</font></a></div>
+                                <div class="col-4"><a href="@Url.Action("Details", "Personal_Admon",new { id = item.Id })" target="_blank" class="link"><i class="icon-eye"></i> <font class="font-medium">Ver</font></a></div>
                                 <a href="@Url.Action("ReporCarnetAdmin2", "Reportes", new { id = item.Id })" target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Carnet">
                                     <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
                                 </a>
