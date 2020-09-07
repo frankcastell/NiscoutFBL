@@ -2,312 +2,83 @@
 
 @{
     ViewBag.Title = "Index";
-    List<NiscoutFBL2019.Models.Departamento> Departamentos = ViewBag.Departamentos;
-    List<NiscoutFBL2019.Models.Adulto> Adultos = ViewBag.Adultos;
-    List<NiscoutFBL2019.Models.Juvenil> Juveniles = ViewBag.Juvenils;
-    List<NiscoutFBL2019.Models.Tutoria> Membresias = ViewBag.MembresiasJu;
-    List<NiscoutFBL2019.Models.Membresia_Adulto> MembreAdultos = ViewBag.MembreAdultos;
 }
 
 
 <!-- /Segunda parte -->
 <div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
-    <h1 style="text-align:center; font-family:'Times New Roman'"><strong> Estadísticas </strong>  </h1>
+    <h3 style="font-family:'Montserrat'"><strong> Listado de todos los miembros del sistema... </strong>  </h3>
+    <h3 style="font-family:'Montserrat'"><strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registros de Personal &nbsp; @Model.Count() </strong>  </h3>
+    <h4 style="font-family:'Montserrat'">  Mujeres &nbsp; @Model.Count(x => x.Sexo == "Femenino") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    |
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hombres &nbsp; @Model.Count(x => x.Sexo == "Masculino")  </h4>
 
 </div>
-<br />
+<link href="~/Content/css/ButtonStyles.css" rel="stylesheet" />
+
+<div align="left">
+    @using (Html.BeginForm("Index", "Personas", FormMethod.Get))
+    {
+        <div align="right">
+            <hr />
+
+            @Html.TextBox("buscar")
+            <input type="image" src="@Url.Content("~/Content/Ico/lupa.png")" width="20" class="btn waves-effect waves-light btn-outline-info">
+
+            <a href="@Url.Action("Create", "Personas")" class="btn waves-effect waves-light btn-outline-info hidden-md-down" title="Agregar Nuevo Personas">
+                Nuevo <img width="25" src="@Url.Content("~/Content/Ico/Nuevo.png")" />
+            </a>
+            <a href="@Url.Action("ReporPersonas", "Reportes")" target="_blank" class="btn waves-effect waves-light btn-outline-success hidden-md-down" title="Imprimir Registros">
+                <img width="25" src="@Url.Content("~/Content/Ico/imprimir.png")" />
+            </a>
+            <hr />
+        </div>
+    }
+</div>
 
 <div class="row">
-    <div class="col-lg-4 col-xlg-3 col-md-8">
-        <div class="card">
-            <div class="card-body" style="border-radius: 10px;box-shadow: 0 0 5px 0; background-color: transparent">
-                <div class="table-responsive">
-                    @foreach (var item in Departamentos)
-                    {
-                        <p>
-                            @item.Cod_Departamento:@item.Nombre_Departamento
-                            <br />
+    <!-- Column -->
+    @if (Model.Count() == 0)
+    {
+        <div class="col-lg-12 " style="box-shadow: 0px 1px 3px mediumpurple">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
 
-                        </p>
-                    }
+                        <h2 colspan="4" style="font-family:'Times New Roman'; color:purple; font-size:18px">
+                            <br /> No se ha encontrado ningún dato relacionado
+                            <a href="@Url.Action("Index")" class="btn waves-effect " title="Volver">
+                                <img width="30" src="@Url.Content("~/Content/Ico/Volver.png")" />
+                            </a>
+                        </h2>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-8 col-xlg-9 col-md-7">
-        <div class="card">
-            <div class="card-body" style="border-radius: 5px;box-shadow: 0 0 5px 0; background-color: transparent">
-                <div class="d-flex">
-                    <h4 class="card-title"><span class="lstick"></span>Registro de Membresías por año</h4>
-                    <ul class="list-inline m-b-0 ml-auto">
-                        <li>
-                            <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Adultos</h6>
-                        </li>
-                        <li>
-                            <h6 class="text-muted text-info"><i class="fa fa-circle font-10 m-r-10"></i>Juveniles</h6>
-                        </li>
-                    </ul>
+
+    }
+    else
+    {
+        foreach (var item in Model.OrderBy(x => x.Apellidos))
+        {
+            <div class="col-lg-4 col-xlg-3 col-md-5">
+                <div class="card">
+                    <div class="card-body" style="border-radius: 20px;box-shadow: 0 0 5px 0 mediumpurple; background-color: transparent">
+                        <center class="m-t-30">
+                            <img src="~/Content/assets/images/Usuario icon.png" class="img-circle" width="150" />
+                            <h4 class="card-title m-t-10">  @item.Apellidos, @item.Nombres </h4>
+                            <h6 class="card-subtitle">@item.E_Mail</h6>
+                            <div class="row text-center justify-content-md-center">
+
+                                <div class="col-4"><a href="@Url.Action("Edit", "Personas",new { id = item.Id })" style="font-size:25px" class="link"><i class="icon-pencil" title="Editar Registro"></i> <font class="font-medium"></font></a></div>
+                                <div class="col-4"><a href="@Url.Action("Details", "Personas",new { id = item.Id })" style="font-size:25px" class="link" target="_blank"><i class="icon-eye" title="Ver Registro"></i> <font class="font-medium"></font></a></div>
+                                <div class="col-4"><a href="@Url.Action("", "Reportes",new { id = item.Id })" style="font-size:25px" class="link" title="Imprimir Carnet" target="_blank"><i class="fa  fa-address-card "></i> <font class="font-medium"></font></a></div>
+
+                            </div>
+                        </center>
+                    </div>
                 </div>
-                <div class="website-visitor p-relative m-t-30" style="width:100%;"></div>
             </div>
-        </div>
-    </div>
-</div>
-
-<br />
-<hr />
-
-<div class="row">
-    <div class="col-lg-4 col-xlg-3 col-md-5">
-        <div class="card">
-            <div class="card-body" style="border-radius: 20px;box-shadow: 0 0 5px 0; background-color: transparent">
-                <center class="m-t-30">
-                    <h4 class="card-title"><span class="lstick"></span>Estadística</h4>
-                    <div id="visitor" style="height:250px; width:100%;"></div>
-                </center>
-            </div>
-        </div>
-    </div>
-       <div class="col-lg-8 col-xlg-9 col-md-7">
-        <div class="card">
-            <div class="card-body" style="border-radius: 5px;box-shadow: 0 0 5px 0; background-color: transparent">
-                <div class="d-flex">
-                    <h4 class="card-title"><span class="lstick"></span>Estadística de Tutoriados</h4>
-                    <ul class="list-inline m-b-0 ml-auto">                       
-                        <li>
-                            <h6 class="text-muted text-info"><i class="fa fa-circle font-10 m-r-10"></i>Cantidad</h6>
-                        </li>
-                    </ul>
-                </div>
-                <div id="sales-overview2" class="p-relative" style="height:360px;"></div>
-
-            </div>
-        </div>
-    </div>
-</div>
-<br />
-<hr />
-
-<div class="row">
-    <div class="col-lg-8 col-xlg-9 col-md-7">
-        <div class="card" >
-            <div class="card-body" style="border-radius: 5px;box-shadow: 0 0 5px 0; background-color: transparent">
-                <div class="d-flex">
-                    <h4 class="card-title"><span class="lstick"></span>Estadísticas de Membresías Adultos</h4>
-                    <ul class="list-inline m-b-0 ml-auto">
-                        <li>
-                            <h6 class="text-right text-danger"><i class="fa fa-circle font-10 m-r-10"></i>Cantidad</h6>
-                        </li>
-                    </ul>
-                </div>
-                <div id="sales-overviewadulto" class="p-relative" style="height:360px;"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-@section Scripts {
-    <script type="text/javascript">
-
-        $(function () {
-            "use strict";
-            // ==============================================================
-            // Visitor
-            // ==============================================================
-
-            var chart = c3.generate({
-                bindto: '#visitor',
-                data: {
-                    columns: [
-
-            @foreach(var item in Membresias)
-            {
-                @:['@item.Persona.Nombres', @item.Persona.Tutorias.Count()],
-                }
-        ],
-
-            type: 'donut',
-            onclick: function (d, i) { console.log("onclick", d, i); },
-            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-        },
-            donut: {
-            label: {
-                        show: false
-            },
-                title: "Tutorías",
-                width: 30,
-
-                },
-
-        legend: {
-                hide: true
-            //or hide: 'data1'
-            //or hide: ['data1', 'data2']
-        },
-        color: {
-                pattern: ['#eceff1', '#745af2', '#26c6da', '#1e88e5']
         }
-        });
-            // ============================================================== 
-            // Sales overview Membresías Juveniles
-            // ============================================================== 
-            var tutor = [];
-            var valores = [];
-            @foreach(var item in Membresias)
-            {
-                @:tutor.push('@item.Persona.Nombres')
-                @:valores.push('@item.Persona.Tutorias.Count()')
-            }
-            new Chartist.Line('#sales-overview2', {
-                labels: tutor
-               , series: [
-                 {meta:"Tutorías", data: valores}
-               ]
-                        }, {
-                            low: 0
-               , high:10
-               , showArea: true
-               , divisor: 1
-               , lineSmooth:false
-               , fullWidth: true
-               , showLine: true
-               , chartPadding: 30
-               , axisX: {
-                   showLabel: true
-                   , showGrid: false
-                   , offset: 50
-               }
-               , plugins: [
-                   Chartist.plugins.tooltip()
-               ], 
-                // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
-                axisY: {
-                    onlyInteger: true
-                    , showLabel: true
-                    , scaleMinSpace: 50 
-                    , showGrid: true
-                    , offset: 10,
-                    labelInterpolationFnc: function(value) {
-                        return (value)
-                    },
-
-                }
-        
-                        });
-            // ============================================================== 
-            // Sales overview Membresías Adultos
-            // ============================================================== 
-            var adulto = [];
-            var membreadulto = [];
-            @foreach(var item in Adultos)
-            {
-                @:adulto.push('@item.Nombres ')
-                @:membreadulto.push('@item.Membresia_Adultos.Count()')
-            }
-            new Chartist.Line('#sales-overviewadulto', {
-                labels: adulto
-               , series: [
-                 {meta:"Renovación", data: membreadulto}
-               ]
-            }, {
-                low: 0
-               , high:10
-               , showArea: true
-               , divisor: 1
-               , lineSmooth:false
-               , fullWidth: true
-               , showLine: true
-               , chartPadding: 30
-               , axisX: {
-                   showLabel: true
-                   , showGrid: false
-                   , offset: 50
-               }
-               , plugins: [
-                   Chartist.plugins.tooltip()
-               ], 
-                // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
-                axisY: {
-                    onlyInteger: true
-                    , showLabel: true
-                    , scaleMinSpace: 50 
-                    , showGrid: true
-                    , offset: 10,
-                    labelInterpolationFnc: function(value) {
-                        return (value)
-                    },
-
-                }
-        
-            });
-            // ==============================================================
-            // Website Visitor
-            // ==============================================================
-            var annios = [];
-            var adultos = [];
-            var juveniles = [];
-            @foreach(var item in Departamentos)
-            {
-                @:annios.push('@item.Cod_Departamento')
-                @:adultos.push(@Adultos.Count(x=>x.DepartamentoId== item.Id))
-                @:juveniles.push(@Juveniles.Count(x=>x.DepartamentoId== item.Id))
-            }
-
-            var chart = new Chartist.Line('.website-visitor', {
-                labels: annios,
-                series: [adultos
-
-                  , juveniles,
-
-                ]
-            }, {
-                low: 0,
-                high: 28,
-                showArea: true,
-                fullWidth: true,
-                plugins: [
-                  Chartist.plugins.tooltip()
-                ],
-                axisY: {
-                    onlyInteger: true
-                , scaleMinSpace: 40
-                , offset: 20
-                , labelInterpolationFnc: function (value) {
-                    return (value);
-                }
-                },
-            });
-            // Offset x1 a tiny amount so that the straight stroke gets a bounding box
-            // Straight lines don't get a bounding box
-            // Last remark on -> http://www.w3.org/TR/SVG11/coords.html#ObjectBoundingBox
-            chart.on('draw', function (ctx) {
-                if (ctx.type === 'area') {
-                    ctx.element.attr({
-                        x1: ctx.x1 + 0.001
-                    });
-                }
-            });
-
-            // Create the gradient definition on created event (always after chart re-render)
-            chart.on('created', function (ctx) {
-                var defs = ctx.svg.elem('defs');
-                defs.elem('linearGradient', {
-                    id: 'gradient',
-                    x1: 0,
-                    y1: 1,
-                    x2: 0,
-                    y2: 0
-                }).elem('stop', {
-                    offset: 0,
-                    'stop-color': 'rgba(255, 255, 255, 1)'
-                }).parent().elem('stop', {
-                    offset: 1,
-                    'stop-color': 'rgba(38, 198, 218, 1)'
-                });
-            });
-        });
-
-    </script>
-}
+    }
+</div>

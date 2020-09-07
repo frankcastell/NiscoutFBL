@@ -4,67 +4,109 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Editando Registro...</h2>
+<style>
+    .login100-form-title {
+        font-weight: bold;
+        font-family: Poppins-Bold;
+        font-size: 30px;
+        color: #333333;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+    }
+
+    .input100 {
+        border: none;
+        font-family: Poppins-Medium;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333333;
+        display: block;
+        width: 100%;
+        background: #e6e6e6;
+        height: 45px;
+        border-radius: 15px;
+        padding: 0 20px 0 53px;
+    }
+
+    .form-group {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
+
+    .control-label {
+        font-weight: bold;
+        color: #333333;
+        font-size: 18px;
+    }
+</style>
+<div class="card-header card-header-tabs" style="box-shadow: 0 0 1px 0 ; background-color: transparent">
+    <h2 style="font-family:'Montserrat'"><strong> Edicion Detalle Grupo Patrocinador... </strong></h2>
+</div>
+<br />
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="datagrid">
-        <div class="form-horizontal">
-            <br />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.Id)
+    <div class="col-lg-12 " style="box-shadow: 0 0 5px 0">
+        <div class="card">
+            <div class="card-body">
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Desde, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Desde, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Desde, "", new { @class = "text-danger" })
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                    @Html.LabelFor(model => model.Desde, "Desde :", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" style="float: right;">
+                        @Html.EditorFor(model => model.Desde, new { htmlAttributes = new { @class = "input100" } })
+                        @Html.ValidationMessageFor(model => model.Desde, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Hasta, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Hasta, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Hasta, "", new { @class = "text-danger" })
+                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                    @Html.LabelFor(model => model.Hasta, " Hasta :", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" style="float: right;">
+                        @Html.EditorFor(model => model.Hasta, new { htmlAttributes = new { @class = "input100" } })
+                        @Html.ValidationMessageFor(model => model.Hasta, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.PatrocinadorId, "Patrocinadores", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("PatrocinadorId", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.PatrocinadorId, "", new { @class = "text-danger" })
+                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                    @Html.LabelFor(model => model.PatrocinadorId, "Patrocinador", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" style="float: right;">
+                        @Html.DropDownList("PatrocinadorId", null, "--- Seleccione Patrocinador---", htmlAttributes: new { @class = "input100" })
+                        @Html.ValidationMessageFor(model => model.PatrocinadorId, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.GrupoId, "Grupos", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("GrupoId", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.GrupoId, "", new { @class = "text-danger" })
+
+                <div class="form-group" style="display:inline-block;  padding:4px 8px;">
+                    @Html.LabelFor(model => model.GrupoId, "Grupos :", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" style="float: right;">
+                        @Html.DropDownList("GrupoId", null, "--- Seleccione Grupos---", htmlAttributes: new { @class = "input100" })
+                        @Html.ValidationMessageFor(model => model.GrupoId, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Actualizar Registro" class="btn btn-outline-success" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn waves-effect waves-purple btn-danger hidden-md-down">@Html.ActionLink("Cancelar", "Index")</button>
+                <div align="right">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input src="@Url.Content("~/Content/Ico/guardar.png")" type="image" value="Guardar" width="25" class="btn waves-effect waves-light btn-outline-info" title="Guardar Registro" /> &nbsp;
+
+                            <a href="@Url.Action("Index")" class="btn waves-effect waves-purple btn btn-outline-red" title="Cancelar Registro">
+                                <img width="30" src="@Url.Content("~/Content/Ico/cancelar.png")" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-}
+    }
 
 
 
@@ -75,13 +117,13 @@
     <script src="~/Scripts/js/datepicker.min.js"></script>
     <script src="~/Scripts/js/i18n/datepicker.es.js"></script>
     <script>
-    $(function () {
+        $(function () {
 
 
-        $("#Desde").datepicker({ language: 'es', dateFormat: 'dd-mm-yy' });
-        $("#Hasta").datepicker({ language: 'es', dateFormat: 'dd-mm-yy' });
+            $("#Desde").datepicker({ language: 'es', dateFormat: 'dd-mm-yy' });
+            $("#Hasta").datepicker({ language: 'es', dateFormat: 'dd-mm-yy' });
 
-  } );
+        });
     </script>
 
 
