@@ -87,5 +87,58 @@ namespace NiscoutFBL2019.Controllers.ReportesNiscouts
             ViewBag.rpt = rpt;
             return View();
         }
+        public ActionResult ReptDepart(string Departamento = "")
+        {
+
+            Total_DepartamentoTableAdapter d = new Total_DepartamentoTableAdapter();
+            ReportViewer rpt = new ReportViewer();
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reportes/RepTotalDepart.rdlc";
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("BDNiscoutDataSet", d.GetData(Departamento).ToList()));
+            ReportParameter[] parameters = new ReportParameter[1];
+            parameters[0] = new ReportParameter("Departamento");
+            rpt.LocalReport.SetParameters(parameters);
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
+            return View();
+        }
+
+        public ActionResult ReptAño(string Año = "")
+        {
+
+            Total_añosTableAdapter a = new Total_añosTableAdapter();
+           
+            ReportViewer rpt = new ReportViewer();
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reportes/ReportTotalAño.rdlc";
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("BDNiscoutDataSet", a.GetData(Año).ToList()));
+            ReportParameter[] parameters = new ReportParameter[1];
+            parameters[0] = new ReportParameter("Año");
+            rpt.LocalReport.SetParameters(parameters);
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
+            return View();
+        }
+        public ActionResult ReptMembresiaTotal(string Depar = "")
+        {
+
+            Membresia_TotalTableAdapter m = new Membresia_TotalTableAdapter();
+            ReportViewer rpt = new ReportViewer();
+            rpt.ProcessingMode = ProcessingMode.Local;
+            rpt.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reportes/ReptMembresia_total.rdlc";
+            rpt.LocalReport.DataSources.Add(new ReportDataSource("BDNiscoutDataSet", m.GetData(Depar).ToList()));
+            ReportParameter[] parameters = new ReportParameter[1];
+            parameters[0] = new ReportParameter("Depar");
+            rpt.LocalReport.SetParameters(parameters);
+            rpt.SizeToReportContent = true;
+            rpt.ShowPrintButton = true;
+            rpt.ShowZoomControl = true;
+            ViewBag.rpt = rpt;
+            return View();
+        }
     }
 }
