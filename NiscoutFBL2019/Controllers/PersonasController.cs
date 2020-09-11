@@ -26,7 +26,7 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.Departamentos = db.Departamentos.ToList();
             ViewBag.Adultos = db.Adultos.ToList();
             ViewBag.Juvenils = db.Juveniles.ToList();
-            ViewBag.MembresiasJu = db.Tutorias.ToList();           
+            ViewBag.MembresiasJu = db.Tutorias.ToList();
             ViewBag.MembreAdultos = db.Membresia_Adultos.ToList();
 
             if (!string.IsNullOrEmpty(buscar))
@@ -58,7 +58,7 @@ namespace NiscoutFBL2019.Controllers
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
-       
+
             //Validando Estado Civil
             ViewBag.Estado_Civil = new SelectList(new[] {
                 new SelectListItem { Value = "Soltero(a)", Text = "Soltero(a)" },
@@ -70,7 +70,7 @@ namespace NiscoutFBL2019.Controllers
             ViewBag.Tipo_Sangre = new SelectList(new[] {
                 new SelectListItem { Value = "O+", Text = "O+" },
                 new SelectListItem { Value = "O-", Text = "O-" },
-                new SelectListItem { Value = "A+", Text = "A+" }, 
+                new SelectListItem { Value = "A+", Text = "A+" },
                 new SelectListItem { Value = "A-", Text = "A-" },
                 new SelectListItem { Value = "B+", Text = "B+" },
                 new SelectListItem { Value = "B-", Text = "B-" },
@@ -82,7 +82,7 @@ namespace NiscoutFBL2019.Controllers
             return View();
         }
 
-         
+
         // POST: Personas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -91,8 +91,8 @@ namespace NiscoutFBL2019.Controllers
         public ActionResult Create([Bind(Include = "Id,Cod_Persona,Nombres,Apellidos,Fecha_Nac,E_Mail,Cedula,Sexo,Estado_Civil,Num_Pasaporte,Telefono,Direccion,DepartamentoId,Profesion,Centro_Laboral,Tipo_Sangre")] Persona persona, string txtpass)
         {
             persona.Cod_Persona = "ASN" + persona.Fecha_Nac.ToShortDateString() + DateTime.Now.Year.ToString();
-          
-             if (ModelState.IsValid)
+
+            if (ModelState.IsValid)
             {
                 db.Personas.Add(persona);
                 db.SaveChanges();
@@ -127,10 +127,10 @@ namespace NiscoutFBL2019.Controllers
             return View(persona);
         }
 
-       
+
 
         [AllowAnonymous]
-        public ActionResult SolicitudTutor( )
+        public ActionResult SolicitudTutor()
         {
             ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
@@ -156,7 +156,7 @@ namespace NiscoutFBL2019.Controllers
                                                }, "Value", "Text");
 
             ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
-          
+
             return View();
         }
         [AllowAnonymous]
@@ -167,7 +167,7 @@ namespace NiscoutFBL2019.Controllers
             persona.Cod_Persona = "ASN" + persona.Fecha_Nac.ToShortDateString() + DateTime.Now.Year.ToString();
             if (ModelState.IsValid)
             {
-                db.Personas.Add(persona); 
+                db.Personas.Add(persona);
                 db.SaveChanges();
                 //accedemos al modelo de la seguridad integrada
                 ApplicationDbContext context = new ApplicationDbContext();
@@ -189,7 +189,7 @@ namespace NiscoutFBL2019.Controllers
                 }
                 else
                 {
-                   ViewBag.falla=chkUser.Errors.ToString();
+                    ViewBag.falla = chkUser.Errors.ToString();
                 }
                 //generar el carnet
                 //persona.Cod_Persona = "NS-" + System.DateTime.Today.Year.ToString() + persona.Id.ToString();
@@ -198,7 +198,7 @@ namespace NiscoutFBL2019.Controllers
                 ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento", persona.DepartamentoId);
 
                 return RedirectToAction("Login", "Account", new { idpersona = persona.Id });
-             
+
             }
 
             return RedirectToAction("TutorSolicitud", "Tutorias");
@@ -207,7 +207,7 @@ namespace NiscoutFBL2019.Controllers
         // GET: Personas/Edit/5
         public ActionResult Edit(int? id)
         {
-           
+
             ViewBag.sexo = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }

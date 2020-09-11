@@ -15,20 +15,20 @@ namespace NiscoutFBL2019.Controllers
     {
         private ModeloNiscoutFBLContainer db = new ModeloNiscoutFBLContainer();
 
-       
-    // GET: Tutorias
-    public ActionResult Index()
+
+        // GET: Tutorias
+        public ActionResult Index()
         {
             //var tutorias = db.Tutorias.Include(t => t.Persona);
             var tutorias = db.Personas.Where(x => x.Tutorias.Count() > 0);
-           
+
 
             return View(tutorias.ToList());
         }
 
         //public ActionResult VistaTutorespos(int idpersona, int idtutor)
         //{
-          
+
         //    var tutorias = db.Tutorias.Include(t => t.Persona);
 
         //    ViewBag.DepartamentoId = new SelectList(db.Departamentos, "Id", "Nombre_Departamento");
@@ -40,7 +40,7 @@ namespace NiscoutFBL2019.Controllers
 
         //    return View();
 
-        
+
         // GET: Tutorias/Details/5
         public ActionResult Details(int? id)
         {
@@ -57,7 +57,7 @@ namespace NiscoutFBL2019.Controllers
         }
 
         // GET: Tutorias/Create
-        public ActionResult Create(int idpersona )
+        public ActionResult Create(int idpersona)
         {
             ViewBag.PersonaId = db.Personas.Where(x => x.Id == idpersona).FirstOrDefault();
             //ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres");
@@ -75,7 +75,7 @@ namespace NiscoutFBL2019.Controllers
             {
                 db.Tutorias.Add(tutoria);
                 db.SaveChanges();
-                return RedirectToAction("SolicitudJuvenil","Juvenils", new { idtutoria  = tutoria.Id});
+                return RedirectToAction("SolicitudJuvenil", "Juvenils", new { idtutoria = tutoria.Id });
             }
 
             ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
@@ -104,7 +104,7 @@ namespace NiscoutFBL2019.Controllers
                 db.Tutorias.Add(tutoria);
                 db.SaveChanges();
                 ViewBag.PersonaId = new SelectList(db.Personas, "Id", "Nombres", tutoria.PersonaId);
-                return RedirectToAction("SolicitudJuvenil", "Juvenils", new { idtutor  = tutoria.Id });
+                return RedirectToAction("SolicitudJuvenil", "Juvenils", new { idtutor = tutoria.Id });
                 //return View(tutoria);
             }
 
